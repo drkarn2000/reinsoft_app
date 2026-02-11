@@ -3,6 +3,7 @@ import SectionTitle from "@/components/section-title";
 import Link from "next/link";
 import GradientButton from "@/components/gradient-button";
 import { ExternalLinkIcon } from "lucide-react";
+import Image from "next/image";
 
 const steps = [
     {
@@ -11,6 +12,8 @@ const steps = [
         description: "Not just technical requirements. We learn what success means for your business and tailor solutions accordingly.",
         link: "/contact",
         image: "/assets/workflow1.png",
+        width: 808,
+        height: 552,
     },
     {
         id: 2,
@@ -18,6 +21,8 @@ const steps = [
         description: "No over-engineering. Just practical solutions that fit your budget and needs perfectly.",
         link: "/services",
         image: "/assets/Services.jpg",
+        width: 1920,
+        height: 1280,
     },
     {
         id: 3,
@@ -25,6 +30,8 @@ const steps = [
         description: "Modern technology stack. Clean code. Built to grow with your business.",
         link: "/services",
         image: "/assets/workflow3.jpg",
+        width: 2560,
+        height: 1708,
     },
     {
         id: 4,
@@ -32,6 +39,8 @@ const steps = [
         description: "Updates, bug fixes, and ongoing improvements. We're your long-term IT partner.",
         link: "/contact",
         image: "/assets/Case-study.jpg",
+        width: 2000,
+        height: 1367,
     },
 ];
 
@@ -84,9 +93,11 @@ export default function WorkflowSteps() {
 
                             {/* Image Content */}
                             <div className="relative z-10 bg-black rounded-xl overflow-hidden h-full w-full">
-                                <img
+                                <Image
                                     src={step.image}
                                     alt="step"
+                                    width={step.width}
+                                    height={step.height}
                                     className="h-auto w-full object-cover"
                                 />
                             </div>

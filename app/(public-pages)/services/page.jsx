@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { GlobeIcon, SmartphoneIcon, HeadphonesIcon, CheckIcon, TabletSmartphoneIcon, PhoneIcon, MessageCircleIcon, CalendarIcon } from "lucide-react";
 import Link from "next/link";
 import GradientButton from "@/components/gradient-button";
+import Image from "next/image";
 
 const services = [
     {
@@ -81,10 +82,13 @@ export default function ServicesPage() {
 
             {/* Background Image */}
             <div className="fixed inset-0 -z-30 pointer-events-none">
-                <img
+                <Image
                     src="/assets/Services.jpg"
                     alt="Background"
-                    className="w-full h-full object-cover opacity-90"
+                    fill
+                    className="object-cover opacity-90"
+                    priority
+                    quality={90}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 z-10" />
             </div>
