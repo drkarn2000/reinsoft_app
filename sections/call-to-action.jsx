@@ -46,6 +46,7 @@ export default function CallToAction() {
                     <GradientButton
                         href="tel:+918968369582"
                         contentClassName="flex items-center gap-2 px-6"
+                        loop={false}
                     >
                         <PhoneIcon className="size-4" />
                         Call Now
@@ -53,6 +54,7 @@ export default function CallToAction() {
                     <GradientButton
                         href="https://wa.me/918968369582"
                         contentClassName="flex items-center gap-2 px-6 bg-green-600/30 hover:bg-green-600/50"
+                        loop={false}
                     >
                         <MessageCircleIcon className="size-4" />
                         WhatsApp Us

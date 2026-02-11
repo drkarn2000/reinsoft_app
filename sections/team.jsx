@@ -10,26 +10,26 @@ export default function Team() {
     const teamMembers = [
         {
             name: "Tanu B",
-            role: "CEO & Founder",
-            bio: "Visionary leader with over 10 years of experience in the tech industry.",
+            role: "Founder & Co-Partner",
+            bio: "Leads business strategy, client communication, and overall project direction to ensure every solution aligns with client goals..",
             imageUrl: "/assets/Founder.jpeg"
         },
         {
             name: "Mr Singh",
-            role: "Co-Founder",
-            bio: "Full-stack wizard passionate about building scalable and efficient web applications.",
+            role: "Co-Founder & Business Lead",
+            bio: "Technical Lead & Co-Partner Oversees architecture, development quality, and technical decision-making across web and mobile projects.",
             imageUrl: "/assets/MrSingh.jpeg"
         },
         {
             name: "Amarjit Singh",
             role: "Full-Stack Developer",
-            bio: "Creative mind focused on delivering intuitive and beautiful user experiences.",
+            bio: "Senior Full-Stack Developer Specializes in building scalable, secure web applications using modern frontend and backend technologies.",
             imageUrl: "/assets/Amarjit.jpeg"
         },
         {
             name: "Muneeb",
-            role: "Project Manager",
-            bio: "Ensures projects are delivered on time and within budget, keeping everyone on track.",
+            role: "Project Analyst & Delivery Manager",
+            bio: "Manages requirement analysis, project planning, timelines, and communication to ensure smooth and on-time delivery.",
             imageUrl: "/assets/Muneeb.jpeg"
         }
     ];
@@ -38,7 +38,7 @@ export default function Team() {
         <section id="team" className="mt-16">
             <SectionTitle
                 title="Meet Our Team"
-                description="The talented individuals behind our success. We are dedicated to delivering the best results for your business."
+                description="The talented individuals behind our success. We are dedicated to delivering the best results for your business. Supported by a trusted network of experienced developers and designers on a project basis."
                 gradient={true}
             />
 
@@ -51,7 +51,7 @@ export default function Team() {
                         {/* Animated Avatar Container */}
                         <div className="relative w-32 h-32 rounded-full overflow-hidden p-[3px] mb-4">
                             {/* Spinning Gradient */}
-                            <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ff7a18_0%,#3b82f6_50%,#ff7a18_100%)]" />
+                            <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#ff7a18_0%,#3b82f6_50%,#ff7a18_100%)]" />
 
                             {/* Avatar Content */}
                             <div className="relative z-10 w-full h-full rounded-full overflow-hidden bg-gray-700/50 flex items-center justify-center">

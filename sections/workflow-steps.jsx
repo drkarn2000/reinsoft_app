@@ -17,7 +17,7 @@ const steps = [
         title: "We suggest the right technical solution",
         description: "No over-engineering. Just practical solutions that fit your budget and needs perfectly.",
         link: "/services",
-        image: "/assets/services.jpg",
+        image: "/assets/Services.jpg",
     },
     {
         id: 3,
@@ -80,7 +80,7 @@ export default function WorkflowSteps() {
                         <div className="relative flex-1 max-w-sm rounded-xl overflow-hidden p-[3px] shadow-[0_0_15px_rgba(255,122,24,0.3),0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(255,122,24,0.5),0_0_25px_rgba(59,130,246,0.5)] transition-shadow duration-300">
 
                             {/* Spinning Gradient */}
-                            <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ff7a18_0%,#3b82f6_50%,#ff7a18_100%)]" />
+                            <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#ff7a18_0%,#3b82f6_50%,#ff7a18_100%)]" />
 
                             {/* Image Content */}
                             <div className="relative z-10 bg-black rounded-xl overflow-hidden h-full w-full">
@@ -98,7 +98,7 @@ export default function WorkflowSteps() {
                             <p className="text-gray-100 text-sm/6 line-clamp-3 pb-2">
                                 {step.description}
                             </p>
-                            <GradientButton href={step.link} className="w-fit">
+                            <GradientButton href={step.link} className="w-fit" loop={false}>
                                 Learn More
                                 <ExternalLinkIcon className="size-4 ml-2" />
                             </GradientButton>

@@ -65,10 +65,10 @@ export default function HeroSection() {
                     viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
                 >
-                    <GradientButton href="/contact" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md">
+                    <GradientButton href="/contact" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md" loop={false}>
                         Get Free Consultation
                     </GradientButton>
-                    <GradientButton href="/contact?type=quote" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md flex items-center justify-center gap-2">
+                    <GradientButton href="/contact?type=quote" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md flex items-center justify-center gap-2" loop={false}>
                         <MessageCircleIcon className="size-4.5" />
                         Request a Quote (24h Response)
                     </GradientButton>

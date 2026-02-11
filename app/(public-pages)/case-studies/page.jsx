@@ -151,6 +151,7 @@ export default function CaseStudiesPage() {
                     <GradientButton
                         href="tel:+919876543210"
                         contentClassName="flex items-center gap-2 px-6"
+                        loop={false}
                     >
                         <PhoneIcon className="size-4" />
                         Call Now
@@ -158,11 +159,12 @@ export default function CaseStudiesPage() {
                     <GradientButton
                         href="https://wa.me/919876543210"
                         contentClassName="flex items-center gap-2 px-6 bg-green-600/30 hover:bg-green-600/50"
+                        loop={false}
                     >
                         <MessageCircleIcon className="size-4" />
                         WhatsApp Us
                     </GradientButton>
-                    <GradientButton href="/contact" contentClassName="flex items-center gap-2 px-6 bg-white/20">
+                    <GradientButton href="/contact" contentClassName="flex items-center gap-2 px-6 bg-white/20" loop={false}>
                         <CalendarIcon className="size-4" />
                         Book Free Consultation
                     </GradientButton>

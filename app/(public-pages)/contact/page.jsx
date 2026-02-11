@@ -260,6 +260,7 @@ export default function ContactPage() {
                                     className="w-full flex justify-center group"
                                     contentClassName="w-full px-6 py-3.5 bg-black/20 hover:bg-black/40 backdrop-blur-md font-medium"
                                     useTrustStripStyle={true}
+                                    loop={false}
                                 >
                                     Send Message
                                 </GradientButton>

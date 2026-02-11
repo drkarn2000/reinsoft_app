@@ -36,13 +36,13 @@ export default function Footer() {
                             height={96}
                         />
                     </Link>
-                    <p className="text-white font-medium">
+                    <p className="text-xl font-bold bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] bg-clip-text text-transparent">
                         Custom Software & IT Solutions for Growing Businesses
                     </p>
                     <p className="text-gray-300 text-sm/6">
                         We design and develop high-performance websites, mobile apps, and custom software that help businesses grow faster.
                     </p>
-                    <GradientButton className="cursor-default">
+                    <GradientButton className="cursor-default" loop={false}>
                         <GlobeIcon className="size-4" />
                         Serving clients globally
                     </GradientButton>
@@ -86,6 +86,7 @@ export default function Footer() {
                             href="/contact"
                             className="inline-block"
                             contentClassName="bg-white/20 text-sm py-2.5 px-6"
+                            loop={false}
                         >
                             Get Free Consultation
                         </GradientButton>

@@ -17,9 +17,9 @@ export default function Navbar() {
     const links = [
         { name: 'Home', href: '/' },
         { name: 'Why Choose Us', href: '/#why-choose-us' },
-        { name: 'Services', href: '/services' },
-        { name: 'Team', href: '/#team' },
+        { name: 'Our Services', href: '/services' },
         { name: 'Case Studies', href: '/case-studies' },
+        { name: 'Our Team', href: '/#team' },
     ];
 
     useEffect(() => {
@@ -41,29 +41,34 @@ export default function Navbar() {
     return (
         <>
             <motion.nav
-                className={`sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3.5 md:px-16 lg:px-24 transition-colors ${isScrolled
-                    ? '!bg-black/20 backdrop-blur-md border-b border-white/10 shadow-sm'
-                    : 'bg-transparent backdrop-blur-sm border-b border-white/0'
+                className={`sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3.5 md:px-10 lg:px-16 transition-colors ${isScrolled
+                    ? '!bg-black/20 backdrop-blur-md shadow-sm'
+                    : 'bg-transparent backdrop-blur-sm'
                     }`}
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
             >
+                {/* Gradient Border */}
+                <div
+                    className={`absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] transition-opacity duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}
+                />
+
                 <Link href='/'>
                     <Image
                         src='/assets/logo.png'
                         alt='Reinsoft Logo'
-                        className='h-20 w-auto'
-                        width={200}
-                        height={80}
+                        className='h-24 w-auto'
+                        width={240}
+                        height={96}
                         priority
                     />
                 </Link>
 
                 <div className='hidden items-center space-x-6 md:flex'>
                     {links.map((link) => (
-                        <GradientButton key={link.name} href={link.href}>
+                        <GradientButton key={link.name} href={link.href} loop={false}>
                             {link.name}
                         </GradientButton>
                     ))}
@@ -94,6 +99,7 @@ export default function Navbar() {
                         key={link.name}
                         href={link.href}
                         onClick={() => setIsOpen(false)}
+                        loop={false}
                     >
                         {link.name}
                     </GradientButton>

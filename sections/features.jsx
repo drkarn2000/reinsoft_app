@@ -65,7 +65,7 @@ export default function Features() {
                         <p className="text-gray-100 pb-2">
                             {feature.description}
                         </p>
-                        <GradientButton href="/services" className="mt-auto">
+                        <GradientButton href="/services" className="mt-auto" loop={false}>
                             Learn More →
                         </GradientButton>
                     </motion.div>
