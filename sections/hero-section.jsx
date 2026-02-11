@@ -21,7 +21,7 @@ export default function HeroSection() {
 
             <div className="fixed inset-0 -z-10 pointer-events-none">
                 <Image
-                    src="/assets/hero-bg.png"
+                    src="/assets/hero-bg.jpg"
                     alt="Background"
                     fill
                     className="object-cover opacity-90"
