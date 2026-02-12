@@ -70,7 +70,7 @@ export default function HeroSection() {
                     </GradientButton>
                     <GradientButton href="/contact?type=quote" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md flex items-center justify-center gap-2" loop={false}>
                         <MessageCircleIcon className="size-4.5" />
-                        Request a Quote (24h Response)
+                        Request a Quote (Get Quick Response)
                     </GradientButton>
                 </motion.div>
             </motion.section>
