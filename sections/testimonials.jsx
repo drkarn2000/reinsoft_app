@@ -1,6 +1,7 @@
 import SectionTitle from "@/components/section-title";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Testimonials() {
 
@@ -72,7 +73,7 @@ export default function Testimonials() {
                     >
                         <div className='flex items-center justify-between'>
                             <p className="font-medium">{item.about}</p>
-                            <img className='size-10 rounded-full' src={item.image} alt={item.name} />
+                            <Image className='size-10 rounded-full object-cover' src={item.image} alt={item.name} width={40} height={40} />
                         </div>
                         <p className='line-clamp-3'>“{item.review}”</p>
                         <p className='text-gray-300'>

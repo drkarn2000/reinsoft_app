@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from "framer-motion";
 import { MailIcon, PhoneIcon, ClockIcon, MessageCircleIcon, Loader2Icon } from "lucide-react";
 import GradientButton from "@/components/gradient-button";
+import Image from "next/image";
 
 const FloatingInput = ({ label, id, name, value, onChange, type = "text", required = false }) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -126,10 +127,12 @@ export default function ContactPage() {
 
             {/* Background Image */}
             <div className="fixed inset-0 -z-30 pointer-events-none">
-                <img
+                <Image
                     src="/assets/contact.jpg"
                     alt="Background"
-                    className="w-full h-full object-cover opacity-90"
+                    fill
+                    className="object-cover opacity-90"
+                    priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 z-10" />
             </div>
