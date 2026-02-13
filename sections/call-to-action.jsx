@@ -52,7 +52,7 @@ export default function CallToAction() {
                         Call Now
                     </GradientButton>
                     <GradientButton
-                        href="https://wa.me/918968369582"
+                        href="https://wa.me/916283448462"
                         contentClassName="flex items-center gap-2 px-6 bg-green-600/30 hover:bg-green-600/50"
                         loop={false}
                     >

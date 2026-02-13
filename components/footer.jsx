@@ -72,7 +72,7 @@ export default function Footer() {
                             <MailIcon className="size-4" />
                             info@reinsoft.site
                         </a>
-                        <a href="tel:+919876543210" className="flex items-center gap-3 text-gray-300 hover:text-white transition text-sm">
+                        <a href="tel:+918968369582" className="flex items-center gap-3 text-gray-300 hover:text-white transition text-sm">
                             <PhoneIcon className="size-4" />
                             +91 89683 69582
                         </a>

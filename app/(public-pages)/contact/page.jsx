@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from "framer-motion";
-import { MailIcon, PhoneIcon, ClockIcon, MessageCircleIcon } from "lucide-react";
+import { MailIcon, PhoneIcon, ClockIcon, MessageCircleIcon, Loader2Icon } from "lucide-react";
 import GradientButton from "@/components/gradient-button";
 
 const FloatingInput = ({ label, id, name, value, onChange, type = "text", required = false }) => {
@@ -69,6 +69,7 @@ export default function ContactPage() {
         message: '',
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e) => {
         setFormData({
@@ -77,14 +78,36 @@ export default function ContactPage() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        setIsSubmitted(true);
-        setTimeout(() => {
-            setIsSubmitted(false);
-            setFormData({ name: '', email: '', phone: '', message: '' });
-        }, 3000);
+        setIsSubmitting(true);
+
+        try {
+            const response = await fetch('/api/submissions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                console.log('Form submitted successfully');
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    setFormData({ name: '', email: '', phone: '', message: '' });
+                }, 3000);
+            } else {
+                console.error('Submission failed');
+                alert('Something went wrong. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Something went wrong. Please try again later.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -145,7 +168,7 @@ export default function ContactPage() {
                         {/* Quick Actions */}
                         <div className="flex flex-col sm:flex-row gap-3">
                             <GradientButton
-                                href="https://wa.me/919876543210"
+                                href="https://wa.me/916283448462"
                                 className="flex-1 text-sm"
                                 contentClassName="flex items-center justify-center gap-2 bg-green-600/20 hover:bg-green-600/40 py-2.5"
                             >
@@ -153,7 +176,7 @@ export default function ContactPage() {
                                 WhatsApp Chat
                             </GradientButton>
                             <GradientButton
-                                href="tel:+919876543210"
+                                href="tel:+918968369582"
                                 className="flex-1 text-sm"
                                 contentClassName="flex items-center justify-center gap-2 py-2.5"
                             >
@@ -178,8 +201,8 @@ export default function ContactPage() {
                                 <PhoneIcon className="size-5 shrink-0 text-gray-400" />
                                 <div>
                                     <strong className="block text-xs text-gray-400 uppercase tracking-wider">Phone</strong>
-                                    <a href="tel:+919876543210" className="text-base font-semibold text-white hover:text-gray-200 transition">
-                                        +91 98765 43210
+                                    <a href="tel:+918968369582" className="text-base font-semibold text-white hover:text-gray-200 transition">
+                                        +91 89683 69582
                                     </a>
                                 </div>
                             </div>
@@ -257,12 +280,20 @@ export default function ContactPage() {
 
                                 <GradientButton
                                     type="submit"
-                                    className="w-full flex justify-center group"
+                                    disabled={isSubmitting}
+                                    className={`w-full flex justify-center group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                                     contentClassName="w-full px-6 py-3.5 bg-black/20 hover:bg-black/40 backdrop-blur-md font-medium"
                                     useTrustStripStyle={true}
-                                    loop={false}
+                                    loop={!isSubmitting}
                                 >
-                                    Send Message
+                                    {isSubmitting ? (
+                                        <span className="flex items-center gap-2">
+                                            <Loader2Icon className="size-4 animate-spin" />
+                                            Sending...
+                                        </span>
+                                    ) : (
+                                        "Send Message"
+                                    )}
                                 </GradientButton>
                             </form>
                         )}

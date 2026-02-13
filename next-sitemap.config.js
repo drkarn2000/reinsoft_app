@@ -2,4 +2,5 @@
 module.exports = {
     siteUrl: 'https://reinsoft.site',
     generateRobotsTxt: true,
+    exclude: ['/admin', '/admin/*'],
 }
