@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MailIcon, PhoneIcon, UserIcon, MessageSquareIcon, ClockIcon, Loader2Icon, Trash2Icon } from 'lucide-react';
+import { MailIcon, PhoneIcon, UserIcon, MessageSquareIcon, ClockIcon, Loader2Icon, Trash2Icon, Building2, DollarSign } from 'lucide-react';
 
 export default function SubmissionsDashboard() {
     const [submissions, setSubmissions] = useState([]);
@@ -102,14 +102,27 @@ export default function SubmissionsDashboard() {
                                                 {submission.email}
                                             </a>
                                         </div>
-                                        {submission.phone && (
-                                            <div className="flex items-center gap-2">
-                                                <PhoneIcon className="size-4 text-gray-500" />
+                                        <div className="flex items-center gap-2">
+                                            <Building2 className="size-4 text-gray-500" />
+                                            <span className="text-gray-400">Company: </span>
+                                            <span>{submission.companyName || 'N/A'}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <PhoneIcon className="size-4 text-gray-500" />
+                                            <span className="text-gray-400">Phone: </span>
+                                            {submission.phone ? (
                                                 <a href={`tel:${submission.phone}`} className="hover:text-blue-400 transition">
                                                     {submission.phone}
                                                 </a>
-                                            </div>
-                                        )}
+                                            ) : (
+                                                <span>N/A</span>
+                                            )}
+                                        </div>
+                                        <div className="flex items-center gap-2 text-blue-400 font-medium">
+                                            <DollarSign className="size-4" />
+                                            <span className="text-gray-400">Budget: </span>
+                                            <span>{submission.budget || 'N/A'}</span>
+                                        </div>
                                     </div>
 
                                     <div className="bg-white/5 p-4 rounded-xl border border-white/10">
@@ -117,18 +130,6 @@ export default function SubmissionsDashboard() {
                                     </div>
                                 </div>
 
-                                <div className="mt-6 pt-6 border-t border-white/10 flex justify-between items-center">
-                                    <button className="text-xs text-gray-500 hover:text-red-400 transition flex items-center gap-1">
-                                        <Trash2Icon className="size-3.5" />
-                                        Archive
-                                    </button>
-                                    <a
-                                        href={`mailto:${submission.email}?subject=Regarding your inquiry&body=Hi ${submission.name},`}
-                                        className="text-sm font-semibold text-blue-400 hover:text-blue-300 transition"
-                                    >
-                                        Reply Now
-                                    </a>
-                                </div>
                             </motion.div>
                         ))}
                     </div>

@@ -66,7 +66,9 @@ export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        companyName: '',
         phone: '',
+        budget: '',
         message: '',
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -97,7 +99,7 @@ export default function ContactPage() {
                 setIsSubmitted(true);
                 setTimeout(() => {
                     setIsSubmitted(false);
-                    setFormData({ name: '', email: '', phone: '', message: '' });
+                    setFormData({ name: '', email: '', companyName: '', phone: '', budget: '', message: '' });
                 }, 3000);
             } else {
                 console.error('Submission failed');
@@ -262,17 +264,60 @@ export default function ContactPage() {
                                     />
                                 </div>
 
-                                <FloatingInput
-                                    label="Phone Number"
-                                    id="phone"
-                                    name="phone"
-                                    type="tel"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                />
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <FloatingInput
+                                        label="Company Name"
+                                        id="companyName"
+                                        name="companyName"
+                                        value={formData.companyName}
+                                        onChange={handleChange}
+                                    />
+                                    <FloatingInput
+                                        label="Phone Number"
+                                        id="phone"
+                                        name="phone"
+                                        type="tel"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                                <div className="relative global-orange-glow rounded-full">
+                                    <select
+                                        id="budget"
+                                        name="budget"
+                                        value={formData.budget}
+                                        onChange={handleChange}
+                                        required
+                                        className="block w-full px-4 py-3.5 text-white bg-[#1a1231] rounded-full appearance-none focus:outline-none focus:ring-0 peer transition-all"
+                                    >
+                                        <option value="" disabled>Select Budget *</option>
+                                        <option value="$200 - $500">$200 - $500</option>
+                                        <option value="$500 - $1000">$500 - $1000</option>
+                                        <option value="$1000 - $1500">$1000 - $1500</option>
+                                        <option value="$1500 - $2000">$1500 - $2000</option>
+                                        <option value="$2,000 - $2500">$2,000 - $2500</option>
+                                        <option value="$2500 - $5000">$2500 - $5000</option>
+                                        <option value="$5,000 - $7000">$5,000 - $7000</option>
+                                        <option value="$7,000 - $8000">$7,000 - $8000</option>
+                                        <option value="$8,000 - $10000">$8,000 - $10000</option>
+                                        <option value="$10000 - $25000">$10000 - $25000</option>
+                                    </select>
+                                    <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                                        <svg className="size-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                    <label
+                                        htmlFor="budget"
+                                        className={`absolute text-sm text-white duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 left-3 bg-[#1a1231] pointer-events-none ${!formData.budget ? 'hidden' : ''}`}
+                                    >
+                                        Budget *
+                                    </label>
+                                </div>
 
                                 <FloatingTextarea
-                                    label="Message"
+                                    label="Briefly describe your project requirements"
                                     id="message"
                                     name="message"
                                     value={formData.message}
@@ -295,7 +340,7 @@ export default function ContactPage() {
                                             Sending...
                                         </span>
                                     ) : (
-                                        "Send Message"
+                                        "👈 Request Project Estimate"
                                     )}
                                 </GradientButton>
                             </form>

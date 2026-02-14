@@ -7,8 +7,8 @@ export async function POST(req) {
         await dbConnect();
         const data = await req.json();
 
-        if (!data.name || !data.email || !data.message) {
-            return NextResponse.json({ error: 'Name, email, and message are required' }, { status: 400 });
+        if (!data.name || !data.email || !data.message || !data.budget) {
+            return NextResponse.json({ error: 'Name, email, budget and message are required' }, { status: 400 });
         }
 
         const submission = await Submission.create(data);
