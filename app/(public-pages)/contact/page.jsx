@@ -196,8 +196,8 @@ export default function ContactPage() {
                                 <MailIcon className="size-5 shrink-0 text-gray-400" />
                                 <div>
                                     <strong className="block text-xs text-gray-400 uppercase tracking-wider">Email</strong>
-                                    <a href="mailto:info@reinsoft.site" className="text-base font-semibold text-white hover:text-gray-200 transition">
-                                        info@reinsoft.site
+                                    <a href="mailto:info@reinsoft.tech" className="text-base font-semibold text-white hover:text-gray-200 transition">
+                                        info@reinsoft.tech
                                     </a>
                                 </div>
                             </div>

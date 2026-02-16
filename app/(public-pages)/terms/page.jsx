@@ -86,9 +86,9 @@ export default function TermsPage() {
                     <div className="space-y-4">
                         <h2 className="text-xl font-semibold text-white">Contact</h2>
                         <p>For any questions regarding these terms, please contact:</p>
-                        <a href="mailto:info@reinsoft.site" className="inline-flex items-center gap-2 text-white font-medium hover:text-gray-300 transition">
+                        <a href="mailto:info@reinsoft.tech" className="inline-flex items-center gap-2 text-white font-medium hover:text-gray-300 transition">
                             <MailIcon className="size-4" />
-                            info@reinsoft.site
+                            info@reinsoft.tech
                         </a>
                     </div>
                 </div>
