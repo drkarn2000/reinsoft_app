@@ -113,6 +113,8 @@ export default function ContactPage() {
         message: '',
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(null);
 
     const handleChange = (e) => {
         setFormData({
@@ -121,14 +123,37 @@ export default function ContactPage() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        setIsSubmitted(true);
-        setTimeout(() => {
-            setIsSubmitted(false);
-            setFormData({ name: '', email: '', companyName: '', phone: '', budget: '', message: '' });
-        }, 3000);
+        setIsSubmitting(true);
+        setSubmitError(null);
+
+        try {
+            const response = await fetch('/api/contact-submissions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setIsSubmitted(true);
+                setFormData({ name: '', email: '', companyName: '', phone: '', budget: '', message: '' });
+
+                // Clear the success message after 1 minute (60000 ms)
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                }, 60000);
+            } else {
+                const data = await response.json();
+                setSubmitError(data.error || 'Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            setSubmitError('Network error. Please try again later.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (

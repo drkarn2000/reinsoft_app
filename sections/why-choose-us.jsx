@@ -3,10 +3,14 @@ import { CheckCircleIcon, UsersIcon, LightbulbIcon, Headset, Clock, ShieldCheck 
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({
+    title = "Why Choose Us",
+    description = "We are committed to delivering excellence. Here is why businesses trust us with their digital transformation.",
+    reasons: reasonsProps
+}) {
     const refs = useRef([]);
 
-    const reasons = [
+    const defaultReasons = [
         {
             icon: UsersIcon,
             title: "Experienced Team",
@@ -39,12 +43,14 @@ export default function WhyChooseUs() {
         }
     ];
 
+    const reasons = reasonsProps || defaultReasons;
+
     return (
         <section id="why-choose-us" className="mt-16 relative">
             {/* Decorative background element if needed, keeping it clean for now to match features */}
             <SectionTitle
-                title="Why Choose Us"
-                description="We are committed to delivering excellence. Here is why businesses trust us with their digital transformation."
+                title={title}
+                description={description}
                 gradient={true}
             />
 

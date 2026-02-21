@@ -3,10 +3,14 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
-export default function Testimonials() {
+export default function Testimonials({
+    title = "Here what aur trusted users about our best AI agents.",
+    description = "Empower your business with AI agents that optimize processes and accelerate performance.",
+    data: dataProps
+}) {
 
     const ref = useRef([]);
-    const data = [
+    const defaultData = [
         {
             review: 'Super clean and easy to use. These Tailwind + React components saved me hours of dev time and countless lines of extra code!',
             name: 'Richard Nelson',
@@ -50,11 +54,14 @@ export default function Testimonials() {
             image: 'https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/userImage/userImage1.png',
         },
     ];
+
+    const data = dataProps || defaultData;
+
     return (
         <section className="mt-32 flex flex-col items-center">
             <SectionTitle
-                title="Here what aur trusted users about our best AI agents."
-                description="Empower your business with AI agents that optimize processes and accelerate performance."
+                title={title}
+                description={description}
             />
             <div className='mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
                 {data.map((item, index) => (

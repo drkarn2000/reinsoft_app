@@ -5,23 +5,24 @@ export async function POST(req) {
     try {
         const data = await req.json();
 
-        // Validation
+        // Validation - Budget is required for lead form
         if (!data.name || !data.email || !data.message || !data.budget || !data.phone) {
             return NextResponse.json({ error: 'Name, email, phone, budget and message are required' }, { status: 400 });
         }
 
-        // Send email notification
-        const result = await sendSubmissionEmail(data);
+        // Send email with specific subject
+        const result = await sendSubmissionEmail({
+            ...data,
+            subject: `ADS LEAD: ${data.enquiryType || 'New Enquiry'} from ${data.name}`
+        });
 
         if (!result.success) {
-            console.error('Failed to send notification email:', result.error);
-            // Optionally notify the user/client if the notification failed
-            // return NextResponse.json({ error: 'Failed to send submission email' }, { status: 500 });
+            console.error('Failed to send lead notification email:', result.error);
         }
 
-        return NextResponse.json({ success: true, message: 'Submission received' }, { status: 200 });
+        return NextResponse.json({ success: true, message: 'Lead received' }, { status: 200 });
     } catch (error) {
-        console.error('Submission error:', error);
+        console.error('Lead submission error:', error);
         return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });
     }
 }

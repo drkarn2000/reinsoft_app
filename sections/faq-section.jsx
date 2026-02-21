@@ -3,9 +3,13 @@ import { ChevronDownIcon } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from "framer-motion";
 
-export default function FaqSection() {
+export default function FaqSection({
+    title = "Frequently Asked Questions",
+    description = "Find answers to common questions about our services, process, and how we can help your business grow.",
+    data: dataProps
+}) {
     const [isOpen, setIsOpen] = useState(false);
-    const data = [
+    const defaultData = [
         {
             question: 'What type of projects do you work on?',
             answer: 'We work on website development, web applications, mobile apps (Android & iOS) & Custom Software / CRM development for startups, growing businesses, and enterprises.',
@@ -32,9 +36,11 @@ export default function FaqSection() {
         },
     ];
 
+    const data = dataProps || defaultData;
+
     return (
         <section className="mt-16 max-w-4xl mx-auto px-6" id="faq">
-            <SectionTitle title="Frequently Asked Questions" description="Find answers to common questions about our services, process, and how we can help your business grow." gradient={true} />
+            <SectionTitle title={title} description={description} gradient={true} />
             <div className='mx-auto mt-12 space-y-4 w-full max-w-xl'>
                 {data.map((item, index) => (
                     <motion.div key={index} className='flex flex-col glass global-orange-glow rounded-[2rem]'
