@@ -92,7 +92,7 @@ export default function LandingPage() {
                         <Link href="#contact-form" className="btn max-md:w-full glass py-3 bg-white/20">
                             Get Free Consultation
                         </Link>
-                        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="btn max-md:w-full glass flex items-center justify-center gap-2 py-3">
+                        <a href="https://wa.me/918968369582" target="_blank" rel="noopener noreferrer" className="btn max-md:w-full glass flex items-center justify-center gap-2 py-3">
                             <MessageCircleIcon className="size-4.5" />
                             WhatsApp Us Now
                         </a>

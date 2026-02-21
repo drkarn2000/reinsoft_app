@@ -76,6 +76,32 @@ body {
     box-shadow: 0 0 25px rgba(255, 122, 24, 0.5), 0 0 25px rgba(59, 130, 246, 0.5);
     transform: translateY(-2px);
   }
+
+  /* New strict gradient border class without transitions or bg changes */
+  .gradient-border-card {
+    position: relative;
+    @apply border border-transparent;
+    /* Ensure layout respects border width */
+  }
+
+  .gradient-border-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    /* Thinner border per request/context */
+    background: linear-gradient(135deg, #ff7a18, #3b82f6);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
 
 @layer utilities {

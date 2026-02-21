@@ -166,7 +166,7 @@ export default function ServicesPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
                     <GradientButton
-                        href="tel:+919876543210"
+                        href="tel:+918968369582"
                         contentClassName="flex items-center gap-2 px-6"
                         loop={false}
                     >
@@ -174,7 +174,7 @@ export default function ServicesPage() {
                         Call Now
                     </GradientButton>
                     <GradientButton
-                        href="https://wa.me/919876543210"
+                        href="https://wa.me/918968369582"
                         contentClassName="flex items-center gap-2 px-6 bg-green-600/30 hover:bg-green-600/50"
                         loop={false}
                     >

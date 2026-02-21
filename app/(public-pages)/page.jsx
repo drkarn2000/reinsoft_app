@@ -1,17 +1,17 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import Head from 'next/head';
-
+import CallToAction from '@/sections/call-to-action';
+import FaqSection from '@/sections/faq-section';
+import Features from '@/sections/features';
 import HeroSection from '@/sections/hero-section';
+// import PricingPlans from '@/sections/pricing-plans';  // Commented out - not in sales website
+import Testimonials from '@/sections/testimonials';
+// import TrustedCompanies from '@/sections/trusted-companies';  // Commented out - not in sales website
 import TrustStrip from '@/sections/trust-strip';
-
-const WhyChooseUs = dynamic(() => import('@/sections/why-choose-us'), { ssr: true });
-const Features = dynamic(() => import('@/sections/features'), { ssr: true });
-const WorkflowSteps = dynamic(() => import('@/sections/workflow-steps'), { ssr: true });
-const Team = dynamic(() => import('@/sections/team'), { ssr: true });
-const FaqSection = dynamic(() => import('@/sections/faq-section'), { ssr: true });
-const CallToAction = dynamic(() => import('@/sections/call-to-action'), { ssr: true });
+import WhyChooseUs from '@/sections/why-choose-us';
+import Team from '@/sections/team';
+import WorkflowSteps from '@/sections/workflow-steps';
+import Head from 'next/head';
 
 export default function Page() {
     return (
@@ -28,7 +28,7 @@ export default function Page() {
                 <Features />
                 <WorkflowSteps />
                 <Team />
-                {/* <Testimonials /> */}
+                <Testimonials />
                 <FaqSection />
                 {/* <PricingPlans /> */}
                 <CallToAction />

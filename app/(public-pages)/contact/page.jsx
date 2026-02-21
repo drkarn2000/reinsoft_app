@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from "framer-motion";
-import { MailIcon, PhoneIcon, ClockIcon, MessageCircleIcon, Loader2Icon } from "lucide-react";
+import { MailIcon, PhoneIcon, ClockIcon, MessageCircleIcon } from "lucide-react";
 import GradientButton from "@/components/gradient-button";
-import Image from "next/image";
 
 const FloatingInput = ({ label, id, name, value, onChange, type = "text", required = false }) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -62,6 +61,48 @@ const FloatingTextarea = ({ label, id, name, value, onChange, required = false, 
     );
 };
 
+const FloatingSelect = ({ label, id, name, value, onChange, options, required = false }) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const isFloating = isFocused || value.length > 0;
+
+    return (
+        <div className="relative global-orange-glow rounded-full">
+            <select
+                id={id}
+                name={name}
+                value={value}
+                onChange={onChange}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+                required={required}
+                className="block w-full px-4 py-3.5 text-white bg-transparent rounded-full appearance-none focus:outline-none focus:ring-0 peer transition-all"
+            >
+                <option value="" disabled hidden></option>
+                {options.map((option) => (
+                    <option key={option} value={option} className="bg-[#1a1231] text-white">
+                        {option}
+                    </option>
+                ))}
+            </select>
+            <label
+                htmlFor={id}
+                className={`absolute text-sm duration-300 transform origin-[0] px-2 left-3 transition-all pointer-events-none z-10 
+                ${isFloating
+                        ? 'text-white scale-75 -translate-y-4 top-2 bg-[#1a1231]'
+                        : 'text-gray-400 scale-100 -translate-y-1/2 top-1/2'
+                    }`}
+            >
+                {label} {required && '*'}
+            </label>
+            <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+        </div>
+    );
+};
+
 export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',
@@ -72,7 +113,6 @@ export default function ContactPage() {
         message: '',
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e) => {
         setFormData({
@@ -81,36 +121,14 @@ export default function ContactPage() {
         });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setIsSubmitting(true);
-
-        try {
-            const response = await fetch('/api/submissions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
-                console.log('Form submitted successfully');
-                setIsSubmitted(true);
-                setTimeout(() => {
-                    setIsSubmitted(false);
-                    setFormData({ name: '', email: '', companyName: '', phone: '', budget: '', message: '' });
-                }, 3000);
-            } else {
-                console.error('Submission failed');
-                alert('Something went wrong. Please try again later.');
-            }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            alert('Something went wrong. Please try again later.');
-        } finally {
-            setIsSubmitting(false);
-        }
+        console.log('Form submitted:', formData);
+        setIsSubmitted(true);
+        setTimeout(() => {
+            setIsSubmitted(false);
+            setFormData({ name: '', email: '', companyName: '', phone: '', budget: '', message: '' });
+        }, 3000);
     };
 
     return (
@@ -129,12 +147,10 @@ export default function ContactPage() {
 
             {/* Background Image */}
             <div className="fixed inset-0 -z-30 pointer-events-none">
-                <Image
+                <img
                     src="/assets/contact.jpg"
                     alt="Background"
-                    fill
-                    className="object-cover opacity-90"
-                    priority
+                    className="w-full h-full object-cover opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 z-10" />
             </div>
@@ -173,7 +189,7 @@ export default function ContactPage() {
                         {/* Quick Actions */}
                         <div className="flex flex-col sm:flex-row gap-3">
                             <GradientButton
-                                href="https://wa.me/916283448462"
+                                href="https://wa.me/918968369582"
                                 className="flex-1 text-sm"
                                 contentClassName="flex items-center justify-center gap-2 bg-green-600/20 hover:bg-green-600/40 py-2.5"
                             >
@@ -195,7 +211,6 @@ export default function ContactPage() {
                             <div className="flex items-center gap-4 glass global-orange-glow p-4 rounded-full">
                                 <MailIcon className="size-5 shrink-0 text-gray-400" />
                                 <div>
-                                    <strong className="block text-xs text-gray-400 uppercase tracking-wider">Email</strong>
                                     <a href="mailto:info@reinsoft.tech" className="text-base font-semibold text-white hover:text-gray-200 transition">
                                         info@reinsoft.tech
                                     </a>
@@ -205,7 +220,6 @@ export default function ContactPage() {
                             <div className="flex items-center gap-4 glass global-orange-glow p-4 rounded-full">
                                 <PhoneIcon className="size-5 shrink-0 text-gray-400" />
                                 <div>
-                                    <strong className="block text-xs text-gray-400 uppercase tracking-wider">Phone</strong>
                                     <a href="tel:+918968369582" className="text-base font-semibold text-white hover:text-gray-200 transition">
                                         +91 89683 69582
                                     </a>
@@ -213,10 +227,11 @@ export default function ContactPage() {
                             </div>
 
                             <div className="flex items-center gap-4 glass global-orange-glow p-4 rounded-full">
-                                <ClockIcon className="size-5 shrink-0 text-gray-400" />
+                                <PhoneIcon className="size-5 shrink-0 text-gray-400" />
                                 <div>
-                                    <strong className="block text-xs text-gray-400 uppercase tracking-wider">Response Time</strong>
-                                    <p className="text-base font-semibold text-white">Within 24 hours</p>
+                                    <a href="tel:+916283448462" className="text-base font-semibold text-white hover:text-gray-200 transition">
+                                        +91 62834 48462
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -282,38 +297,27 @@ export default function ContactPage() {
                                     />
                                 </div>
 
-                                <div className="relative global-orange-glow rounded-full">
-                                    <select
+                                <div className="w-full md:w-[calc(50%-0.625rem)] mx-auto">
+                                    <FloatingSelect
+                                        label="Budget"
                                         id="budget"
                                         name="budget"
                                         value={formData.budget}
                                         onChange={handleChange}
                                         required
-                                        className="block w-full px-4 py-3.5 text-white bg-[#1a1231] rounded-full appearance-none focus:outline-none focus:ring-0 peer transition-all"
-                                    >
-                                        <option value="" disabled>Select Budget *</option>
-                                        <option value="$200 - $500">$200 - $500</option>
-                                        <option value="$500 - $1000">$500 - $1000</option>
-                                        <option value="$1000 - $1500">$1000 - $1500</option>
-                                        <option value="$1500 - $2000">$1500 - $2000</option>
-                                        <option value="$2,000 - $2500">$2,000 - $2500</option>
-                                        <option value="$2500 - $5000">$2500 - $5000</option>
-                                        <option value="$5,000 - $7000">$5,000 - $7000</option>
-                                        <option value="$7,000 - $8000">$7,000 - $8000</option>
-                                        <option value="$8,000 - $10000">$8,000 - $10000</option>
-                                        <option value="$10000 - $25000">$10000 - $25000</option>
-                                    </select>
-                                    <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                                        <svg className="size-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </div>
-                                    <label
-                                        htmlFor="budget"
-                                        className={`absolute text-sm text-white duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 left-3 bg-[#1a1231] pointer-events-none ${!formData.budget ? 'hidden' : ''}`}
-                                    >
-                                        Budget *
-                                    </label>
+                                        options={[
+                                            "$200 – $500",
+                                            "$500 – $1000",
+                                            "$1000 – $1500",
+                                            "$1500 – $2000",
+                                            "$2,000 – $2500",
+                                            "$2500 – $5000",
+                                            "$5,000 – $7000",
+                                            "$7,000 – $8000",
+                                            "$8,000 – $10000",
+                                            "$10000 – $25000"
+                                        ]}
+                                    />
                                 </div>
 
                                 <FloatingTextarea
@@ -328,20 +332,12 @@ export default function ContactPage() {
 
                                 <GradientButton
                                     type="submit"
-                                    disabled={isSubmitting}
-                                    className={`w-full flex justify-center group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                    className="w-full flex justify-center group"
                                     contentClassName="w-full px-6 py-3.5 bg-black/20 hover:bg-black/40 backdrop-blur-md font-medium"
                                     useTrustStripStyle={true}
-                                    loop={!isSubmitting}
+                                    loop={false}
                                 >
-                                    {isSubmitting ? (
-                                        <span className="flex items-center gap-2">
-                                            <Loader2Icon className="size-4 animate-spin" />
-                                            Sending...
-                                        </span>
-                                    ) : (
-                                        "👈 Request Project Estimate"
-                                    )}
+                                    👉 Request Project Estimate
                                 </GradientButton>
                             </form>
                         )}
