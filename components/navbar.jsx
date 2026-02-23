@@ -126,13 +126,13 @@ export default function Navbar() {
                         </div>
                     ))}
 
-                    <GradientButton
+                    {/* <GradientButton
                         href='/contact'
                         contentClassName="bg-black/20 hover:bg-black/40 backdrop-blur-md ml-4"
                         useTrustStripStyle={true}
                     >
                         Get Estimate
-                    </GradientButton>
+                    </GradientButton> */}
                 </div>
 
                 <button
@@ -174,14 +174,14 @@ export default function Navbar() {
                     </div>
                 ))}
 
-                <GradientButton
+                {/* <GradientButton
                     href='/contact'
                     onClick={() => setIsOpen(false)}
                     contentClassName="bg-black/20 hover:bg-black/40 backdrop-blur-md mt-6"
                     useTrustStripStyle={true}
                 >
                     Get Estimate
-                </GradientButton>
+                </GradientButton> */}
 
                 <button
                     onClick={() => setIsOpen(false)}

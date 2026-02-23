@@ -5,7 +5,7 @@ import GradientButton from "@/components/gradient-button";
 import { ExternalLinkIcon } from "lucide-react";
 import Image from "next/image";
 
-const defaultSteps = [
+const steps = [
     {
         id: 1,
         title: "We understand your business & goals",
@@ -44,18 +44,12 @@ const defaultSteps = [
     },
 ];
 
-export default function WorkflowSteps({
-    title = "Our Simple & Effective Process",
-    description = "A transparent process that works for both local and global clients. No confusion. No hidden costs. Just honest work that delivers results.",
-    steps: stepsProps
-}) {
-    const steps = stepsProps || defaultSteps;
-
+export default function WorkflowSteps() {
     return (
         <section className="mt-16 relative">
             <SectionTitle
-                title={title}
-                description={description}
+                title="Our Simple & Effective Process"
+                description="A transparent process that works for both local and global clients. No confusion. No hidden costs. Just honest work that delivers results."
                 gradient={true}
             />
 

@@ -1,7 +1,6 @@
 import { PhoneIcon, MessageCircleIcon, CalendarIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 import GradientButton from "@/components/gradient-button";
 export default function CallToAction() {
@@ -13,11 +12,10 @@ export default function CallToAction() {
             transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
         >
             <div className="absolute inset-0 z-0">
-                <Image
+                <img
                     src="/assets/contact.jpg"
                     alt="Background"
-                    fill
-                    className="object-cover opacity-80"
+                    className="w-full h-full object-cover opacity-80"
                 />
                 <div className="absolute inset-0 bg-black/40 z-10" />
             </div>
@@ -54,7 +52,7 @@ export default function CallToAction() {
                         Call Now
                     </GradientButton>
                     <GradientButton
-                        href="https://wa.me/916283448462"
+                        href="https://wa.me/918968369582"
                         contentClassName="flex items-center gap-2 px-6 bg-green-600/30 hover:bg-green-600/50"
                         loop={false}
                     >

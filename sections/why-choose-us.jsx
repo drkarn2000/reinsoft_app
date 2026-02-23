@@ -3,14 +3,10 @@ import { CheckCircleIcon, UsersIcon, LightbulbIcon, Headset, Clock, ShieldCheck 
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-export default function WhyChooseUs({
-    title = "Why Choose Us",
-    description = "We are committed to delivering excellence. Here is why businesses trust us with their digital transformation.",
-    reasons: reasonsProps
-}) {
+export default function WhyChooseUs() {
     const refs = useRef([]);
 
-    const defaultReasons = [
+    const reasons = [
         {
             icon: UsersIcon,
             title: "Experienced Team",
@@ -43,14 +39,12 @@ export default function WhyChooseUs({
         }
     ];
 
-    const reasons = reasonsProps || defaultReasons;
-
     return (
         <section id="why-choose-us" className="mt-16 relative">
             {/* Decorative background element if needed, keeping it clean for now to match features */}
             <SectionTitle
-                title={title}
-                description={description}
+                title="Why Choose Us"
+                description="We are committed to delivering excellence. Here is why businesses trust us with their digital transformation."
                 gradient={true}
             />
 
@@ -59,7 +53,7 @@ export default function WhyChooseUs({
                     <motion.div
                         key={index}
                         ref={(el) => (refs.current[index] = el)}
-                        className="global-orange-glow hover:-translate-y-0.5 p-6 rounded-xl space-y-4 !bg-black/20 backdrop-blur-md w-full h-full flex flex-col"
+                        className="gradient-border-card p-6 rounded-2xl space-y-4 bg-white/5 hover:bg-white/10 transition-colors w-full h-full flex flex-col items-center text-center"
                         initial={{ y: 150, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
@@ -74,7 +68,7 @@ export default function WhyChooseUs({
                         <div className="p-3 bg-orange-500/10 rounded-lg w-fit">
                             <reason.icon className="size-6 text-orange-500" />
                         </div>
-                        <h3 className="text-xl font-medium bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] bg-clip-text text-transparent">
+                        <h3 className="w-fit text-xs px-3 py-1 rounded-full border bg-[#ff7a18]/10 border-[#ff7a18]/30 text-[#ff7a18] font-bold">
                             {reason.title}
                         </h3>
                         <p className="text-gray-300">

@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 import GradientButton from "@/components/gradient-button";
+import LeadForm from "@/components/lead-form";
+
 export default function HeroSection() {
 
     return (
@@ -27,53 +29,55 @@ export default function HeroSection() {
                     className="object-cover opacity-90"
                     priority
                 />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff7a18]/5 via-black to-black z-10" />
+                <div className="absolute inset-0 bg-black/70 z-10" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black z-10" />
             </div>
 
-            <motion.section className="flex flex-col items-center">
-                <motion.div className="flex items-center gap-3 mt-20"
-                    initial={{ y: -20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                >
-                    <p className="text-lg">Trusted by startups & growing businesses</p>
-                    <span className="btn glass global-orange-glow rounded-full py-1 px-3 text-sm">
-                        10+ Years Experience
-                    </span>
-                </motion.div>
-                <motion.h1 className="text-center text-4xl/13 md:text-6xl/19 mt-4 font-semibold tracking-tight max-w-4xl drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]"
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 240, damping: 70, mass: 1 }}
-                >
-                    We Build <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(255,122,24,0.8)]">High-Performance Websites & Mobile Apps</span> That Generate Business
-                </motion.h1>
-                <motion.p className="text-center text-gray-100 text-base/7 max-w-md mt-6"
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                >
-                    Practical IT solutions for startups and growing businesses focused on leads, speed, and scalability.
-                </motion.p>
+            <section className="max-w-7xl mx-auto py-16 md:py-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <motion.div
+                        className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
+                        initial={{ x: -50, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ type: "spring", stiffness: 200, damping: 60 }}
+                    >
+                        <div className="flex items-center gap-3">
+                            <p className="text-lg">Trusted by startups & growing businesses</p>
+                            <span className="btn glass global-orange-glow rounded-full py-1 px-3 text-sm">
+                                10+ Years Experience
+                            </span>
+                        </div>
+                        <h1 className="text-4xl/tight md:text-6xl/tight font-bold tracking-tight text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
+                            We Build <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(255,122,24,0.8)]">High-Performance Websites & Mobile Apps</span> That Generate Business
+                        </h1>
+                        <p className="text-gray-100 text-lg/relaxed max-w-xl">
+                            Practical IT solutions for startups and growing businesses focused on leads, speed, and scalability.
+                        </p>
 
-                <motion.div className="flex flex-col md:flex-row max-md:w-full items-center gap-4 md:gap-3 mt-6"
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                >
-                    <GradientButton href="/contact" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md" loop={false}>
-                        Get Free Consultation
-                    </GradientButton>
-                    <GradientButton href="/contact?type=quote" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md flex items-center justify-center gap-2" loop={false}>
-                        <MessageCircleIcon className="size-4.5" />
-                        Request a Quote (Get Quick Response)
-                    </GradientButton>
-                </motion.div>
-            </motion.section>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                            <GradientButton href="/contact" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md" loop={false}>
+                                Get Free Consultation
+                            </GradientButton>
+                            <GradientButton href="/contact?type=quote" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md flex items-center justify-center gap-2" loop={false}>
+                                <MessageCircleIcon className="size-4.5" />
+                                Request a Quote
+                            </GradientButton>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        className="flex justify-center lg:justify-end"
+                        initial={{ x: 50, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 60 }}
+                    >
+                        <LeadForm title="Grow Your Business 🚀" description="Tell us about your project and get a custom quote within 24 hours." />
+                    </motion.div>
+                </div>
+            </section>
         </>
     );
 }

@@ -3,13 +3,9 @@ import { ChevronDownIcon } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from "framer-motion";
 
-export default function FaqSection({
-    title = "Frequently Asked Questions",
-    description = "Find answers to common questions about our services, process, and how we can help your business grow.",
-    data: dataProps
-}) {
+export default function FaqSection() {
     const [isOpen, setIsOpen] = useState(false);
-    const defaultData = [
+    const data = [
         {
             question: 'What type of projects do you work on?',
             answer: 'We work on website development, web applications, mobile apps (Android & iOS) & Custom Software / CRM development for startups, growing businesses, and enterprises.',
@@ -36,25 +32,18 @@ export default function FaqSection({
         },
     ];
 
-    const data = dataProps || defaultData;
-
     return (
         <section className="mt-16 max-w-4xl mx-auto px-6" id="faq">
-            <SectionTitle title={title} description={description} gradient={true} />
+            <SectionTitle title="Frequently Asked Questions" description="Find answers to common questions about our services, process, and how we can help your business grow." gradient={true} />
             <div className='mx-auto mt-12 space-y-4 w-full max-w-xl'>
                 {data.map((item, index) => (
-                    <motion.div key={index} className='flex flex-col glass global-orange-glow rounded-[2rem]'
-                        initial={{ y: 150, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: `${index * 0.15}`, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                    >
+                    <div key={index} className='flex flex-col glass global-orange-glow rounded-[2rem]'>
                         <h3 className='flex cursor-pointer hover:bg-white/10 transition items-start justify-between gap-4 p-4 font-medium' onClick={() => setIsOpen(isOpen === index ? null : index)}>
                             {item.question}
                             <ChevronDownIcon className={`size-5 transition-all shrink-0 duration-400 ${isOpen === index ? 'rotate-180' : ''}`} />
                         </h3>
                         <p className={`px-4 text-sm/6 transition-all duration-400 overflow-hidden ${isOpen === index ? 'pt-2 pb-4 max-h-80' : 'max-h-0'}`}>{item.answer}</p>
-                    </motion.div>
+                    </div>
                 ))}
             </div>
         </section>
