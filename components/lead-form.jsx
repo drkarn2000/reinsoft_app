@@ -65,7 +65,11 @@ export default function LeadForm({ title, description }) {
 
     return (
         <motion.div
+<<<<<<< HEAD
             className="w-full max-w-md bg-white p-6 sm:p-8 rounded-2xl shadow-xl"
+=======
+            className="w-full max-w-md bg-white p-5 sm:p-6 rounded-2xl shadow-xl"
+>>>>>>> d4a178f (update)
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -74,8 +78,13 @@ export default function LeadForm({ title, description }) {
             <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent mb-2">
                 {title || "Request a Quote"}
             </h3>
+<<<<<<< HEAD
             {description && <p className="text-gray-500 text-sm mb-6">{description}</p>}
             {!description && <div className="mb-6" />}
+=======
+            {description && <p className="text-gray-500 text-sm mb-4">{description}</p>}
+            {!description && <div className="mb-4" />}
+>>>>>>> d4a178f (update)
 
             {submitResult && (
                 <div className={`mb-4 p-3 rounded-lg text-sm ${submitResult.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
@@ -83,7 +92,11 @@ export default function LeadForm({ title, description }) {
                 </div>
             )}
 
+<<<<<<< HEAD
             <form onSubmit={handleSubmit} className="space-y-4">
+=======
+            <form onSubmit={handleSubmit} className="space-y-3">
+>>>>>>> d4a178f (update)
                 <div>
                     <label htmlFor="name" className="sr-only">Name*</label>
                     <input
@@ -94,7 +107,11 @@ export default function LeadForm({ title, description }) {
                         required
                         value={formData.name}
                         onChange={handleChange}
+<<<<<<< HEAD
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow"
+=======
+                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow"
+>>>>>>> d4a178f (update)
                     />
                 </div>
                 <div>
@@ -107,7 +124,11 @@ export default function LeadForm({ title, description }) {
                         required
                         value={formData.email}
                         onChange={handleChange}
+<<<<<<< HEAD
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow"
+=======
+                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow"
+>>>>>>> d4a178f (update)
                     />
                 </div>
                 <div>
@@ -120,7 +141,11 @@ export default function LeadForm({ title, description }) {
                         required
                         value={formData.phone}
                         onChange={handleChange}
+<<<<<<< HEAD
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow"
+=======
+                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow"
+>>>>>>> d4a178f (update)
                     />
                 </div>
                 <div>
@@ -131,7 +156,11 @@ export default function LeadForm({ title, description }) {
                         required
                         value={formData.enquiryType}
                         onChange={handleChange}
+<<<<<<< HEAD
                         className={`w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-shadow appearance-none bg-white ${formData.enquiryType ? 'text-gray-800' : 'text-gray-500'}`}
+=======
+                        className={`w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-shadow appearance-none bg-white ${formData.enquiryType ? 'text-gray-800' : 'text-gray-500'}`}
+>>>>>>> d4a178f (update)
                     >
                         <option value="" disabled>Enquiry Type*</option>
                         <option value="Mobile App Development">Mobile App Development</option>
@@ -148,7 +177,11 @@ export default function LeadForm({ title, description }) {
                         required
                         value={formData.budget}
                         onChange={handleChange}
+<<<<<<< HEAD
                         className={`w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-shadow appearance-none bg-white ${formData.budget ? 'text-gray-800' : 'text-gray-500'}`}
+=======
+                        className={`w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-shadow appearance-none bg-white ${formData.budget ? 'text-gray-800' : 'text-gray-500'}`}
+>>>>>>> d4a178f (update)
                     >
                         <option value="" disabled hidden>Budget*</option>
                         <option value="$200 – $500">$200 – $500</option>
@@ -170,10 +203,17 @@ export default function LeadForm({ title, description }) {
                         name="message"
                         placeholder="How can we help?*"
                         required
+<<<<<<< HEAD
                         rows="4"
                         value={formData.message}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow resize-none"
+=======
+                        rows="2"
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow resize-none"
+>>>>>>> d4a178f (update)
                     ></textarea>
                 </div>
 
@@ -181,7 +221,11 @@ export default function LeadForm({ title, description }) {
                     <button
                         type="submit"
                         disabled={isSubmitting}
+<<<<<<< HEAD
                         className={`w-full relative py-4 rounded-full font-bold text-white shadow-lg transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-0.5'}`}
+=======
+                        className={`w-full relative py-3 rounded-full font-bold text-white shadow-lg transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-0.5'}`}
+>>>>>>> d4a178f (update)
                         style={{
                             background: 'linear-gradient(to right, #3b82f6, #ff7a18)',
                             boxShadow: '0 4px 15px rgba(255, 122, 24, 0.3)'

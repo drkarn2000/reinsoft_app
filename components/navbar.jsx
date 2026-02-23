@@ -29,6 +29,7 @@ export default function Navbar() {
         },
         { name: 'Case Studies', href: '/case-studies' },
         { name: 'Our Team', href: '/#team' },
+        { name: 'Testimonial', href: '/testimonial' },
     ];
 
     useEffect(() => {
