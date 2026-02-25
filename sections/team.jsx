@@ -14,7 +14,7 @@ const teamMembers = [
         name: "Mr Singh",
         role: "Co-Founder",
         bio: "Technical Lead & Co-Partner. Oversees architecture, development quality, and technical decision-making across web and mobile projects.",
-        imageUrl: "/assets/MrSingh.jpeg"
+        imageUrl: "/assets/Mr_Singh.jpg"
     },
     {
         name: "Amarjit Singh",
