@@ -17,7 +17,7 @@ export default function Page() {
     return (
         <>
             <Head>
-                <title>Reinsoft - Custom Software & IT Solutions for Growing Businesses</title>
+                <title>Reinsoft Custom Software & IT Solutions for Growing Businesses</title>
                 <meta name="description" content="Practical IT solutions for small & medium businesses. We build websites, custom software & CRM systems that help you get more leads and work smarter." />
             </Head>
             <main className='px-4'>

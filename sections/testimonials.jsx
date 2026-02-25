@@ -1,3 +1,5 @@
+'use client';
+
 import SectionTitle from "@/components/section-title";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
@@ -10,9 +12,9 @@ const VideoModal = dynamic(() => import("@/components/video-modal"), {
 });
 
 const stats = [
-    { label: "Projects Delivered", value: "50+" },
-    { label: "Years Experience", value: "7+" },
-    { label: "Global Clients", value: "4 Countries" },
+    { label: "Projects Delivered", value: "200+" },
+    { label: "Years Experience", value: "8+" },
+    { label: "Global Clients", value: "15 Countries" },
 ];
 
 const testimonials = [
