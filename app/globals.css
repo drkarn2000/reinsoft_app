@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+}
+
+body {
+  @apply bg-black text-white text-sm antialiased;
+}
+
+@layer components {
+  .btn-original {
+    @apply px-6 py-3 text-sm font-semibold text-white rounded-full transition-all duration-300;
+    background: linear-gradient(135deg, #ff7a18, #ff9f1c);
+  }
+
+  .btn-original:hover {
+    box-shadow: 0 0 18px rgba(255, 122, 24, 0.45);
+  }
+
+  .btn {
+    @apply px-6 py-3 text-sm font-semibold text-white rounded-full transition-all duration-300 inline-flex items-center justify-center;
+  }
+
+  .btn-nav {
+    @apply px-6 py-3 text-sm font-semibold rounded-full transition-all duration-300 inline-flex items-center justify-center;
+    background: linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(135deg, #ff7a18, #3b82f6) border-box;
+    color: #3b82f6;
+    border: 2.5px solid transparent;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* .btn-nav::before removed as it is no longer needed */
+
+  .btn-nav:hover {
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/10 hover:bg-white/20;
+  }
+
+  .card-orange-border {
+    @apply border-l-2 border-l-[#ff7a18];
+    box-shadow: -5px 0 20px -5px rgba(255, 122, 24, 0.3);
+  }
+
+  .global-orange-glow {
+    position: relative;
+    @apply border border-transparent rounded-xl bg-black/40 backdrop-blur-md transition-all duration-300;
+    box-shadow: 0 0 15px rgba(255, 122, 24, 0.3), 0 0 15px rgba(59, 130, 246, 0.3);
+  }
+
+  .global-orange-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 2.5px;
+    background: linear-gradient(135deg, #ff7a18, #3b82f6);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .global-orange-glow:hover {
+    @apply bg-black/60;
+    box-shadow: 0 0 25px rgba(255, 122, 24, 0.5), 0 0 25px rgba(59, 130, 246, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* New strict gradient border class without transitions or bg changes */
+  .gradient-border-card {
+    position: relative;
+    @apply border border-transparent;
+    /* Ensure layout respects border width */
+  }
+
+  .gradient-border-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    /* Thinner border per request/context */
+    background: linear-gradient(135deg, #ff7a18, #3b82f6);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .orange-shadow {
+    box-shadow:
+      0 0 0 1px rgba(255, 122, 24, 0.35),
+      0 6px 20px rgba(255, 122, 24, 0.15);
+  }
+}
