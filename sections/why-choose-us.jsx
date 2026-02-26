@@ -98,10 +98,10 @@ export default function WhyChooseUs() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/20 blur-[80px] rounded-full" />
 
                     <Image
-                        src="/assets/case-study.jpg"
+                        src="/assets/Case-study.jpg"
                         alt="Why Choose Us Showcase"
                         fill
-                        className="object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700 z-10"
+                        className="object-cover z-10" // remove opacity + mix-blend
                     />
 
                     {/* A subtle glowing border overlay */}
