@@ -28,6 +28,7 @@ export default function Navbar() {
             ]
         },
         { name: 'Case Studies', href: '/case-studies' },
+        { name: 'Portfolio', href: '/portfolio' },
         { name: 'Our Team', href: '/#team' },
         { name: 'Testimonial', href: '/testimonial' },
     ];
@@ -67,14 +68,16 @@ export default function Navbar() {
                 />
 
                 <Link href='/'>
-                    <Image
-                        src='/assets/logo.png'
-                        alt='Reinsoft Logo'
-                        className='h-24 w-auto'
-                        width={240}
-                        height={96}
-                        priority
-                    />
+                    <div className="relative h-24 w-[240px]">
+                        <Image
+                            src='/assets/logo.png'
+                            alt='Reinsoft Logo'
+                            fill
+                            className='object-contain'
+                            priority
+                            sizes="240px"
+                        />
+                    </div>
                 </Link>
 
                 <div className='hidden items-center space-x-2 md:flex'>
@@ -85,9 +88,14 @@ export default function Navbar() {
                             onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
                             onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
                         >
-                            <GradientButton href={link.href} loop={false} className="flex items-center gap-1.5">
+                            <GradientButton
+                                href={link.href}
+                                loop={false}
+                                className="flex items-center"
+                                contentClassName="bg-black/80 hover:bg-black/60 px-4 py-1.5 text-sm font-medium text-white rounded-full flex items-center gap-1"
+                            >
                                 {link.name}
-                                {link.dropdown && <ChevronDownIcon className={`size-4.5 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
                             </GradientButton>
 
                             {link.dropdown && (
@@ -154,6 +162,8 @@ export default function Navbar() {
                             href={link.href}
                             onClick={() => setIsOpen(false)}
                             loop={false}
+                            className="flex items-center"
+                            contentClassName="bg-black/80 hover:bg-black/60 px-4 py-1.5 text-sm font-medium text-white rounded-full flex items-center gap-1.5"
                         >
                             {link.name}
                         </GradientButton>

@@ -28,13 +28,14 @@ export default function HeroSection() {
                     fill
                     className="object-cover opacity-90"
                     priority
+                    sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff7a18]/5 via-black to-black z-10" />
                 <div className="absolute inset-0 bg-black/70 z-10" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black z-10" />
             </div>
 
-            <section className="max-w-7xl mx-auto py-16 md:py-24">
+            <section className="max-w-7xl mx-auto pt-8 pb-16 md:pt-12 md:pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <motion.div
                         className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
@@ -49,18 +50,18 @@ export default function HeroSection() {
                                 10+ Years Experience
                             </span>
                         </div>
-                        <h1 className="text-4xl/tight md:text-6xl/tight font-bold tracking-tight text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
+                        <h1 className="text-3xl/tight md:text-5xl/tight lg:text-[3.5rem] leading-[1.15] font-bold tracking-tight text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
                             We Build <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(255,122,24,0.8)]">High-Performance Websites & Mobile Apps</span> That Generate Business
                         </h1>
                         <p className="text-gray-100 text-lg/relaxed max-w-xl">
                             Practical IT solutions for startups and growing businesses focused on leads, speed, and scalability.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                            <GradientButton href="/contact" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md" loop={false}>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-2">
+                            <GradientButton href="/contact" className="max-md:w-full" contentClassName="px-6 py-3 font-semibold bg-black/20 backdrop-blur-md" loop={false}>
                                 Get Free Consultation
                             </GradientButton>
-                            <GradientButton href="/contact?type=quote" className="max-md:w-full" contentClassName="bg-black/20 backdrop-blur-md flex items-center justify-center gap-2" loop={false}>
+                            <GradientButton href="/contact?type=quote" className="max-md:w-full" contentClassName="px-6 py-3 font-semibold bg-black/20 backdrop-blur-md flex items-center justify-center gap-2" loop={false}>
                                 <MessageCircleIcon className="size-4.5" />
                                 Request a Quote
                             </GradientButton>

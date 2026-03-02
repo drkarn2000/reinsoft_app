@@ -99,6 +99,7 @@ export default function WorkflowSteps() {
                                     width={step.width}
                                     height={step.height}
                                     className="h-auto w-full object-cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                                 />
                             </div>
                         </div>

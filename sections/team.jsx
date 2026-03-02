@@ -36,8 +36,9 @@ const TeamCard = ({ member, index }) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
+            whileHover={{ scale: 1.07, boxShadow: '0 0 55px 12px rgba(255,122,24,0.25), 0 0 90px 20px rgba(255,80,180,0.12)' }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex flex-col items-center h-full p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors shadow-lg text-center gradient-border-card group"
+            className="flex flex-col items-center h-full p-6 rounded-2xl bg-white/5 transition-shadow shadow-lg text-center gradient-border-card group cursor-pointer"
         >
             {/* 1. Name on TOP */}
             <h4 className="font-semibold text-white text-lg mb-2">{member.name}</h4>
@@ -47,11 +48,8 @@ const TeamCard = ({ member, index }) => {
                 {member.role}
             </span>
 
-            {/* 3. Animated Avatar Container */}
-            <div className="relative w-28 h-28 rounded-full overflow-hidden p-[3px] mb-6 shrink-0">
-                {/* Spinning Gradient */}
-                <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#ff7a18_0%,#3b82f6_50%,#ff7a18_100%)] animate-spin-slow" />
-
+            {/* 3. Rainbow Profile Circle */}
+            <div className="relative w-28 h-28 rounded-full shrink-0 rainbow-lighting-circle overflow-visible mb-6">
                 {/* Avatar Content */}
                 <div className="relative z-10 w-full h-full rounded-full overflow-hidden bg-gray-900 flex items-center justify-center">
                     {member.imageUrl ? (
@@ -59,7 +57,7 @@ const TeamCard = ({ member, index }) => {
                             src={member.imageUrl}
                             alt={member.name}
                             fill
-                            className="object-cover"
+                            className="object-cover rounded-full"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                     ) : (

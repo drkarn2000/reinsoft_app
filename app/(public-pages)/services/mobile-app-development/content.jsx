@@ -133,10 +133,10 @@ export default function MobileAppDevelopmentContent() {
                         viewport={{ once: true }}
                     >
                         <Image
-                            src="/assets/Services.jpg"
+                            src="/assets/mobile app.jpeg"
                             alt="Mobile Development"
                             fill
-                            className="object-cover opacity-60 grayscale brightness-50"
+                            className="object-cover opacity-90 brightness-75 transition-all duration-500 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                         <div className="absolute bottom-10 left-10 right-10 p-6 glass rounded-2xl border border-white/20">

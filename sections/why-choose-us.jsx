@@ -98,10 +98,11 @@ export default function WhyChooseUs() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/20 blur-[80px] rounded-full" />
 
                     <Image
-                        src="/assets/Case-study.jpg"
+                        src="/assets/What_we_do.jpeg"
                         alt="Why Choose Us Showcase"
                         fill
                         className="object-cover z-10" // remove opacity + mix-blend
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                     />
 
                     {/* A subtle glowing border overlay */}

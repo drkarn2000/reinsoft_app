@@ -1,11 +1,13 @@
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import LenisScroll from '@/components/lenis-scroll';
+import Script from 'next/script';
 
 const poppins = Poppins({
     subsets: ['latin'],
     variable: '--font-sans',
     weight: ['400', '500', '600', '700'],
+    display: 'swap',
 });
 
 export const metadata = {
@@ -35,7 +37,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang='en'>
             <head>
-                <script
+                <Script
+                    id="gtm-script"
+                    strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

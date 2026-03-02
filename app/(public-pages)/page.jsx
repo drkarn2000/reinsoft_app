@@ -10,16 +10,11 @@ import Testimonials from '@/sections/testimonials';
 import TrustStrip from '@/sections/trust-strip';
 import WhyChooseUs from '@/sections/why-choose-us';
 import Team from '@/sections/team';
+import Portfolio from '@/sections/portfolio';
 import WorkflowSteps from '@/sections/workflow-steps';
-import Head from 'next/head';
-
 export default function Page() {
     return (
         <>
-            <Head>
-                <title>Reinsoft Custom Software & IT Solutions for Growing Businesses</title>
-                <meta name="description" content="Practical IT solutions for small & medium businesses. We build websites, custom software & CRM systems that help you get more leads and work smarter." />
-            </Head>
             <main className='px-4'>
                 <HeroSection />
                 <TrustStrip />
@@ -27,8 +22,9 @@ export default function Page() {
                 <WhyChooseUs />
                 <Features />
                 <WorkflowSteps />
+                <Portfolio limit={4} />
                 <Team />
-                <Testimonials />
+                <Testimonials limit={3} />
                 <FaqSection />
                 {/* <PricingPlans /> */}
                 <CallToAction />
