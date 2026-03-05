@@ -7,6 +7,7 @@ export default function LeadForm({ title, description }) {
         name: '',
         email: '',
         phone: '',
+        country: '',
         enquiryType: '',
         budget: '',
         message: ''
@@ -43,6 +44,7 @@ export default function LeadForm({ title, description }) {
                     name: '',
                     email: '',
                     phone: '',
+                    country: '',
                     enquiryType: '',
                     budget: '',
                     message: ''
@@ -139,6 +141,19 @@ export default function LeadForm({ title, description }) {
                         <option value="Custom Software">Custom Software</option>
                         <option value="Other">Other</option>
                     </select>
+                </div>
+                <div>
+                    <label htmlFor="country" className="sr-only">Country*</label>
+                    <input
+                        type="text"
+                        id="country"
+                        name="country"
+                        placeholder="Country*"
+                        required
+                        value={formData.country}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow"
+                    />
                 </div>
                 <div>
                     <label htmlFor="budget" className="sr-only">Budget*</label>

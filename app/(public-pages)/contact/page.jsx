@@ -131,6 +131,7 @@ function ContactFormContent() {
         lastName: '',
         email: '',
         phone: '',
+        country: '',
         enquiryType: '',
         budget: '',
         message: '',
@@ -169,7 +170,7 @@ function ContactFormContent() {
 
             if (response.ok) {
                 setIsSubmitted(true);
-                setFormData({ firstName: '', lastName: '', email: '', phone: '', enquiryType: '', budget: '', message: '' });
+                setFormData({ firstName: '', lastName: '', email: '', phone: '', country: '', enquiryType: '', budget: '', message: '' });
                 setTimeout(() => setIsSubmitted(false), 60000);
             } else {
                 const data = await response.json();
@@ -381,6 +382,17 @@ function ContactFormContent() {
                                                     "Other"
                                                 ]}
                                             />
+                                            <FloatingInput
+                                                label="Country"
+                                                id="country"
+                                                name="country"
+                                                value={formData.country}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+
+                                        <div className="grid grid-cols-1 gap-6">
                                             <FloatingSelect
                                                 label="Budget"
                                                 id="budget"
@@ -418,7 +430,11 @@ function ContactFormContent() {
                                         )}
                                     </div>
 
-                                    <div className="mt-0 flex justify-center">
+                                    <div className="flex flex-col items-center gap-4 pt-8">
+                                        <p className="text-center md:text-left text-sm text-gray-500">
+                                            Secure and encrypted project submission.
+                                        </p>
+
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
@@ -481,10 +497,6 @@ function ContactFormContent() {
                                             </div>
                                         </button>
                                     </div>
-
-                                    <p className="text-center md:text-left text-xs text-gray-500 mt-4">
-                                        Secure and encrypted project submission.
-                                    </p>
                                 </form>
                             )}
                         </div>

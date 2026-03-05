@@ -11,6 +11,13 @@ import WorkflowSteps from "@/sections/workflow-steps";
 import FaqSection from "@/sections/faq-section";
 import TrustStrip from "@/sections/trust-strip";
 
+const mobileFeatureColors = [
+    { bar: "bg-[#2db1c4]", text: "text-[#2db1c4]", hex: "#2db1c4" },
+    { bar: "bg-[#b677e1]", text: "text-[#b677e1]", hex: "#b677e1" },
+    { bar: "bg-[#f39221]", text: "text-[#f39221]", hex: "#f39221" },
+    { bar: "bg-[#8cb342]", text: "text-[#8cb342]", hex: "#8cb342" },
+];
+
 const mobileFeatures = [
     {
         title: "Native iOS Development",
@@ -63,7 +70,7 @@ export default function MobileAppDevelopmentContent() {
             </div>
 
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 px-4">
+            <section className="relative pt-6 pb-6 px-4">
                 <div className="max-w-7xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -74,8 +81,7 @@ export default function MobileAppDevelopmentContent() {
                             Premium Mobile Engineering
                         </span>
                         <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
-                            Crafting Experiences for the <br />
-                            <span className="bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(168,85,247,0.3)]">Palm of Your Hand</span>
+                            Crafting Experiences for the Palm of Your Hand
                         </h1>
                         <p className="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
                             We build native and cross-platform mobile applications that users love. From sleek startups to global brands, we deliver mobile-first digital transformation.
@@ -94,6 +100,82 @@ export default function MobileAppDevelopmentContent() {
 
             <TrustStrip />
 
+            {/* Lead Form Section - Moved to top for visibility */}
+            <section id="quote" className="py-24 px-4 bg-gradient-to-b from-black to-slate-900/50 overflow-hidden relative">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to Build Your <br /><span className="text-blue-400">Mobile Empire?</span></h2>
+                        <p className="text-gray-400 text-lg mb-12">
+                            Our team is ready to guide you from wireframe to launch. Let's create something extraordinary together.
+                        </p>
+                        <div className="flex flex-col gap-6 w-full max-w-2xl mt-8">
+                            {[
+                                {
+                                    number: "1",
+                                    title: "Device Agnostic",
+                                    desc: "Perfect performance on iOS and Android.",
+                                    color: "bg-[#0ea5e9]",
+                                    darkColor: "bg-[#0369a1]",
+                                    textColor: "text-[#38bdf8]",
+                                    icon: <SmartphoneIcon className="size-12 md:size-14" />,
+                                },
+                                {
+                                    number: "2",
+                                    title: "Next-Gen Tech",
+                                    desc: "Using Flutter and React Native for split-second speed.",
+                                    color: "bg-[#8b5cf6]",
+                                    darkColor: "bg-[#5b21b6]",
+                                    textColor: "text-[#a78bfa]",
+                                    icon: <CpuIcon className="size-12 md:size-14" />,
+                                }
+                            ].map((item, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className={`relative bg-white/5 backdrop-blur-md border border-white/10 rounded-full flex items-center shadow-lg h-[110px] mb-8`}
+                                >
+                                    {/* Ribbon */}
+                                    <div className={`absolute left-6 md:left-8 top-3 -bottom-5 w-[54px] ${item.color} shadow-2xl flex flex-col items-center pt-[5px] z-20`} style={{ borderRadius: '9999px 9999px 0 12px' }}>
+                                        <div className="size-[44px] bg-white rounded-full flex items-center justify-center shadow-md">
+                                            <span className={`text-xl md:text-2xl font-black text-black`}>{item.number}</span>
+                                        </div>
+                                        {/* Fold Triangle */}
+                                        <div className={`absolute bottom-0 left-full w-[10px] h-[18px] ${item.darkColor}`} style={{ clipPath: 'polygon(0 0, 0 100%, 100% 0)' }} />
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="pl-28 md:pl-32 pr-20 py-6 flex-1 flex flex-col justify-center h-full z-10 relative">
+                                        <h4 className={`text-2xl font-bold ${item.textColor} tracking-widest mb-1.5 uppercase`}>{item.title}</h4>
+                                        <p className="text-gray-300 text-base font-medium leading-relaxed">{item.desc}</p>
+                                    </div>
+
+                                    {/* Original Icon */}
+                                    <div className={`absolute right-6 md:right-8 top-1/2 -translate-y-1/2 ${item.textColor} opacity-60 z-10`}>
+                                        {item.icon}
+                                    </div>
+
+                                    {/* Subtle glowing accent behind icon */}
+                                    <div className={`absolute right-4 w-24 h-24 ${item.color} rounded-full blur-[40px] opacity-10 pointer-events-none`} />
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="relative">
+                        <div className="absolute -inset-4 bg-blue-500/5 blur-2xl rounded-3xl pointer-events-none" />
+                        <LeadForm
+                            title="Request a Mobile Quote"
+                            description="Share your app vision with us."
+                        />
+                    </div>
+                </div>
+            </section>
+
             {/* Capabilities Grid */}
             <section id="capabilities" className="py-24 px-4 relative">
                 <div className="max-w-7xl mx-auto">
@@ -102,23 +184,48 @@ export default function MobileAppDevelopmentContent() {
                         <p className="text-gray-400 max-w-2xl mx-auto">Leveraging modern frameworks to build secure, offline-first, and highly responsive mobile applications.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {mobileFeatures.map((feature, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="p-8 rounded-2xl border border-white/10 bg-black/20 backdrop-blur-md hover:bg-white/[0.08] transition-all group global-orange-glow"
-                            >
-                                <div className="size-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 mb-6 group-hover:scale-110 transition-transform">
-                                    {feature.icon}
-                                </div>
-                                <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
-                            </motion.div>
-                        ))}
+                    <div className="flex flex-col gap-5 max-w-3xl mx-auto">
+                        {mobileFeatures.map((feature, idx) => {
+                            const colors = mobileFeatureColors[idx % mobileFeatureColors.length];
+                            return (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.1, duration: 0.5 }}
+                                    className="relative flex flex-row items-center bg-white/5 border border-white/10 rounded-2xl overflow-visible group hover:bg-white/[0.08] transition-all duration-500 ml-6"
+                                >
+                                    {/* Left accent bar */}
+                                    <div className={`absolute left-0 top-0 bottom-0 w-1 ${colors.bar} rounded-l-2xl`} />
+
+                                    {/* Number badge with half-rings */}
+                                    <div className="absolute -left-6 top-1/2 -translate-y-1/2 z-10" style={{ width: '48px', height: '48px' }}>
+                                        <div style={{ position: 'absolute', left: '-12px', top: '-12px', width: '72px', height: '72px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.7, boxShadow: `0 0 10px 2px ${colors.hex}80`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
+                                        <div style={{ position: 'absolute', left: '-6px', top: '-6px', width: '60px', height: '60px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.9, boxShadow: `0 0 8px 2px ${colors.hex}60`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
+                                        <div className={`size-12 rounded-full ${colors.bar} flex items-center justify-center text-lg font-black text-white shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}>
+                                            {idx + 1}
+                                        </div>
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="flex-grow py-4 pl-10 pr-2 text-left">
+                                        <h3 className={`text-base font-bold mb-1 ${colors.text}`}>{feature.title}</h3>
+                                        <p className="text-gray-400 text-xs leading-relaxed">{feature.description}</p>
+                                    </div>
+
+                                    {/* Right icon */}
+                                    <div className="pr-5 shrink-0 flex items-center justify-center">
+                                        <div className={`size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${colors.text} opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500`}>
+                                            {feature.icon}
+                                        </div>
+                                    </div>
+
+                                    {/* Right accent bar on hover */}
+                                    <div className={`absolute right-0 top-0 bottom-0 w-1 ${colors.bar} opacity-0 group-hover:opacity-100 transition-opacity rounded-r-2xl`} />
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -133,7 +240,7 @@ export default function MobileAppDevelopmentContent() {
                         viewport={{ once: true }}
                     >
                         <Image
-                            src="/assets/mobile app.jpeg"
+                            src="/assets/man.jpg"
                             alt="Mobile Development"
                             fill
                             className="object-cover opacity-90 brightness-75 transition-all duration-500 group-hover:scale-110"
@@ -150,23 +257,61 @@ export default function MobileAppDevelopmentContent() {
                         viewport={{ once: true }}
                         className="order-1 lg:order-2"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold mb-8">Building for the <span className="text-purple-400">Modern User</span></h2>
+                        <h2 className="text-3xl font-semibold mb-8">Building for the <span className="text-purple-400">Modern User</span></h2>
                         <p className="text-gray-300 mb-6 leading-relaxed">
                             A great app is more than just a screen; it's a seamless part of your user's life. We focus on performance, accessibility, and delight.
                         </p>
-                        <ul className="space-y-4 mb-8">
+                        <div className="flex flex-col gap-5 mb-8">
                             {[
-                                { icon: <FingerprintIcon className="size-5 text-blue-400" />, text: "Biometric security and data encryption" },
-                                { icon: <CpuIcon className="size-5 text-orange-400" />, text: "Highly optimized native performance" },
-                                { icon: <CloudIcon className="size-5 text-cyan-400" />, text: "Offline-first sync and cloud backup" },
-                                { icon: <PlayIcon className="size-5 text-green-400" />, text: "Continuous OTA updates and deployment" }
+                                {
+                                    icon: <FingerprintIcon className="size-8 text-gray-400 stroke-1" />,
+                                    text: "Biometric security and data encryption",
+                                    gradient: "from-[#a855f7] to-[#d946ef]"
+                                },
+                                {
+                                    icon: <CpuIcon className="size-8 text-gray-400 stroke-1" />,
+                                    text: "Highly optimized native performance",
+                                    gradient: "from-[#0ea5e9] to-[#14b8a6]"
+                                },
+                                {
+                                    icon: <CloudIcon className="size-8 text-gray-400 stroke-1" />,
+                                    text: "Offline-first sync and cloud backup",
+                                    gradient: "from-[#f97316] to-[#eab308]"
+                                },
+                                {
+                                    icon: <PlayIcon className="size-8 text-gray-400 stroke-1" />,
+                                    text: "Continuous OTA updates and deployment",
+                                    gradient: "from-[#dc2626] to-[#991b1b]"
+                                }
                             ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-3 text-gray-200">
-                                    {item.icon}
-                                    <span>{item.text}</span>
-                                </li>
+                                <motion.div
+                                    key={i}
+                                    className="bg-white/5 border border-white/10 backdrop-blur-md rounded-[1.5rem] py-4 px-6 flex items-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/10 transition-all duration-300 relative group"
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                >
+                                    {/* Left side: Number */}
+                                    <div className="flex items-center justify-center w-16 shrink-0">
+                                        <span className="text-gray-400 text-4xl font-light leading-none group-hover:text-white transition-colors">0{i + 1}</span>
+                                    </div>
+
+                                    {/* Vertical Bar */}
+                                    <div className={`w-2.5 h-16 rounded-full bg-gradient-to-b ${item.gradient} shrink-0 mx-6 shadow-md`} />
+
+                                    {/* Icon */}
+                                    <div className="shrink-0 mr-6">
+                                        {item.icon}
+                                    </div>
+
+                                    {/* Text */}
+                                    <div className="text-gray-300 group-hover:text-white transition-colors text-sm font-medium leading-relaxed max-w-[200px] md:max-w-xs">
+                                        {item.text}
+                                    </div>
+                                </motion.div>
                             ))}
-                        </ul>
+                        </div>
                         <GradientButton href="/contact">Book a Mobile Strategy Call</GradientButton>
                     </motion.div>
                 </div>
@@ -177,48 +322,6 @@ export default function MobileAppDevelopmentContent() {
             <Testimonials />
 
             <FaqSection />
-
-            {/* Lead Form Section */}
-            <section id="quote" className="py-24 px-4 bg-gradient-to-b from-black to-slate-900/50 overflow-hidden relative">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                    <div>
-                        <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to Build Your <br /><span className="text-blue-400">Mobile Empire?</span></h2>
-                        <p className="text-gray-400 text-lg mb-12">
-                            Our team is ready to guide you from wireframe to launch. Let's create something extraordinary together.
-                        </p>
-                        <div className="space-y-6">
-                            <div className="flex items-center gap-4">
-                                <div className="size-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
-                                    <SmartphoneIcon className="size-5" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold">Device Agnostic</h4>
-                                    <p className="text-sm text-gray-400">Perfect performance on iOS and Android.</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <div className="size-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400">
-                                    <CpuIcon className="size-4" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold">Next-Gen Tech</h4>
-                                    <p className="text-sm text-gray-400">Using Flutter and React Native for split-second speed.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="relative">
-                        <div className="absolute -inset-4 bg-blue-500/5 blur-2xl rounded-3xl pointer-events-none" />
-                        <LeadForm
-                            title="Request a Mobile Quote"
-                            description="Share your app vision with us."
-                        />
-                    </div>
-                </div>
-            </section>
         </main>
     );
 }

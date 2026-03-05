@@ -14,7 +14,7 @@ const VideoModal = dynamic(() => import("@/components/video-modal"), {
 
 const stats = [
     { label: "Projects Delivered", value: "200+" },
-    { label: "Years Experience", value: "8+" },
+    { label: "Years Experience", value: "10+" },
     { label: "Global Clients", value: "15 Countries" },
 ];
 
@@ -44,7 +44,7 @@ const testimonials = [
         location: "London, UK",
         flag: "🇬🇧",
         rating: 5,
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&auto=format&fit=crop",
+        image: "/assets/man.jpg",
         projectType: "Custom Web App",
         resultBadgeText: "65% Faster Load Speed",
         resultBadgeColor: "text-blue-600 bg-blue-100",
@@ -59,7 +59,7 @@ const testimonials = [
         location: "Wheelhouse, Oxford OX4 1AW",
         flag: "LANDON",
         rating: 5,
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&auto=format&fit=crop",
+        image: "/assets/angela.png",
         projectType: "Laravel Backend",
         resultBadgeText: "+42% Conversion Growth",
         resultBadgeColor: "text-green-600 bg-green-100",
@@ -194,12 +194,12 @@ const TestimonialCard = ({ item, onVideoClick }) => {
             {/* Header: Client Photo + Details + Location */}
             <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 border-2 border-[#ff7a18]/20 shadow-sm">
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                         src={item.image}
                         alt={item.name}
-                        fill
-                        className="object-cover"
-                        sizes="56px"
+                        className="object-cover object-top w-full h-full"
+                        loading="lazy"
                     />
                 </div>
                 <div className="flex flex-col flex-grow">

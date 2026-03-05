@@ -8,8 +8,8 @@ import GradientButton from "@/components/gradient-button";
 export default function Footer() {
     const quickLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Services', href: '/services' },
-        { name: 'Case Studies', href: '/case-studies' },
+        { name: 'Our Services', href: '/services' },
+        { name: 'About Us', href: '/about' },
         { name: 'Contact', href: '/contact' },
         { name: 'Privacy Policy', href: '/privacy' },
         { name: 'Terms & Conditions', href: '/terms' },

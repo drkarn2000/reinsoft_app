@@ -108,7 +108,7 @@ function CaseStudyContent() {
                                 {project.shortDescription}
                             </p>
                         )}
-                        {!hideDemo && (
+                        {!hideDemo && project.showDemo !== false && (
                             <div className="flex flex-wrap justify-center gap-4">
                                 {project.liveLink ? (
                                     <motion.a
