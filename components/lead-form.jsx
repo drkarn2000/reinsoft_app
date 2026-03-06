@@ -27,7 +27,7 @@ export default function LeadForm({ title, description }) {
         try {
             const payload = {
                 ...formData,
-                companyName: formData.enquiryType,   // Using enquiryType as company back-compat
+                companyName: formData.enquiryType,
             };
 
             const response = await fetch('/api/lead-submissions', {
@@ -49,8 +49,6 @@ export default function LeadForm({ title, description }) {
                     budget: '',
                     message: ''
                 });
-
-                // Clear the success message after 1 minute (60000 ms)
                 setTimeout(() => {
                     setSubmitResult(null);
                 }, 60000);
@@ -67,11 +65,7 @@ export default function LeadForm({ title, description }) {
 
     return (
         <motion.div
-<<<<<<< HEAD
-            className="w-full max-w-md bg-white p-5 sm:p-6 rounded-2xl shadow-xl"
-=======
             className="w-full max-w-xl bg-white p-5 sm:p-6 rounded-2xl shadow-xl"
->>>>>>> 2b69f85 (Updated project files)
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -200,10 +194,6 @@ export default function LeadForm({ title, description }) {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-<<<<<<< HEAD
-                        className={`w-full relative py-3 rounded-full font-bold text-white shadow-lg transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-0.5'}`}
-=======
->>>>>>> 2b69f85 (Updated project files)
                         style={{
                             position: 'relative',
                             display: 'inline-flex',
@@ -240,7 +230,6 @@ export default function LeadForm({ title, description }) {
                             }
                         }}
                     >
-                        {/* Gradient colour layer */}
                         <span style={{
                             position: 'absolute',
                             inset: 0,
@@ -249,7 +238,6 @@ export default function LeadForm({ title, description }) {
                             opacity: 0.9,
                             pointerEvents: 'none',
                         }} />
-
                         <span style={{ position: 'relative', zIndex: 1 }}>
                             {isSubmitting ? 'Sending...' : 'Send Now'}
                         </span>
