@@ -37,8 +37,8 @@ export default function FaqSection() {
             <SectionTitle title="Frequently Asked Questions" description="Find answers to common questions about our services, process, and how we can help your business grow." gradient={true} />
             <div className='mx-auto mt-12 space-y-4 w-full max-w-xl'>
                 {data.map((item, index) => (
-                    <div key={index} className='flex flex-col glass global-orange-glow rounded-[2rem]'>
-                        <h3 className='flex cursor-pointer hover:bg-white/10 transition items-start justify-between gap-4 p-4 font-medium' onClick={() => setIsOpen(isOpen === index ? null : index)}>
+                    <div key={index} className='flex flex-col rainbow-lighting-card rounded-[2rem]'>
+                        <h3 className='flex cursor-pointer items-start justify-between gap-4 p-4 font-medium' onClick={() => setIsOpen(isOpen === index ? null : index)}>
                             {item.question}
                             <ChevronDownIcon className={`size-5 transition-all shrink-0 duration-400 ${isOpen === index ? 'rotate-180' : ''}`} />
                         </h3>

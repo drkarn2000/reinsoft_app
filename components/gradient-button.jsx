@@ -6,7 +6,7 @@ export default function GradientButton({
     children,
     onClick,
     className = "",
-    contentClassName = "bg-black/80 hover:bg-black/60", // Default dark bg
+    contentClassName = "bg-black/80 hover:bg-black/60 px-6 py-2.5 text-white rounded-full", // Default dark bg
     useTrustStripStyle = false,
     loop = true,
     ...props
@@ -26,7 +26,7 @@ export default function GradientButton({
             {...props}
         >
             <span className={`absolute ${useTrustStripStyle ? 'inset-[-100%]' : 'inset-[-1000%]'} ${loop ? 'animate-[spin_3s_linear_infinite]' : ''} bg-[conic-gradient(from_90deg_at_50%_50%,#ff7a18_0%,#3b82f6_50%,#ff7a18_100%)] opacity-80`} />
-            <span className={`relative z-10 flex items-center justify-center w-full px-6 py-2.5 backdrop-blur-md rounded-full text-white transition-colors ${contentClassName}`}>
+            <span className={`relative z-10 flex items-center justify-center w-full backdrop-blur-md transition-colors ${contentClassName}`}>
                 {children}
             </span>
         </Component>

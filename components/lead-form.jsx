@@ -7,6 +7,7 @@ export default function LeadForm({ title, description }) {
         name: '',
         email: '',
         phone: '',
+        country: '',
         enquiryType: '',
         budget: '',
         message: ''
@@ -43,6 +44,7 @@ export default function LeadForm({ title, description }) {
                     name: '',
                     email: '',
                     phone: '',
+                    country: '',
                     enquiryType: '',
                     budget: '',
                     message: ''
@@ -65,7 +67,11 @@ export default function LeadForm({ title, description }) {
 
     return (
         <motion.div
+<<<<<<< HEAD
             className="w-full max-w-md bg-white p-5 sm:p-6 rounded-2xl shadow-xl"
+=======
+            className="w-full max-w-xl bg-white p-5 sm:p-6 rounded-2xl shadow-xl"
+>>>>>>> 2b69f85 (Updated project files)
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -141,6 +147,19 @@ export default function LeadForm({ title, description }) {
                     </select>
                 </div>
                 <div>
+                    <label htmlFor="country" className="sr-only">Country*</label>
+                    <input
+                        type="text"
+                        id="country"
+                        name="country"
+                        placeholder="Country*"
+                        required
+                        value={formData.country}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-800 transition-shadow"
+                    />
+                </div>
+                <div>
                     <label htmlFor="budget" className="sr-only">Budget*</label>
                     <select
                         id="budget"
@@ -177,18 +196,63 @@ export default function LeadForm({ title, description }) {
                     ></textarea>
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-2 flex justify-center">
                     <button
                         type="submit"
                         disabled={isSubmitting}
+<<<<<<< HEAD
                         className={`w-full relative py-3 rounded-full font-bold text-white shadow-lg transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-0.5'}`}
+=======
+>>>>>>> 2b69f85 (Updated project files)
                         style={{
-                            background: 'linear-gradient(to right, #3b82f6, #ff7a18)',
-                            boxShadow: '0 4px 15px rgba(255, 122, 24, 0.3)'
+                            position: 'relative',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            padding: '12px 32px',
+                            width: '100%',
+                            borderRadius: '999px',
+                            fontSize: '15px',
+                            fontWeight: '700',
+                            color: '#fff',
+                            letterSpacing: '0.01em',
+                            cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                            border: 'none',
+                            outline: 'none',
+                            background: 'linear-gradient(135deg, rgba(255,80,180,0.18) 0%, rgba(255,122,24,0.22) 50%, rgba(200,60,255,0.18) 100%)',
+                            boxShadow: '0 0 0 1.5px rgba(255,100,200,0.55), 0 0 18px 4px rgba(255,80,180,0.28), 0 0 32px 8px rgba(255,122,24,0.15), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            transition: 'box-shadow 0.3s ease, transform 0.2s ease',
+                            overflow: 'hidden',
+                            opacity: isSubmitting ? 0.7 : 1,
+                        }}
+                        onMouseEnter={e => {
+                            if (!isSubmitting) {
+                                e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,100,200,0.8), 0 0 28px 8px rgba(255,80,180,0.45), 0 0 50px 12px rgba(255,122,24,0.25), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                                e.currentTarget.style.transform = 'scale(1.02)';
+                            }
+                        }}
+                        onMouseLeave={e => {
+                            if (!isSubmitting) {
+                                e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,100,200,0.55), 0 0 18px 4px rgba(255,80,180,0.28), 0 0 32px 8px rgba(255,122,24,0.15), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                                e.currentTarget.style.transform = 'scale(1)';
+                            }
                         }}
                     >
-                        <div className="absolute inset-0 rounded-full bg-white opacity-0 hover:opacity-10 transition-opacity"></div>
-                        {isSubmitting ? 'Sending...' : 'Send Now'}
+                        {/* Gradient colour layer */}
+                        <span style={{
+                            position: 'absolute',
+                            inset: 0,
+                            borderRadius: '999px',
+                            background: 'linear-gradient(to right, #3b82f6, #ff7a18)',
+                            opacity: 0.9,
+                            pointerEvents: 'none',
+                        }} />
+
+                        <span style={{ position: 'relative', zIndex: 1 }}>
+                            {isSubmitting ? 'Sending...' : 'Send Now'}
+                        </span>
                     </button>
                 </div>
             </form>

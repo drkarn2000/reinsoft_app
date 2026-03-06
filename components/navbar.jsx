@@ -17,7 +17,7 @@ export default function Navbar() {
 
     const links = [
         { name: 'Home', href: '/' },
-        { name: 'Why Choose Us', href: '/#why-choose-us' },
+        { name: 'About Us', href: '/about' },
         {
             name: 'Our Services',
             href: '/services',
@@ -27,9 +27,7 @@ export default function Navbar() {
                 { name: 'All Services', href: '/services', icon: <LayoutGridIcon className="size-4" />, description: 'Explore our full list' },
             ]
         },
-        { name: 'Case Studies', href: '/case-studies' },
-        { name: 'Our Team', href: '/#team' },
-        { name: 'Testimonial', href: '/testimonial' },
+        { name: 'Our Work', href: '/our-work' },
     ];
 
     useEffect(() => {
@@ -67,14 +65,16 @@ export default function Navbar() {
                 />
 
                 <Link href='/'>
-                    <Image
-                        src='/assets/logo.png'
-                        alt='Reinsoft Logo'
-                        className='h-24 w-auto'
-                        width={240}
-                        height={96}
-                        priority
-                    />
+                    <div className="relative h-24 w-[240px]">
+                        <Image
+                            src='/assets/logo.png'
+                            alt='Reinsoft Logo'
+                            fill
+                            className='object-contain'
+                            priority
+                            sizes="240px"
+                        />
+                    </div>
                 </Link>
 
                 <div className='hidden items-center space-x-2 md:flex'>
@@ -85,9 +85,14 @@ export default function Navbar() {
                             onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
                             onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
                         >
-                            <GradientButton href={link.href} loop={false} className="flex items-center gap-1.5">
+                            <GradientButton
+                                href={link.href}
+                                loop={false}
+                                className="flex items-center"
+                                contentClassName="bg-black/80 hover:bg-black/60 px-4 py-1.5 text-sm font-medium text-white rounded-full flex items-center gap-1"
+                            >
                                 {link.name}
-                                {link.dropdown && <ChevronDownIcon className={`size-4.5 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
                             </GradientButton>
 
                             {link.dropdown && (
@@ -127,13 +132,12 @@ export default function Navbar() {
                         </div>
                     ))}
 
-                    {/* <GradientButton
+                    <Link
                         href='/contact'
-                        contentClassName="bg-black/20 hover:bg-black/40 backdrop-blur-md ml-4"
-                        useTrustStripStyle={true}
+                        className="ml-4 px-6 py-2 text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.23)] hover:-translate-y-0.5 transition-all duration-200"
                     >
-                        Get Estimate
-                    </GradientButton> */}
+                        Let's Talk
+                    </Link>
                 </div>
 
                 <button
@@ -154,6 +158,8 @@ export default function Navbar() {
                             href={link.href}
                             onClick={() => setIsOpen(false)}
                             loop={false}
+                            className="flex items-center"
+                            contentClassName="bg-black/80 hover:bg-black/60 px-4 py-1.5 text-sm font-medium text-white rounded-full flex items-center gap-1.5"
                         >
                             {link.name}
                         </GradientButton>
@@ -175,14 +181,13 @@ export default function Navbar() {
                     </div>
                 ))}
 
-                {/* <GradientButton
+                <Link
                     href='/contact'
                     onClick={() => setIsOpen(false)}
-                    contentClassName="bg-black/20 hover:bg-black/40 backdrop-blur-md mt-6"
-                    useTrustStripStyle={true}
+                    className="mt-6 px-8 py-3 text-base font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.23)] transition-all duration-200"
                 >
-                    Get Estimate
-                </GradientButton> */}
+                    Let's Talk
+                </Link>
 
                 <button
                     onClick={() => setIsOpen(false)}
