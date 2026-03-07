@@ -53,7 +53,7 @@ export default function WorkflowSteps() {
                 gradient={true}
             />
 
-            <motion.div className="relative space-y-20 md:space-y-30 mt-20"
+            <motion.div className="relative space-y-20 md:space-y-30 mt-20 px-4 sm:px-6 lg:px-8"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}

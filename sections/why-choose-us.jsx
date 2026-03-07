@@ -54,7 +54,7 @@ function RoadmapCard({ reason, index }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="relative flex flex-row items-center bg-white/5 border border-white/10 rounded-2xl overflow-visible group hover:bg-white/[0.08] transition-all duration-500 ml-6"
+            className="relative flex flex-row items-center bg-white/5 border border-white/10 rounded-2xl overflow-visible group hover:bg-white/[0.08] transition-all duration-500 ml-5 sm:ml-7"
         >
             {/* Left accent bar */}
             <div className={`absolute left-0 top-0 bottom-0 w-1 ${colors.bar} rounded-l-2xl`} />
@@ -117,7 +117,7 @@ export default function WhyChooseUs() {
                 gradient={true}
             />
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mt-14 px-6 max-w-7xl mx-auto items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mt-14 px-4 sm:px-6 max-w-7xl mx-auto items-center">
 
                 {/* Left Side: Roadmap Cards */}
                 <div className="flex flex-col gap-4">
@@ -128,7 +128,7 @@ export default function WhyChooseUs() {
 
                 {/* Right Side: Image */}
                 <motion.div
-                    className="relative w-full h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+                    className="relative w-full h-[360px] sm:h-[480px] lg:h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
                     initial={{ x: 50, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}

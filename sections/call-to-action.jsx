@@ -35,7 +35,7 @@ export default function CallToAction() {
                 <div className="absolute inset-0 rounded-3xl border border-white/10 pointer-events-none" />
 
                 {/* Content */}
-                <div className="relative z-10 px-8 py-16 md:px-20 md:py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div className="relative z-10 px-5 py-12 sm:px-8 sm:py-16 md:px-20 md:py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
 
                     {/* Left: Text */}
                     <div className="flex-1 text-left">

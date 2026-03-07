@@ -38,7 +38,7 @@ export default function Features() {
                 gradient={true}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 px-6 max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 px-4 sm:px-6 max-w-7xl mx-auto relative z-10">
                 {featuresData.map((feature, index) => {
                     // Distinct premium theme for each card with enhanced glow colors
                     const themes = [

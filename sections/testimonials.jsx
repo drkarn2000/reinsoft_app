@@ -13,7 +13,7 @@ const VideoModal = dynamic(() => import("@/components/video-modal"), {
 });
 
 const stats = [
-    { icon: "⭐", value: "100+", label: "Successful Projects" },
+    { icon: "⭐", value: "200+", label: "Successful Projects" },
     { icon: "🌍", value: "15+", label: "Countries Worldwide" },
     { icon: "🚀", value: "10+", label: "Years Experience" },
     { icon: "💼", value: "Startups", label: "to Enterprise Clients" },
@@ -258,19 +258,19 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                             cursor: 'pointer',
                             border: 'none',
                             outline: 'none',
-                            background: 'linear-gradient(135deg, #1e1a6e 0%, #3a2a9e 40%, #ff7a18 100%)',
-                            boxShadow: '0 0 0 1.5px rgba(255,122,24,0.5), 0 0 18px 4px rgba(255,122,24,0.22), 0 0 32px 8px rgba(30,26,110,0.3), inset 0 1.5px 6px rgba(255,255,255,0.12), inset 0 -2px 8px rgba(0,0,0,0.35)',
+                            background: 'linear-gradient(135deg, rgba(255,122,24,0.22) 0%, rgba(255,160,50,0.28) 50%, rgba(255,100,0,0.22) 100%)',
+                            boxShadow: '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
                             backdropFilter: 'blur(12px)',
                             WebkitBackdropFilter: 'blur(12px)',
                             transition: 'box-shadow 0.3s ease, transform 0.2s ease',
                             overflow: 'hidden',
                         }}
                         onMouseEnter={e => {
-                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.9), 0 0 28px 8px rgba(255,122,24,0.45), 0 0 50px 12px rgba(30,26,110,0.4), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.9), 0 0 28px 8px rgba(255,122,24,0.55), 0 0 50px 12px rgba(255,160,50,0.35), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
                             e.currentTarget.style.transform = 'scale(1.04)';
                         }}
                         onMouseLeave={e => {
-                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.5), 0 0 18px 4px rgba(255,122,24,0.22), 0 0 32px 8px rgba(30,26,110,0.3), inset 0 1.5px 6px rgba(255,255,255,0.12), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
                             e.currentTarget.style.transform = 'scale(1)';
                         }}
                     >
@@ -279,7 +279,7 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                             position: 'absolute',
                             inset: 0,
                             borderRadius: '999px',
-                            background: 'linear-gradient(120deg, rgba(30,26,110,0.4) 0%, rgba(58,42,158,0.3) 45%, rgba(255,122,24,0.5) 100%)',
+                            background: 'linear-gradient(120deg, rgba(255,100,0,0.40) 0%, rgba(255,140,30,0.50) 50%, rgba(255,80,0,0.40) 100%)',
                             pointerEvents: 'none',
                         }} />
                         <span style={{ position: 'relative', zIndex: 1 }}>See How We Did It</span>
@@ -300,19 +300,19 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                             cursor: 'pointer',
                             border: 'none',
                             outline: 'none',
-                            background: 'linear-gradient(135deg, #1e1a6e 0%, #3a2a9e 40%, #ff7a18 100%)',
-                            boxShadow: '0 0 0 1.5px rgba(255,122,24,0.5), 0 0 18px 4px rgba(255,122,24,0.22), 0 0 32px 8px rgba(30,26,110,0.3), inset 0 1.5px 6px rgba(255,255,255,0.12), inset 0 -2px 8px rgba(0,0,0,0.35)',
+                            background: 'linear-gradient(135deg, rgba(255,122,24,0.22) 0%, rgba(255,160,50,0.28) 50%, rgba(255,100,0,0.22) 100%)',
+                            boxShadow: '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
                             backdropFilter: 'blur(12px)',
                             WebkitBackdropFilter: 'blur(12px)',
                             transition: 'box-shadow 0.3s ease, transform 0.2s ease',
                             overflow: 'hidden',
                         }}
                         onMouseEnter={e => {
-                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.9), 0 0 28px 8px rgba(255,122,24,0.45), 0 0 50px 12px rgba(30,26,110,0.4), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.9), 0 0 28px 8px rgba(255,122,24,0.55), 0 0 50px 12px rgba(255,160,50,0.35), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
                             e.currentTarget.style.transform = 'scale(1.04)';
                         }}
                         onMouseLeave={e => {
-                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.5), 0 0 18px 4px rgba(255,122,24,0.22), 0 0 32px 8px rgba(30,26,110,0.3), inset 0 1.5px 6px rgba(255,255,255,0.12), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
                             e.currentTarget.style.transform = 'scale(1)';
                         }}
                     >
@@ -321,7 +321,7 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                             position: 'absolute',
                             inset: 0,
                             borderRadius: '999px',
-                            background: 'linear-gradient(120deg, rgba(30,26,110,0.4) 0%, rgba(58,42,158,0.3) 45%, rgba(255,122,24,0.5) 100%)',
+                            background: 'linear-gradient(120deg, rgba(255,100,0,0.40) 0%, rgba(255,140,30,0.50) 50%, rgba(255,80,0,0.40) 100%)',
                             pointerEvents: 'none',
                         }} />
                         <span style={{ position: 'relative', zIndex: 1 }}>See How We Did It</span>
@@ -350,7 +350,7 @@ export default function Testimonials({ limit }) {
             {/* Ambient background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#ff7a18]/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
                 {/* Section Header */}
                 <div className="text-center max-w-2xl mx-auto mb-12">

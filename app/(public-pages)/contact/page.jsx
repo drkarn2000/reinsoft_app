@@ -452,8 +452,8 @@ function ContactFormContent() {
                                                 cursor: isSubmitting ? 'not-allowed' : 'pointer',
                                                 border: 'none',
                                                 outline: 'none',
-                                                background: 'linear-gradient(135deg, rgba(255,80,180,0.18) 0%, rgba(255,122,24,0.22) 50%, rgba(200,60,255,0.18) 100%)',
-                                                boxShadow: '0 0 0 1.5px rgba(255,100,200,0.55), 0 0 18px 4px rgba(255,80,180,0.28), 0 0 32px 8px rgba(255,122,24,0.15), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
+                                                background: 'linear-gradient(135deg, rgba(255,122,24,0.22) 0%, rgba(255,160,50,0.28) 50%, rgba(255,100,0,0.22) 100%)',
+                                                boxShadow: '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
                                                 backdropFilter: 'blur(12px)',
                                                 WebkitBackdropFilter: 'blur(12px)',
                                                 transition: 'box-shadow 0.3s ease, transform 0.2s ease',
@@ -462,13 +462,13 @@ function ContactFormContent() {
                                             }}
                                             onMouseEnter={e => {
                                                 if (!isSubmitting) {
-                                                    e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,100,200,0.8), 0 0 28px 8px rgba(255,80,180,0.45), 0 0 50px 12px rgba(255,122,24,0.25), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                                                    e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.9), 0 0 28px 8px rgba(255,122,24,0.55), 0 0 50px 12px rgba(255,160,50,0.35), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
                                                     e.currentTarget.style.transform = 'scale(1.04)';
                                                 }
                                             }}
                                             onMouseLeave={e => {
                                                 if (!isSubmitting) {
-                                                    e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,100,200,0.55), 0 0 18px 4px rgba(255,80,180,0.28), 0 0 32px 8px rgba(255,122,24,0.15), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                                                    e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
                                                     e.currentTarget.style.transform = 'scale(1)';
                                                 }
                                             }}
@@ -478,7 +478,7 @@ function ContactFormContent() {
                                                 position: 'absolute',
                                                 inset: 0,
                                                 borderRadius: '999px',
-                                                background: 'linear-gradient(120deg, rgba(255,60,160,0.30) 0%, rgba(255,140,30,0.35) 45%, rgba(180,60,255,0.28) 100%)',
+                                                background: 'linear-gradient(120deg, rgba(255,100,0,0.40) 0%, rgba(255,140,30,0.50) 50%, rgba(255,80,0,0.40) 100%)',
                                                 pointerEvents: 'none',
                                             }} />
 
