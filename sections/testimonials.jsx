@@ -13,15 +13,16 @@ const VideoModal = dynamic(() => import("@/components/video-modal"), {
 });
 
 const stats = [
-    { label: "Projects Delivered", value: "200+" },
-    { label: "Years Experience", value: "10+" },
-    { label: "Global Clients", value: "15 Countries" },
+    { icon: "⭐", value: "200+", label: "Successful Projects" },
+    { icon: "🌍", value: "15+", label: "Countries Worldwide" },
+    { icon: "🚀", value: "10+", label: "Years Experience" },
+    { icon: "💼", value: "Startups", label: "to Enterprise Clients" },
 ];
 
 const testimonials = [
     {
         id: 1,
-        review: "I want to take a moment to express my deepest gratitude and appreciation for Manpreet... Manpreet showcased not only excellent technical expertise in React and web development but also a true sense of ownership.",
+        review: "I want to take a moment to express my deepest gratitude and appreciation for Manpreet from Reinsoft. He showcased excellent technical expertise in React and web development and demonstrated a true sense of ownership throughout the project.",
         name: "Sujoye Dhar",
         role: "CTO",
         companyLogo: "Biswakarma",
@@ -37,7 +38,7 @@ const testimonials = [
     },
     {
         id: 2,
-        review: "The custom CRM they built for us completely streamlined our operations. What used to take days now takes hours. Amarjeet did an exceptional job with converting my Custom CRM. I have worked with lots of developers and he outperformed them all!",
+        review: "The custom website built by Amarjeet from Reinsoft completely streamlined our operations. What used to take days now takes hours. I have worked with many developers before, but Amarjeet truly outperformed them all.",
         name: "Ehsan F.",
         role: "Product Owner",
         companyLogo: "thirty30media",
@@ -52,7 +53,7 @@ const testimonials = [
     },
     {
         id: 3,
-        review: "Working with Reinsoft on our SaaS platform was a game-changer. They understood our vision perfectly and the Laravel backend and flutter app is rock solid. Best work delivered, on time and prompt in response.",
+        review: "Working with the Reinsoft team on our SaaS platform was a game-changer. They understood our vision perfectly and delivered a rock-solid Laravel backend. Everything was delivered on time with prompt communication..",
         name: "Angela",
         role: "Founder",
         companyLogo: "Legacy Marketplace",
@@ -60,7 +61,7 @@ const testimonials = [
         flag: "LANDON",
         rating: 5,
         image: "/assets/angela.png",
-        projectType: "Laravel Backend",
+        projectType: "Laravel SaaS Platform",
         resultBadgeText: "+42% Conversion Growth",
         resultBadgeColor: "text-green-600 bg-green-100",
         link: "/case-studies/legacy-marketplace"
@@ -83,7 +84,7 @@ const testimonials = [
     },
     {
         id: 5,
-        review: "Amerjeet has high professional value and expertise, very good listener which make communication lot easier for customer, I am not expert in software terminology but he understand and foresee customer requirement and provide solution according, that has helped us a lot.",
+        review: "I am really happy with the performance. Tanu and Amarjeet from Reinsoft did exactly what was required and delivered excellent work. They were highly professional and easy to work with..",
         name: "Umesh Patel",
         role: "CEO",
         companyLogo: "Mohini Cloud (POS)",
@@ -99,7 +100,7 @@ const testimonials = [
     },
     {
         id: 6,
-        review: "Am really happy with the performance Tanu & Amarjit did exactly what was required and did excellent work. Highly professional and easy to work with, Would definitely work with him again. Thanks a lot once again.",
+        review: "Am really happy with the performance Tanu & Amarjit (Team REINSOFT) did exactly what was required and did excellent work. Highly professional and easy to work with, Would definitely work with him again. Thanks a lot once again.",
         name: "Kishor Kumar",
         role: "Managing Director",
         companyLogo: "Vridez Private Limited",
@@ -116,7 +117,7 @@ const testimonials = [
     },
     {
         id: 7,
-        review: "I had a fantastic experience working with Amarjeet S. They were professional and highly skilled and delivered exceptional results on my project. Their attention to detail, communication, and ability to understand my requirements made the entire process smooth and efficient. The final product exceeded my expectations, and I would highly recommend them to anyone looking for a talented and reliable freelancer. I look forward to working with them again in the future!",
+        review: "I had a fantastic experience working with Amarjeet from Reinsoft. He was professional, highly skilled, and delivered exceptional results. The attention to detail and understanding of requirements made the entire process smooth.",
         name: "Sagar Jujare",
         role: "CEO",
         companyLogo: "Jujare Tech Advisors",
@@ -132,7 +133,7 @@ const testimonials = [
     },
     {
         id: 8,
-        review: "Tanu did an amazing job with development on my website. she understands clearly what i need and implements it correctly, She didn't give up until it was perfectly working. they guided us every step. The resulting website is a hit with our clients. Thank you ReinSoft team, recommended developer go for it, will definitely work with you again.",
+        review: "Tanu from the Reinsoft team did an amazing job developing our website. They clearly understood our requirements and implemented everything perfectly. The final website turned out to be a big success with our clients.",
         name: "Sandeep Singh",
         role: "IT Manager",
         companyLogo: "IndraSur Consulting",
@@ -148,7 +149,7 @@ const testimonials = [
     },
     {
         id: 9,
-        review: "The mobile app they created for our gym allows members to book classes effortlessly. It's fast, sleek, and didn't break our budget.",
+        review: "The mobile app created by the Reinsoft team allows our gym members to book classes effortlessly. It’s fast, sleek, and delivered within our budget",
         name: "Saim",
         role: "CTO",
         companyLogo: "ELIGHT MALE WELLNESS",
@@ -193,12 +194,13 @@ const TestimonialCard = ({ item, onVideoClick }) => {
 
             {/* Header: Client Photo + Details + Location */}
             <div className="flex items-center gap-4 mb-4">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 border-2 border-[#ff7a18]/20 shadow-sm">
+                <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 border-2 border-[#ff7a18]/20 shadow-sm" style={{ background: item.name === 'Angela' ? '#fff' : 'transparent' }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src={item.image}
-                        alt={item.name}
-                        className="object-cover object-top w-full h-full"
+                        alt={`Client ${item.name} - ${item.role} @ ${item.companyLogo}`}
+                        title={`Testimonial from ${item.name}`}
+                        className={`w-full h-full ${item.name === 'Angela' ? 'object-contain p-1' : 'object-cover object-top'}`}
                         loading="lazy"
                     />
                 </div>
@@ -257,28 +259,28 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                             cursor: 'pointer',
                             border: 'none',
                             outline: 'none',
-                            background: 'linear-gradient(135deg, rgba(255,80,180,0.18) 0%, rgba(255,122,24,0.22) 50%, rgba(200,60,255,0.18) 100%)',
-                            boxShadow: '0 0 0 1.5px rgba(255,100,200,0.55), 0 0 18px 4px rgba(255,80,180,0.28), 0 0 32px 8px rgba(255,122,24,0.15), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
+                            background: 'linear-gradient(135deg, rgba(255,122,24,0.22) 0%, rgba(255,160,50,0.28) 50%, rgba(255,100,0,0.22) 100%)',
+                            boxShadow: '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
                             backdropFilter: 'blur(12px)',
                             WebkitBackdropFilter: 'blur(12px)',
                             transition: 'box-shadow 0.3s ease, transform 0.2s ease',
                             overflow: 'hidden',
                         }}
                         onMouseEnter={e => {
-                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,100,200,0.8), 0 0 28px 8px rgba(255,80,180,0.45), 0 0 50px 12px rgba(255,122,24,0.25), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.9), 0 0 28px 8px rgba(255,122,24,0.55), 0 0 50px 12px rgba(255,160,50,0.35), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
                             e.currentTarget.style.transform = 'scale(1.04)';
                         }}
                         onMouseLeave={e => {
-                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,100,200,0.55), 0 0 18px 4px rgba(255,80,180,0.28), 0 0 32px 8px rgba(255,122,24,0.15), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
                             e.currentTarget.style.transform = 'scale(1)';
                         }}
                     >
-                        {/* Gradient colour layer */}
+                        {/* Logo-matched gradient overlay */}
                         <span style={{
                             position: 'absolute',
                             inset: 0,
                             borderRadius: '999px',
-                            background: 'linear-gradient(120deg, rgba(255,60,160,0.30) 0%, rgba(255,140,30,0.35) 45%, rgba(180,60,255,0.28) 100%)',
+                            background: 'linear-gradient(120deg, rgba(255,100,0,0.40) 0%, rgba(255,140,30,0.50) 50%, rgba(255,80,0,0.40) 100%)',
                             pointerEvents: 'none',
                         }} />
                         <span style={{ position: 'relative', zIndex: 1 }}>See How We Did It</span>
@@ -299,28 +301,28 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                             cursor: 'pointer',
                             border: 'none',
                             outline: 'none',
-                            background: 'linear-gradient(135deg, rgba(255,80,180,0.18) 0%, rgba(255,122,24,0.22) 50%, rgba(200,60,255,0.18) 100%)',
-                            boxShadow: '0 0 0 1.5px rgba(255,100,200,0.55), 0 0 18px 4px rgba(255,80,180,0.28), 0 0 32px 8px rgba(255,122,24,0.15), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
+                            background: 'linear-gradient(135deg, rgba(255,122,24,0.22) 0%, rgba(255,160,50,0.28) 50%, rgba(255,100,0,0.22) 100%)',
+                            boxShadow: '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
                             backdropFilter: 'blur(12px)',
                             WebkitBackdropFilter: 'blur(12px)',
                             transition: 'box-shadow 0.3s ease, transform 0.2s ease',
                             overflow: 'hidden',
                         }}
                         onMouseEnter={e => {
-                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,100,200,0.8), 0 0 28px 8px rgba(255,80,180,0.45), 0 0 50px 12px rgba(255,122,24,0.25), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.9), 0 0 28px 8px rgba(255,122,24,0.55), 0 0 50px 12px rgba(255,160,50,0.35), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
                             e.currentTarget.style.transform = 'scale(1.04)';
                         }}
                         onMouseLeave={e => {
-                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,100,200,0.55), 0 0 18px 4px rgba(255,80,180,0.28), 0 0 32px 8px rgba(255,122,24,0.15), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
                             e.currentTarget.style.transform = 'scale(1)';
                         }}
                     >
-                        {/* Gradient colour layer */}
+                        {/* Logo-matched gradient overlay */}
                         <span style={{
                             position: 'absolute',
                             inset: 0,
                             borderRadius: '999px',
-                            background: 'linear-gradient(120deg, rgba(255,60,160,0.30) 0%, rgba(255,140,30,0.35) 45%, rgba(180,60,255,0.28) 100%)',
+                            background: 'linear-gradient(120deg, rgba(255,100,0,0.40) 0%, rgba(255,140,30,0.50) 50%, rgba(255,80,0,0.40) 100%)',
                             pointerEvents: 'none',
                         }} />
                         <span style={{ position: 'relative', zIndex: 1 }}>See How We Did It</span>
@@ -349,13 +351,13 @@ export default function Testimonials({ limit }) {
             {/* Ambient background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#ff7a18]/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
                 {/* Section Header */}
                 <div className="text-center max-w-2xl mx-auto mb-12">
                     <SectionTitle
-                        title="Trusted by Growing Businesses Worldwide"
-                        description="Real feedback from founders, startups, and enterprise teams we've partnered with."
+                        title="Client Testimonials for Our IT Solutions"
+                        description="Don't just take our word for it—see what our partners say about working directly with a team that delivers results."
                         gradient={true}
                     />
                 </div>
@@ -373,22 +375,67 @@ export default function Testimonials({ limit }) {
 
                 {/* Conversion Booster / Stats */}
                 <div className="mt-20 border-t border-white/10 pt-12">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10 max-w-4xl mx-auto">
+                    {/* Section Label */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center text-sm font-semibold tracking-widest uppercase text-[#ff7a18] mb-8"
+                    >
+                        Trusted by Businesses Worldwide
+                    </motion.p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
                         {stats.map((stat, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 24 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="px-4 py-4 md:py-0"
+                                className="relative p-[1.5px] rounded-2xl group"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(255,122,24,0.55) 0%, rgba(255,80,180,0.35) 40%, rgba(100,100,255,0.25) 70%, rgba(255,122,24,0.4) 100%)',
+                                    boxShadow: '0 0 18px 2px rgba(255,122,24,0.18), 0 0 40px 6px rgba(255,80,180,0.10)',
+                                }}
                             >
-                                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-2">
-                                    {stat.value}
-                                </div>
-                                <div className="text-sm md:text-base text-[#ff7a18] font-medium tracking-wide uppercase">
-                                    {stat.label}
-                                </div>
+                                {/* Inner card */}
+                                <motion.div
+                                    whileHover={{ scale: 1.03 }}
+                                    transition={{ duration: 0.25 }}
+                                    className="relative flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-transparent overflow-hidden"
+                                    style={{
+                                        boxShadow: 'inset 0 0 40px 6px rgba(255,122,24,0.06)',
+                                    }}
+                                    onMouseEnter={e => {
+                                        e.currentTarget.parentElement.style.boxShadow = '0 0 36px 8px rgba(255,122,24,0.45), 0 0 70px 18px rgba(255,80,180,0.22), 0 0 120px 30px rgba(100,100,255,0.10)';
+                                    }}
+                                    onMouseLeave={e => {
+                                        e.currentTarget.parentElement.style.boxShadow = '0 0 18px 2px rgba(255,122,24,0.18), 0 0 40px 6px rgba(255,80,180,0.10)';
+                                    }}
+                                >
+                                    {/* Top-edge prismatic light streak */}
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#ff7a18]/80 to-transparent pointer-events-none" />
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-6 bg-gradient-to-b from-[#ff7a18]/20 to-transparent blur-md pointer-events-none rounded-full" />
+
+                                    {/* Ambient radial glow in background */}
+                                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_0%,rgba(255,122,24,0.12)_0%,transparent_65%)] pointer-events-none" />
+                                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_100%,rgba(255,80,180,0.08)_0%,transparent_65%)] pointer-events-none" />
+
+                                    {/* Icon with glow halo */}
+                                    <div className="relative">
+                                        <div className="absolute inset-0 blur-xl bg-[#ff7a18]/30 rounded-full scale-150 pointer-events-none" />
+                                        <span className="relative text-4xl leading-none drop-shadow-[0_0_12px_rgba(255,122,24,0.9)]">{stat.icon}</span>
+                                    </div>
+
+                                    <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-b from-white via-gray-100 to-gray-400 bg-clip-text text-transparent leading-tight drop-shadow-[0_0_16px_rgba(255,255,255,0.25)]">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-sm text-white font-bold leading-snug">
+                                        {stat.label}
+                                    </div>
+                                </motion.div>
                             </motion.div>
                         ))}
                     </div>

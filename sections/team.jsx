@@ -55,7 +55,8 @@ const TeamCard = ({ member, index }) => {
                     {member.imageUrl ? (
                         <Image
                             src={member.imageUrl}
-                            alt={member.name}
+                            alt={`${member.name} - ${member.role} at Reinsoft IT Solutions`}
+                            title={`Meet ${member.name}, our ${member.role}`}
                             fill
                             className="object-cover rounded-full"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -78,8 +79,8 @@ export default function Team() {
     return (
         <section id="team" className="py-12 mt-8">
             <SectionTitle
-                title="Meet Our Team"
-                description="The talented individuals behind our success. We are dedicated to delivering the best results for your business."
+                title="Our Expert Software Development Team"
+                description="The dedicated professionals behind our practical and powerful IT solutions."
                 gradient={true}
             />
 

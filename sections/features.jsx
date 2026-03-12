@@ -33,12 +33,12 @@ export default function Features() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#ff7a18]/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
             <SectionTitle
-                title="What We Do"
+                title="Custom Software & Web Development Services"
                 description="Three core services. No fluff. Just practical solutions that help your business grow. Long-term support & growth included."
                 gradient={true}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 px-6 max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 px-4 sm:px-6 max-w-7xl mx-auto relative z-10">
                 {featuresData.map((feature, index) => {
                     // Distinct premium theme for each card with enhanced glow colors
                     const themes = [

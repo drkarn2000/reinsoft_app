@@ -50,29 +50,26 @@ export default function Navbar() {
     return (
         <>
             <motion.nav
-                className={`sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3.5 md:px-10 lg:px-16 transition-colors ${isScrolled
-                    ? '!bg-black/20 backdrop-blur-md shadow-sm'
-                    : 'bg-transparent backdrop-blur-sm'
+                className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 flex w-[98%] xl:w-[95%] max-w-[1400px] items-center justify-between px-3 py-1.5 md:px-5 md:py-1.5 rounded-full bg-white/40 backdrop-blur-xl border border-white/40 transition-all duration-300 ${isScrolled
+                    ? 'shadow-2xl shadow-black/20 bg-white/50 border-white/50'
+                    : 'shadow-xl shadow-black/10'
                     }`}
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
             >
-                {/* Gradient Border */}
-                <div
-                    className={`absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] transition-opacity duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}
-                />
 
                 <Link href='/'>
-                    <div className="relative h-24 w-[240px]">
+                    <div className="relative h-10 sm:h-12 md:h-12 w-[140px] sm:w-[160px] md:w-[180px]">
                         <Image
                             src='/assets/logo.png'
-                            alt='Reinsoft Logo'
+                            alt='Reinsoft - Custom Software & IT Solutions Logo'
+                            title='Reinsoft Home'
                             fill
                             className='object-contain'
                             priority
-                            sizes="240px"
+                            sizes="(max-width: 640px) 160px, (max-width: 768px) 200px, 240px"
                         />
                     </div>
                 </Link>
@@ -85,16 +82,23 @@ export default function Navbar() {
                             onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
                             onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
                         >
-                            <GradientButton
-                                href={link.href}
-                                loop={false}
-                                className="flex items-center"
-                                contentClassName="bg-black/80 hover:bg-black/60 px-4 py-1.5 text-sm font-medium text-white rounded-full flex items-center gap-1"
-                            >
-                                {link.name}
-                                {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
-                            </GradientButton>
-
+                            {link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/') ? (
+                                <Link
+                                    href={link.href}
+                                    className="px-4 py-2 text-sm font-semibold text-white bg-white/20 rounded-full flex items-center gap-1 transition-colors"
+                                >
+                                    {link.name}
+                                    {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                </Link>
+                            ) : (
+                                <Link
+                                    href={link.href}
+                                    className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-white hover:bg-white/10 rounded-full flex items-center gap-1 transition-colors"
+                                >
+                                    {link.name}
+                                    {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                </Link>
+                            )}
                             {link.dropdown && (
                                 <AnimatePresence>
                                     {activeDropdown === link.name && (
@@ -134,7 +138,7 @@ export default function Navbar() {
 
                     <Link
                         href='/contact'
-                        className="ml-4 px-6 py-2 text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.23)] hover:-translate-y-0.5 transition-all duration-200"
+                        className="ml-4 px-5 py-2 text-xs md:text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.23)] hover:-translate-y-0.5 transition-all duration-200"
                     >
                         Let's Talk
                     </Link>
@@ -142,7 +146,7 @@ export default function Navbar() {
 
                 <button
                     onClick={() => setIsOpen(true)}
-                    className='transition active:scale-90 md:hidden text-white'
+                    className='transition active:scale-90 md:hidden text-gray-800'
                 >
                     <MenuIcon className='size-6.5' />
                 </button>
@@ -154,15 +158,16 @@ export default function Navbar() {
             >
                 {links.map((link) => (
                     <div key={link.name} className="flex flex-col items-center gap-4">
-                        <GradientButton
+                        <Link
                             href={link.href}
                             onClick={() => setIsOpen(false)}
-                            loop={false}
-                            className="flex items-center"
-                            contentClassName="bg-black/80 hover:bg-black/60 px-4 py-1.5 text-sm font-medium text-white rounded-full flex items-center gap-1.5"
+                            className={`px-6 py-2 text-lg font-semibold rounded-full flex items-center gap-1.5 transition-colors ${link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/')
+                                ? 'bg-white/10 text-white'
+                                : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                }`}
                         >
                             {link.name}
-                        </GradientButton>
+                        </Link>
 
                         {link.dropdown && (
                             <div className="flex flex-col items-center gap-3 pl-4 border-l border-white/10 mt-1 mb-4">

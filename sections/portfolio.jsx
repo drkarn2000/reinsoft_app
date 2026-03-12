@@ -179,8 +179,8 @@ export default function Portfolio({ limit }) {
             </div>
 
             <SectionTitle
-                title="Our Recent Work"
-                description="Explore some of our proudest projects. We blend beautiful design with powerful engineering to deliver exceptional digital experiences."
+                title="Our Web & Mobile App Development Portfolio"
+                description="Explore real-world examples of how we've helped businesses like yours transform their digital presence and operations."
                 gradient={true}
             />
 
@@ -221,7 +221,8 @@ export default function Portfolio({ limit }) {
                                     <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                                     <Image
                                         src={item.image}
-                                        alt={item.title}
+                                        alt={`${item.title} - ${item.category} Project by Reinsoft`}
+                                        title={`Reinsoft Portfolio: ${item.title}`}
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"

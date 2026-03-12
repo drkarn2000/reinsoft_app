@@ -27,7 +27,7 @@ export default function LeadForm({ title, description }) {
         try {
             const payload = {
                 ...formData,
-                companyName: formData.enquiryType,   // Using enquiryType as company back-compat
+                companyName: formData.enquiryType,
             };
 
             const response = await fetch('/api/lead-submissions', {
@@ -49,8 +49,6 @@ export default function LeadForm({ title, description }) {
                     budget: '',
                     message: ''
                 });
-
-                // Clear the success message after 1 minute (60000 ms)
                 setTimeout(() => {
                     setSubmitResult(null);
                 }, 60000);
@@ -74,7 +72,7 @@ export default function LeadForm({ title, description }) {
             transition={{ type: "spring", stiffness: 320, damping: 70 }}
         >
             <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent mb-2">
-                {title || "Request a Quote"}
+                {title || "Request a Custom Software Quote"}
             </h3>
             {description && <p className="text-gray-500 text-sm mb-4">{description}</p>}
             {!description && <div className="mb-4" />}
@@ -232,7 +230,6 @@ export default function LeadForm({ title, description }) {
                             }
                         }}
                     >
-                        {/* Gradient colour layer */}
                         <span style={{
                             position: 'absolute',
                             inset: 0,
@@ -241,7 +238,6 @@ export default function LeadForm({ title, description }) {
                             opacity: 0.9,
                             pointerEvents: 'none',
                         }} />
-
                         <span style={{ position: 'relative', zIndex: 1 }}>
                             {isSubmitting ? 'Sending...' : 'Send Now'}
                         </span>

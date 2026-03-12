@@ -48,12 +48,12 @@ export default function WorkflowSteps() {
     return (
         <section className="mt-16 relative">
             <SectionTitle
-                title="Our Simple & Effective Process"
-                description="A transparent process that works for both local and global clients. No confusion. No hidden costs. Just honest work that delivers results."
+                title="Our Custom Software Development Process"
+                description="No confusing jargon—just a clear, straightforward path from our first chat to launching your new solution."
                 gradient={true}
             />
 
-            <motion.div className="relative space-y-20 md:space-y-30 mt-20"
+            <motion.div className="relative space-y-20 md:space-y-30 mt-20 px-4 sm:px-6 lg:px-8"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -95,7 +95,8 @@ export default function WorkflowSteps() {
                             <div className="relative z-10 bg-black rounded-xl overflow-hidden h-full w-full">
                                 <Image
                                     src={step.image}
-                                    alt="step"
+                                    alt={`Process Step ${step.id}: ${step.title} - Reinsoft Software Development`}
+                                    title={`Reinsoft Process: ${step.title}`}
                                     width={step.width}
                                     height={step.height}
                                     className="h-auto w-full object-cover"

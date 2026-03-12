@@ -27,7 +27,8 @@ export default function CaseStudiesSection() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90 z-10" />
                     <Image
                         src="/assets/Case-study.jpg"
-                        alt="Case Study Background"
+                        alt="Portfolio Case Study Background - Custom Software Development Success stories"
+                        title="Reinsoft Case Studies and Project Results"
                         fill
                         className="object-cover object-center opacity-40 mix-blend-luminosity"
                     />

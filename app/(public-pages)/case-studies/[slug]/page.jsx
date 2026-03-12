@@ -333,16 +333,51 @@ function CaseStudyContent() {
                         </p>
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                        {project.results.map((res, i) => (
-                            <motion.div
-                                key={i}
-                                whileHover={{ y: -10 }}
-                                className="p-8 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 text-center"
-                            >
-                                <div className="text-3xl md:text-4xl font-black text-white mb-2">{res.value}</div>
-                                <div className="text-xs font-bold text-[#ff7a18] uppercase tracking-widest leading-tight">{res.metric}</div>
-                            </motion.div>
-                        ))}
+                        {project.results.map((res, i) => {
+                            const palette = [
+                                { color: "from-blue-500 to-cyan-400", border: "border-blue-500/25", glow: "0, 150, 255", corner: "from-blue-500 to-cyan-400" },
+                                { color: "from-orange-500 to-amber-400", border: "border-orange-500/25", glow: "255, 122, 24", corner: "from-orange-500 to-amber-400" },
+                                { color: "from-emerald-500 to-green-400", border: "border-emerald-500/25", glow: "16, 185, 129", corner: "from-emerald-500 to-green-400" },
+                                { color: "from-purple-500 to-pink-400", border: "border-purple-500/25", glow: "168, 85, 247", corner: "from-purple-500 to-pink-400" },
+                            ];
+                            const p = palette[i % palette.length];
+                            return (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.12, duration: 0.5 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    className={`relative group bg-white/5 backdrop-blur-xl border ${p.border} rounded-2xl p-6 md:p-8 text-center overflow-hidden transition-all duration-500`}
+                                    style={{
+                                        animation: `cs-stat-glow-${i} 3s ease-in-out infinite`,
+                                        animationDelay: `${i * 0.5}s`,
+                                    }}
+                                >
+                                    {/* Animated glow keyframes per card */}
+                                    <style>{`
+                                        @keyframes cs-stat-glow-${i} {
+                                            0%, 100% { box-shadow: 0 0 15px rgba(${p.glow}, 0.15), 0 0 30px rgba(${p.glow}, 0.05); }
+                                            50%       { box-shadow: 0 0 28px rgba(${p.glow}, 0.45), 0 0 55px rgba(${p.glow}, 0.18); }
+                                        }
+                                    `}</style>
+
+                                    {/* Corner gradient orb */}
+                                    <div className={`absolute -top-10 -right-10 size-24 bg-gradient-to-br ${p.corner} rounded-full blur-[45px] opacity-20 group-hover:opacity-45 transition-opacity duration-500`} />
+
+                                    {/* Top accent line */}
+                                    <div className={`absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r ${p.color} opacity-70`} />
+
+                                    <div className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${p.color} bg-clip-text text-transparent mb-2`}>
+                                        {res.value}
+                                    </div>
+                                    <div className="text-xs font-bold text-[#ff7a18] uppercase tracking-widest leading-tight">
+                                        {res.metric}
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

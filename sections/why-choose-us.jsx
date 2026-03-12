@@ -15,32 +15,32 @@ const cardColors = [
 const reasons = [
     {
         icon: UsersIcon,
-        title: "Experienced Team",
+        title: "Experienced Software Developers",
         description: "Our diverse team of experts brings years of experience in software development and IT solutions.",
     },
     {
         icon: LightbulbIcon,
-        title: "Tailored Solutions",
+        title: "Custom IT Solutions",
         description: "We don't believe in one-size-fits-all. We build custom solutions that fit your specific business needs.",
     },
     {
         icon: Clock,
-        title: "Timely Delivery",
+        title: "Agile Development Process",
         description: "We value your time. Our agile process ensures we deliver high-quality projects on schedule.",
     },
     {
         icon: ShieldCheck,
-        title: "Reliable & Secure",
+        title: "Secure Application Architecture",
         description: "Security is our top priority. We build robust systems that keep your data safe and your business running.",
     },
     {
         icon: Headset,
-        title: "Dedicated Support",
+        title: "Dedicated IT Support",
         description: "We are here for the long haul. Our support team is always ready to assist you post-launch.",
     },
     {
         icon: CheckCircleIcon,
-        title: "Proven Track Record",
+        title: "Proven Industry Experience",
         description: "We have a history of delivering successful projects that help businesses grow and succeed.",
     }
 ];
@@ -54,7 +54,7 @@ function RoadmapCard({ reason, index }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="relative flex flex-row items-center bg-white/5 border border-white/10 rounded-2xl overflow-visible group hover:bg-white/[0.08] transition-all duration-500 ml-6"
+            className="relative flex flex-row items-center bg-white/5 border border-white/10 rounded-2xl overflow-visible group hover:bg-white/[0.08] transition-all duration-500 ml-5 sm:ml-7"
         >
             {/* Left accent bar */}
             <div className={`absolute left-0 top-0 bottom-0 w-1 ${colors.bar} rounded-l-2xl`} />
@@ -112,12 +112,12 @@ export default function WhyChooseUs() {
     return (
         <section id="why-choose-us" className="mt-16 relative">
             <SectionTitle
-                title="Why Choose Us"
-                description="We are committed to delivering excellence. Here is why businesses trust us with their digital transformation."
+                title="Why Choose Reinsoft for IT Solutions"
+                description="What sets us apart? We focus on practical, high-quality deliverables without unnecessary complexity."
                 gradient={true}
             />
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mt-14 px-6 max-w-7xl mx-auto items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mt-14 px-4 sm:px-6 max-w-7xl mx-auto items-center">
 
                 {/* Left Side: Roadmap Cards */}
                 <div className="flex flex-col gap-4">
@@ -128,7 +128,7 @@ export default function WhyChooseUs() {
 
                 {/* Right Side: Image */}
                 <motion.div
-                    className="relative w-full h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+                    className="relative w-full h-[360px] sm:h-[480px] lg:h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
                     initial={{ x: 50, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -138,7 +138,8 @@ export default function WhyChooseUs() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/20 blur-[80px] rounded-full" />
                     <Image
                         src="/assets/What_we_do.jpeg"
-                        alt="Why Choose Us Showcase"
+                        alt="Reinsoft IT Solutions Showcase - Custom Software & Web Development"
+                        title="Why Choose Reinsoft for your next IT project"
                         fill
                         className="object-cover z-10"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"

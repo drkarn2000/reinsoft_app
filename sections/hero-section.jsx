@@ -24,7 +24,8 @@ export default function HeroSection() {
             <div className="fixed inset-0 -z-10 pointer-events-none">
                 <Image
                     src="/assets/hero-bg.jpg"
-                    alt="Background"
+                    alt="Abstract dark background for custom software development company hero section"
+                    title="Reinsoft Web and Mobile App Development Services"
                     fill
                     className="object-cover opacity-90"
                     priority
@@ -35,8 +36,8 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black z-10" />
             </div>
 
-            <section className="max-w-7xl mx-auto pt-8 pb-16 md:pt-12 md:pb-24">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-36 md:pb-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                     <motion.div
                         className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
                         initial={{ x: -50, opacity: 0 }}
@@ -44,24 +45,24 @@ export default function HeroSection() {
                         viewport={{ once: true }}
                         transition={{ type: "spring", stiffness: 200, damping: 60 }}
                     >
-                        <div className="flex items-center gap-3">
-                            <p className="text-lg">Trusted by startups & growing businesses</p>
-                            <span className="btn glass global-orange-glow rounded-full py-1 px-3 text-sm">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                            <p className="text-base md:text-lg">Trusted by startups &amp; growing businesses</p>
+                            <span className="btn glass global-orange-glow rounded-full py-1 px-3 text-sm whitespace-nowrap">
                                 10+ Years Experience
                             </span>
                         </div>
                         <h1 className="text-3xl/tight md:text-5xl/tight lg:text-[3.5rem] leading-[1.15] font-bold tracking-tight text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
-                            We Build <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(255,122,24,0.8)]">High-Performance Websites & Mobile Apps</span> That Generate Business
+                            Custom Software, Web &amp; Mobile <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(255,122,24,0.8)]">App Development Company</span>
                         </h1>
-                        <p className="text-gray-100 text-lg/relaxed max-w-xl">
-                            Practical IT solutions for startups and growing businesses focused on leads, speed, and scalability.
+                        <p className="text-gray-100 text-base md:text-lg/relaxed max-w-xl">
+                            We build high-performance websites and mobile apps that generate business and scale effortlessly.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-2">
-                            <GradientButton href="/contact" className="max-md:w-full" contentClassName="px-6 py-3 font-semibold bg-black/20 backdrop-blur-md" loop={false}>
+                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mt-2">
+                            <GradientButton href="/contact" className="w-full sm:w-auto" contentClassName="px-6 py-3 font-semibold bg-black/20 backdrop-blur-md flex justify-center" loop={false}>
                                 Get Free Consultation
                             </GradientButton>
-                            <GradientButton href="/contact?type=quote" className="max-md:w-full" contentClassName="px-6 py-3 font-semibold bg-black/20 backdrop-blur-md flex items-center justify-center gap-2" loop={false}>
+                            <GradientButton href="/contact?type=quote" className="w-full sm:w-auto" contentClassName="px-6 py-3 font-semibold bg-black/20 backdrop-blur-md flex items-center justify-center gap-2" loop={false}>
                                 <MessageCircleIcon className="size-4.5" />
                                 Request a Quote
                             </GradientButton>
@@ -69,13 +70,15 @@ export default function HeroSection() {
                     </motion.div>
 
                     <motion.div
-                        className="flex justify-center lg:justify-end"
+                        className="flex justify-center lg:justify-end w-full"
                         initial={{ x: 50, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 60 }}
                     >
-                        <LeadForm title="Grow Your Business 🚀" description="Tell us about your project and get a custom quote within 24 hours." />
+                        <div className="w-full max-w-xl lg:max-w-none">
+                            <LeadForm title="Grow Your Business 🚀" description="Tell us about your project and get a custom quote within 24 hours." />
+                        </div>
                     </motion.div>
                 </div>
             </section>

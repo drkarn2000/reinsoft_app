@@ -30,7 +30,8 @@ export default function Footer() {
                     <Link href="/">
                         <Image
                             src='/assets/logo.png'
-                            alt='Reinsoft Logo'
+                            alt='Reinsoft - Custom Software & IT Solutions Logo'
+                            title='Reinsoft Home'
                             className='h-24 w-auto'
                             width={280}
                             height={96}
