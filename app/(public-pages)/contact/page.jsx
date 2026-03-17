@@ -13,7 +13,7 @@ const FloatingInput = ({ label, id, name, value, onChange, type = "text", requir
     return (
         <div className="relative group">
             <div className={`absolute inset-0 bg-gradient-to-r from-[#ff7a18]/20 to-[#3b82f6]/20 rounded-xl blur-sm transition-opacity duration-300 ${isFocused ? 'opacity-100' : 'opacity-0'}`} />
-            <div className={`relative bg-black/40 backdrop-blur-md border rounded-xl transition-all duration-300 ${isFocused ? 'border-[#ff7a18] shadow-[0_0_15px_rgba(255,122,24,0.2)]' : 'border-white/10'}`}>
+            <div className={`relative bg-black/5 dark:bg-black/40 backdrop-blur-md border rounded-xl transition-all duration-300 ${isFocused ? 'border-[#ff7a18] shadow-[0_0_15px_rgba(255,122,24,0.2)]' : 'border-black/10 dark:border-white/10'}`}>
                 <input
                     type={type}
                     id={id}
@@ -23,7 +23,7 @@ const FloatingInput = ({ label, id, name, value, onChange, type = "text", requir
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
                     required={required}
-                    className="block w-full px-4 py-4 text-white bg-transparent rounded-xl appearance-none focus:outline-none focus:ring-0 peer transition-all text-sm"
+                    className="block w-full px-4 py-4 text-black dark:text-white bg-transparent rounded-xl appearance-none focus:outline-none focus:ring-0 peer transition-all text-sm"
                     placeholder=" "
                 />
                 <label
@@ -48,7 +48,7 @@ const FloatingTextarea = ({ label, id, name, value, onChange, required = false, 
     return (
         <div className="relative group">
             <div className={`absolute inset-0 bg-gradient-to-r from-[#ff7a18]/20 to-[#3b82f6]/20 rounded-2xl blur-sm transition-opacity duration-300 ${isFocused ? 'opacity-100' : 'opacity-0'}`} />
-            <div className={`relative bg-black/40 backdrop-blur-md border rounded-2xl transition-all duration-300 ${isFocused ? 'border-[#ff7a18] shadow-[0_0_15px_rgba(255,122,24,0.2)]' : 'border-white/10'}`}>
+            <div className={`relative bg-black/5 dark:bg-black/40 backdrop-blur-md border rounded-2xl transition-all duration-300 ${isFocused ? 'border-[#ff7a18] shadow-[0_0_15px_rgba(255,122,24,0.2)]' : 'border-black/10 dark:border-white/10'}`}>
                 <textarea
                     id={id}
                     name={name}
@@ -58,7 +58,7 @@ const FloatingTextarea = ({ label, id, name, value, onChange, required = false, 
                     onBlur={() => setIsFocused(false)}
                     required={required}
                     rows={rows}
-                    className="block w-full px-4 py-4 text-white bg-transparent rounded-2xl appearance-none focus:outline-none focus:ring-0 peer transition-all resize-none text-sm"
+                    className="block w-full px-4 py-4 text-black dark:text-white bg-transparent rounded-2xl appearance-none focus:outline-none focus:ring-0 peer transition-all resize-none text-sm"
                     placeholder=" "
                 />
                 <label
@@ -83,7 +83,7 @@ const FloatingSelect = ({ label, id, name, value, onChange, options, required = 
     return (
         <div className="relative group">
             <div className={`absolute inset-0 bg-gradient-to-r from-[#ff7a18]/20 to-[#3b82f6]/20 rounded-xl blur-sm transition-opacity duration-300 ${isFocused ? 'opacity-100' : 'opacity-0'}`} />
-            <div className={`relative bg-black/40 backdrop-blur-md border rounded-xl transition-all duration-300 ${isFocused ? 'border-[#ff7a18] shadow-[0_0_15px_rgba(255,122,24,0.2)]' : 'border-white/10'}`}>
+            <div className={`relative bg-black/5 dark:bg-black/40 backdrop-blur-md border rounded-xl transition-all duration-300 ${isFocused ? 'border-[#ff7a18] shadow-[0_0_15px_rgba(255,122,24,0.2)]' : 'border-black/10 dark:border-white/10'}`}>
                 <select
                     id={id}
                     name={name}
@@ -92,11 +92,11 @@ const FloatingSelect = ({ label, id, name, value, onChange, options, required = 
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
                     required={required}
-                    className="block w-full px-4 py-4 text-white bg-transparent rounded-xl appearance-none focus:outline-none focus:ring-0 peer transition-all text-sm cursor-pointer"
+                    className="block w-full px-4 py-4 text-black dark:text-white bg-transparent rounded-xl appearance-none focus:outline-none focus:ring-0 peer transition-all text-sm cursor-pointer"
                 >
                     <option value="" disabled hidden></option>
                     {options.map((option) => (
-                        <option key={option} value={option} className="bg-[#1a1231] text-white">
+                        <option key={option} value={option} className="bg-[#1a1231] text-black dark:text-white">
                             {option}
                         </option>
                     ))}
@@ -186,13 +186,13 @@ function ContactFormContent() {
     return (
         <main className="px-4">
             {/* Background Image & Overlays */}
-            <div className="fixed inset-0 -z-30 pointer-events-none">
+            <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <img
                     src="/assets/contact.jpg"
                     alt="Background"
                     className="w-full h-full object-cover opacity-80"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/15 to-white/90 dark:from-black dark:via-black/60 dark:to-black z-10" />
             </div>
 
             {/* Hero Section */}
@@ -201,10 +201,10 @@ function ContactFormContent() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
             >
-                <h1 className="text-center text-4xl md:text-7xl font-bold tracking-tight text-white mb-6">
+                <h1 className="text-center text-4xl md:text-7xl font-bold tracking-tight text-black dark:text-black dark:text-white mb-6">
                     {isQuoteType ? 'Get a Custom' : 'Contact'} <span className="bg-gradient-to-r from-[#ff7a18] via-[#e21b7a] to-[#3b82f6] bg-clip-text text-transparent">Project {isQuoteType ? 'Quote' : 'Reinsoft'}</span>
                 </h1>
-                <p className="text-center text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
+                <p className="text-center text-gray-700 dark:text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
                     {isQuoteType
                         ? "Tell us about your vision. We'll provide a detailed roadmap, timeline, and accurate cost estimate for your next big project."
                         : "Ready to accelerate your business? Whether you have a specific project or just want to explore possibilities, we're here to help."
@@ -223,12 +223,12 @@ function ContactFormContent() {
                         whileInView={{ x: 0, opacity: 1 }}
                         viewport={{ once: true }}
                     >
-                        <div className="flex-grow p-8 rounded-[2rem] bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-2xl relative overflow-hidden group flex flex-col justify-between">
+                        <div className="flex-grow p-8 rounded-[2rem] bg-black/5 dark:bg-white/[0.03] backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-2xl relative overflow-hidden group flex flex-col justify-between">
                             <div className="absolute -top-24 -right-24 size-48 bg-[#ff7a18]/20 blur-[60px] rounded-full group-hover:bg-[#ff7a18]/30 transition-colors duration-700" />
 
                             <div>
-                                <h2 className="text-3xl font-bold text-white mb-4">Let's start the conversation</h2>
-                                <p className="text-gray-400 mb-8 max-w-sm">
+                                <h2 className="text-3xl font-bold text-black dark:text-black dark:text-white mb-4">Let's start the conversation</h2>
+                                <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-sm">
                                     Join 200+ companies that have scaled their digital footprint with Reinsoft expertise.
                                 </p>
 
@@ -239,7 +239,7 @@ function ContactFormContent() {
                                         </div>
                                         <div>
                                             <p className="text-xs text-gray-500 uppercase font-bold tracking-widest">Email Us</p>
-                                            <p className="text-lg font-semibold text-white">info@reinsoft.tech</p>
+                                            <p className="text-lg font-semibold text-black dark:text-black dark:text-white">info@reinsoft.tech</p>
                                         </div>
                                     </a>
 
@@ -249,7 +249,7 @@ function ContactFormContent() {
                                         </div>
                                         <div>
                                             <p className="text-xs text-gray-500 uppercase font-bold tracking-widest">Call Expert</p>
-                                            <p className="text-lg font-semibold text-white">+91 89683 69582</p>
+                                            <p className="text-lg font-semibold text-black dark:text-black dark:text-white">+91 89683 69582</p>
                                         </div>
                                     </a>
 
@@ -259,7 +259,7 @@ function ContactFormContent() {
                                         </div>
                                         <div>
                                             <p className="text-xs text-gray-500 uppercase font-bold tracking-widest">WhatsApp</p>
-                                            <p className="text-lg font-semibold text-white">Quick Chat Now</p>
+                                            <p className="text-lg font-semibold text-black dark:text-black dark:text-white">Quick Chat Now</p>
                                         </div>
                                     </a>
 
@@ -269,7 +269,7 @@ function ContactFormContent() {
                                         </div>
                                         <div>
                                             <p className="text-xs text-gray-500 uppercase font-bold tracking-widest">Visit Us</p>
-                                            <p className="text-base font-semibold text-white leading-relaxed">
+                                            <p className="text-base font-semibold text-black dark:text-white leading-relaxed">
                                                 Phase 8-B, Mohali, 160071<br />
                                                 ( Punjab ), India
                                             </p>
@@ -285,7 +285,7 @@ function ContactFormContent() {
                                 <div className="mt-4 flex items-center gap-3">
                                     <div className="size-10 rounded-full bg-gray-600 border border-white/20" />
                                     <div>
-                                        <p className="text-xs font-bold text-white">Sujoye Dhar</p>
+                                        <p className="text-xs font-bold text-black dark:text-white">Sujoye Dhar</p>
                                         <p className="text-[10px] text-gray-500">CTO, Biswakarma</p>
                                     </div>
                                 </div>
@@ -301,7 +301,7 @@ function ContactFormContent() {
                         viewport={{ once: true }}
                     >
                         <div className="flex-grow bg-transparent backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 md:p-12 shadow-2xl relative flex flex-col">
-                            <h3 className="text-2xl font-bold text-white mb-2">
+                            <h3 className="text-2xl font-bold text-black dark:text-white mb-2">
                                 {isQuoteType ? 'Request a Detailed Quote' : 'Send a Message'}
                             </h3>
                             <p className="text-gray-400 mb-10">We usually respond within 2-4 business hours.</p>
@@ -315,7 +315,7 @@ function ContactFormContent() {
                                     <div className="size-20 rounded-full bg-green-500/20 flex items-center justify-center mb-6 text-green-400 border border-green-500/30">
                                         <Send className="size-10" />
                                     </div>
-                                    <h4 className="text-3xl font-bold text-white">Message Dispatched!</h4>
+                                    <h4 className="text-3xl font-bold text-black dark:text-white">Message Dispatched!</h4>
                                     <p className="text-gray-400 mt-4 max-w-sm">Thank you! Our technical team has received your inquiry and will reach out shortly.</p>
                                     <button
                                         onClick={() => setIsSubmitted(false)}
@@ -510,7 +510,7 @@ function ContactFormContent() {
 export default function ContactPage() {
     return (
         <Suspense fallback={
-            <div className="min-h-screen flex items-center justify-center bg-black">
+            <div className="min-h-screen flex items-center justify-center dark:bg-black">
                 <div className="size-12 border-4 border-[#ff7a18]/20 border-t-[#ff7a18] rounded-full animate-spin" />
             </div>
         }>

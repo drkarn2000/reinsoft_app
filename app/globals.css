@@ -1,12 +1,19 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --font-sans: 'Poppins', sans-serif;
 }
 
 body {
-  @apply bg-black text-white text-sm antialiased;
+  @apply text-black text-sm antialiased transition-colors duration-300 dark:bg-black dark:text-white;
+  background-color: #F6F0F0;
   overflow-x: hidden;
+}
+
+.dark body, body.dark {
+  background-color: #000000;
 }
 
 @layer components {
@@ -50,7 +57,7 @@ body {
 
   .global-orange-glow {
     position: relative;
-    @apply border border-transparent rounded-xl bg-black/40 backdrop-blur-md transition-all duration-300;
+    @apply border border-transparent rounded-xl bg-white/50 dark:bg-black/40 backdrop-blur-md transition-all duration-300;
     box-shadow: 0 0 15px rgba(255, 122, 24, 0.3), 0 0 15px rgba(59, 130, 246, 0.3);
   }
 
@@ -73,7 +80,7 @@ body {
   }
 
   .global-orange-glow:hover {
-    @apply bg-black/60;
+    @apply bg-white/70 dark:bg-black/60;
     box-shadow: 0 0 25px rgba(255, 122, 24, 0.5), 0 0 25px rgba(59, 130, 246, 0.5);
     transform: translateY(-2px);
   }

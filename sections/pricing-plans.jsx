@@ -83,15 +83,15 @@ export default function PricingPlans() {
                         <h3 className='mt-4 text-2xl font-semibold'>
                             {item.price} <span className='text-sm font-normal'>/month</span>
                         </h3>
-                        <p className='text-gray-200 mt-3'>{item.description}</p>
-                        <button className={`mt-7 rounded-full w-full btn ${item.mostPopular ? 'bg-white text-gray-800' : 'glass'}`}>
+                        <p className='text-gray-700 dark:text-gray-200 mt-3'>{item.description}</p>
+                        <button className={`mt-7 rounded-full w-full btn ${item.mostPopular ? 'bg-black text-white dark:bg-white dark:text-gray-800' : 'glass'}`}>
                             {item.buttonText}
                         </button>
                         <div className='mt-6 flex flex-col'>
                             {item.features.map((feature, index) => (
                                 <div key={index} className='flex items-center gap-2 py-2'>
                                     <div className='rounded-full glass border-0 p-1'>
-                                        <CheckIcon className='size-3 text-white' strokeWidth={3} />
+                                        <CheckIcon className='size-3 text-black dark:text-white' strokeWidth={3} />
                                     </div>
                                     <p>{feature}</p>
                                 </div>

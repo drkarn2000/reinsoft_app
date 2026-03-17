@@ -50,18 +50,18 @@ export default function WebDevelopmentLandingPage() {
                                     Top Rated Web Developers
                                 </span>
                             </div>
-                            <h1 className="text-4xl/tight md:text-6xl/tight font-bold tracking-tight text-white">
+                            <h1 className="text-4xl/tight md:text-6xl/tight font-bold tracking-tight text-black dark:text-white">
                                 Ready to build your <span className="bg-gradient-to-r from-green-300 via-blue-300 to-purple-300 bg-clip-text text-transparent drop-shadow-lg">custom web application?</span>
                             </h1>
-                            <p className="text-gray-200 text-lg/relaxed max-w-xl">
+                            <p className="text-gray-800 dark:text-gray-200 text-lg/relaxed max-w-xl">
                                 We develop fast, scalable, and intuitive web experiences. Partner with us to turn your vision into a high-converting, robust digital platform.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                                <a href="#contact-quote" className="btn glass py-4 px-8 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 transition text-white text-base font-bold shadow-lg shadow-blue-500/25">
+                                <a href="#contact-quote" className="btn glass py-4 px-8 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 transition text-black dark:text-white text-base font-bold shadow-lg shadow-blue-500/25">
                                     Get a Quote Now
                                 </a>
-                                <a href="https://wa.me/918968369582" target="_blank" rel="noopener noreferrer" className="btn glass flex items-center justify-center gap-2 py-4 px-8 bg-green-500/20 hover:bg-green-500/40 border border-green-500/50 transition text-white text-base font-medium">
+                                <a href="https://wa.me/918968369582" target="_blank" rel="noopener noreferrer" className="btn glass flex items-center justify-center gap-2 py-4 px-8 bg-green-500/20 hover:bg-green-500/40 border border-green-500/50 transition text-black dark:text-white text-base font-medium">
                                     <MessageCircleIcon className="size-5" />
                                     Book a free consultation
                                 </a>
@@ -88,10 +88,10 @@ export default function WebDevelopmentLandingPage() {
                     viewport={{ once: true }}
                 >
                     <h2 className="text-3xl font-semibold mb-6">Custom Web Development <span className="text-green-400">🌐</span></h2>
-                    <p className="text-gray-300 text-base leading-relaxed mb-6">
+                    <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-6">
                         Reinsoft is your trusted web development partner, helping clients achieve long-term success with robust web architectures. We empower businesses with modern frameworks like React, Next.js, and Node.js for unparalleled performance. Our team works collaboratively with startups, rising companies, and enterprise brands, delivering successful digital solutions.
                     </p>
-                    <p className="text-gray-300 text-base leading-relaxed">
+                    <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
                         We deliver pioneering web applications with a focus on SEO, speed, and efficiency, ensuring your platform is easy to navigate, manage, and scale post-launch. With steadfast dedication, we ensure that every project is deeply tailored to the client's goals, fostering success and conversions.
                     </p>
                 </motion.section>
@@ -100,7 +100,7 @@ export default function WebDevelopmentLandingPage() {
                 <section className="max-w-7xl mx-auto py-16">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">Our <span className="bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">Web Services</span></h2>
-                        <p className="text-gray-300 mt-4 max-w-2xl mx-auto">End-to-end web development, from architectural design and frontend rendering to backend APIs and deployment.</p>
+                        <p className="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">End-to-end web development, from architectural design and frontend rendering to backend APIs and deployment.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -111,8 +111,8 @@ export default function WebDevelopmentLandingPage() {
                             <div className="size-16 rounded-xl bg-blue-900/30 border border-blue-500/30 flex items-center justify-center mb-6">
                                 <MonitorIcon className="size-8 text-blue-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Frontend Development</h3>
-                            <p className="text-sm text-gray-300 mb-6">Engaging, blazing-fast interfaces that users love. We specialize in React.js, Next.js, and Vue.js to build dynamic, responsive UI/UX experiences that work flawlessly across all devices.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">Frontend Development</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Engaging, blazing-fast interfaces that users love. We specialize in React.js, Next.js, and Vue.js to build dynamic, responsive UI/UX experiences that work flawlessly across all devices.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -123,8 +123,8 @@ export default function WebDevelopmentLandingPage() {
                             <div className="size-16 rounded-xl bg-slate-800 border border-gray-600/50 flex items-center justify-center mb-6">
                                 <ServerIcon className="size-8 text-gray-300" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Backend & APIs</h3>
-                            <p className="text-sm text-gray-300 mb-6">The robust engine powering your business. We design secure, scalable server architectures using Node.js, Python, or PHP, and construct well-documented REST & GraphQL APIs.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">Backend & APIs</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">The robust engine powering your business. We design secure, scalable server architectures using Node.js, Python, or PHP, and construct well-documented REST & GraphQL APIs.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -135,8 +135,8 @@ export default function WebDevelopmentLandingPage() {
                             <div className="size-16 rounded-xl bg-yellow-900/30 border border-yellow-500/30 flex items-center justify-center mb-6">
                                 <ShoppingCartIcon className="size-8 text-yellow-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">E-Commerce Solutions</h3>
-                            <p className="text-sm text-gray-300 mb-6">Turn visitors into loyal customers. We build high-converting custom e-commerce platforms and optimize existing Shopify/WooCommerce stores for maximum sales.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">E-Commerce Solutions</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Turn visitors into loyal customers. We build high-converting custom e-commerce platforms and optimize existing Shopify/WooCommerce stores for maximum sales.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -147,8 +147,8 @@ export default function WebDevelopmentLandingPage() {
                             <div className="size-16 rounded-xl bg-purple-900/30 border border-purple-500/30 flex items-center justify-center mb-6">
                                 <LayoutIcon className="size-8 text-purple-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Custom CMS Development</h3>
-                            <p className="text-sm text-gray-300 mb-6">Take full control of your content. We build tailored Content Management Systems or implement headless solutions like Sanity and Strapi to give your marketing team ultimate flexibility.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">Custom CMS Development</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Take full control of your content. We build tailored Content Management Systems or implement headless solutions like Sanity and Strapi to give your marketing team ultimate flexibility.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -159,8 +159,8 @@ export default function WebDevelopmentLandingPage() {
                             <div className="size-16 rounded-xl bg-red-900/30 border border-red-500/30 flex items-center justify-center mb-6">
                                 <CodeIcon className="size-8 text-red-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Technical SEO & Web Perf</h3>
-                            <p className="text-sm text-gray-300 mb-6">Rank higher and load instantly. We optimize Core Web Vitals, implement semantic HTML, and employ advanced caching strategies so Google and your users love your site.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">Technical SEO & Web Perf</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Rank higher and load instantly. We optimize Core Web Vitals, implement semantic HTML, and employ advanced caching strategies so Google and your users love your site.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -171,8 +171,8 @@ export default function WebDevelopmentLandingPage() {
                             <div className="size-16 rounded-xl bg-teal-900/30 border border-teal-500/30 flex items-center justify-center mb-6">
                                 <WrenchIcon className="size-8 text-teal-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Web Maintenance & Security</h3>
-                            <p className="text-sm text-gray-300 mb-6">Keep your digital assets protected. We provide continuous monitoring, regular vulnerability patching, backups, and proactive optimizations to ensure uncompromising uptime.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">Web Maintenance & Security</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Keep your digital assets protected. We provide continuous monitoring, regular vulnerability patching, backups, and proactive optimizations to ensure uncompromising uptime.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
                     </div>

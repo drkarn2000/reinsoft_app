@@ -6,7 +6,7 @@ export default function GradientButton({
     children,
     onClick,
     className = "",
-    contentClassName = "bg-black/80 hover:bg-black/60 px-6 py-2.5 text-white rounded-full", // Default dark bg
+    contentClassName = "bg-white/80 hover:bg-white/60 dark:bg-black/80 dark:hover:bg-black/60 px-6 py-2.5 text-black dark:text-white rounded-full", // Default dark bg with light mode support
     useTrustStripStyle = false,
     loop = true,
     ...props

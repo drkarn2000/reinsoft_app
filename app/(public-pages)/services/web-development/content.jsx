@@ -1,7 +1,18 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { CodeIcon, GlobeIcon, LayersIcon, ShieldCheckIcon, ZapIcon, BarChart3Icon, SearchIcon, RocketIcon } from "lucide-react";
+import { 
+    CodeIcon, 
+    GlobeIcon, 
+    LayersIcon, 
+    ShieldCheckIcon, 
+    ZapIcon, 
+    BarChart3Icon, 
+    SearchIcon, 
+    RocketIcon,
+    ArrowRightIcon,
+    SmartphoneIcon
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import GradientButton from "@/components/gradient-button";
@@ -45,7 +56,7 @@ export default function WebDevelopmentContent() {
     return (
         <main className="min-h-screen selection:bg-orange-500/30">
             {/* Background elements - Harmonized with Home/Services */}
-            <motion.div className="fixed inset-0 overflow-hidden -z-20 pointer-events-none"
+            <motion.div className="fixed inset-0 overflow-hidden -z-20 pointer-events-none hidden dark:block"
                 initial={{ opacity: 0.1 }}
                 whileInView={{ opacity: 0.3 }}
                 viewport={{ once: true }}
@@ -57,7 +68,7 @@ export default function WebDevelopmentContent() {
             </motion.div>
 
             {/* Background Image - Harmonized */}
-            <div className="fixed inset-0 -z-30 pointer-events-none">
+            <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/Services.jpg"
                     alt="Background"
@@ -70,8 +81,8 @@ export default function WebDevelopmentContent() {
             </div>
 
             {/* Hero Section */}
-            <section className="relative pt-6 pb-6 px-4">
-                <div className="max-w-7xl mx-auto text-center">
+            <section className="relative pt-24 pb-6 px-4">
+                <div className="max-w-7xl mx-auto text-center pt-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -83,16 +94,21 @@ export default function WebDevelopmentContent() {
                         <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
                             Innovative IT Solutions & High-Performance Web Apps
                         </h1>
-                        <p className="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
                             We build fast, secure, and highly scalable web applications that drive growth. From startup MVPs to enterprise-level systems, we deliver digital excellence.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <GradientButton href="/contact">
+                            <Link href="/contact"
+                                className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:shadow-[0_0_45px_rgba(59,130,246,0.5)] hover:scale-105 transition-all duration-300"
+                            >
                                 Start Your Project
-                            </GradientButton>
-                            <GradientButton href="#features" contentClassName="bg-white/5 border border-white/10" loop={false}>
+                                <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link href="#features"
+                                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/15 font-semibold text-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
+                            >
                                 Explore Services
-                            </GradientButton>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
@@ -101,13 +117,13 @@ export default function WebDevelopmentContent() {
             <TrustStrip />
 
             {/* Lead Form Section - Moved to top for visibility */}
-            <section id="quote" className="py-24 px-4 bg-gradient-to-b from-black to-slate-900/50 overflow-hidden relative">
+            <section id="quote" className="py-24 px-4 bg-transparent dark:bg-gradient-to-b dark:from-black dark:to-slate-900/50 overflow-hidden relative">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to Build Your <br /><span className="text-orange-500">Web Presence?</span></h2>
-                        <p className="text-gray-400 text-lg mb-12">
+                        <p className="text-gray-700 dark:text-gray-400 text-lg mb-12">
                             Fill out the form to get a detailed estimate for your project. Our experts will get back to you within 24 hours.
                         </p>
                         <div className="flex flex-col gap-6 w-full max-w-2xl mt-8">
@@ -118,7 +134,7 @@ export default function WebDevelopmentContent() {
                                     desc: "Verified seniors working on your code.",
                                     color: "bg-[#e11d48]",
                                     darkColor: "bg-[#9f1239]",
-                                    textColor: "text-[#fb7185]",
+                                    textColor: "text-rose-600 dark:text-[#fb7185]",
                                     icon: <CodeIcon className="size-12 md:size-14" />,
                                 },
                                 {
@@ -127,7 +143,7 @@ export default function WebDevelopmentContent() {
                                     desc: "Delivering world-class quality for every pixel.",
                                     color: "bg-[#4f46e5]",
                                     darkColor: "bg-[#312e81]",
-                                    textColor: "text-[#818cf8]",
+                                    textColor: "text-indigo-600 dark:text-[#818cf8]",
                                     icon: <GlobeIcon className="size-12 md:size-14" />,
                                 }
                             ].map((item, i) => (
@@ -151,7 +167,7 @@ export default function WebDevelopmentContent() {
                                     {/* Content */}
                                     <div className="pl-28 md:pl-32 pr-20 py-6 flex-1 flex flex-col justify-center h-full z-10 relative">
                                         <h4 className={`text-lg font-bold ${item.textColor} tracking-widest mb-1.5 uppercase`}>{item.title}</h4>
-                                        <p className="text-gray-300 text-sm font-medium leading-relaxed">{item.desc}</p>
+                                        <p className="text-gray-700 dark:text-gray-300 text-sm font-medium leading-relaxed">{item.desc}</p>
                                     </div>
 
                                     {/* Original Icon */}
@@ -181,7 +197,7 @@ export default function WebDevelopmentContent() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-semibold mb-6">Our Web Development <span className="text-orange-500">Expertise</span></h2>
-                        <p className="text-gray-400 text-lg max-w-2xl mx-auto">Specialized solutions tailored to your specific industry needs, using the latest tech stack to ensure performance and longevity.</p>
+                        <p className="text-gray-700 dark:text-gray-400 text-lg max-w-2xl mx-auto">Specialized solutions tailored to your specific industry needs, using the latest tech stack to ensure performance and longevity.</p>
                     </div>
 
                     <div className="flex flex-col gap-5 max-w-3xl mx-auto">
@@ -203,7 +219,7 @@ export default function WebDevelopmentContent() {
                                     <div className="absolute -left-6 top-1/2 -translate-y-1/2 z-10" style={{ width: '48px', height: '48px' }}>
                                         <div style={{ position: 'absolute', left: '-12px', top: '-12px', width: '72px', height: '72px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.7, boxShadow: `0 0 10px 2px ${colors.hex}80`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
                                         <div style={{ position: 'absolute', left: '-6px', top: '-6px', width: '60px', height: '60px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.9, boxShadow: `0 0 8px 2px ${colors.hex}60`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
-                                        <div className={`size-12 rounded-full ${colors.bar} flex items-center justify-center text-lg font-black text-white shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}>
+                                        <div className={`size-12 rounded-full ${colors.bar} flex items-center justify-center text-lg font-black text-black dark:text-white shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}>
                                             {idx + 1}
                                         </div>
                                     </div>
@@ -211,7 +227,7 @@ export default function WebDevelopmentContent() {
                                     {/* Content */}
                                     <div className="flex-grow py-4 pl-10 pr-2 text-left">
                                         <h3 className={`text-xl font-bold mb-1 ${colors.text}`}>{feature.title}</h3>
-                                        <p className="text-gray-400 text-sm font-semibold leading-relaxed">{feature.description}</p>
+                                        <p className="text-gray-700 dark:text-gray-400 text-sm font-semibold leading-relaxed">{feature.description}</p>
                                     </div>
 
                                     {/* Right icon */}
@@ -231,7 +247,7 @@ export default function WebDevelopmentContent() {
             </section>
 
             {/* Content & Tech Stack Section */}
-            <section className="py-24 px-4 bg-white/5 backdrop-blur-sm">
+            <section className="py-24 px-4 bg-black/5 dark:bg-white/5 backdrop-blur-sm">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -239,7 +255,7 @@ export default function WebDevelopmentContent() {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-3xl font-semibold mb-8">Modern Tech Stack for <span className="text-blue-400">Superior Results</span></h2>
-                        <p className="text-gray-300 mb-6 leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                             At Reinsoft, we don't just write code; we architect solutions. We leverage the most advanced technologies to ensure your web application is built for the future.
                         </p>
                         <div className="flex flex-col gap-5 mb-8">
@@ -275,7 +291,7 @@ export default function WebDevelopmentContent() {
                                 >
                                     {/* Left side: Number */}
                                     <div className="flex items-center justify-center w-16 shrink-0">
-                                        <span className="text-gray-400 text-4xl font-light leading-none group-hover:text-white transition-colors">0{i + 1}</span>
+                                        <span className="text-gray-400 text-4xl font-light leading-none group-hover:text-black dark:text-white transition-colors">0{i + 1}</span>
                                     </div>
 
                                     {/* Vertical Bar */}
@@ -287,7 +303,7 @@ export default function WebDevelopmentContent() {
                                     </div>
 
                                     {/* Text */}
-                                    <div className="text-gray-300 group-hover:text-white transition-colors text-sm font-medium leading-relaxed max-w-[200px] md:max-w-xs">
+                                    <div className="text-gray-800 dark:text-gray-300 group-hover:text-black dark:text-white transition-colors text-sm font-medium leading-relaxed max-w-[200px] md:max-w-xs">
                                         {item.text}
                                     </div>
                                 </motion.div>
@@ -319,6 +335,47 @@ export default function WebDevelopmentContent() {
             <WorkflowSteps />
 
             <Testimonials />
+
+            {/* Compact Web Development CTA */}
+            <section className="relative mt-16 mb-10 px-4">
+                <motion.div
+                    className="relative max-w-4xl mx-auto overflow-hidden rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-cyan-500/5 rounded-2xl" />
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+                    
+                    <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div>
+                            <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
+                                Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">scale your web</span> presence
+                            </h2>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
+                                From SaaS platforms to high-performance apps — we build what matters.
+                            </p>
+                        </div>
+                        <div className="flex gap-3 shrink-0">
+                            <Link 
+                                href="/contact"
+                                className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-bold shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:scale-105 transition-all"
+                            >
+                                Start Project
+                                <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link 
+                                href="https://wa.me/918968369582"
+                                target="_blank"
+                                className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
+                            >
+                                WhatsApp
+                            </Link>
+                        </div>
+                    </div>
+                </motion.div>
+            </section>
 
             <FaqSection />
         </main>

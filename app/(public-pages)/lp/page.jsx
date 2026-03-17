@@ -21,7 +21,7 @@ export default function LandingPage() {
 
             {/* Simplified Navbar - Logo + CTA only */}
             <motion.nav
-                className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3.5 md:px-16 lg:px-24 bg-black/30 backdrop-blur-sm"
+                className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3.5 md:px-16 lg:px-24 bg-white/50 dark:bg-black/30 backdrop-blur-sm"
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
@@ -74,7 +74,7 @@ export default function LandingPage() {
                     >
                         We Build <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent drop-shadow-lg">High-Performance Websites & Mobile Apps</span> That Generate Business
                     </motion.h1>
-                    <motion.p className="text-center text-gray-100 text-base/7 max-w-md mt-6"
+                    <motion.p className="text-center text-gray-800 dark:text-gray-100 text-base/7 max-w-md mt-6"
                         initial={{ y: 50, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}

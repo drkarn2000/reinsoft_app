@@ -48,8 +48,8 @@ export default function WorkflowSteps() {
     return (
         <section className="mt-16 relative">
             <SectionTitle
-                title="Our Simple & Effective Process"
-                description="A transparent process that works for both local and global clients. No confusion. No hidden costs. Just honest work that delivers results."
+                title="Our Custom Software Development Process"
+                description="No confusing jargon—just a clear, straightforward path from our first chat to launching your new solution."
                 gradient={true}
             />
 
@@ -61,19 +61,19 @@ export default function WorkflowSteps() {
             >
                 {/* Center timeline with step numbers */}
                 <div className="flex-col items-center hidden md:flex absolute left-1/2 -translate-x-1/2">
-                    <p className="flex items-center justify-center font-medium my-10 aspect-square bg-black/15 p-2 rounded-full">
+                    <p className="flex items-center justify-center font-medium my-10 aspect-square bg-gray-100 dark:bg-black/15 p-2 rounded-full text-black dark:text-white z-10 border border-gray-200 dark:border-white/10">
                         01
                     </p>
-                    <div className="h-72 w-0.5 bg-gradient-to-b from-transparent via-white to-transparent" />
-                    <p className="flex items-center justify-center font-medium my-10 aspect-square bg-black/15 p-2 rounded-full">
+                    <div className="h-72 w-0.5 bg-gradient-to-b from-transparent via-black/20 dark:via-white/50 to-transparent" />
+                    <p className="flex items-center justify-center font-medium my-10 aspect-square bg-gray-100 dark:bg-black/15 p-2 rounded-full text-black dark:text-white z-10 border border-gray-200 dark:border-white/10">
                         02
                     </p>
-                    <div className="h-72 w-0.5 bg-gradient-to-b from-transparent via-white to-transparent" />
-                    <p className="flex items-center justify-center font-medium my-10 aspect-square bg-black/15 p-2 rounded-full">
+                    <div className="h-72 w-0.5 bg-gradient-to-b from-transparent via-black/20 dark:via-white/50 to-transparent" />
+                    <p className="flex items-center justify-center font-medium my-10 aspect-square bg-gray-100 dark:bg-black/15 p-2 rounded-full text-black dark:text-white z-10 border border-gray-200 dark:border-white/10">
                         03
                     </p>
-                    <div className="h-72 w-0.5 bg-gradient-to-b from-transparent via-white to-transparent" />
-                    <p className="flex items-center justify-center font-medium my-10 aspect-square bg-black/15 p-2 rounded-full">
+                    <div className="h-72 w-0.5 bg-gradient-to-b from-transparent via-black/20 dark:via-white/50 to-transparent" />
+                    <p className="flex items-center justify-center font-medium my-10 aspect-square bg-gray-100 dark:bg-black/15 p-2 rounded-full text-black dark:text-white z-10 border border-gray-200 dark:border-white/10">
                         04
                     </p>
                 </div>
@@ -92,10 +92,11 @@ export default function WorkflowSteps() {
                             <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#ff7a18_0%,#3b82f6_50%,#ff7a18_100%)]" />
 
                             {/* Image Content */}
-                            <div className="relative z-10 bg-black rounded-xl overflow-hidden h-full w-full">
+                            <div className="relative z-10 bg-white dark:bg-black rounded-xl overflow-hidden h-full w-full">
                                 <Image
                                     src={step.image}
-                                    alt="step"
+                                    alt={`Process Step ${step.id}: ${step.title} - Reinsoft Software Development`}
+                                    title={`Reinsoft Process: ${step.title}`}
                                     width={step.width}
                                     height={step.height}
                                     className="h-auto w-full object-cover"
@@ -107,7 +108,7 @@ export default function WorkflowSteps() {
                             <h3 className="text-2xl font-medium bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] bg-clip-text text-transparent">
                                 {step.title}
                             </h3>
-                            <p className="text-gray-100 text-sm/6 line-clamp-3 pb-2">
+                            <p className="text-gray-700 dark:text-gray-100 text-sm/6 line-clamp-3 pb-2">
                                 {step.description}
                             </p>
                             <GradientButton href={step.link} className="w-fit" loop={false}>
@@ -120,13 +121,13 @@ export default function WorkflowSteps() {
             </motion.div>
 
             <motion.p
-                className="text-center mt-16 text-lg font-medium text-gray-200"
+                className="text-center mt-16 text-lg font-medium text-gray-700 dark:text-gray-200"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
             >
-                We don't just build projects, <span className="text-white">we build trust.</span>
+                We don't just build projects, <span className="text-black dark:text-white">we build trust.</span>
             </motion.p>
         </section>
     );

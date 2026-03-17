@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { TargetIcon, HeartIcon, SparklesIcon, RocketIcon } from "lucide-react";
+import { TargetIcon, HeartIcon, SparklesIcon, RocketIcon, ArrowRightIcon, UsersIcon, HandshakeIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import GradientButton from "@/components/gradient-button";
 import WhyChooseUs from "@/sections/why-choose-us";
 import Team from "@/sections/team";
-import CallToAction from "@/sections/call-to-action";
 
 export default function AboutPage() {
     return (
@@ -24,7 +24,7 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Background Image */}
-            <div className="fixed inset-0 -z-30 pointer-events-none">
+            <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/Services.jpg"
                     alt="Background"
@@ -33,7 +33,7 @@ export default function AboutPage() {
                     priority
                     quality={90}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/80 dark:from-black/80 dark:via-black/40 dark:to-black/80 z-10" />
             </div>
 
             {/* Agency Intro Hero */}
@@ -63,19 +63,42 @@ export default function AboutPage() {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ type: "spring", stiffness: 200, damping: 60 }}
                         >
-                            <p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
+                            <p className="text-gray-800 dark:text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
                                 Reinsoft is a global software development agency dedicated to crafting innovative, high-performance digital solutions. We partner with businesses to turn bold ideas into reality.
                             </p>
-                            <p className="text-gray-400 text-base md:text-lg max-w-lg leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg max-w-lg leading-relaxed">
                                 With 10+ years of experience and a passion for clean code, we combine technical expertise with creative design to deliver products that delight users and drive growth.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-2">
-                                <GradientButton href="/contact" className="max-md:w-full" contentClassName="px-6 py-3 font-semibold bg-black/20 backdrop-blur-md" loop={false}>
-                                    Get in Touch
-                                </GradientButton>
-                                <GradientButton href="/our-work" className="max-md:w-full" contentClassName="px-6 py-3 font-semibold bg-white/5 border border-white/10 backdrop-blur-md" loop={false}>
-                                    View Our Work
-                                </GradientButton>
+                                {/* Primary CTA */}
+                                <Link
+                                    href="/contact"
+                                    className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold text-white text-sm tracking-wide overflow-hidden transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto"
+                                    style={{
+                                        background: 'linear-gradient(135deg, #ff7a18 0%, #e8530a 100%)',
+                                        boxShadow: '0 4px 20px rgba(255,122,24,0.4)'
+                                    }}
+                                    onMouseEnter={e => e.currentTarget.style.boxShadow = '0 10px 40px rgba(255,122,24,0.7), 0 0 60px rgba(255,122,24,0.25)'}
+                                    onMouseLeave={e => e.currentTarget.style.boxShadow = '0 4px 20px rgba(255,122,24,0.4)'}
+                                >
+                                    <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+                                    <span className="relative">Get in Touch</span>
+                                    <svg className="relative size-4 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                                </Link>
+                                {/* Secondary CTA */}
+                                <Link
+                                    href="/our-work"
+                                    className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold text-white text-sm tracking-wide overflow-hidden transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto"
+                                    style={{
+                                        background: 'linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%)',
+                                        boxShadow: '0 4px 18px rgba(30,30,46,0.45)'
+                                    }}
+                                    onMouseEnter={e => e.currentTarget.style.boxShadow = '0 10px 40px rgba(30,30,46,0.7), 0 0 50px rgba(100,100,200,0.15)'}
+                                    onMouseLeave={e => e.currentTarget.style.boxShadow = '0 4px 18px rgba(30,30,46,0.45)'}
+                                >
+                                    <span className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+                                    <span className="relative">View Our Work</span>
+                                </Link>
                             </div>
                         </motion.div>
 
@@ -117,7 +140,7 @@ export default function AboutPage() {
                                     <span className={`text-4xl md:text-5xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
                                         {stat.value}
                                     </span>
-                                    <p className="text-gray-300 text-sm md:text-base font-medium mt-3 leading-tight">
+                                    <p className="text-black dark:text-gray-300 text-sm md:text-base font-medium mt-3 leading-tight">
                                         {stat.label}
                                     </p>
                                 </motion.div>
@@ -146,7 +169,7 @@ export default function AboutPage() {
                         <h2 className="text-4xl md:text-5xl font-bold mb-12">
                             Our <span className="text-orange-500">Mission</span>
                         </h2>
-                        <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
+                        <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
                             To empower businesses worldwide with world-class software solutions that are innovative, reliable, and built for long-term success. We believe great technology should be accessible to every ambitious business, no matter the size.
                         </p>
                     </motion.div>
@@ -157,7 +180,7 @@ export default function AboutPage() {
                                 icon: <TargetIcon className="size-7" />,
                                 title: "Precision",
                                 description: "Every line of code is crafted with purpose and attention to detail.",
-                                color: "text-blue-400",
+                                color: "text-blue-600 dark:text-blue-400",
                                 bg: "bg-blue-500/10",
                                 border: "border-blue-500/20"
                             },
@@ -165,7 +188,7 @@ export default function AboutPage() {
                                 icon: <HeartIcon className="size-7" />,
                                 title: "Passion",
                                 description: "We genuinely love what we do, and it shows in every project.",
-                                color: "text-rose-400",
+                                color: "text-rose-600 dark:text-rose-400",
                                 bg: "bg-rose-500/10",
                                 border: "border-rose-500/20"
                             },
@@ -173,7 +196,7 @@ export default function AboutPage() {
                                 icon: <SparklesIcon className="size-7" />,
                                 title: "Innovation",
                                 description: "We stay ahead of the curve, leveraging the latest technologies.",
-                                color: "text-amber-400",
+                                color: "text-amber-600 dark:text-amber-400",
                                 bg: "bg-amber-500/10",
                                 border: "border-amber-500/20"
                             },
@@ -181,7 +204,7 @@ export default function AboutPage() {
                                 icon: <RocketIcon className="size-7" />,
                                 title: "Impact",
                                 description: "We measure success by the real-world value we deliver to clients.",
-                                color: "text-emerald-400",
+                                color: "text-emerald-600 dark:text-emerald-400",
                                 bg: "bg-emerald-500/10",
                                 border: "border-emerald-500/20"
                             }
@@ -198,15 +221,87 @@ export default function AboutPage() {
                                     {item.icon}
                                 </div>
                                 <h3 className={`text-lg font-bold ${item.color} mb-2`}>{item.title}</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Call To Action */}
-            <CallToAction />
+            {/* Partner With Us CTA - Unique design for About page */}
+            <section className="relative mt-16 mb-10 px-4">
+                <motion.div
+                    className="relative max-w-6xl mx-auto overflow-hidden"
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                >
+                    {/* Background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 rounded-3xl" />
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PHBhdGggZD0iTTAgMGg2MHY2MEgweiIgZmlsbD0ibm9uZSIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjEuNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')] opacity-50" />
+
+                    {/* Decorative circles */}
+                    <div className="absolute -top-16 -right-16 size-64 bg-white/10 rounded-full blur-2xl" />
+                    <div className="absolute -bottom-16 -left-16 size-64 bg-white/10 rounded-full blur-2xl" />
+
+                    {/* Content */}
+                    <div className="relative z-10 px-6 py-16 sm:px-10 sm:py-20 md:px-16 md:py-24 text-center">
+                        <motion.div
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/15 text-white text-sm font-medium mb-8"
+                            initial={{ opacity: 0, y: -10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <HandshakeIcon className="size-4" />
+                            Let's Collaborate
+                        </motion.div>
+
+                        <motion.h2
+                            className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] mb-6"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                        >
+                            Partner With Us to Create
+                            <span className="block mt-2 text-white/90">Your Next Big Thing</span>
+                        </motion.h2>
+
+                        <motion.p
+                            className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto mb-10"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4 }}
+                        >
+                            We're more than a dev team — we're your long-term technology partner. Let's discuss your vision and make it a reality.
+                        </motion.p>
+
+                        <motion.div
+                            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.5 }}
+                        >
+                            <Link href="/contact"
+                                className="group flex items-center gap-2 px-8 py-4 rounded-full bg-white text-indigo-700 font-bold text-base shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                            >
+                                <UsersIcon className="size-5" />
+                                Schedule a Meeting
+                                <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link href="https://wa.me/918968369582" target="_blank"
+                                className="flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/40 text-white font-semibold text-base hover:bg-white/15 transition-all duration-300"
+                            >
+                                Chat on WhatsApp
+                            </Link>
+                        </motion.div>
+                    </div>
+                </motion.div>
+            </section>
         </main>
     );
 }

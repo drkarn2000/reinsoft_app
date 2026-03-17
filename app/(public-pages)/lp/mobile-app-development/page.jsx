@@ -51,18 +51,18 @@ export default function MobileAppLandingPage() {
                                     Top Rated Mobile App Developers
                                 </span>
                             </div>
-                            <h1 className="text-4xl/tight md:text-6xl/tight font-bold tracking-tight text-white">
+                            <h1 className="text-4xl/tight md:text-6xl/tight font-bold tracking-tight text-black dark:text-white">
                                 Ready to build your <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent drop-shadow-lg">custom mobile app?</span>
                             </h1>
-                            <p className="text-gray-200 text-lg/relaxed max-w-xl">
+                            <p className="text-gray-800 dark:text-gray-200 text-lg/relaxed max-w-xl">
                                 We develop fast, scalable, and intuitive mobile experiences. Partner with us to turn your vision into an award-winning iOS and Android application.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                                <a href="#contact-quote" className="btn glass py-4 px-8 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 transition text-white text-base font-bold shadow-lg shadow-pink-500/25">
+                                <a href="#contact-quote" className="btn glass py-4 px-8 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 transition text-black dark:text-white text-base font-bold shadow-lg shadow-pink-500/25">
                                     Get a Quote Now
                                 </a>
-                                <a href="https://wa.me/918968369582" target="_blank" rel="noopener noreferrer" className="btn glass flex items-center justify-center gap-2 py-4 px-8 bg-green-500/20 hover:bg-green-500/40 border border-green-500/50 transition text-white text-base font-medium">
+                                <a href="https://wa.me/918968369582" target="_blank" rel="noopener noreferrer" className="btn glass flex items-center justify-center gap-2 py-4 px-8 bg-green-500/20 hover:bg-green-500/40 border border-green-500/50 transition text-black dark:text-white text-base font-medium">
                                     <MessageCircleIcon className="size-5" />
                                     Book a free consultation
                                 </a>
@@ -89,10 +89,10 @@ export default function MobileAppLandingPage() {
                     viewport={{ once: true }}
                 >
                     <h2 className="text-3xl font-semibold mb-6">Custom Mobile App Development <span className="text-green-400">🍃</span></h2>
-                    <p className="text-gray-300 text-base leading-relaxed mb-6">
+                    <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-6">
                         Reinsoft is your trusted mobile app development company, helping clients achieve key objectives with bespoke iOS and Android apps. We empower businesses with React Native-based hybrid apps for greater client reach. Our team works collaboratively with startups, rising companies, and enterprise brands, delivering successful, innovative digital solutions.
                     </p>
-                    <p className="text-gray-300 text-base leading-relaxed">
+                    <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
                         We deliver pioneering mobile apps with a focus on performance and efficiency, ensuring your application is easy to navigate, manage, and update post-launch. With steadfast dedication, we ensure that every project is deeply tailored to the client's goals, fostering success and surpassing expectations.
                     </p>
                 </motion.section>
@@ -101,7 +101,7 @@ export default function MobileAppLandingPage() {
                 <section className="max-w-7xl mx-auto py-16">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">Our <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent">Mobile App Services</span></h2>
-                        <p className="text-gray-300 mt-4 max-w-2xl mx-auto">End-to-end app development, from design and prototyping through to deployment and maintenance.</p>
+                        <p className="text-gray-700 dark:text-gray-300 mt-4 max-w-2xl mx-auto">End-to-end app development, from design and prototyping through to deployment and maintenance.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -112,8 +112,8 @@ export default function MobileAppLandingPage() {
                             <div className="size-16 rounded-xl border border-white/10 flex items-center justify-center mb-6 bg-white/5">
                                 <Image src="/assets/apple-icon.png" alt="iOS" width={48} height={48} className="size-12 object-contain" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">iOS App Development</h3>
-                            <p className="text-sm text-gray-300 mb-6">Create seamless experiences for the world's most premium user base. We build native iOS apps in Swift and Objective-C tailored for maximum performance on iPhone and iPad.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">iOS App Development</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Create seamless experiences for the world's most premium user base. We build native iOS apps in Swift and Objective-C tailored for maximum performance on iPhone and iPad.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-orange-400 hover:text-orange-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -124,8 +124,8 @@ export default function MobileAppLandingPage() {
                             <div className="size-16 rounded-xl bg-green-900/30 border border-green-500/30 flex items-center justify-center mb-6">
                                 <SmartphoneIcon className="size-8 text-green-500" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Android App Development</h3>
-                            <p className="text-sm text-gray-300 mb-6">Reach the largest mobile audience globally. We utilize the latest Google-powered frameworks (Kotlin/Java) to build robust, scalable apps working flawlessly across all Android devices.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">Android App Development</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Reach the largest mobile audience globally. We utilize the latest Google-powered frameworks (Kotlin/Java) to build robust, scalable apps working flawlessly across all Android devices.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-orange-400 hover:text-orange-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -136,8 +136,8 @@ export default function MobileAppLandingPage() {
                             <div className="size-16 rounded-xl bg-blue-900/30 border border-blue-500/30 flex items-center justify-center mb-6">
                                 <GlobeIcon className="size-8 text-blue-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">React Native App Development</h3>
-                            <p className="text-sm text-gray-300 mb-6">Prefer one app that covers all devices? We use React Native to create cross-platform hybrid apps that look, feel, and perform like native apps while reducing development time and costs.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">React Native App Development</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Prefer one app that covers all devices? We use React Native to create cross-platform hybrid apps that look, feel, and perform like native apps while reducing development time and costs.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-orange-400 hover:text-orange-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -148,8 +148,8 @@ export default function MobileAppLandingPage() {
                             <div className="size-16 rounded-xl bg-pink-900/30 border border-pink-500/30 flex items-center justify-center mb-6">
                                 <PenToolIcon className="size-8 text-pink-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">UI/UX App Design</h3>
-                            <p className="text-sm text-gray-300 mb-6">Stunning, user-centric mobile interfaces that engage users and drive higher retention rates. We focus on modern design principles and intuitive navigation.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">UI/UX App Design</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">Stunning, user-centric mobile interfaces that engage users and drive higher retention rates. We focus on modern design principles and intuitive navigation.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-orange-400 hover:text-orange-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
 
@@ -160,8 +160,8 @@ export default function MobileAppLandingPage() {
                             <div className="size-16 rounded-xl bg-purple-900/30 border border-purple-500/30 flex items-center justify-center mb-6">
                                 <ZapIcon className="size-8 text-purple-400" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">App Maintenance & Support</h3>
-                            <p className="text-sm text-gray-300 mb-6">We don't abandon ship after launch. We provide ongoing support, bug tracking, OS updates, and new feature integrations to keep your app running smoothly.</p>
+                            <h3 className="text-xl font-bold text-black dark:text-white mb-4">App Maintenance & Support</h3>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6">We don't abandon ship after launch. We provide ongoing support, bug tracking, OS updates, and new feature integrations to keep your app running smoothly.</p>
                             <Link href="#contact-quote" className="text-sm font-semibold text-orange-400 hover:text-orange-300 flex items-center gap-1">Know More <span className="text-xs">&rarr;</span></Link>
                         </motion.div>
                     </div>

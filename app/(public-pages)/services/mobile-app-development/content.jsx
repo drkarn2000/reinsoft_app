@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { SmartphoneIcon, AppleIcon, PlayIcon, LayoutIcon, Share2Icon, FingerprintIcon, CpuIcon, CloudIcon } from "lucide-react";
+import { SmartphoneIcon, AppleIcon, PlayIcon, LayoutIcon, Share2Icon, FingerprintIcon, CpuIcon, CloudIcon, ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import GradientButton from "@/components/gradient-button";
@@ -45,7 +45,7 @@ export default function MobileAppDevelopmentContent() {
     return (
         <main className="min-h-screen selection:bg-purple-500/30">
             {/* Background elements - Harmonized */}
-            <motion.div className="fixed inset-0 overflow-hidden -z-20 pointer-events-none"
+            <motion.div className="fixed inset-0 overflow-hidden -z-20 pointer-events-none hidden dark:block"
                 initial={{ opacity: 0.1 }}
                 whileInView={{ opacity: 0.3 }}
                 viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function MobileAppDevelopmentContent() {
             </motion.div>
 
             {/* Background Image - Harmonized */}
-            <div className="fixed inset-0 -z-30 pointer-events-none">
+            <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/Services.jpg"
                     alt="Background"
@@ -83,16 +83,21 @@ export default function MobileAppDevelopmentContent() {
                         <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
                             Crafting Experiences for the Palm of Your Hand
                         </h1>
-                        <p className="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
                             We build native and cross-platform mobile applications that users love. From sleek startups to global brands, we deliver mobile-first digital transformation.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <GradientButton href="/contact">
+                            <Link href="/contact"
+                                className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 text-black font-bold text-lg shadow-[0_0_30px_rgba(16,185,129,0.35)] hover:shadow-[0_0_45px_rgba(16,185,129,0.5)] hover:scale-105 transition-all duration-300"
+                            >
                                 Start Your App
-                            </GradientButton>
-                            <GradientButton href="#capabilities" contentClassName="bg-white/5 border border-white/10" loop={false}>
+                                <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link href="#capabilities"
+                                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/15 font-semibold text-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
+                            >
                                 View Capabilities
-                            </GradientButton>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
@@ -101,13 +106,13 @@ export default function MobileAppDevelopmentContent() {
             <TrustStrip />
 
             {/* Lead Form Section - Moved to top for visibility */}
-            <section id="quote" className="py-24 px-4 bg-gradient-to-b from-black to-slate-900/50 overflow-hidden relative">
+            <section id="quote" className="py-24 px-4 bg-transparent dark:bg-gradient-to-b dark:from-black dark:to-slate-900/50 overflow-hidden relative">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to Build Your <br /><span className="text-blue-400">Mobile Empire?</span></h2>
-                        <p className="text-gray-400 text-lg mb-12">
+                        <p className="text-gray-700 dark:text-gray-400 text-lg mb-12">
                             Our team is ready to guide you from wireframe to launch. Let's create something extraordinary together.
                         </p>
                         <div className="flex flex-col gap-6 w-full max-w-2xl mt-8">
@@ -118,7 +123,7 @@ export default function MobileAppDevelopmentContent() {
                                     desc: "Perfect performance on iOS and Android.",
                                     color: "bg-[#0ea5e9]",
                                     darkColor: "bg-[#0369a1]",
-                                    textColor: "text-[#38bdf8]",
+                                    textColor: "text-sky-600 dark:text-[#38bdf8]",
                                     icon: <SmartphoneIcon className="size-12 md:size-14" />,
                                 },
                                 {
@@ -127,7 +132,7 @@ export default function MobileAppDevelopmentContent() {
                                     desc: "Using Flutter and React Native for split-second speed.",
                                     color: "bg-[#8b5cf6]",
                                     darkColor: "bg-[#5b21b6]",
-                                    textColor: "text-[#a78bfa]",
+                                    textColor: "text-purple-600 dark:text-[#a78bfa]",
                                     icon: <CpuIcon className="size-12 md:size-14" />,
                                 }
                             ].map((item, i) => (
@@ -151,7 +156,7 @@ export default function MobileAppDevelopmentContent() {
                                     {/* Content */}
                                     <div className="pl-28 md:pl-32 pr-20 py-6 flex-1 flex flex-col justify-center h-full z-10 relative">
                                         <h4 className={`text-2xl font-bold ${item.textColor} tracking-widest mb-1.5 uppercase`}>{item.title}</h4>
-                                        <p className="text-gray-300 text-base font-medium leading-relaxed">{item.desc}</p>
+                                        <p className="text-gray-700 dark:text-gray-300 text-base font-medium leading-relaxed">{item.desc}</p>
                                     </div>
 
                                     {/* Original Icon */}
@@ -181,7 +186,7 @@ export default function MobileAppDevelopmentContent() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Mobile <span className="text-blue-400">Stack & Expertise</span></h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Leveraging modern frameworks to build secure, offline-first, and highly responsive mobile applications.</p>
+                        <p className="text-gray-700 dark:text-gray-400 max-w-2xl mx-auto">Leveraging modern frameworks to build secure, offline-first, and highly responsive mobile applications.</p>
                     </div>
 
                     <div className="flex flex-col gap-5 max-w-3xl mx-auto">
@@ -203,7 +208,7 @@ export default function MobileAppDevelopmentContent() {
                                     <div className="absolute -left-6 top-1/2 -translate-y-1/2 z-10" style={{ width: '48px', height: '48px' }}>
                                         <div style={{ position: 'absolute', left: '-12px', top: '-12px', width: '72px', height: '72px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.7, boxShadow: `0 0 10px 2px ${colors.hex}80`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
                                         <div style={{ position: 'absolute', left: '-6px', top: '-6px', width: '60px', height: '60px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.9, boxShadow: `0 0 8px 2px ${colors.hex}60`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
-                                        <div className={`size-12 rounded-full ${colors.bar} flex items-center justify-center text-lg font-black text-white shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}>
+                                        <div className={`size-12 rounded-full ${colors.bar} flex items-center justify-center text-lg font-black text-black dark:text-white shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}>
                                             {idx + 1}
                                         </div>
                                     </div>
@@ -211,7 +216,7 @@ export default function MobileAppDevelopmentContent() {
                                     {/* Content */}
                                     <div className="flex-grow py-4 pl-10 pr-2 text-left">
                                         <h3 className={`text-base font-bold mb-1 ${colors.text}`}>{feature.title}</h3>
-                                        <p className="text-gray-400 text-xs leading-relaxed">{feature.description}</p>
+                                        <p className="text-gray-700 dark:text-gray-400 text-xs leading-relaxed">{feature.description}</p>
                                     </div>
 
                                     {/* Right icon */}
@@ -231,7 +236,7 @@ export default function MobileAppDevelopmentContent() {
             </section>
 
             {/* Tech & Features Section */}
-            <section className="py-24 px-4 bg-white/5 backdrop-blur-sm">
+            <section className="py-24 px-4 bg-black/5 dark:bg-white/5 backdrop-blur-sm">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <motion.div
                         className="relative rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-square order-2 lg:order-1"
@@ -258,7 +263,7 @@ export default function MobileAppDevelopmentContent() {
                         className="order-1 lg:order-2"
                     >
                         <h2 className="text-3xl font-semibold mb-8">Building for the <span className="text-purple-400">Modern User</span></h2>
-                        <p className="text-gray-300 mb-6 leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                             A great app is more than just a screen; it's a seamless part of your user's life. We focus on performance, accessibility, and delight.
                         </p>
                         <div className="flex flex-col gap-5 mb-8">
@@ -294,7 +299,7 @@ export default function MobileAppDevelopmentContent() {
                                 >
                                     {/* Left side: Number */}
                                     <div className="flex items-center justify-center w-16 shrink-0">
-                                        <span className="text-gray-400 text-4xl font-light leading-none group-hover:text-white transition-colors">0{i + 1}</span>
+                                        <span className="text-gray-400 text-4xl font-light leading-none group-hover:text-black dark:text-white transition-colors">0{i + 1}</span>
                                     </div>
 
                                     {/* Vertical Bar */}
@@ -306,7 +311,7 @@ export default function MobileAppDevelopmentContent() {
                                     </div>
 
                                     {/* Text */}
-                                    <div className="text-gray-300 group-hover:text-white transition-colors text-sm font-medium leading-relaxed max-w-[200px] md:max-w-xs">
+                                    <div className="text-gray-800 dark:text-gray-300 group-hover:text-black dark:text-white transition-colors text-sm font-medium leading-relaxed max-w-[200px] md:max-w-xs">
                                         {item.text}
                                     </div>
                                 </motion.div>
@@ -320,6 +325,47 @@ export default function MobileAppDevelopmentContent() {
             <WorkflowSteps />
 
             <Testimonials />
+
+            {/* Compact Mobile Development CTA */}
+            <section className="relative mt-16 mb-10 px-4">
+                <motion.div
+                    className="relative max-w-4xl mx-auto overflow-hidden rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-teal-500/5 rounded-2xl" />
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
+                    
+                    <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div>
+                            <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
+                                Your next <span className="text-emerald-500 dark:text-emerald-400">mobile app</span> starts here
+                            </h2>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
+                                Let's create an app your users will love — and your competitors will envy.
+                            </p>
+                        </div>
+                        <div className="flex gap-3 shrink-0">
+                            <Link 
+                                href="/contact"
+                                className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 text-black text-sm font-bold shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:scale-105 transition-all"
+                            >
+                                Get Estimate
+                                <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link 
+                                href="https://wa.me/918968369582"
+                                target="_blank"
+                                className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
+                            >
+                                WhatsApp
+                            </Link>
+                        </div>
+                    </div>
+                </motion.div>
+            </section>
 
             <FaqSection />
         </main>

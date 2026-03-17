@@ -14,12 +14,14 @@ export default function CallToAction() {
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
                 {/* Dark gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a12]" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-white dark:from-[#0a0a0f] dark:via-[#0f0f1a] dark:to-[#0a0a12]" />
 
                 {/* Glowing orbs */}
-                <div className="absolute -top-20 -left-20 w-80 h-80 bg-[#ff7a18]/20 rounded-full blur-[100px] pointer-events-none" />
-                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#3b82f6]/20 rounded-full blur-[100px] pointer-events-none" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-purple-600/10 rounded-full blur-[80px] pointer-events-none" />
+                <div className="hidden dark:block">
+                    <div className="absolute -top-20 -left-20 w-80 h-80 bg-[#ff7a18]/20 rounded-full blur-[100px] pointer-events-none" />
+                    <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#3b82f6]/20 rounded-full blur-[100px] pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-purple-600/10 rounded-full blur-[80px] pointer-events-none" />
+                </div>
 
                 {/* Subtle grid overlay */}
                 <div className="absolute inset-0 opacity-[0.03]"
@@ -32,7 +34,7 @@ export default function CallToAction() {
                 <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3b82f6]/40 to-transparent" />
 
                 {/* Border */}
-                <div className="absolute inset-0 rounded-3xl border border-white/10 pointer-events-none" />
+                <div className="absolute inset-0 rounded-3xl border border-black/10 dark:border-white/10 pointer-events-none" />
 
                 {/* Content */}
                 <div className="relative z-10 px-5 py-12 sm:px-8 sm:py-16 md:px-20 md:py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -52,7 +54,7 @@ export default function CallToAction() {
                         </motion.div>
 
                         <motion.h2
-                            className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] mb-5"
+                            className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-black dark:text-white leading-[1.1] mb-5"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -65,14 +67,14 @@ export default function CallToAction() {
                         </motion.h2>
 
                         <motion.p
-                            className="text-gray-400 text-lg leading-relaxed max-w-lg"
+                            className="text-gray-700 dark:text-gray-400 text-lg leading-relaxed max-w-lg"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.4 }}
                         >
                             Get a clear solution, realistic timeline, and transparent pricing.
-                            No pressure, no obligation — just results.
+                            No pressure, no obligation just results.
                         </motion.p>
                     </div>
 
@@ -98,13 +100,13 @@ export default function CallToAction() {
                         {/* Secondary CTAs */}
                         <div className="flex gap-3">
                             <Link href="tel:+918968369582"
-                                className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/25 text-white font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
+                                className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-black/15 dark:border-white/15 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-black dark:text-white font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
                             >
                                 <PhoneIcon className="size-4 text-green-400" />
                                 Call Now
                             </Link>
                             <Link href="https://wa.me/918968369582" target="_blank"
-                                className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-green-500/30 bg-green-500/10 hover:bg-green-500/20 hover:border-green-500/50 text-green-400 font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
+                                className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-green-500/30 bg-green-500/10 hover:bg-green-500/20 hover:border-green-500/50 text-green-600 dark:text-green-400 font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
                             >
                                 <MessageCircleIcon className="size-4" />
                                 WhatsApp

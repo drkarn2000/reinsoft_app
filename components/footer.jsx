@@ -16,7 +16,7 @@ export default function Footer() {
     ];
 
     return (
-        <motion.footer className="px-6 md:px-10 lg:px-10 w-full pt-8 mt-12 border-t border-white/10 bg-transparent backdrop-blur-sm"
+        <motion.footer className="px-6 md:px-10 lg:px-10 w-full pt-8 mt-12 border-t border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-xl"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -30,7 +30,8 @@ export default function Footer() {
                     <Link href="/">
                         <Image
                             src='/assets/logo.png'
-                            alt='Reinsoft Logo'
+                            alt='Reinsoft - Custom Software & IT Solutions Logo'
+                            title='Reinsoft Home'
                             className='h-24 w-auto'
                             width={280}
                             height={96}
@@ -39,7 +40,7 @@ export default function Footer() {
                     <p className="text-xl font-bold bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] bg-clip-text text-transparent">
                         Custom Software & IT Solutions for Growing Businesses
                     </p>
-                    <p className="text-gray-300 text-sm/6">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm/6">
                         We design and develop high-performance websites, mobile apps, and custom software that help businesses grow faster.
                     </p>
                     <GradientButton className="cursor-default" loop={false}>
@@ -50,13 +51,13 @@ export default function Footer() {
 
                 {/* Column 2 - Quick Links */}
                 <div className="space-y-4">
-                    <h4 className="text-white font-semibold text-lg">Quick Links</h4>
+                    <h4 className="text-black dark:text-white font-semibold text-lg">Quick Links</h4>
                     <nav className="flex flex-col gap-3">
                         {quickLinks.map((link, index) => (
                             <Link
                                 key={index}
                                 href={link.href}
-                                className='text-gray-300 hover:text-white transition text-sm'
+                                className='text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition text-sm'
                             >
                                 {link.name}
                             </Link>
@@ -66,13 +67,13 @@ export default function Footer() {
 
                 {/* Column 3 - Contact & CTA */}
                 <div className="space-y-4">
-                    <h4 className="text-white font-semibold text-lg">Get In Touch</h4>
+                    <h4 className="text-black dark:text-white font-semibold text-lg">Get In Touch</h4>
                     <div className="space-y-3">
-                        <a href="mailto:info@reinsoft.tech" className="flex items-center gap-3 text-gray-300 hover:text-white transition text-sm">
+                        <a href="mailto:info@reinsoft.tech" className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition text-sm">
                             <MailIcon className="size-4" />
                             info@reinsoft.tech
                         </a>
-                        <a href="tel:+918968369582" className="flex items-center gap-3 text-gray-300 hover:text-white transition text-sm">
+                        <a href="tel:+918968369582" className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition text-sm">
                             <PhoneIcon className="size-4" />
                             +91 89683 69582
                         </a>
@@ -85,7 +86,7 @@ export default function Footer() {
                         <GradientButton
                             href="/contact"
                             className="inline-block"
-                            contentClassName="bg-white/20 text-sm py-2.5 px-6"
+                            contentClassName="bg-white/80 dark:bg-white/20 text-black dark:text-white text-sm py-2.5 px-6"
                             loop={false}
                         >
                             Get Free Consultation
@@ -95,12 +96,12 @@ export default function Footer() {
             </div>
 
             {/* Bottom Bar */}
-            <hr className="w-full border-white/20" />
+            <hr className="w-full border-black/10 dark:border-white/20" />
             <div className="flex flex-col md:flex-row items-center w-full justify-between gap-4 py-5">
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
                     © 2025 Reinsoft. All rights reserved.
                 </p>
-                <p className="flex items-center gap-1 text-gray-400 text-sm">
+                <p className="flex items-center gap-1 text-gray-600 dark:text-gray-400 text-sm">
                     Built with <HeartIcon className="size-3.5 text-red-400 fill-red-400" /> for startups & growing businesses worldwide.
                 </p>
             </div>

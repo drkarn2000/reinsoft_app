@@ -34,7 +34,7 @@ export default function FaqSection() {
 
     return (
         <section className="mt-16 max-w-4xl mx-auto px-6" id="faq">
-            <SectionTitle title="Frequently Asked Questions" description="Find answers to common questions about our services, process, and how we can help your business grow." gradient={true} />
+            <SectionTitle title="Custom Software Development FAQs" description="Find answers to common questions about our services, process, and how we can help your business grow." gradient={true} />
             <div className='mx-auto mt-12 space-y-4 w-full max-w-xl'>
                 {data.map((item, index) => (
                     <div key={index} className='flex flex-col rainbow-lighting-card rounded-[2rem]'>

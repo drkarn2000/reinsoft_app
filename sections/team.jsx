@@ -38,10 +38,10 @@ const TeamCard = ({ member, index }) => {
             viewport={{ once: true, margin: "-50px" }}
             whileHover={{ scale: 1.07, boxShadow: '0 0 55px 12px rgba(255,122,24,0.25), 0 0 90px 20px rgba(255,80,180,0.12)' }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex flex-col items-center h-full p-6 rounded-2xl bg-white/5 transition-shadow shadow-lg text-center gradient-border-card group cursor-pointer"
+            className="flex flex-col items-center h-full p-6 rounded-2xl bg-black/5 dark:bg-white/5 transition-shadow shadow-lg text-center gradient-border-card group cursor-pointer"
         >
             {/* 1. Name on TOP */}
-            <h4 className="font-semibold text-white text-lg mb-2">{member.name}</h4>
+            <h4 className="font-semibold text-black dark:text-white text-lg mb-2">{member.name}</h4>
 
             {/* 2. Designation */}
             <span className="text-xs px-3 py-1 rounded-full bg-[#ff7a18]/10 border border-[#ff7a18]/30 text-[#ff7a18] mb-6 inline-block font-bold">
@@ -55,7 +55,8 @@ const TeamCard = ({ member, index }) => {
                     {member.imageUrl ? (
                         <Image
                             src={member.imageUrl}
-                            alt={member.name}
+                            alt={`${member.name} - ${member.role} at Reinsoft IT Solutions`}
+                            title={`Meet ${member.name}, our ${member.role}`}
                             fill
                             className="object-cover rounded-full"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -67,7 +68,7 @@ const TeamCard = ({ member, index }) => {
             </div>
 
             {/* 4. Content */}
-            <p className="text-gray-300 leading-relaxed text-sm flex-grow">
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm flex-grow">
                 "{member.bio}"
             </p>
         </motion.div>
@@ -78,8 +79,8 @@ export default function Team() {
     return (
         <section id="team" className="py-12 mt-8">
             <SectionTitle
-                title="Meet Our Team"
-                description="The talented individuals behind our success. We are dedicated to delivering the best results for your business."
+                title="Our Expert Software Development Team"
+                description="The dedicated professionals behind our practical and powerful IT solutions."
                 gradient={true}
             />
 

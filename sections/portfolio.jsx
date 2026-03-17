@@ -73,7 +73,7 @@ export default function Portfolio({ limit }) {
         },
         {
             title: "Legacy Marketplace Sustainable Event Sourcing Platform",
-            category: "Sustainable Events / Marketplace / B2B Platform",
+            category: "Events/Marketplace/B2B Platform",
             filterCategory: "Web Development",
             tags: ["PHP", "CodeIgniter", "Bootstrap", "MySQL"],
             image: "/assets/b2b.png",
@@ -83,7 +83,7 @@ export default function Portfolio({ limit }) {
         },
         {
             title: "The Mural Story™ Custom Wall Mural E-Commerce Platform",
-            category: "Interior Design / Home Decor / E-Commerce",
+            category: "Home Decor/E-Commerce",
             filterCategory: "UI/UX Design",
             tags: ["Shopify", "HTML5", "CSS3", "JavaScript"],
             image: "/assets/TMS.png",
@@ -101,7 +101,7 @@ export default function Portfolio({ limit }) {
         },
         {
             title: "J2 Wealth Financial Growth & Wealth Management Platform",
-            category: "Wealth Management & Financial Services",
+            category: "Wealth & Financial Services",
             filterCategory: "Web Development",
             tags: ["React.js", "Tailwind CSS", "WordPress", "SEO", "Vercel"],
             image: "/assets/J2wealth.png",
@@ -121,7 +121,7 @@ export default function Portfolio({ limit }) {
         {
             slug: "activelink-support-app",
             title: "Workforce & Shift Management Mobile App (Flutter)",
-            category: "Community Care & Workforce Management",
+            category: "Community & Workforce Management",
             filterCategory: "Mobile Applications",
             image: "/assets/activelink.png",
             description: "A Flutter-powered workforce management mobile app designed to automate rostering, shift scheduling, and team coordination for NDIS and community care organizations.",
@@ -130,7 +130,7 @@ export default function Portfolio({ limit }) {
         {
             slug: "agriculture-task-app",
             title: "Task Assignment Agriculture Mobile App (Flutter)",
-            category: "AgriTech & Task Management",
+            category: "Agriculture & Task Management",
             filterCategory: "Mobile Applications",
             image: "/assets/Purelife.jpeg",
             description: "A smart agriculture solution built with Flutter for efficient task assignment, crop monitoring, and workforce coordination in farm management.",
@@ -139,7 +139,7 @@ export default function Portfolio({ limit }) {
         {
             slug: "accuster-patient-management",
             title: "Accuster Technologies Patient Management App",
-            category: "Healthcare Screening & Patient Record App",
+            category: "Healthcare & Patient Record App",
             filterCategory: "Mobile Applications",
             image: "/assets/Accuster.jpeg",
             description: "Accuster A robust Android application built with Kotlin and Node.js to streamline patient registration, screening workflows, and instant report generation for biomedical data management.",
@@ -148,7 +148,7 @@ export default function Portfolio({ limit }) {
         {
             slug: "kamutalk",
             title: "Kamutalk Real-Time Social & Dating Platform ( React Native )",
-            category: "Dating App With Real-Time Communication",
+            category: "Dating App With Real-Time Chat",
             filterCategory: "Mobile Applications",
             image: "/assets/Kamutalk1.png",
             description: "A React Native dating application powered by Agora real-time communication and Node.js backend, delivering live audio/video interactions and scalable user engagement features..",
@@ -174,13 +174,13 @@ export default function Portfolio({ limit }) {
     return (
         <section id="portfolio" className="py-16 relative overflow-hidden">
             {/* Background elements */}
-            <div className="absolute top-0 w-full h-full overflow-hidden -z-10 flex justify-center items-center pointer-events-none">
+            <div className="absolute top-0 w-full h-full overflow-hidden -z-10 hidden dark:flex justify-center items-center pointer-events-none">
                 <div className="w-[600px] h-[600px] bg-gradient-to-tr from-[#ff7a18]/10 to-[#3b82f6]/10 rounded-full blur-[100px] opacity-40" />
             </div>
 
             <SectionTitle
-                title="Our Recent Work"
-                description="Explore some of our proudest projects. We blend beautiful design with powerful engineering to deliver exceptional digital experiences."
+                title="Our Web & Mobile App Development Portfolio"
+                description="Explore real-world examples of how we've helped businesses like yours transform their digital presence and operations."
                 gradient={true}
             />
 
@@ -193,7 +193,7 @@ export default function Portfolio({ limit }) {
                             onClick={() => setActiveCategory(category)}
                             className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${activeCategory === category
                                 ? "bg-gradient-to-r from-[#ff7a18] to-[#ea4c89] text-white border-transparent shadow-[0_0_20px_rgba(255,122,24,0.3)]"
-                                : "bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-white"
+                                : "bg-black/5 dark:bg-white/5 text-gray-600 dark:text-gray-400 border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white"
                                 }`}
                         >
                             {category}
@@ -214,14 +214,15 @@ export default function Portfolio({ limit }) {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.4 }}
-                                className="group relative rounded-3xl overflow-hidden bg-slate-900/50 border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl flex flex-col"
+                                className="group relative rounded-3xl overflow-hidden bg-white/50 dark:bg-slate-900/50 border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all duration-300 shadow-xl flex flex-col"
                             >
                                 {/* Image Container */}
                                 <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden">
                                     <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                                     <Image
                                         src={item.image}
-                                        alt={item.title}
+                                        alt={`${item.title} - ${item.category} Project by Reinsoft`}
+                                        title={`Reinsoft Portfolio: ${item.title}`}
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
@@ -229,24 +230,24 @@ export default function Portfolio({ limit }) {
                                 </div>
 
                                 {/* Content Details */}
-                                <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-20 bg-gradient-to-b from-slate-900/80 to-slate-900 backdrop-blur-sm -mt-8 mx-4 mb-4 rounded-2xl border border-white/10 group-hover:border-white/20 transition-colors shadow-lg">
+                                <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-20 bg-gradient-to-b from-white/80 to-white dark:from-slate-900/80 dark:to-slate-900 backdrop-blur-sm -mt-8 mx-4 mb-4 rounded-2xl border border-black/10 dark:border-white/10 group-hover:border-black/20 dark:group-hover:border-white/20 transition-colors shadow-lg">
                                     <div>
-                                        <h3 className="text-2xl font-bold tracking-tight text-white mb-3 group-hover:text-[#ff7a18] transition-colors">
+                                        <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white mb-3 group-hover:text-[#ff7a18] transition-colors">
                                             {item.title}
                                         </h3>
-                                        <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                                        <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
                                             {item.description}
                                         </p>
                                     </div>
 
-                                    <div className="mt-auto flex items-center justify-between gap-4">
-                                        <Link href={item.link} className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#ff7a18] transition-colors group/link">
+                                    <div className="mt-auto flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4">
+                                        <Link href={item.link} className="inline-flex items-center gap-2 text-sm font-semibold text-black dark:text-white hover:text-[#ff7a18] dark:hover:text-[#ff7a18] transition-colors group/link">
                                             <span className="border-b border-transparent group-hover/link:border-[#ff7a18] transition-colors pb-0.5">View Project details</span>
                                             <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                                         </Link>
 
                                         {/* Relocated Category Badge */}
-                                        <span className="px-3 py-1 text-sm font-normal text-gray-400 bg-white/5 backdrop-blur-md rounded-full border border-white/10 shrink-0 group-hover:border-[#ff7a18]/30 group-hover:text-white transition-colors">
+                                        <span className="px-3 py-1.5 text-[11px] sm:text-sm leading-tight font-medium text-gray-600 dark:text-gray-400 bg-black/5 dark:bg-white/5 backdrop-blur-md rounded-2xl border border-black/10 dark:border-white/10 group-hover:border-[#ff7a18]/30 group-hover:text-black dark:group-hover:text-white transition-colors inline-block max-w-full text-center sm:text-left">
                                             {item.category}
                                         </span>
                                     </div>

@@ -198,16 +198,17 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src={item.image}
-                        alt={item.name}
+                        alt={`Client ${item.name} - ${item.role} @ ${item.companyLogo}`}
+                        title={`Testimonial from ${item.name}`}
                         className={`w-full h-full ${item.name === 'Angela' ? 'object-contain p-1' : 'object-cover object-top'}`}
                         loading="lazy"
                     />
                 </div>
                 <div className="flex flex-col flex-grow">
-                    <h4 className="text-white font-bold text-base leading-tight group-hover:text-[#ff7a18] transition-colors">
+                    <h4 className="text-black dark:text-white font-bold text-base leading-tight group-hover:text-[#ff7a18] transition-colors">
                         {item.name}
                     </h4>
-                    <p className="text-sm text-gray-400 font-medium">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                         {item.role} @ {item.companyLogo}
                     </p>
                     <div className="flex items-center gap-1.5 text-xs text-gray-500 mt-0.5">
@@ -218,29 +219,30 @@ const TestimonialCard = ({ item, onVideoClick }) => {
             </div>
 
             {/* Stars & Project Type */}
-            <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3">
+            <div className="flex items-center justify-between mb-3 border-b border-black/10 dark:border-white/10 pb-3">
                 <StarRating />
                 <span className="text-xs font-bold px-3 py-1 rounded-full border bg-[#ff7a18]/10 border-[#ff7a18]/30 text-[#ff7a18]">
                     {item.projectType}
                 </span>
             </div>
 
-            {/* Subtle Result Badge */}
+            {/* Result Badge - same orange style on all cards */}
             {item.resultBadgeText && (
                 <div className="mb-4">
-                    <span className={`inline-flex px-3 py-1 rounded-md text-xs font-bold border ${item.highlight ? 'border-[#ff7a18]/50 bg-[#ff7a18]/20 text-[#ff7a18]' : 'border-white/20 bg-white/5 text-gray-300'}`}>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-orange-400/20 to-pink-400/20 border border-orange-400/40 text-orange-500 dark:text-orange-300">
+                        <span className="size-1.5 rounded-full bg-orange-400 animate-pulse inline-block" />
                         {item.resultBadgeText}
                     </span>
                 </div>
             )}
 
             {/* Review Content */}
-            <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
+            <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
                 "{item.review}"
             </p>
 
             {/* Footer Buttons */}
-            <div className={`mt-auto flex items-center justify-center border-t pt-4 ${item.highlight ? 'border-white/10' : 'border-white/5'}`}>
+            <div className={`mt-auto flex items-center justify-center border-t pt-4 ${item.highlight ? 'border-black/10 dark:border-white/10' : 'border-black/5 dark:border-white/5'}`}>
                 {item.link ? (
                     <Link
                         href={`${item.link}?hideDemo=true`}
@@ -330,7 +332,7 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                 {item.videoId && (
                     <button
                         onClick={() => onVideoClick(item.videoId)}
-                        className="flex items-center gap-1.5 text-sm font-semibold text-gray-400 hover:text-white transition-colors px-3 py-1.5 rounded-md hover:bg-white/10"
+                        className="flex items-center gap-1.5 text-sm font-semibold text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors px-3 py-1.5 rounded-md hover:bg-black/10 dark:hover:bg-white/10"
                     >
                         <Play className="size-4" /> Watch Video
                     </button>
@@ -348,15 +350,15 @@ export default function Testimonials({ limit }) {
     return (
         <section className="py-16 relative overflow-hidden" id="testimonials">
             {/* Ambient background glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#ff7a18]/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#ff7a18]/5 blur-[120px] rounded-full pointer-events-none hidden dark:block" />
 
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
                 {/* Section Header */}
                 <div className="text-center max-w-2xl mx-auto mb-12">
                     <SectionTitle
-                        title="Trusted by Growing Businesses Worldwide"
-                        description="Real feedback from founders, startups, and enterprise teams we've partnered with."
+                        title="Client Testimonials for Our IT Solutions"
+                        description="Don't just take our word for it—see what our partners say about working directly with a team that delivers results."
                         gradient={true}
                     />
                 </div>
@@ -373,7 +375,7 @@ export default function Testimonials({ limit }) {
                 </div>
 
                 {/* Conversion Booster / Stats */}
-                <div className="mt-20 border-t border-white/10 pt-12">
+                <div className="mt-20 border-t border-black/10 dark:border-white/10 pt-12">
                     {/* Section Label */}
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
@@ -428,10 +430,10 @@ export default function Testimonials({ limit }) {
                                         <span className="relative text-4xl leading-none drop-shadow-[0_0_12px_rgba(255,122,24,0.9)]">{stat.icon}</span>
                                     </div>
 
-                                    <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-b from-white via-gray-100 to-gray-400 bg-clip-text text-transparent leading-tight drop-shadow-[0_0_16px_rgba(255,255,255,0.25)]">
+                                    <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-b from-black via-gray-700 to-gray-500 dark:from-white dark:via-gray-100 dark:to-gray-400 bg-clip-text text-transparent leading-tight drop-shadow-[0_0_16px_rgba(255,255,255,0.25)]">
                                         {stat.value}
                                     </div>
-                                    <div className="text-sm text-white font-bold leading-snug">
+                                    <div className="text-sm text-black dark:text-white font-bold leading-snug">
                                         {stat.label}
                                     </div>
                                 </motion.div>

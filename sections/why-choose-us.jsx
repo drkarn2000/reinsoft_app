@@ -15,32 +15,32 @@ const cardColors = [
 const reasons = [
     {
         icon: UsersIcon,
-        title: "Experienced Team",
+        title: "Experienced Software Developers",
         description: "Our diverse team of experts brings years of experience in software development and IT solutions.",
     },
     {
         icon: LightbulbIcon,
-        title: "Tailored Solutions",
+        title: "Custom IT Solutions",
         description: "We don't believe in one-size-fits-all. We build custom solutions that fit your specific business needs.",
     },
     {
         icon: Clock,
-        title: "Timely Delivery",
+        title: "Agile Development Process",
         description: "We value your time. Our agile process ensures we deliver high-quality projects on schedule.",
     },
     {
         icon: ShieldCheck,
-        title: "Reliable & Secure",
+        title: "Secure Application Architecture",
         description: "Security is our top priority. We build robust systems that keep your data safe and your business running.",
     },
     {
         icon: Headset,
-        title: "Dedicated Support",
+        title: "Dedicated IT Support",
         description: "We are here for the long haul. Our support team is always ready to assist you post-launch.",
     },
     {
         icon: CheckCircleIcon,
-        title: "Proven Track Record",
+        title: "Proven Industry Experience",
         description: "We have a history of delivering successful projects that help businesses grow and succeed.",
     }
 ];
@@ -54,7 +54,7 @@ function RoadmapCard({ reason, index }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="relative flex flex-row items-center bg-white/5 border border-white/10 rounded-2xl overflow-visible group hover:bg-white/[0.08] transition-all duration-500 ml-5 sm:ml-7"
+            className="relative flex flex-row items-center bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl overflow-visible group hover:bg-black/10 dark:hover:bg-white/[0.08] transition-all duration-500 ml-5 sm:ml-7"
         >
             {/* Left accent bar */}
             <div className={`absolute left-0 top-0 bottom-0 w-1 ${colors.bar} rounded-l-2xl`} />
@@ -92,12 +92,12 @@ function RoadmapCard({ reason, index }) {
             {/* Content — left padded to avoid overlap with badge */}
             <div className="flex-grow py-4 pl-10 pr-2 text-left">
                 <h3 className={`text-base font-bold mb-1 ${colors.text}`}>{reason.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">{reason.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">{reason.description}</p>
             </div>
 
             {/* Right icon */}
             <div className="pr-5 shrink-0 flex items-center justify-center">
-                <div className={`size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${colors.text} opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500`}>
+                <div className={`size-10 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center ${colors.text} opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500`}>
                     <Icon size={20} strokeWidth={1.5} />
                 </div>
             </div>
@@ -112,8 +112,8 @@ export default function WhyChooseUs() {
     return (
         <section id="why-choose-us" className="mt-16 relative">
             <SectionTitle
-                title="Why Choose Us"
-                description="We are committed to delivering excellence. Here is why businesses trust us with their digital transformation."
+                title="Why Choose Reinsoft for IT Solutions"
+                description="What sets us apart? We focus on practical, high-quality deliverables without unnecessary complexity."
                 gradient={true}
             />
 
@@ -134,11 +134,12 @@ export default function WhyChooseUs() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.3, type: "spring", stiffness: 200, damping: 60 }}
                 >
-                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-900 to-black z-0" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/20 blur-[80px] rounded-full" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white to-gray-200 dark:from-slate-900 dark:to-black z-0" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/20 blur-[80px] rounded-full hidden dark:block" />
                     <Image
                         src="/assets/What_we_do.jpeg"
-                        alt="Why Choose Us Showcase"
+                        alt="Reinsoft IT Solutions Showcase - Custom Software & Web Development"
+                        title="Why Choose Reinsoft for your next IT project"
                         fill
                         className="object-cover z-10"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"

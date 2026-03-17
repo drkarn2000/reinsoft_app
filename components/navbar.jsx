@@ -1,11 +1,12 @@
 'use client';
 
-import { MenuIcon, XIcon, ChevronDownIcon, SmartphoneIcon, CodeIcon, LayoutGridIcon } from 'lucide-react';
+import { MenuIcon, XIcon, ChevronDownIcon, SmartphoneIcon, CodeIcon, LayoutGridIcon, Sun, Moon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from 'next-themes';
 
 import GradientButton from './gradient-button';
 
@@ -13,6 +14,8 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
     const pathname = usePathname();
 
     const links = [
@@ -31,6 +34,7 @@ export default function Navbar() {
     ];
 
     useEffect(() => {
+        setMounted(true);
         const handleScroll = () => {
             if (window.scrollY > 50) {
                 setIsScrolled(true);
@@ -50,7 +54,7 @@ export default function Navbar() {
     return (
         <>
             <motion.nav
-                className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 flex w-[98%] xl:w-[95%] max-w-[1400px] items-center justify-between px-3 py-1.5 md:px-5 md:py-1.5 rounded-full bg-white/40 backdrop-blur-xl border border-white/40 transition-all duration-300 ${isScrolled
+                className={`fixed top-4 inset-x-0 mx-auto z-50 flex w-[95%] max-w-[1400px] items-center justify-between px-3 py-1.5 md:px-5 md:py-1.5 rounded-full bg-white/40 backdrop-blur-xl border border-white/40 transition-all duration-300 ${isScrolled
                     ? 'shadow-2xl shadow-black/20 bg-white/50 border-white/50'
                     : 'shadow-xl shadow-black/10'
                     }`}
@@ -61,10 +65,11 @@ export default function Navbar() {
             >
 
                 <Link href='/'>
-                    <div className="relative h-10 sm:h-12 md:h-12 w-[140px] sm:w-[160px] md:w-[180px]">
+                    <div className="relative h-20 sm:h-20 md:h-20 w-[180px] sm:w-[210px] md:w-[240px] -my-4">
                         <Image
                             src='/assets/logo.png'
-                            alt='Reinsoft Logo'
+                            alt='Reinsoft - Custom Software & IT Solutions Logo'
+                            title='Reinsoft Home'
                             fill
                             className='object-contain'
                             priority
@@ -84,7 +89,7 @@ export default function Navbar() {
                             {link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/') ? (
                                 <Link
                                     href={link.href}
-                                    className="px-4 py-2 text-sm font-semibold text-white bg-white/20 rounded-full flex items-center gap-1 transition-colors"
+                                    className="px-4 py-2 text-sm font-semibold text-black bg-black/10 dark:text-white dark:bg-white/20 rounded-full flex items-center gap-1 transition-colors"
                                 >
                                     {link.name}
                                     {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
@@ -92,7 +97,7 @@ export default function Navbar() {
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-white hover:bg-white/10 rounded-full flex items-center gap-1 transition-colors"
+                                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black hover:bg-black/5 dark:text-gray-200 dark:hover:text-white dark:hover:bg-white/10 rounded-full flex items-center gap-1 transition-colors"
                                 >
                                     {link.name}
                                     {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
@@ -106,22 +111,22 @@ export default function Navbar() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 10 }}
                                             transition={{ duration: 0.2 }}
-                                            className="absolute top-full left-0 mt-2 min-w-[280px] glass global-orange-glow bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl z-50 overflow-hidden"
+                                            className="absolute top-full left-0 mt-2 min-w-[280px] glass global-orange-glow bg-white/90 dark:bg-black/80 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl p-3 shadow-2xl z-50 overflow-hidden"
                                         >
                                             <div className="flex flex-col gap-1">
                                                 {link.dropdown.map((item) => (
                                                     <Link
                                                         key={item.name}
                                                         href={item.href}
-                                                        className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/10 transition-all group/item"
+                                                        className="flex items-start gap-4 p-3 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-all group/item"
                                                         onClick={() => setActiveDropdown(null)}
                                                     >
-                                                        <div className="size-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover/item:text-white transition-colors">
+                                                        <div className="size-9 rounded-lg bg-black/5 border border-black/10 dark:bg-white/5 dark:border-white/10 flex items-center justify-center text-gray-500 group-hover/item:text-black dark:text-gray-400 dark:group-hover/item:text-white transition-colors">
                                                             {item.icon}
                                                         </div>
                                                         <div className="flex flex-col">
-                                                            <span className="text-sm font-semibold text-gray-200 group-hover/item:text-white whitespace-nowrap">{item.name}</span>
-                                                            <span className="text-xs text-gray-400 leading-tight mt-0.5">{item.description}</span>
+                                                            <span className="text-sm font-semibold text-gray-700 group-hover/item:text-black dark:text-gray-200 dark:group-hover/item:text-white whitespace-nowrap">{item.name}</span>
+                                                            <span className="text-xs text-gray-500 dark:text-gray-400 leading-tight mt-0.5">{item.description}</span>
                                                         </div>
                                                     </Link>
                                                 ))}
@@ -141,18 +146,39 @@ export default function Navbar() {
                     >
                         Let's Talk
                     </Link>
+
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                            className="ml-3 p-2 rounded-full bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-200"
+                            aria-label="Toggle Theme"
+                        >
+                            {theme === 'dark' ? <Sun className="size-4" /> : <Moon className="size-4" />}
+                        </button>
+                    )}
                 </div>
 
-                <button
-                    onClick={() => setIsOpen(true)}
-                    className='transition active:scale-90 md:hidden text-gray-800'
-                >
-                    <MenuIcon className='size-6.5' />
-                </button>
+                <div className="flex items-center md:hidden gap-3">
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                            className="p-2 rounded-full bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 transition-colors text-gray-700 dark:text-gray-200"
+                            aria-label="Toggle Theme"
+                        >
+                            {theme === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />}
+                        </button>
+                    )}
+                    <button
+                        onClick={() => setIsOpen(true)}
+                        className='transition active:scale-90 text-gray-800 dark:text-gray-200'
+                    >
+                        <MenuIcon className='size-6.5' />
+                    </button>
+                </div>
             </motion.nav>
 
             <div
-                className={`fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-black/95 text-lg font-medium backdrop-blur-2xl transition duration-300 md:hidden overflow-y-auto pt-20 pb-10 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-white/95 text-black dark:bg-black/95 dark:text-white text-lg font-medium backdrop-blur-2xl transition duration-300 md:hidden overflow-y-auto pt-20 pb-10 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 {links.map((link) => (
@@ -161,20 +187,20 @@ export default function Navbar() {
                             href={link.href}
                             onClick={() => setIsOpen(false)}
                             className={`px-6 py-2 text-lg font-semibold rounded-full flex items-center gap-1.5 transition-colors ${link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/')
-                                ? 'bg-white/10 text-white'
-                                : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                ? 'bg-black/10 text-black dark:bg-white/10 dark:text-white'
+                                : 'text-gray-700 hover:text-black hover:bg-black/5 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/5'
                                 }`}
                         >
                             {link.name}
                         </Link>
 
                         {link.dropdown && (
-                            <div className="flex flex-col items-center gap-3 pl-4 border-l border-white/10 mt-1 mb-4">
+                            <div className="flex flex-col items-center gap-3 pl-4 border-l border-black/10 dark:border-white/10 mt-1 mb-4">
                                 {link.dropdown.map((item) => (
                                     <Link
                                         key={item.name}
                                         href={item.href}
-                                        className="text-base text-gray-400 hover:text-white transition-colors"
+                                        className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         {item.name}
@@ -195,9 +221,9 @@ export default function Navbar() {
 
                 <button
                     onClick={() => setIsOpen(false)}
-                    className='rounded-md p-2 glass absolute top-8 right-8'
+                    className='rounded-md p-2 glass absolute top-8 right-8 text-black dark:text-white'
                 >
-                    <XIcon className="text-white" />
+                    <XIcon className="text-current" />
                 </button>
             </div>
         </>

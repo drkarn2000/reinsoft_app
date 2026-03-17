@@ -69,7 +69,7 @@ export default function ServicesPage() {
     return (
         <main className="px-4">
             {/* Background gradient blobs - restored (light version) */}
-            <motion.div className="fixed inset-0 overflow-hidden -z-20 pointer-events-none"
+            <motion.div className="fixed inset-0 overflow-hidden -z-20 pointer-events-none hidden dark:block"
                 initial={{ opacity: 0.1 }}
                 whileInView={{ opacity: 0.3 }}
                 viewport={{ once: true }}
@@ -81,7 +81,7 @@ export default function ServicesPage() {
             </motion.div>
 
             {/* Background Image */}
-            <div className="fixed inset-0 -z-30 pointer-events-none">
+            <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/Services.jpg"
                     alt="Background"
@@ -90,7 +90,7 @@ export default function ServicesPage() {
                     priority
                     quality={90}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/80 dark:from-black/70 dark:via-black/40 dark:to-black/70 z-10" />
             </div>
 
             {/* Hero Section */}
@@ -99,10 +99,10 @@ export default function ServicesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <h1 className="text-4xl md:text-6xl font-semibold tracking-tight drop-shadow-[0_0_35px_rgba(255,255,255,0.5)]">
-                    Our <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent drop-shadow-[0_0_50px_rgba(255,122,24,1)]">Core Services</span>
+                <h1 className="text-4xl md:text-6xl font-semibold tracking-tight shadow-black dark:drop-shadow-[0_0_35px_rgba(255,255,255,0.5)]">
+                    Our <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent drop-shadow-md dark:drop-shadow-[0_0_50px_rgba(255,122,24,1)]">Core Services</span>
                 </h1>
-                <p className="text-gray-100 text-lg md:text-xl max-w-2xl mt-6 leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-100 text-lg md:text-xl max-w-2xl mt-6 leading-relaxed">
                     Practical IT solutions that help your business grow. Custom development for startups and growing businesses.
                 </p>
             </motion.section>
@@ -113,7 +113,7 @@ export default function ServicesPage() {
                     {services.map((service, index) => (
                         <motion.div
                             key={service.id}
-                            className="relative rounded-3xl overflow-hidden bg-black/40 border border-white/10 p-8 md:p-12 flex justify-center shadow-xl"
+                            className="relative rounded-3xl overflow-hidden bg-white/50 dark:bg-black/40 border border-black/10 dark:border-white/10 p-8 md:p-12 flex justify-center shadow-xl"
                             initial={{ y: 100, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
@@ -130,15 +130,15 @@ export default function ServicesPage() {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-medium bg-gradient-to-r from-pink-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">{service.title}</h3>
-                                        <p className="text-gray-200 mt-1">{service.description}</p>
+                                        <p className="text-gray-700 dark:text-gray-200 mt-1">{service.description}</p>
                                     </div>
                                 </div>
 
                                 <div className="mt-6">
-                                    <h4 className="text-sm font-medium text-gray-300 mb-3">What's Included:</h4>
+                                    <h4 className="text-sm font-medium text-gray-800 dark:text-gray-300 mb-3">What's Included:</h4>
                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                         {service.features.map((feature, idx) => (
-                                            <li key={idx} className="flex items-center gap-2 text-gray-100">
+                                            <li key={idx} className="flex items-center gap-2 text-gray-800 dark:text-gray-100">
                                                 <div className="p-1 rounded-full bg-green-500/20">
                                                     <CheckIcon className="size-3 text-green-400" strokeWidth={3} />
                                                 </div>
@@ -160,7 +160,7 @@ export default function ServicesPage() {
             {/* Dedicated Services CTA Section */}
             <section className="mt-20 mb-24 max-w-5xl mx-auto px-4 relative z-10">
                 <motion.div
-                    className="relative rounded-3xl overflow-hidden bg-black/40 border border-white/10 p-8 md:p-14 lg:p-16 text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-10"
+                    className="relative rounded-3xl overflow-hidden bg-white/50 dark:bg-black/40 border border-black/10 dark:border-white/10 p-8 md:p-14 lg:p-16 text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-10"
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                             Ready to build something <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">extraordinary?</span>
                         </h2>
 
-                        <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
                             Get a free technical consultation and a detailed project roadmap. We'll help you figure out the best technology, timeline, and budget.
                         </p>
                     </div>
@@ -203,7 +203,7 @@ export default function ServicesPage() {
                         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                             <a
                                 href="tel:+918968369582"
-                                className="flex-1 flex justify-center items-center gap-3 px-6 py-4 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 hover:border-blue-400/50 rounded-full font-bold text-white transition-all duration-300 backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] whitespace-nowrap group"
+                                className="flex-1 flex justify-center items-center gap-3 px-6 py-4 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 hover:border-blue-400/50 rounded-full font-bold text-blue-700 dark:text-white transition-all duration-300 backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] whitespace-nowrap group"
                             >
                                 <div className="bg-gradient-to-br from-blue-400 to-blue-600 text-white p-1.5 rounded-full shadow-lg group-hover:scale-110 transition-transform">
                                     <PhoneIcon className="size-4" fill="currentColor" />
@@ -214,7 +214,7 @@ export default function ServicesPage() {
                                 href="https://wa.me/918968369582"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-1 flex justify-center items-center gap-3 px-6 py-4 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 hover:border-emerald-400/50 rounded-full font-bold text-white transition-all duration-300 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] whitespace-nowrap group"
+                                className="flex-1 flex justify-center items-center gap-3 px-6 py-4 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 hover:border-emerald-400/50 rounded-full font-bold text-emerald-700 dark:text-white transition-all duration-300 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] whitespace-nowrap group"
                             >
                                 <div className="bg-gradient-to-br from-emerald-400 to-green-600 text-white p-1.5 rounded-full shadow-lg group-hover:scale-110 transition-transform">
                                     <MessageCircleIcon className="size-4" fill="currentColor" />

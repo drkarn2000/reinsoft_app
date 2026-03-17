@@ -78,7 +78,7 @@ function CaseStudyContent() {
     }
 
     return (
-        <main className="min-h-screen bg-black text-white">
+        <main className="min-h-screen text-black dark:bg-black dark:text-white">
             {/* Hero Section */}
             <section className="relative pt-32 pb-10 overflow-hidden border-b border-white/5">
                 <div className="absolute inset-0 bg-gradient-to-b from-[#ff7a18]/5 to-transparent -z-10" />
@@ -280,7 +280,7 @@ function CaseStudyContent() {
                                         </div>
 
                                         {/* Step Card */}
-                                        <div className={`flex-grow bg-[#111] border-2 ${colors.border} rounded-[2rem] p-6 md:p-8 pr-12 md:pr-24 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative group-hover:bg-white/[0.03] transition-colors duration-500`}>
+                                        <div className={`flex-grow bg-[#E5E4E2] dark:bg-[#111] border-2 ${colors.border} rounded-[2rem] p-6 md:p-8 pr-12 md:pr-24 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative group-hover:bg-[#dad9d7] dark:group-hover:bg-white/[0.03] transition-colors duration-500`}>
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-3 mb-4">
                                                     <div className={`md:hidden size-8 rounded-full ${colors.circle} flex items-center justify-center text-white font-bold text-sm`}>
@@ -324,7 +324,7 @@ function CaseStudyContent() {
             </section>
 
             {/* Results Section */}
-            <section className="py-20 bg-gradient-to-b from-black to-[#ff7a18]/10 border-t border-white/5">
+            <section className="py-20 bg-gradient-to-b from-white to-orange-50 dark:from-black dark:to-[#ff7a18]/10 border-t border-black/5 dark:border-white/5">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center mb-16">
                         <h2 className="text-xl font-bold mb-6">The Outcome</h2>
@@ -349,7 +349,7 @@ function CaseStudyContent() {
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.12, duration: 0.5 }}
                                     whileHover={{ scale: 1.05 }}
-                                    className={`relative group bg-white/5 backdrop-blur-xl border ${p.border} rounded-2xl p-6 md:p-8 text-center overflow-hidden transition-all duration-500`}
+                                    className={`relative group bg-black/5 dark:bg-white/5 backdrop-blur-xl border ${p.border} rounded-2xl p-6 md:p-8 text-center overflow-hidden transition-all duration-500`}
                                     style={{
                                         animation: `cs-stat-glow-${i} 3s ease-in-out infinite`,
                                         animationDelay: `${i * 0.5}s`,
@@ -372,7 +372,7 @@ function CaseStudyContent() {
                                     <div className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${p.color} bg-clip-text text-transparent mb-2`}>
                                         {res.value}
                                     </div>
-                                    <div className="text-xs font-bold text-[#ff7a18] uppercase tracking-widest leading-tight">
+                                    <div className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-widest leading-tight">
                                         {res.metric}
                                     </div>
                                 </motion.div>
@@ -406,7 +406,7 @@ function CaseStudyContent() {
 
 export default function CaseStudyPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-white font-bold">Loading...</div>}>
+        <Suspense fallback={<div className="min-h-screen bg-white dark:bg-black flex items-center justify-center text-black dark:text-white font-bold">Loading...</div>}>
             <CaseStudyContent />
         </Suspense>
     );

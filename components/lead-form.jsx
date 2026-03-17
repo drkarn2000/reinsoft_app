@@ -72,7 +72,7 @@ export default function LeadForm({ title, description }) {
             transition={{ type: "spring", stiffness: 320, damping: 70 }}
         >
             <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent mb-2">
-                {title || "Request a Quote"}
+                {title || "Request a Custom Software Quote"}
             </h3>
             {description && <p className="text-gray-500 text-sm mb-4">{description}</p>}
             {!description && <div className="mb-4" />}

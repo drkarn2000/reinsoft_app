@@ -14,26 +14,29 @@ export default function Features() {
             icon: GlobeIcon,
             title: "Custom Website Development",
             description: "Modern, fast and mobile-friendly websites designed to convert visitors into enquiries and sales.",
+            badge: "2x Operational Efficiency",
         },
         {
             icon: SmartphoneIcon,
             title: "Android & iOS App Development",
             description: "High-performance mobile applications built to grow your business and engage your users.",
+            badge: "4x Faster Delivery",
         },
         {
             icon: HeadphonesIcon,
             title: "Long-Term Support & Growth",
             description: "Ongoing support and optimization to ensure your digital assets remain secure, fast, and stable.",
+            badge: "24/7 Ongoing Support",
         }
     ];
 
     return (
         <section className="mt-16">
             {/* Background elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#ff7a18]/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#ff7a18]/5 to-transparent rounded-full blur-[100px] pointer-events-none hidden dark:block" />
 
             <SectionTitle
-                title="What We Do"
+                title="Custom Software & Web Development Services"
                 description="Three core services. No fluff. Just practical solutions that help your business grow. Long-term support & growth included."
                 gradient={true}
             />
@@ -52,7 +55,7 @@ export default function Features() {
                         <motion.div
                             key={index}
                             ref={(el) => (refs.current[index] = el)}
-                            className={`group relative rounded-3xl bg-white/[0.02] border border-white/[0.05] p-8 flex flex-col h-full transition-all duration-700 backdrop-blur-xl hover:-translate-y-2 ${theme.borderGlow} ${theme.shadow}`}
+                            className={`group relative rounded-3xl bg-black/5 dark:bg-white/[0.02] border border-black/10 dark:border-white/[0.05] p-8 flex flex-col h-full transition-all duration-700 backdrop-blur-xl hover:-translate-y-2 ${theme.borderGlow} ${theme.shadow}`}
                             initial={{ y: 50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
@@ -71,18 +74,28 @@ export default function Features() {
                             <div className="mb-8 relative w-fit z-10">
                                 {/* Increased Icon Hover Glow */}
                                 <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} blur-xl rounded-full opacity-10 group-hover:opacity-60 transition-opacity duration-700`} />
-                                <div className="relative p-4 rounded-2xl bg-white/5 border border-white/10 text-white shadow-xl flex items-center justify-center group-hover:bg-white/10 transition-colors duration-700">
+                                <div className="relative p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-white shadow-xl flex items-center justify-center group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors duration-700">
                                     <feature.icon className={`size-8 ${theme.text} group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_8px_currentColor]`} strokeWidth={1.5} />
                                 </div>
                             </div>
 
+                            {/* Stat Badge */}
+                            {feature.badge && (
+                                <div className="relative z-10 mb-5">
+                                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-orange-400/20 to-pink-400/20 border border-orange-400/30 text-orange-500 dark:text-orange-300 backdrop-blur-sm">
+                                        <span className="size-1.5 rounded-full bg-orange-400 animate-pulse inline-block" />
+                                        {feature.badge}
+                                    </span>
+                                </div>
+                            )}
+
                             {/* Title and Description */}
                             <div className="relative z-10">
-                                <h3 className="text-2xl font-bold text-white tracking-tight mb-4 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
+                                <h3 className="text-2xl font-bold text-black dark:text-white tracking-tight mb-4 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-black group-hover:to-gray-500 dark:group-hover:from-white dark:group-hover:to-gray-400 transition-all duration-300">
                                     {feature.title}
                                 </h3>
 
-                                <p className="text-gray-400 font-medium leading-relaxed mb-8">
+                                <p className="text-gray-600 dark:text-gray-400 font-medium leading-relaxed mb-8">
                                     {feature.description}
                                 </p>
                             </div>
@@ -91,7 +104,7 @@ export default function Features() {
                             <div className="mt-auto pt-6 border-t border-white/[0.05] relative z-10">
                                 <Link
                                     href="/services"
-                                    className={`inline-flex items-center gap-2 text-sm font-bold ${theme.text} hover:text-white transition-colors duration-300 w-fit group/link`}
+                                    className={`inline-flex items-center gap-2 text-sm font-bold ${theme.text} hover:text-black dark:hover:text-white transition-colors duration-300 w-fit group/link`}
                                 >
                                     <span>Explore Service</span>
                                     <motion.span
