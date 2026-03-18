@@ -93,7 +93,7 @@ function CaseStudyContent() {
                                 {project.industry}
                             </span>
                             {project.techStack.map((tech, i) => (
-                                <span key={i} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium">
+                                <span key={i} className="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-gray-300 text-xs font-semibold">
                                     {tech}
                                 </span>
                             ))}
