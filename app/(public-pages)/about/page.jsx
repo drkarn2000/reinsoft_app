@@ -4,9 +4,13 @@ import { motion } from "framer-motion";
 import { TargetIcon, HeartIcon, SparklesIcon, RocketIcon, ArrowRightIcon, UsersIcon, HandshakeIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import GradientButton from "@/components/gradient-button";
 import WhyChooseUs from "@/sections/why-choose-us";
-import Team from "@/sections/team";
+import AboutTechnologies from "@/sections/about-technologies";
+import AboutServices from "@/sections/about-services";
+import AboutProcess from "@/sections/about-process";
+import IndustriesServe from "@/sections/industries-serve";
+import Founders from "@/sections/founders";
+import BrandsSlider from "@/sections/brands-slider";
 
 export default function AboutPage() {
     return (
@@ -37,7 +41,7 @@ export default function AboutPage() {
             </div>
 
             {/* Agency Intro Hero */}
-            <section className="relative pt-6 pb-16 px-4">
+            <section className="relative pt-32 pb-16 px-4">
                 <div className="max-w-7xl mx-auto">
                     {/* Centered Heading */}
                     <motion.div
@@ -150,11 +154,11 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Why Choose Us */}
-            <WhyChooseUs />
+            {/* Founders / Team Story */}
+            <Founders />
 
-            {/* Team */}
-            <Team />
+            {/* Brands we have worked with */}
+            <BrandsSlider variant="about" />
 
             {/* Our Mission Section */}
             <section className="py-24 px-4 relative">
@@ -228,8 +232,79 @@ export default function AboutPage() {
                 </div>
             </section>
 
+            {/* Our Vision Section */}
+            <section className="py-24 px-4 relative bg-black/5 dark:bg-white/5 overflow-hidden">
+                {/* Decorative background glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+                <div className="max-w-4xl mx-auto text-center relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="flex flex-col items-center"
+                    >
+                        <span className="px-4 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold tracking-widest uppercase mb-8 inline-block">
+                            Our Vision
+                        </span>
+                        
+                        <h2 className="text-3xl md:text-5xl lg:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-10 leading-tight">
+                            "To empower businesses with digital solutions that drive real growth."
+                        </h2>
+                        
+                        <div className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed space-y-6 max-w-3xl border-t border-black/10 dark:border-white/10 pt-10">
+                            <p>
+                                Our vision is to help businesses of all sizes leverage technology to scale faster and smarter. We aim to bridge the gap between ideas and execution by delivering solutions that are not only visually appealing but also performance-driven.
+                            </p>
+                            <p>
+                                We believe in building long-term partnerships, where our success is directly tied to the growth of our clients.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* 3 Pillars */}
+                    <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                        {[
+                            { icon: "🚀", text: "Innovation" },
+                            { icon: "📈", text: "Growth" },
+                            { icon: "🤝", text: "Partnership" }
+                        ].map((pillar, idx) => (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
+                                className="flex flex-col items-center gap-4 p-6 rounded-2xl bg-white/50 dark:bg-black/20 backdrop-blur-sm border border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-white/5 transition-all shadow-sm hover:shadow-md"
+                            >
+                                <span className="text-4xl drop-shadow-md">{pillar.icon}</span>
+                                <span className="text-lg font-bold text-gray-900 dark:text-white">{pillar.text}</span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Our Services */}
+            <AboutServices />
+
+            {/* Our Technologies */}
+            <AboutTechnologies />
+
+            {/* Industries We Serve */}
+            <IndustriesServe />
+
+            {/* Our Process */}
+            <AboutProcess />
+
+            {/* Why Choose Reinsoft */}
+            <div className="py-10">
+                <WhyChooseUs />
+            </div>
+
             {/* Partner With Us CTA - Unique design for About page */}
-            <section className="relative mt-16 mb-10 px-4">
+            <section className="relative mb-10 px-4">
                 <motion.div
                     className="relative max-w-6xl mx-auto overflow-hidden"
                     initial={{ opacity: 0, y: 60 }}

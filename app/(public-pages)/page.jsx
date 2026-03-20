@@ -4,6 +4,7 @@ import CallToAction from '@/sections/call-to-action';
 import FaqSection from '@/sections/faq-section';
 import Features from '@/sections/features';
 import HeroSection from '@/sections/hero-section';
+import BrandsSlider from '@/sections/brands-slider';
 // import PricingPlans from '@/sections/pricing-plans';  // Commented out - not in sales website
 import Testimonials from '@/sections/testimonials';
 // import TrustedCompanies from '@/sections/trusted-companies';  // Commented out - not in sales website
@@ -17,6 +18,7 @@ export default function Page() {
         <>
             <main className='px-4'>
                 <HeroSection />
+                <BrandsSlider variant="home" />
                 <TrustStrip />
                 {/* <TrustedCompanies /> */}
                 <WhyChooseUs />

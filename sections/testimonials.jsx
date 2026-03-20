@@ -27,7 +27,7 @@ const testimonials = [
         role: "CTO",
         companyLogo: "Biswakarma",
         location: "Kolkata, India",
-        flag: "🇮🇳",
+        flag: "in",
         rating: 5,
         image: "/assets/sujoay_pic.png",
         projectType: "Custom E-commerce Website",
@@ -43,7 +43,7 @@ const testimonials = [
         role: "Product Owner",
         companyLogo: "thirty30media",
         location: "London, UK",
-        flag: "🇬🇧",
+        flag: "gb",
         rating: 5,
         image: "/assets/man.jpg",
         projectType: "Custom Web App",
@@ -57,8 +57,8 @@ const testimonials = [
         name: "Angela",
         role: "Founder",
         companyLogo: "Legacy Marketplace",
-        location: "Wheelhouse, Oxford OX4 1AW",
-        flag: "LANDON",
+        location: "Oxford, UK",
+        flag: "gb",
         rating: 5,
         image: "/assets/angela.png",
         projectType: "Laravel SaaS Platform",
@@ -72,8 +72,8 @@ const testimonials = [
         name: "Manti Makkakoli",
         role: "Founder",
         companyLogo: "Shopaholic",
-        location: "Johannesburg Gauteng",
-        flag: "South Africa",
+        location: "Johannesburg, South Africa",
+        flag: "za",
         rating: 5,
         image: "/assets/Manti.jpeg",
         projectType: "Custom E-commerce Website",
@@ -88,8 +88,8 @@ const testimonials = [
         name: "Umesh Patel",
         role: "CEO",
         companyLogo: "Mohini Cloud (POS)",
-        location: "Ahmedabad, Gujarat",
-        flag: "IN",
+        location: "Ahmedabad, India",
+        flag: "in",
         rating: 5,
         image: "/assets/umesh.png",
         projectType: "Custom POS Software",
@@ -104,8 +104,8 @@ const testimonials = [
         name: "Kishor Kumar",
         role: "Managing Director",
         companyLogo: "Vridez Private Limited",
-        location: "Krishnarajapuram, Bengaluru",
-        flag: "IN",
+        location: "Bengaluru, India",
+        flag: "in",
         rating: 5,
         image: "/assets/kishor1.png",
         projectType: "Mobility & Transportation Platform",
@@ -121,8 +121,8 @@ const testimonials = [
         name: "Sagar Jujare",
         role: "CEO",
         companyLogo: "Jujare Tech Advisors",
-        location: "Ahmedabad, Gujarat",
-        flag: "IN",
+        location: "Ahmedabad, India",
+        flag: "in",
         rating: 5,
         image: "/assets/sagar.png",
         projectType: "Sahasra AI Intelligent Chatbot",
@@ -137,8 +137,8 @@ const testimonials = [
         name: "Sandeep Singh",
         role: "IT Manager",
         companyLogo: "IndraSur Consulting",
-        location: "Cambridge",
-        flag: "CA",
+        location: "Cambridge, Canada",
+        flag: "ca",
         rating: 5,
         image: "/assets/Sandip.png",
         projectType: "Interior/ Home Decor/ E-Commerce",
@@ -154,7 +154,7 @@ const testimonials = [
         role: "CTO",
         companyLogo: "ELIGHT MALE WELLNESS",
         location: "London, UK",
-        flag: "🇬🇧",
+        flag: "gb",
         rating: 5,
         image: "/assets/sam.png",
         projectType: "Cross-platform Mobile",
@@ -211,9 +211,9 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                     <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                         {item.role} @ {item.companyLogo}
                     </p>
-                    <div className="flex items-center gap-1.5 text-xs text-gray-500 mt-0.5">
-                        <span>{item.flag}</span>
-                        <span>{item.location}</span>
+                    <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
+                        {item.flag && <img src={`https://flagcdn.com/w20/${item.flag.toLowerCase()}.png`} alt="flag" className="h-3 w-[18px] object-cover rounded-[1px] shadow-sm" loading="lazy" />}
+                        <span className="font-medium text-gray-600 dark:text-gray-400">{item.location}</span>
                     </div>
                 </div>
             </div>
