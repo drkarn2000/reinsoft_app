@@ -92,10 +92,13 @@ export default function WebDevelopmentContent() {
                             Enterprise Web Solutions
                         </span>
                         <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
-                            Innovative IT Solutions & High-Performance Web Apps
+                            Custom Web Development Services for Startups &amp; Enterprises
                         </h1>
-                        <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-6 leading-relaxed">
                             We build fast, secure, and highly scalable web applications that drive growth. From startup MVPs to enterprise-level systems, we deliver digital excellence.
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-10">
+                            Hire dedicated web developers • React &amp; Next.js experts • Node.js &amp; Python backend • Available for US, UK &amp; Australia clients
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <Link href="/contact"
@@ -375,6 +378,33 @@ export default function WebDevelopmentContent() {
                         </div>
                     </div>
                 </motion.div>
+            </section>
+
+            {/* Hire Web Developer CTA Strip */}
+            <section className="py-16 px-4 bg-white/5 dark:bg-black/20">
+                <div className="max-w-5xl mx-auto text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                        Need to <span className="text-blue-400">Hire a Dedicated Web Developer?</span>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-8">
+                        Looking for a full-stack engineer to join your team? We have pre-vetted developers ready to onboard in 48 hours.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {[
+                            { label: "Hire Full Stack Developer (USA)", href: "/hire-full-stack-developers-usa" },
+                            { label: "Hire Full Stack Developer (UK)", href: "/hire-full-stack-developers-uk" },
+                            { label: "Hire Full Stack Developer (Australia)", href: "/hire-full-stack-developers-australia" },
+                        ].map((cta, i) => (
+                            <Link
+                                key={i}
+                                href={cta.href}
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-blue-500/30 text-blue-400 bg-white/5 hover:bg-white/10 transition-all"
+                            >
+                                {cta.label} <ArrowRightIcon className="size-4" />
+                            </Link>
+                        ))}
+                    </div>
+                </div>
             </section>
 
             <FaqSection />

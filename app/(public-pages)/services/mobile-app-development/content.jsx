@@ -81,10 +81,13 @@ export default function MobileAppDevelopmentContent() {
                             Premium Mobile Engineering
                         </span>
                         <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
-                            Crafting Experiences for the Palm of Your Hand
+                            Mobile App Development Services Flutter &amp; React Native Experts
                         </h1>
-                        <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-6 leading-relaxed">
                             We build native and cross-platform mobile applications that users love. From sleek startups to global brands, we deliver mobile-first digital transformation.
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-10">
+                            Hire Flutter developers • Hire React Native developers • iOS &amp; Android experts • Available for US, UK &amp; Australia clients
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <Link href="/contact"
@@ -215,8 +218,8 @@ export default function MobileAppDevelopmentContent() {
 
                                     {/* Content */}
                                     <div className="flex-grow py-4 pl-10 pr-2 text-left">
-                                        <h3 className={`text-base font-bold mb-1 ${colors.text}`}>{feature.title}</h3>
-                                        <p className="text-gray-700 dark:text-gray-400 text-xs leading-relaxed">{feature.description}</p>
+                                        <h3 className={`text-xl font-bold mb-1 ${colors.text}`}>{feature.title}</h3>
+                                        <p className="text-gray-700 dark:text-gray-400 text-sm font-semibold leading-relaxed">{feature.description}</p>
                                     </div>
 
                                     {/* Right icon */}
@@ -245,7 +248,7 @@ export default function MobileAppDevelopmentContent() {
                         viewport={{ once: true }}
                     >
                         <Image
-                            src="/assets/man.jpg"
+                            src="/assets/IMG_20251029_132744.png"
                             alt="Mobile Development"
                             fill
                             className="object-cover opacity-90 brightness-75 transition-all duration-500 group-hover:scale-110"
@@ -337,7 +340,7 @@ export default function MobileAppDevelopmentContent() {
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-teal-500/5 rounded-2xl" />
                     <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
-                    
+
                     <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
                             <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
@@ -348,14 +351,14 @@ export default function MobileAppDevelopmentContent() {
                             </p>
                         </div>
                         <div className="flex gap-3 shrink-0">
-                            <Link 
+                            <Link
                                 href="/contact"
                                 className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 text-black text-sm font-bold shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:scale-105 transition-all"
                             >
                                 Get Estimate
                                 <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <Link 
+                            <Link
                                 href="https://wa.me/918968369582"
                                 target="_blank"
                                 className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
@@ -365,6 +368,36 @@ export default function MobileAppDevelopmentContent() {
                         </div>
                     </div>
                 </motion.div>
+            </section>
+
+            {/* Hire Mobile Developer CTA Strip */}
+            <section className="py-16 px-4 bg-white/5 dark:bg-black/20">
+                <div className="max-w-5xl mx-auto text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                        Looking to <span className="text-purple-400">Hire a Mobile Developer?</span>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-8">
+                        Hire pre-vetted Flutter and React Native developers who can onboard within 48 hours.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {[
+                            { label: "Hire Flutter Developer (USA)", href: "/hire-flutter-developers-usa" },
+                            { label: "Hire Flutter Developer (UK)", href: "/hire-flutter-developers-uk" },
+                            { label: "Hire Flutter Developer (Australia)", href: "/hire-flutter-developers-australia" },
+                            { label: "Hire React Native Developer (USA)", href: "/hire-react-native-developers-usa" },
+                            { label: "Hire React Native Developer (UK)", href: "/hire-react-native-developers-uk" },
+                            { label: "Hire React Native Developer (Australia)", href: "/hire-react-native-developers-australia" },
+                        ].map((cta, i) => (
+                            <Link
+                                key={i}
+                                href={cta.href}
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-purple-500/30 text-purple-400 bg-white/5 hover:bg-white/10 transition-all"
+                            >
+                                {cta.label} <ArrowRightIcon className="size-4" />
+                            </Link>
+                        ))}
+                    </div>
+                </div>
             </section>
 
             <FaqSection />

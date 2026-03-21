@@ -36,13 +36,13 @@ export default function Portfolio({ limit }) {
             link: "/case-studies/finance-dashboard"
         },
         {
-            slug: "multivendor-e-commerce",
-            title: "Multivendor E-Commerce Website",
-            category: "Laravel E-Commerce Website",
+            slug: "landlord-management-system",
+            title: "Landlord Management System",
+            category: "Property Management Platform",
             filterCategory: "Web Development",
-            image: "/assets/shopaholic.png",
-            description: "Shopaholic is a modern e-commerce platform designed to provide a seamless online shopping experience for fashion and lifestyle products. The platform focuses on performance optimization, secure payments, and an intuitive user interface to maximize conversions and customer retention.",
-            link: "/case-studies/multivendor-e-commerce"
+            image: "/assets/supported_living.png",
+            description: "A Laravel-based property management platform developed for a UK client, integrating Zoho CRM to streamline landlord, tenant, and property management workflows.",
+            link: "/case-studies/landlord-management-system"
         },
         {
             slug: "pos-software",
@@ -53,6 +53,16 @@ export default function Portfolio({ limit }) {
             description: "A centralized Retail Point-of-Sale (POS) and Safe Drop Management System designed to streamline daily sales tracking, secure cash handling, supplier management, and administrative reporting.",
             link: "/case-studies/pos-software"
         },
+        {
+            slug: "multivendor-e-commerce",
+            title: "Multivendor E-Commerce Website",
+            category: "Laravel E-Commerce Website",
+            filterCategory: "Web Development",
+            image: "/assets/shopaholic.png",
+            description: "Shopaholic is a modern e-commerce platform designed to provide a seamless online shopping experience for fashion and lifestyle products. The platform focuses on performance optimization, secure payments, and an intuitive user interface to maximize conversions and customer retention.",
+            link: "/case-studies/multivendor-e-commerce"
+        },
+
         {
             slug: "vridez",
             title: "Managed Mobility & Transportation Fleet Services Digital Platform",
@@ -242,7 +252,7 @@ export default function Portfolio({ limit }) {
 
                                     <div className="mt-auto flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4">
                                         <Link href={item.link} className="inline-flex items-center gap-2 text-sm font-semibold text-black dark:text-white hover:text-[#ff7a18] dark:hover:text-[#ff7a18] transition-colors group/link">
-                                            <span className="border-b border-transparent group-hover/link:border-[#ff7a18] transition-colors pb-0.5">View Project details</span>
+                                            <span className="border-b border-transparent group-hover/link:border-[#ff7a18] transition-colors pb-0.5">View Case Study</span>
                                             <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                                         </Link>
 
