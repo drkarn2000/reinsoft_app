@@ -232,56 +232,130 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Our Vision Section */}
-            <section className="py-24 px-4 relative bg-black/5 dark:bg-white/5 overflow-hidden">
-                {/* Decorative background glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+            {/* Our Vision Section - Premium Redesign */}
+            <section className="py-24 md:py-32 px-4 relative overflow-hidden bg-[#f8f9fa] dark:bg-[#020202]">
+                {/* Animated Ambient Background Blurs */}
+                <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 -translate-x-1/3 animate-pulse duration-10000" />
+                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none translate-y-1/3 translate-x-1/3 animate-pulse duration-10000 delay-500" />
 
-                <div className="max-w-4xl mx-auto text-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="flex flex-col items-center"
-                    >
-                        <span className="px-4 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold tracking-widest uppercase mb-8 inline-block">
-                            Our Vision
-                        </span>
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                         
-                        <h2 className="text-3xl md:text-5xl lg:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-10 leading-tight">
-                            "To empower businesses with digital solutions that drive real growth."
-                        </h2>
-                        
-                        <div className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed space-y-6 max-w-3xl border-t border-black/10 dark:border-white/10 pt-10">
-                            <p>
-                                Our vision is to help businesses of all sizes leverage technology to scale faster and smarter. We aim to bridge the gap between ideas and execution by delivering solutions that are not only visually appealing but also performance-driven.
-                            </p>
-                            <p>
-                                We believe in building long-term partnerships, where our success is directly tied to the growth of our clients.
-                            </p>
-                        </div>
-                    </motion.div>
+                        {/* Left Side: Text Content */}
+                        <motion.div 
+                            className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md mb-8 shadow-sm">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                                </span>
+                                <span className="text-gray-900 dark:text-gray-200 text-sm font-bold tracking-[0.2em] uppercase ml-2">
+                                    Our Vision
+                                </span>
+                            </div>
 
-                    {/* 3 Pillars */}
-                    <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                        {[
-                            { icon: "🚀", text: "Innovation" },
-                            { icon: "📈", text: "Growth" },
-                            { icon: "🤝", text: "Partnership" }
-                        ].map((pillar, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
-                                className="flex flex-col items-center gap-4 p-6 rounded-2xl bg-white/50 dark:bg-black/20 backdrop-blur-sm border border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-white/5 transition-all shadow-sm hover:shadow-md"
-                            >
-                                <span className="text-4xl drop-shadow-md">{pillar.icon}</span>
-                                <span className="text-lg font-bold text-gray-900 dark:text-white">{pillar.text}</span>
-                            </motion.div>
-                        ))}
+                            <h2 className="text-4xl md:text-5xl lg:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-8 leading-[1.1]">
+                                Empowering Businesses with <br className="hidden md:block" />
+                                <span className="relative inline-block mt-2 group">
+                                    <span className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 blur-2xl opacity-50 dark:opacity-100 transition-opacity duration-500 group-hover:opacity-100"></span>
+                                    <span className="relative bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
+                                        Digital Solutions
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div className="bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 p-8 rounded-[2rem] shadow-lg mb-10 relative group hover:border-purple-500/20 transition-colors duration-300">
+                                <div className="absolute top-6 left-6 text-purple-500/20 dark:text-purple-400/10">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 11L8 15H11V19H7L9 15H6V11H10ZM18 11L16 15H19V19H15L17 15H14V11H18Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <div className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed relative z-10 space-y-4 pl-4 border-l-2 border-purple-500/30">
+                                    <p>
+                                        Our vision is to help businesses of all sizes leverage technology to scale faster and smarter. We aim to bridge the gap between ideas and execution by delivering solutions that are not only visually appealing but also performance-driven.
+                                    </p>
+                                    <p>
+                                        We believe in building long-term partnerships, where our success is directly tied to the growth of our clients.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* 3 Pillars - Grid implementation */}
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                                {[
+                                    { icon: "🚀", text: "Innovation", delay: 0.2 },
+                                    { icon: "📈", text: "Growth", delay: 0.3 },
+                                    { icon: "🤝", text: "Partnership", delay: 0.4 }
+                                ].map((pillar, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: pillar.delay }}
+                                        className="flex flex-col items-center justify-center p-5 rounded-2xl bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 group cursor-default"
+                                    >
+                                        <span className="text-3xl drop-shadow-md mb-2 group-hover:scale-110 transition-transform">{pillar.icon}</span>
+                                        <span className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">{pillar.text}</span>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        {/* Right Side: Image Placeholder Container */}
+                        <motion.div 
+                            className="w-full lg:w-1/2 relative z-0 group"
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
+                            {/* Premium Glow Container Frame */}
+                            <div className="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[3rem] p-3 border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-xl transition-all duration-500 group-hover:border-purple-500/40 group-hover:bg-purple-500/5">
+                                {/* Hover Gradient Blob Container */}
+                                <div className="absolute inset-0 bg-gradient-to-bl from-purple-500/20 via-indigo-500/10 to-transparent rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                                
+                                <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-gray-100 dark:bg-[#111] isolate shadow-inner group/img relative">
+                                    {/* 
+                                     * =============================================
+                                     * Temporary Placeholder Image 
+                                     * USER: Replace the src="/assets/Services.jpg" below with your new image!
+                                     * =============================================
+                                     */}
+                                    <Image
+                                        src="/assets/Services.jpg" 
+                                        alt="Our Vision"
+                                        fill
+                                        className="object-cover object-center transition-transform duration-700 ease-out group-hover/img:scale-110 opacity-60 dark:opacity-40"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
+                                    
+                                    {/* Overlay Gradient for depth */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent z-10 transition-opacity duration-500" />
+                                    
+                                    {/* UI Hint to help locate the image placement */}
+                                    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 transition-transform duration-500 group-hover:-translate-y-2 pointer-events-none">
+                                        <div className="p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-[0_0_30px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_50px_rgba(168,85,247,0.6)] transition-shadow duration-500">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                <polyline points="21 15 16 10 5 21"></polyline>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {/* Decorative Floating Elements around the frame */}
+                            <div className="absolute top-10 -left-6 w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-full blur-[2px] opacity-20 group-hover:opacity-40 group-hover:-translate-y-4 group-hover:-translate-x-2 transition-all duration-700 animate-pulse" />
+                            <div className="absolute bottom-10 -right-6 w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full blur-[2px] opacity-20 group-hover:opacity-40 group-hover:translate-y-4 group-hover:translate-x-2 transition-all duration-700 animate-pulse delay-500" />
+                        </motion.div>
+
                     </div>
                 </div>
             </section>

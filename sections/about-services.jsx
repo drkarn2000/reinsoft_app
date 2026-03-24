@@ -5,105 +5,130 @@ import { AppWindowIcon, SmartphoneIcon, Code2Icon, ShoppingCartIcon, ServerIcon,
 
 const services = [
     {
-        title: "Custom Software Development",
+        title: "Custom Software",
         description: "Tailored software solutions designed perfectly for your unique business logic and operational needs.",
-        icon: <Code2Icon className="size-6 sm:size-8" />,
-        gradient: "bg-gradient-to-r from-[#ff7a18] to-[#1e3a8a]",
-        fold: "bg-orange-700",
-        iconColor: "text-[#ff7a18]"
+        icon: <Code2Icon className="w-8 h-8" />,
+        color: "from-blue-600 to-indigo-600",
+        shadow: "shadow-[0_8px_30px_rgba(79,70,229,0.3)]",
+        hoverGlow: "group-hover:text-indigo-600 dark:group-hover:text-indigo-400"
     },
     {
-        title: "Mobile App Development",
+        title: "Mobile Apps",
         description: "High-performance cross-platform and native mobile applications for iOS and Android.",
-        icon: <SmartphoneIcon className="size-6 sm:size-8" />,
-        gradient: "bg-gradient-to-r from-[#ff7a18] to-[#1e3a8a]",
-        fold: "bg-orange-700",
-        iconColor: "text-[#ff7a18]"
+        icon: <SmartphoneIcon className="w-8 h-8" />,
+        color: "from-[#ff7a18] to-orange-500",
+        shadow: "shadow-[0_8px_30px_rgba(255,122,24,0.3)]",
+        hoverGlow: "group-hover:text-orange-500 dark:group-hover:text-orange-400"
     },
     {
-        title: "Web App Development",
+        title: "Web Applications",
         description: "Scalable, secure, and blazing-fast web applications built with modern frameworks.",
-        icon: <AppWindowIcon className="size-6 sm:size-8" />,
-        gradient: "bg-gradient-to-r from-[#ff7a18] to-[#1e3a8a]",
-        fold: "bg-orange-700",
-        iconColor: "text-[#ff7a18]"
+        icon: <AppWindowIcon className="w-8 h-8" />,
+        color: "from-purple-600 to-pink-500",
+        shadow: "shadow-[0_8px_30px_rgba(168,85,247,0.3)]",
+        hoverGlow: "group-hover:text-purple-600 dark:group-hover:text-purple-400"
     },
     {
-        title: "E-Commerce Development",
+        title: "E-Commerce",
         description: "Feature-rich online stores optimized for conversion, speed, and seamless checkout.",
-        icon: <ShoppingCartIcon className="size-6 sm:size-8" />,
-        gradient: "bg-gradient-to-r from-[#ff7a18] to-[#1e3a8a]",
-        fold: "bg-orange-700",
-        iconColor: "text-[#ff7a18]"
+        icon: <ShoppingCartIcon className="w-8 h-8" />,
+        color: "from-emerald-500 to-teal-400",
+        shadow: "shadow-[0_8px_30px_rgba(16,185,129,0.3)]",
+        hoverGlow: "group-hover:text-emerald-500 dark:group-hover:text-emerald-400"
     },
     {
-        title: "API Development & Integration",
+        title: "API & Integration",
         description: "Robust REST and GraphQL APIs that seamlessly connect your digital ecosystem.",
-        icon: <ServerIcon className="size-6 sm:size-8" />,
-        gradient: "bg-gradient-to-r from-[#ff7a18] to-[#1e3a8a]",
-        fold: "bg-orange-700",
-        iconColor: "text-[#ff7a18]"
+        icon: <ServerIcon className="w-8 h-8" />,
+        color: "from-rose-500 to-red-500",
+        shadow: "shadow-[0_8px_30px_rgba(244,63,94,0.3)]",
+        hoverGlow: "group-hover:text-rose-600 dark:group-hover:text-rose-400"
     },
     {
-        title: "Maintenance & Support",
+        title: "Maintenance",
         description: "24/7 technical support and continuous maintenance to keep your systems flawlessly online.",
-        icon: <HeadphonesIcon className="size-6 sm:size-8" />,
-        gradient: "bg-gradient-to-r from-[#ff7a18] to-[#1e3a8a]",
-        fold: "bg-orange-700",
-        iconColor: "text-[#ff7a18]"
+        icon: <HeadphonesIcon className="w-8 h-8" />,
+        color: "from-cyan-500 to-blue-500",
+        shadow: "shadow-[0_8px_30px_rgba(6,182,212,0.3)]",
+        hoverGlow: "group-hover:text-cyan-600 dark:group-hover:text-cyan-400"
     }
 ];
 
 export default function AboutServices() {
     return (
-        <section className="py-24 px-4 relative overflow-hidden bg-black/[0.02] dark:bg-white/[0.02]">
-            <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-20 text-gray-900 dark:text-white">
-                    <span className="px-4 py-1 rounded-full border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-black/50 text-xs font-bold tracking-widest uppercase mb-4 inline-block">
-                        What We Do
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase tracking-tight text-gray-800 dark:text-gray-100">
-                        Our Services
-                    </h2>
-                    <div className="w-32 h-1 bg-gradient-to-r from-[#ff7a18] to-blue-600 mx-auto rounded-full" />
-                </div>
+        <section className="py-24 md:py-32 px-4 relative overflow-hidden bg-white dark:bg-[#050505]">
+            {/* Animated Ambient Background Blurs */}
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2 animate-pulse duration-10000" />
+            <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#ff7a18]/5 dark:bg-[#ff7a18]/10 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3 animate-pulse duration-10000 delay-500" />
 
-                <div className="flex flex-col gap-8 md:gap-10">
+            <div className="max-w-7xl mx-auto relative z-10">
+                {/* Premium Section Heading */}
+                <motion.div
+                    className="text-center mb-24 group flex flex-col items-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md mb-8 shadow-sm">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        <span className="text-gray-900 dark:text-gray-200 text-sm font-bold tracking-[0.2em] uppercase ml-2">
+                            What We Do
+                        </span>
+                    </div>
+                    
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-gray-900 dark:text-white leading-[1.1]">
+                        Our Premium <br className="hidden md:block" />
+                        <span className="relative inline-block mt-2">
+                            <span className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-[#ff7a18]/20 blur-2xl opacity-50 dark:opacity-100 transition-opacity duration-500 group-hover:opacity-100 dark:group-hover:opacity-100"></span>
+                            <span className="relative bg-gradient-to-r from-blue-600 via-indigo-500 to-[#ff7a18] bg-clip-text text-transparent">
+                                Services
+                            </span>
+                        </span>
+                    </h2>
+                </motion.div>
+
+                {/* Services Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.5, type: "spring", stiffness: 100 }}
-                            className="relative w-full h-[100px] sm:h-[120px] group flex"
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                            className="group relative"
                         >
-                            {/* White Base Pill */}
-                            <div className="absolute top-4 sm:top-5 bottom-0 left-0 right-10 sm:right-16 bg-white dark:bg-[#1a1a1a] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)] flex items-center pl-6 sm:pl-10 z-10 transition-transform duration-300 group-hover:scale-[1.01] border border-gray-100 dark:border-gray-800">
-                                <div className={`flex-shrink-0 ${service.iconColor} transition-transform duration-500 group-hover:rotate-12`}>
-                                    {service.icon}
-                                </div>
-                            </div>
-
-                            {/* 3D Ribbon Fold (The curved dark shape connecting back to the white pill) */}
-                            {/* Instead of border tricks, we use an absolute div with border-radius for an exact curve */}
-                            <div 
-                                className={`absolute top-0 w-6 sm:w-8 h-4 sm:h-5 left-10 sm:left-[68px] ${service.fold} rounded-tl-full z-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1`}
-                            />
-
-                            {/* Colored Ribbon Overlap */}
-                            {/* Shape match: Flat Top-Left (rounded-tl-none), Fully Rounded Bottom-Left (rounded-bl-full), Fully Rounded Right (rounded-r-full) */}
-                            <div className={`absolute top-0 bottom-4 sm:bottom-5 left-16 sm:left-[100px] right-0 ${service.gradient} rounded-l-full rounded-tl-none rounded-r-full shadow-xl z-20 flex items-center px-6 sm:px-10 text-white transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1`}>
+                            <div className="h-full bg-[#f8f9fa]/80 dark:bg-[#0a0a0a]/80 backdrop-blur-2xl border border-gray-200/60 dark:border-white/10 p-8 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
                                 
-                                <span className="text-5xl sm:text-6xl font-black drop-shadow-md shrink-0">
-                                    0{i + 1}
-                                </span>
+                                {/* Hover background glow blob */}
+                                <div className={`absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br ${service.color} rounded-full blur-[80px] opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-700`} />
+                                
+                                <div className="relative z-10 flex flex-col h-full">
+                                    {/* Icon Container with Gradient */}
+                                    <div className={`mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} text-white shadow-lg ${service.shadow} border border-white/20 group-hover:scale-110 transition-transform duration-500`}>
+                                        {service.icon}
+                                    </div>
 
-                                <div className="flex flex-col overflow-hidden justify-center pl-4 sm:pl-8 ml-4 sm:ml-8 border-l border-white/30 truncate">
-                                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight truncate mb-1 shadow-black">{service.title}</h3>
-                                    <p className="text-xs sm:text-sm text-white/90 truncate font-medium">
+                                    <h3 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 ${service.hoverGlow} transition-colors`}>
+                                        {service.title}
+                                    </h3>
+                                    
+                                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">
                                         {service.description}
                                     </p>
+                                    
+                                    <div className="mt-8 pt-6 border-t border-gray-200/50 dark:border-white/10">
+                                        <div className={`flex items-center gap-2 text-sm font-bold tracking-wide text-gray-900 dark:text-white ${service.hoverGlow} transition-colors uppercase`}>
+                                            <span>Explore Service</span>
+                                            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>

@@ -12,7 +12,11 @@ const brandImagesRow1 = [
     { src: "/assets/Brands logo/The_Mural_Story_-_Horizontal_-_Logo1.png", className: "scale-110", bgClass: "bg-gray-900 border-gray-800" },
     { src: "/assets/Brands logo/WhatsApp Image 2026-03-20 at 2.23.31 PM.jpeg", className: "scale-125 contrast-125" },
     { src: "/assets/Brands logo/angela.png", className: "" },
-    { src: "/assets/Brands logo/cropped-DrLabike-New-logo-trans-261x300.png", className: "" }
+    { src: "/assets/Brands logo/cropped-DrLabike-New-logo-trans-261x300.png", className: "" },
+    { src: "/assets/Brands logo/ZAAF Logo.png", className: "scale-125 object-contain" },
+    { src: "/assets/Brands logo/PostPress.jpeg", className: "w-[85%] h-[85%] object-contain mix-blend-multiply", bgClass: "bg-white" },
+    { src: "/assets/Brands logo/matematikk.png", className: "w-[90%] h-[90%] object-contain" },
+    { src: "/assets/Brands logo/Macau.webp", className: "scale-125 object-contain mix-blend-multiply" }
 ];
 
 const brandImagesRow2 = [
@@ -24,7 +28,10 @@ const brandImagesRow2 = [
     { src: "/assets/Brands logo/purelife.jpeg", className: "scale-[1.35]" },
     { src: "/assets/Brands logo/sahasraai.png", className: "" },
     { src: "/assets/Brands logo/shopalic.png", className: "scale-[1.35]" },
-    { src: "/assets/Brands logo/trucker.webp", className: "scale-[2.0]", bgClass: "bg-gray-900 border-gray-800" }
+    { src: "/assets/Brands logo/trucker.webp", className: "scale-[2.0]", bgClass: "bg-gray-900 border-gray-800" },
+    { src: "/assets/Brands logo/logo Sport Info.png", className: "scale-[1.65] object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/fymate.png", className: "scale-[1.3] object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/Corridors.png", className: "scale-[1.4] object-contain mix-blend-multiply" }
 ];
 
 export default function BrandsSlider({ variant = "home", title, badge, styleMode = "classic", speed = 35 }) {
@@ -77,21 +84,21 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
                 <style>{`
                     @keyframes scrollLeft {
                         0% { transform: translateX(0); }
-                        100% { transform: translateX(calc(-260px * 8)); }
+                        100% { transform: translateX(calc(-260px * ${brandImagesRow1.length})); }
                     }
                     @keyframes scrollRight {
-                        0% { transform: translateX(calc(-260px * 8)); }
+                        0% { transform: translateX(calc(-260px * ${brandImagesRow2.length})); }
                         100% { transform: translateX(0); }
                     }
                     .brands-marquee-left-${speed} {
                         display: flex;
                         animation: scrollLeft ${speed}s linear infinite;
-                        width: calc(260px * 16); 
+                        width: calc(260px * ${brandImagesRow1.length * 2}); 
                     }
                     .brands-marquee-right-${speed} {
                         display: flex;
                         animation: scrollRight ${speed}s linear infinite;
-                        width: calc(260px * 16); 
+                        width: calc(260px * ${brandImagesRow2.length * 2}); 
                     }
                     .brands-marquee-left-${speed}:hover, .brands-marquee-right-${speed}:hover {
                         animation-play-state: paused;
