@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 const teamMembers = [
     {
         name: "Tanu B",
-        role: "Founder & Co-Partner",
+        role: "Co-Founder & CTO",
         bio: "Leads business strategy, client communication, and overall project direction to ensure every solution aligns with client goals.",
         imageUrl: "/assets/Founder.jpeg"
     },
     {
         name: "Mr Singh",
-        role: "Co-Founder",
+        role: "Founder & CEO",
         bio: "Technical Lead & Co-Partner. Oversees architecture, development quality, and technical decision-making across web and mobile projects.",
         imageUrl: "/assets/Mr_Singh.jpg"
     },

@@ -2,9 +2,9 @@
 
 import SectionTitle from "@/components/section-title";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import dynamic from 'next/dynamic';
-import { Play, CheckCircle } from "lucide-react";
+import { Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,23 +19,212 @@ const stats = [
     { icon: "💼", value: "Startups", label: "to Enterprise Clients" },
 ];
 
-const testimonials = [
+const featuredVideos = [
     {
-        id: 1,
-        review: "I want to take a moment to express my deepest gratitude and appreciation for Manpreet from Reinsoft. He showcased excellent technical expertise in React and web development and demonstrated a true sense of ownership throughout the project.",
+        name: "Capt. Pankaj Sabarwal",
+        role: "Director, Maritime Training Institute",
+        location: "India",
+        flag: "in",
+        image: "/assets/Testimonial/Capt_Pankaj.jpeg",
+        review: "They developed a fantastic certificate generation and verification software for my maritime training institute. Both of them were very professional and very supportive. I highly recommend them for your software development work.",
+        projectType: "Certificate Verification Software",
+        localVideo: "/assets/Testimonial/Capt_Pankaj.mp4",
+        subtitleSrc: "/assets/Testimonial/capt_pankaj.vtt",
+    },
+    {
         name: "Sujoye Dhar",
-        role: "CTO",
-        companyLogo: "Biswakarma",
+        role: "CTO, Biswakarma",
         location: "Kolkata, India",
         flag: "in",
-        rating: 5,
-        image: "/assets/sujoay_pic.png",
-        projectType: "Custom E-commerce Website",
-        resultBadgeText: "2x Operational Efficiency",
-        resultBadgeColor: "text-purple-600 bg-purple-100",
-        highlight: true,
-        link: "/case-studies/ecommerce-experience"
+        image: "/assets/Testimonial/sujoay_pic.png",
+        review: "Manpreet ji understood our problems very well. He applied the right solution and our jewellery website was made perfectly. I recommend him for any website or technical problem. My experience with him was very good.",
+        projectType: "Jewellery E-commerce Website",
+        localVideo: "/assets/Testimonial/sujoye_dhar.mp4",
+        subtitleSrc: "/assets/Testimonial/sujoye_dhar.vtt",
     },
+];
+
+const VideoSlider = ({ onPlay }) => {
+    const [current, setCurrent] = useState(0);
+    const [isHovering, setIsHovering] = useState(false);
+    const videoRef = useRef(null);
+    const timerRef = useRef(null);
+    const total = featuredVideos.length;
+    const prev = (current - 1 + total) % total;
+    const next = (current + 1) % total;
+    const item = featuredVideos[current];
+
+    const goTo = useCallback((index) => {
+        const i = (index + total) % total;
+        setCurrent(i);
+        setIsHovering(false);
+        if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; }
+    }, [total]);
+
+    // Auto-advance every 7s when not hovering
+    useEffect(() => {
+        if (isHovering) return;
+        timerRef.current = setTimeout(() => {
+            setCurrent(prev => (prev + 1) % total);
+        }, 7000);
+        return () => clearTimeout(timerRef.current);
+    }, [current, isHovering, total]);
+
+    // Reset video when slide changes
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
+    }, [current]);
+
+    const handleMouseEnter = () => {
+        setIsHovering(true);
+        clearTimeout(timerRef.current);
+        if (videoRef.current) {
+            videoRef.current.load();
+            videoRef.current.play().catch(() => {});
+        }
+    };
+    const handleMouseLeave = () => {
+        setIsHovering(false);
+        if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; }
+    };
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="relative w-full mb-14 rounded-3xl overflow-hidden"
+        >
+            {/* Dynamic blurred background */}
+            <div className="absolute inset-0 -z-0">
+                {featuredVideos.map((v, i) => (
+                    <div key={i} className="absolute inset-0 transition-opacity duration-700" style={{ opacity: i === current ? 1 : 0 }}>
+                        <img src={v.image} alt="" className="w-full h-full object-cover scale-110" style={{ filter: 'blur(32px) brightness(0.22) saturate(1.3)' }} />
+                    </div>
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
+            </div>
+
+            {/* Label */}
+            <div className="relative z-10 flex items-center justify-center gap-2 pt-10 pb-6">
+                <span className="h-px w-10 bg-[#ff7a18]/40" />
+                <span className="text-xs font-bold tracking-widest uppercase text-[#ff7a18]">Featured Video Testimonials</span>
+                <span className="h-px w-10 bg-[#ff7a18]/40" />
+            </div>
+
+            {/* Showcase carousel */}
+            <div className="relative z-10 flex items-center justify-center gap-4 px-4 pb-4" style={{ minHeight: '340px' }}>
+
+                {/* Prev arrow */}
+                <button onClick={() => goTo(current - 1)} className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none" style={{ background: 'rgba(255,122,24,0.15)', border: '1px solid rgba(255,122,24,0.3)' }} aria-label="Previous">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+
+                {/* Left peek card */}
+                <div className="hidden md:block flex-shrink-0 cursor-pointer" style={{ width: '180px', opacity: 0.4, transform: 'scale(0.85) translateX(16px)', transition: 'all 0.5s ease', borderRadius: '14px', overflow: 'hidden' }} onClick={() => goTo(current - 1)}>
+                    <div className="relative aspect-video">
+                        <img src={featuredVideos[prev].image} alt="" className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,122,24,0.55)' }}>
+                                <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="px-3 py-2" style={{ background: 'rgba(0,0,0,0.7)' }}>
+                        <p className="text-white/70 text-xs font-semibold truncate">{featuredVideos[prev].name}</p>
+                        <p className="text-white/40 text-[10px] truncate">{featuredVideos[prev].role}</p>
+                    </div>
+                </div>
+
+                {/* Active center card */}
+                <div className="relative flex-shrink-0 transition-all duration-500" style={{ width: 'min(500px, 100%)', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 0 0 1.5px rgba(255,122,24,0.4), 0 0 60px 12px rgba(255,122,24,0.22), 0 30px 60px rgba(0,0,0,0.7)' }}>
+                    {/* Video / thumbnail */}
+                    <div className="relative aspect-video cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                        <video ref={videoRef} key={item.localVideo} src={item.localVideo} muted playsInline loop preload="auto" className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500" style={{ opacity: isHovering ? 1 : 0 }} />
+                        <img src={item.image} alt={item.name} className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500" style={{ opacity: isHovering ? 0 : 1, filter: 'brightness(0.8)' }} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
+                        {/* Play button — click opens full modal with audio + subtitles */}
+                        <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300" style={{ opacity: isHovering ? 0 : 1 }}>
+                            <button
+                                onClick={() => onPlay(item)}
+                                className="relative focus:outline-none"
+                                aria-label="Watch with audio"
+                            >
+                                <div className="absolute inset-0 rounded-full bg-[#ff7a18]/30 scale-[2] blur-lg animate-pulse" />
+                                <div className="relative flex items-center justify-center w-16 h-16 rounded-full hover:scale-110 transition-transform duration-200" style={{ background: 'linear-gradient(135deg, rgba(255,122,24,0.95), rgba(255,60,0,1))', boxShadow: '0 0 0 4px rgba(255,122,24,0.3), 0 0 30px rgba(255,122,24,0.6)' }}>
+                                    <Play className="w-7 h-7 text-white fill-white ml-1" />
+                                </div>
+                            </button>
+                        </div>
+                        {/* Subtitles badge */}
+                        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1">
+                            <span className="size-1.5 rounded-full bg-[#ff7a18] animate-pulse inline-block" />
+                            <span className="text-white text-[10px] font-semibold">English Subtitles</span>
+                        </div>
+                    </div>
+                    {/* Stars */}
+                    <div className="flex gap-0.5 px-5 pt-4 pb-1" style={{ background: 'rgba(15,23,42,0.97)' }}>
+                        {[...Array(5)].map((_, i) => (
+                            <svg key={i} className="w-4 h-4 text-orange-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        ))}
+                    </div>
+                    {/* Animated quote + info */}
+                    <motion.div key={`q-${current}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="px-5 pb-5" style={{ background: 'rgba(15,23,42,0.97)' }}>
+                        <p className="text-white/80 text-sm leading-relaxed line-clamp-3 mb-3">&ldquo;{item.review}&rdquo;</p>
+                        <div className="flex items-center gap-2.5">
+                            <img src={item.image} alt={item.name} className="w-8 h-8 rounded-full object-cover object-top border border-[#ff7a18]/40" />
+                            <div>
+                                <p className="text-white text-sm font-bold leading-tight">{item.name}</p>
+                                <div className="flex items-center gap-1">
+                                    <img src={`https://flagcdn.com/w20/${item.flag}.png`} alt="flag" className="h-2.5 w-[14px] object-cover rounded-[1px]" />
+                                    <p className="text-white/50 text-xs">{item.role}</p>
+                                </div>
+                            </div>
+                            <span className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#ff7a18]/30 text-[#ff7a18] bg-[#ff7a18]/10 whitespace-nowrap">{item.projectType}</span>
+                        </div>
+                    </motion.div>
+                </div>
+
+                {/* Right peek card */}
+                <div className="hidden md:block flex-shrink-0 cursor-pointer" style={{ width: '180px', opacity: 0.4, transform: 'scale(0.85) translateX(-16px)', transition: 'all 0.5s ease', borderRadius: '14px', overflow: 'hidden' }} onClick={() => goTo(current + 1)}>
+                    <div className="relative aspect-video">
+                        <img src={featuredVideos[next].image} alt="" className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,122,24,0.55)' }}>
+                                <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="px-3 py-2" style={{ background: 'rgba(0,0,0,0.7)' }}>
+                        <p className="text-white/70 text-xs font-semibold truncate">{featuredVideos[next].name}</p>
+                        <p className="text-white/40 text-[10px] truncate">{featuredVideos[next].role}</p>
+                    </div>
+                </div>
+
+                {/* Next arrow */}
+                <button onClick={() => goTo(current + 1)} className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 focus:outline-none" style={{ background: 'rgba(255,122,24,0.15)', border: '1px solid rgba(255,122,24,0.3)' }} aria-label="Next">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </div>
+
+            {/* Bottom dots */}
+            <div className="relative z-10 flex flex-col items-center gap-2 pb-8">
+                <div className="flex items-center gap-2">
+                    {featuredVideos.map((_, i) => (
+                        <button key={i} onClick={() => goTo(i)} className="transition-all duration-300 rounded-full focus:outline-none" style={{ width: i === current ? '28px' : '8px', height: '8px', background: i === current ? '#ff7a18' : 'rgba(255,255,255,0.25)' }} aria-label={`Go to ${featuredVideos[i].name}`} />
+                    ))}
+                </div>
+                <span className="text-white/30 text-xs">{current + 1} / {total}</span>
+            </div>
+        </motion.div>
+    );
+};
+
+const testimonials = [
     {
         id: 2,
         review: "The custom website built by Amarjeet from Reinsoft completely streamlined our operations. What used to take days now takes hours. I have worked with many developers before, but Amarjeet truly outperformed them all.",
@@ -60,7 +249,7 @@ const testimonials = [
         location: "Oxford, UK",
         flag: "gb",
         rating: 5,
-        image: "/assets/angela.png",
+        image: "/assets/Testimonial/angela.png",
         projectType: "Laravel SaaS Platform",
         resultBadgeText: "+42% Conversion Growth",
         resultBadgeColor: "text-green-600 bg-green-100",
@@ -75,7 +264,7 @@ const testimonials = [
         location: "Johannesburg, South Africa",
         flag: "za",
         rating: 5,
-        image: "/assets/Manti.jpeg",
+        image: "/assets/Testimonial/Manti.jpeg",
         projectType: "Custom E-commerce Website",
         resultBadgeText: "3x Q1 Sales Growth",
         resultBadgeColor: "text-orange-600 bg-orange-100",
@@ -91,7 +280,7 @@ const testimonials = [
         location: "Ahmedabad, India",
         flag: "in",
         rating: 5,
-        image: "/assets/umesh.png",
+        image: "/assets/Testimonial/umesh.png",
         projectType: "Custom POS Software",
         resultBadgeText: "-60% Cash Discrepancies",
         resultBadgeColor: "text-purple-600 bg-purple-100",
@@ -107,7 +296,7 @@ const testimonials = [
         location: "Bengaluru, India",
         flag: "in",
         rating: 5,
-        image: "/assets/kishor1.png",
+        image: "/assets/Testimonial/kishor1.png",
         projectType: "Mobility & Transportation Platform",
         resultBadgeText: "End-to-End Delivery",
         resultBadgeColor: "text-blue-600 bg-blue-100",
@@ -124,7 +313,7 @@ const testimonials = [
         location: "Ahmedabad, India",
         flag: "in",
         rating: 5,
-        image: "/assets/sagar.png",
+        image: "/assets/Testimonial/sagar.png",
         projectType: "Sahasra AI Intelligent Chatbot",
         resultBadgeText: "Improved Engagement",
         resultBadgeColor: "text-green-600 bg-green-100",
@@ -140,7 +329,7 @@ const testimonials = [
         location: "Cambridge, Canada",
         flag: "ca",
         rating: 5,
-        image: "/assets/Sandip.png",
+        image: "/assets/Testimonial/Sandip.png",
         projectType: "Interior/ Home Decor/ E-Commerce",
         resultBadgeText: "High Scalability",
         resultBadgeColor: "text-orange-600 bg-orange-100",
@@ -156,7 +345,7 @@ const testimonials = [
         location: "London, UK",
         flag: "gb",
         rating: 5,
-        image: "/assets/sam.png",
+        image: "/assets/Testimonial/sam.png",
         projectType: "Cross-platform Mobile",
         resultBadgeText: "Flutter Fitness App",
         resultBadgeColor: "text-teal-600 bg-teal-100",
@@ -175,6 +364,7 @@ const StarRating = () => (
 );
 
 const TestimonialCard = ({ item, onVideoClick }) => {
+    const hasVideo = item.localVideo || item.videoId;
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -242,8 +432,52 @@ const TestimonialCard = ({ item, onVideoClick }) => {
             </p>
 
             {/* Footer Buttons */}
-            <div className={`mt-auto flex items-center justify-center border-t pt-4 ${item.highlight ? 'border-black/10 dark:border-white/10' : 'border-black/5 dark:border-white/5'}`}>
-                {item.link ? (
+            <div className={`mt-auto flex items-center justify-center gap-3 flex-wrap border-t pt-4 ${item.highlight ? 'border-black/10 dark:border-white/10' : 'border-black/5 dark:border-white/5'}`}>
+                {hasVideo && (
+                    <button
+                        onClick={() => onVideoClick(item)}
+                        style={{
+                            position: 'relative',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '7px',
+                            padding: '10px 22px',
+                            borderRadius: '999px',
+                            fontSize: '13px',
+                            fontWeight: '700',
+                            color: '#fff',
+                            cursor: 'pointer',
+                            border: 'none',
+                            outline: 'none',
+                            background: 'linear-gradient(135deg, rgba(255,122,24,0.22) 0%, rgba(255,160,50,0.28) 50%, rgba(255,100,0,0.22) 100%)',
+                            boxShadow: '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)',
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            transition: 'box-shadow 0.3s ease, transform 0.2s ease',
+                            overflow: 'hidden',
+                        }}
+                        onMouseEnter={e => {
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.9), 0 0 28px 8px rgba(255,122,24,0.55), 0 0 50px 12px rgba(255,160,50,0.35), inset 0 1.5px 6px rgba(255,255,255,0.22), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.transform = 'scale(1.04)';
+                        }}
+                        onMouseLeave={e => {
+                            e.currentTarget.style.boxShadow = '0 0 0 1.5px rgba(255,122,24,0.6), 0 0 18px 4px rgba(255,122,24,0.35), 0 0 32px 8px rgba(255,160,50,0.20), inset 0 1.5px 6px rgba(255,255,255,0.18), inset 0 -2px 8px rgba(0,0,0,0.35)';
+                            e.currentTarget.style.transform = 'scale(1)';
+                        }}
+                    >
+                        <span style={{
+                            position: 'absolute',
+                            inset: 0,
+                            borderRadius: '999px',
+                            background: 'linear-gradient(120deg, rgba(255,100,0,0.40) 0%, rgba(255,140,30,0.50) 50%, rgba(255,80,0,0.40) 100%)',
+                            pointerEvents: 'none',
+                        }} />
+                        <Play size={14} style={{ position: 'relative', zIndex: 1 }} />
+                        <span style={{ position: 'relative', zIndex: 1 }}>Watch Testimonial</span>
+                    </button>
+                )}
+                {item.link && (
                     <Link
                         href={`${item.link}?hideDemo=true`}
                         style={{
@@ -276,7 +510,6 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                             e.currentTarget.style.transform = 'scale(1)';
                         }}
                     >
-                        {/* Logo-matched gradient overlay */}
                         <span style={{
                             position: 'absolute',
                             inset: 0,
@@ -286,7 +519,8 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                         }} />
                         <span style={{ position: 'relative', zIndex: 1 }}>See How We Did It</span>
                     </Link>
-                ) : (
+                )}
+                {!hasVideo && !item.link && (
                     <button
                         style={{
                             position: 'relative',
@@ -318,7 +552,6 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                             e.currentTarget.style.transform = 'scale(1)';
                         }}
                     >
-                        {/* Logo-matched gradient overlay */}
                         <span style={{
                             position: 'absolute',
                             inset: 0,
@@ -329,21 +562,13 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                         <span style={{ position: 'relative', zIndex: 1 }}>See How We Did It</span>
                     </button>
                 )}
-                {item.videoId && (
-                    <button
-                        onClick={() => onVideoClick(item.videoId)}
-                        className="flex items-center gap-1.5 text-sm font-semibold text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors px-3 py-1.5 rounded-md hover:bg-black/10 dark:hover:bg-white/10"
-                    >
-                        <Play className="size-4" /> Watch Video
-                    </button>
-                )}
             </div>
         </motion.div>
     );
 };
 
 export default function Testimonials({ limit }) {
-    const [selectedVideo, setSelectedVideo] = useState(null);
+    const [selectedVideo, setSelectedVideo] = useState(null); // stores full item object
 
     const testimonialsToDisplay = limit ? testimonials.slice(0, limit) : testimonials;
 
@@ -363,13 +588,16 @@ export default function Testimonials({ limit }) {
                     />
                 </div>
 
+                {/* Featured Video Testimonial Slider */}
+                <VideoSlider onPlay={(item) => setSelectedVideo(item)} />
+
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     {testimonialsToDisplay.map((item) => (
                         <TestimonialCard
                             key={item.id}
                             item={item}
-                            onVideoClick={setSelectedVideo}
+                            onVideoClick={(item) => setSelectedVideo(item)}
                         />
                     ))}
                 </div>
@@ -447,7 +675,9 @@ export default function Testimonials({ limit }) {
             <VideoModal
                 isOpen={!!selectedVideo}
                 onClose={() => setSelectedVideo(null)}
-                videoId={selectedVideo}
+                videoId={selectedVideo?.videoId}
+                localVideo={selectedVideo?.localVideo}
+                subtitleSrc={selectedVideo?.subtitleSrc}
             />
         </section>
     );

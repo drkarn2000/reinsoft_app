@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 import { useEffect, useRef } from "react";
 import ReactDOM from 'react-dom';
 
-const VideoModal = ({ isOpen, onClose, videoId }) => {
+const VideoModal = ({ isOpen, onClose, videoId, localVideo, subtitleSrc }) => {
     const overlayRef = useRef(null);
 
     useEffect(() => {
@@ -43,16 +43,40 @@ const VideoModal = ({ isOpen, onClose, videoId }) => {
                         >
                             <X size={24} />
                         </button>
+
                         <div className="relative pt-[56.25%]">
-                            <iframe
-                                className="absolute inset-0 w-full h-full"
-                                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-                                title="YouTube video player"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                loading="lazy"
-                            />
+                            {localVideo ? (
+                                /* Local MP4 with WebVTT subtitles */
+                                <video
+                                    className="absolute inset-0 w-full h-full bg-black"
+                                    controls
+                                    autoPlay
+                                    style={{ outline: 'none' }}
+                                >
+                                    <source src={localVideo} type="video/mp4" />
+                                    {subtitleSrc && (
+                                        <track
+                                            kind="subtitles"
+                                            src={subtitleSrc}
+                                            srcLang="en"
+                                            label="English"
+                                            default
+                                        />
+                                    )}
+                                    Your browser does not support the video tag.
+                                </video>
+                            ) : (
+                                /* YouTube embed */
+                                <iframe
+                                    className="absolute inset-0 w-full h-full"
+                                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=en`}
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    loading="lazy"
+                                />
+                            )}
                         </div>
                     </motion.div>
                 </div>

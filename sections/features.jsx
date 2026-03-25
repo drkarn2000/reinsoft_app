@@ -1,125 +1,229 @@
-import SectionTitle from "@/components/section-title";
-import { GlobeIcon, SmartphoneIcon, HeadphonesIcon } from "lucide-react";
-import { motion } from "framer-motion";
-import { useRef } from "react";
+'use client';
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import GradientButton from "@/components/gradient-button";
+import { ChevronRight, ChevronLeft } from "lucide-react";
+
+// The data object with the exact same content, including bullets
+const servicesData = [
+    {
+        title: "Custom Website Development",
+        description: "We design and develop high-performing, conversion-focused websites tailored to your business goals. From landing pages to full-scale platforms, every build is fast, responsive and optimized for growth.",
+        cta: { label: "View Web Solutions", href: "/services/web-development" },
+        image: "/assets/webbb.png",
+        imageAlt: "Custom Website Development Illustration",
+        imageAlign: "right", // image on the right
+    },
+    {
+        title: "Custom Software Solutions",
+        description: "Streamline your operations with tailored software built specifically for your workflows. We create scalable, secure, and efficient systems that eliminate manual work and improve productivity.",
+        bullets: ["Fully tailored to your business", "Scalable architecture", "Automation & integrations"],
+        cta: { label: "Explore Software Solutions", href: "/services" },
+        image: "/assets/mohini_pos1.png",
+        imageAlt: "Custom Software Solutions Illustration",
+        imageAlign: "left", // image on the left
+    },
+    {
+        title: "Mobile App Development",
+        description: "Build powerful Android and iOS apps that deliver seamless user experiences. We focus on performance, usability, and scalability to help your product succeed in a competitive market.",
+        cta: { label: "Discover Mobile Apps", href: "/services/mobile-app-development" },
+        image: "/assets/mobile-app-illustration.png",
+        imageAlt: "Mobile App Development Illustration",
+        imageAlign: "right", // image on the right
+    },
+];
+
+// 3D slide transition variants
+const slideVariants = {
+    enter: (direction) => {
+        return {
+            x: direction > 0 ? 800 : -800,
+            opacity: 0,
+            scale: 0.8,
+            rotateY: direction > 0 ? 25 : -25,
+        };
+    },
+    center: {
+        zIndex: 1,
+        x: 0,
+        opacity: 1,
+        scale: 1,
+        rotateY: 0,
+    },
+    exit: (direction) => {
+        return {
+            zIndex: 0,
+            x: direction < 0 ? 800 : -800,
+            opacity: 0,
+            scale: 0.8,
+            rotateY: direction < 0 ? 25 : -25,
+        };
+    }
+};
 
 export default function Features() {
+    const [[page, direction], setPage] = useState([0, 0]);
 
-    const refs = useRef([]);
+    const paginate = (newDirection) => {
+        const nextPage = page + newDirection;
+        // prevent going out of bounds
+        if (nextPage < 0 || nextPage >= servicesData.length) return;
+        setPage([nextPage, newDirection]);
+    };
 
-    const featuresData = [
-        {
-            icon: GlobeIcon,
-            title: "Custom Website Development",
-            description: "Modern, fast and mobile-friendly websites designed to convert visitors into enquiries and sales.",
-            badge: "2x Operational Efficiency",
-        },
-        {
-            icon: SmartphoneIcon,
-            title: "Android & iOS App Development",
-            description: "High-performance mobile applications built to grow your business and engage your users.",
-            badge: "4x Faster Delivery",
-        },
-        {
-            icon: HeadphonesIcon,
-            title: "Long-Term Support & Growth",
-            description: "Ongoing support and optimization to ensure your digital assets remain secure, fast, and stable.",
-            badge: "24/7 Ongoing Support",
-        }
-    ];
+    // Calculate the precise index (guaranteed positive because we block out of bounds above)
+    const i = page;
+    const service = servicesData[i];
+    const isImageLeft = service.imageAlign === "left";
+
+    // Progress percentage for visual feedback
+    const progress = ((i + 1) / servicesData.length) * 100;
 
     return (
-        <section className="mt-16">
-            {/* Background elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#ff7a18]/5 to-transparent rounded-full blur-[100px] pointer-events-none hidden dark:block" />
+        <section className="py-20 bg-[#f8faff] dark:bg-[#0a0f1c] overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                
+                {/* Section Header */}
+                <div className="text-center mb-10 md:mb-16">
+                    <h2 className="text-[34px] md:text-[48px] lg:text-[56px] font-bold leading-[1.1] mb-6">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">
+                            Custom Software &amp; Web
+                        </span>
+                        <br />
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-rose-400">
+                            Development Services
+                        </span>
+                    </h2>
+                    <p className="text-[#475569] dark:text-slate-400 text-[16px] md:text-[18px] font-medium max-w-2xl mx-auto">
+                        Three core services. No fluff. Just practical solutions that help your business grow.
+                    </p>
+                </div>
 
-            <SectionTitle
-                title="Custom Software & Web Development Services"
-                description="Three core services. No fluff. Just practical solutions that help your business grow. Long-term support & growth included."
-                gradient={true}
-            />
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 px-4 sm:px-6 max-w-7xl mx-auto relative z-10">
-                {featuresData.map((feature, index) => {
-                    // Distinct premium theme for each card with enhanced glow colors
-                    const themes = [
-                        { gradient: "from-blue-500 to-cyan-400", borderGlow: "group-hover:border-blue-500/60", text: "text-blue-400", topAccent: "via-blue-500", shadow: "group-hover:shadow-[0_0_60px_rgba(59,130,246,0.3)]" },
-                        { gradient: "from-fuchsia-500 to-pink-500", borderGlow: "group-hover:border-fuchsia-500/60", text: "text-fuchsia-400", topAccent: "via-fuchsia-500", shadow: "group-hover:shadow-[0_0_60px_rgba(217,70,239,0.3)]" },
-                        { gradient: "from-emerald-400 to-teal-500", borderGlow: "group-hover:border-emerald-500/60", text: "text-emerald-400", topAccent: "via-emerald-500", shadow: "group-hover:shadow-[0_0_60px_rgba(16,185,129,0.3)]" }
-                    ];
-                    const theme = themes[index % themes.length];
-
-                    return (
-                        <motion.div
-                            key={index}
-                            ref={(el) => (refs.current[index] = el)}
-                            className={`group relative rounded-3xl bg-black/5 dark:bg-white/[0.02] border border-black/10 dark:border-white/[0.05] p-8 flex flex-col h-full transition-all duration-700 backdrop-blur-xl hover:-translate-y-2 ${theme.borderGlow} ${theme.shadow}`}
-                            initial={{ y: 50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
-                        >
-                            {/* Intense Ambient Hover Glow behind the card */}
-                            <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${theme.gradient} opacity-0 group-hover:opacity-15 blur-2xl transition-opacity duration-700 pointer-events-none -z-10`} />
-
-                            {/* Top Neon Accent Line */}
-                            <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[3px] bg-gradient-to-r transparent ${theme.topAccent} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_currentColor] ${theme.text}`} />
-
-                            {/* Inner Glass Shine */}
-                            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/[0.06] to-transparent opacity-0 group-hover:opacity-100 rounded-t-3xl transition-opacity duration-700 pointer-events-none" />
-
-                            {/* Glowing Icon Container */}
-                            <div className="mb-8 relative w-fit z-10">
-                                {/* Increased Icon Hover Glow */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} blur-xl rounded-full opacity-10 group-hover:opacity-60 transition-opacity duration-700`} />
-                                <div className="relative p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-white shadow-xl flex items-center justify-center group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors duration-700">
-                                    <feature.icon className={`size-8 ${theme.text} group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_8px_currentColor]`} strokeWidth={1.5} />
-                                </div>
-                            </div>
-
-                            {/* Stat Badge */}
-                            {feature.badge && (
-                                <div className="relative z-10 mb-5">
-                                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-orange-400/20 to-pink-400/20 border border-orange-400/30 text-orange-500 dark:text-orange-300 backdrop-blur-sm">
-                                        <span className="size-1.5 rounded-full bg-orange-400 animate-pulse inline-block" />
-                                        {feature.badge}
-                                    </span>
-                                </div>
-                            )}
-
-                            {/* Title and Description */}
-                            <div className="relative z-10">
-                                <h3 className="text-2xl font-bold text-black dark:text-white tracking-tight mb-4 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-black group-hover:to-gray-500 dark:group-hover:from-white dark:group-hover:to-gray-400 transition-all duration-300">
-                                    {feature.title}
-                                </h3>
-
-                                <p className="text-gray-600 dark:text-gray-400 font-medium leading-relaxed mb-8">
-                                    {feature.description}
-                                </p>
-                            </div>
-
-                            {/* Custom Animated Link */}
-                            <div className="mt-auto pt-6 border-t border-white/[0.05] relative z-10">
-                                <Link
-                                    href="/services"
-                                    className={`inline-flex items-center gap-2 text-sm font-bold ${theme.text} hover:text-black dark:hover:text-white transition-colors duration-300 w-fit group/link`}
+                {/* SLIDER CONTAINER */}
+                <div className="relative w-full max-w-5xl mx-auto perspective-1000" style={{ perspective: '1200px' }}>
+                    
+                    {/* The Cards AnimatePresence Container */}
+                    <div className="relative w-full overflow-hidden rounded-[2rem] md:rounded-[3rem] p-1">
+                        <div className="grid">
+                            <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                                <motion.div
+                                    key={page}
+                                    custom={direction}
+                                    variants={slideVariants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{
+                                        x: { type: "spring", stiffness: 300, damping: 30 },
+                                        opacity: { duration: 0.3 },
+                                        scale: { duration: 0.5, ease: "easeOut" },
+                                        rotateY: { duration: 0.5, ease: "easeOut" }
+                                    }}
+                                    className="w-full h-full"
+                                    style={{ gridArea: "1 / 1" }}
                                 >
-                                    <span>Explore Service</span>
-                                    <motion.span
-                                        className="inline-block"
-                                        initial={{ x: 0 }}
-                                        whileHover={{ x: 4 }}
-                                        transition={{ type: "spring", stiffness: 300 }}
+                                    {/* Pristine Card Design (from the previous snapshot) */}
+                                    <div className="group flex flex-col md:flex-row items-stretch overflow-hidden
+                                                  bg-[#fdfbf9] dark:bg-slate-800/40 
+                                                  border border-[#e6ecf5] dark:border-white/5 
+                                                  rounded-[2rem] md:rounded-[3rem] p-8 md:p-14 lg:p-16 gap-8 md:gap-16
+                                                  shadow-2xl shadow-blue-900/10 dark:shadow-none h-full"
                                     >
-                                        →
-                                    </motion.span>
-                                </Link>
-                            </div>
-                        </motion.div>
-                    );
-                })}
+                                    {/* Text Content Area */}
+                                    <div className={`flex flex-col flex-1 justify-center order-2 ${isImageLeft ? 'md:order-2' : 'md:order-1'}`}>
+                                        <h3 className="text-3xl md:text-4xl font-bold text-[#1e293b] dark:text-white mb-5 leading-tight tracking-tight">
+                                            {service.title}
+                                        </h3>
+                                        <p className="text-[#475569] dark:text-slate-300 text-[15px] md:text-[17px] leading-[1.7] mb-6">
+                                            {service.description}
+                                        </p>
+
+                                        {service.bullets && (
+                                            <ul className="mb-8 space-y-3">
+                                                {service.bullets.map((b, idx) => (
+                                                    <li key={idx} className="flex items-center gap-3 text-[15px] text-[#334155] dark:text-slate-300 font-medium">
+                                                        <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                                        {b}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+
+                                        <Link
+                                            href={service.cta.href}
+                                            className="inline-flex items-center gap-2 text-[15px] font-bold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors w-fit"
+                                        >
+                                            {service.cta.label}
+                                            <span className="text-lg transition-transform group-hover:translate-x-1">&rarr;</span>
+                                        </Link>
+                                    </div>
+
+                                    {/* Illustration Area */}
+                                    <div className={`flex items-center justify-center flex-shrink-0 w-full md:w-[360px] lg:w-[420px] order-1 ${isImageLeft ? 'md:order-1' : 'md:order-2'}`}>
+                                        <div className="relative w-full aspect-[4/3] transform transition-transform duration-700 group-hover:scale-[1.02]">
+                                            <Image
+                                                src={service.image}
+                                                alt={service.imageAlt}
+                                                fill
+                                                className="object-contain"
+                                                sizes="(max-width: 768px) 100vw, 420px"
+                                                priority={i === 0}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                        </div>
+                    </div>
+
+                    {/* Progress & Navigation Controls */}
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-16 px-4">
+                        
+                        {/* Status Dots */}
+                        <div className="flex items-center gap-3">
+                            {servicesData.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => {
+                                        if (idx === page) return;
+                                        setPage([idx, idx > page ? 1 : -1]);
+                                    }}
+                                    className="relative flex items-center justify-center focus:outline-none group"
+                                    aria-label={`Go to slide ${idx + 1}`}
+                                >
+                                    {/* Unactive dot */}
+                                    <span className={`block h-[6px] rounded-full transition-all duration-500 ${idx === page ? 'w-10 bg-blue-600' : 'w-2 bg-slate-300 group-hover:bg-slate-400 dark:bg-slate-700'}`} />
+                                </button>
+                            ))}
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            {/* Previous Button */}
+                            <button
+                                onClick={() => paginate(-1)}
+                                disabled={page === 0}
+                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 text-blue-600 bg-white border border-[#e6ecf5] shadow-lg shadow-blue-900/5 ${page === 0 ? 'opacity-40 cursor-not-allowed scale-95' : 'hover:scale-105 hover:bg-blue-50'} dark:bg-slate-800 dark:border-white/10 dark:text-blue-400`}
+                                aria-label="Previous service"
+                            >
+                                <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
+                            </button>
+
+                            {/* Next Button */}
+                            <button
+                                onClick={() => paginate(1)}
+                                disabled={page === servicesData.length - 1}
+                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 text-white shadow-lg shadow-blue-900/30 ${page === servicesData.length - 1 ? 'bg-slate-300 cursor-not-allowed scale-95 opacity-50' : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:scale-105 hover:shadow-blue-500/40'}`}
+                                aria-label="Next service"
+                            >
+                                <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
     );

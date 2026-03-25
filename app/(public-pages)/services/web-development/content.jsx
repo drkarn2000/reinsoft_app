@@ -1,14 +1,14 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { 
-    CodeIcon, 
-    GlobeIcon, 
-    LayersIcon, 
-    ShieldCheckIcon, 
-    ZapIcon, 
-    BarChart3Icon, 
-    SearchIcon, 
+import {
+    CodeIcon,
+    GlobeIcon,
+    LayersIcon,
+    ShieldCheckIcon,
+    ZapIcon,
+    BarChart3Icon,
+    SearchIcon,
     RocketIcon,
     ArrowRightIcon,
     SmartphoneIcon
@@ -81,26 +81,35 @@ export default function WebDevelopmentContent() {
             </div>
 
             {/* Hero Section */}
-            <section className="relative pt-24 pb-6 px-4">
-                <div className="max-w-7xl mx-auto text-center pt-10">
+            <section className="relative pt-12 lg:pt-20 pb-16 px-4 overflow-hidden">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    {/* Left Content */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        className="text-center lg:text-left z-10"
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-blue-400 mb-6 inline-block">
+                        <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-blue-500 dark:text-blue-400 mb-6 inline-block shadow-sm">
                             Enterprise Web Solutions
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
-                            Custom Web Development Services for Startups &amp; Enterprises
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.1]">
+                            Custom Web Development <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Experts</span>
                         </h1>
-                        <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-6 leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                             We build fast, secure, and highly scalable web applications that drive growth. From startup MVPs to enterprise-level systems, we deliver digital excellence.
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-10">
-                            Hire dedicated web developers • React &amp; Next.js experts • Node.js &amp; Python backend • Available for US, UK &amp; Australia clients
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4">
+
+                        {/* Highlights Row */}
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10 text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                            <span className="flex items-center gap-1.5 text-blue-500 dark:text-blue-400"><CodeIcon className="size-4" /> Next.js & React</span>
+                            <span>•</span>
+                            <span className="flex items-center gap-1.5 text-purple-500 dark:text-purple-400"><LayersIcon className="size-4" /> Node & Python</span>
+                            <span>•</span>
+                            <span className="flex items-center gap-1.5 text-rose-500 dark:text-rose-400"><GlobeIcon className="size-4" /> Scalable MVP</span>
+                        </div>
+
+                        <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                             <Link href="/contact"
                                 className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:shadow-[0_0_45px_rgba(59,130,246,0.5)] hover:scale-105 transition-all duration-300"
                             >
@@ -108,11 +117,69 @@ export default function WebDevelopmentContent() {
                                 <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link href="#features"
-                                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/15 font-semibold text-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
+                                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/15 font-semibold text-lg hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300"
                             >
                                 Explore Services
                             </Link>
                         </div>
+                    </motion.div>
+
+                    {/* Right Image */}
+                    <motion.div
+                        className="relative z-10 w-full lg:h-[600px] flex items-center justify-center mt-10 lg:mt-0"
+                        initial={{ opacity: 0, scale: 0.9, x: 30 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                        {/* Glow Behind */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-cyan-500/20 blur-[80px] rounded-full" />
+
+                        {/* Main Image Container */}
+                        <div className="relative w-full flex items-center justify-center group z-10">
+                            {/* User will add their own image here */}
+                            <Image
+                                src="/assets/webbb.png"
+                                alt="Premium Web Development"
+                                width={1200}
+                                height={900}
+                                quality={100}
+                                className="w-full max-w-[600px] xl:max-w-[700px] h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-2xl"
+                                priority
+                            />
+                        </div>
+
+                        {/* Floating elements for modern look */}
+                        <motion.div
+                            className="absolute -right-2 md:-right-12 xl:-right-16 top-[15%] lg:top-1/4 glass p-3 lg:p-4 rounded-2xl border border-white/20 shadow-2xl bg-white/10 backdrop-blur-md z-20 hidden md:block"
+                            animate={{ y: [0, -15, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="size-10 lg:size-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                    <CodeIcon className="size-5 lg:size-6 text-blue-500" />
+                                </div>
+                                <div className="pr-2">
+                                    <p className="text-[10px] lg:text-xs text-black dark:text-gray-300 font-bold uppercase tracking-wider">Frontend</p>
+                                    <p className="text-sm lg:text-base font-black text-black dark:text-white">React & Next.js</p>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="absolute -left-2 md:-left-10 xl:-left-12 bottom-[15%] lg:bottom-1/4 glass p-3 lg:p-4 rounded-2xl border border-white/20 shadow-2xl bg-white/10 backdrop-blur-md z-20 hidden md:block"
+                            animate={{ y: [0, 15, 0] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="size-10 lg:size-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                    <ShieldCheckIcon className="size-5 lg:size-6 text-purple-500" />
+                                </div>
+                                <div className="pr-2">
+                                    <p className="text-[10px] lg:text-xs text-black dark:text-gray-300 font-bold uppercase tracking-wider">Architecture</p>
+                                    <p className="text-sm lg:text-base font-black text-black dark:text-white">Secure & Scalable</p>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>
@@ -316,7 +383,7 @@ export default function WebDevelopmentContent() {
                     </motion.div>
 
                     <motion.div
-                        className="relative rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-square"
+                        className="relative w-full rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-square bg-white/5"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -325,12 +392,10 @@ export default function WebDevelopmentContent() {
                             src="/assets/tanu.jpg"
                             alt="Web Development"
                             fill
-                            className="object-cover opacity-90 transition-all duration-500 group-hover:scale-110"
+                            quality={100}
+                            unoptimized
+                            className="object-contain p-2 transition-all duration-500 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                        <div className="absolute bottom-10 left-10 right-10 p-6 glass rounded-2xl border border-white/20">
-                            <p className="text-xl font-bold italic">"Innovation is at the heart of everything we build."</p>
-                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -350,7 +415,7 @@ export default function WebDevelopmentContent() {
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-cyan-500/5 rounded-2xl" />
                     <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
-                    
+
                     <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
                             <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
@@ -361,14 +426,14 @@ export default function WebDevelopmentContent() {
                             </p>
                         </div>
                         <div className="flex gap-3 shrink-0">
-                            <Link 
+                            <Link
                                 href="/contact"
                                 className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-bold shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:scale-105 transition-all"
                             >
                                 Start Project
                                 <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <Link 
+                            <Link
                                 href="https://wa.me/918968369582"
                                 target="_blank"
                                 className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"

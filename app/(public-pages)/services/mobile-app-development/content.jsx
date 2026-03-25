@@ -70,26 +70,35 @@ export default function MobileAppDevelopmentContent() {
             </div>
 
             {/* Hero Section */}
-            <section className="relative pt-6 pb-6 px-4">
-                <div className="max-w-7xl mx-auto text-center">
+            <section className="relative pt-12 lg:pt-20 pb-16 px-4 overflow-hidden">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    {/* Left Content */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        className="text-center lg:text-left z-10"
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-purple-400 mb-6 inline-block">
+                        <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-emerald-500 dark:text-emerald-400 mb-6 inline-block shadow-sm">
                             Premium Mobile Engineering
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
-                            Mobile App Development Services Flutter &amp; React Native Experts
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.1]">
+                            Mobile App Development <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400">Experts</span>
                         </h1>
-                        <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-6 leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                             We build native and cross-platform mobile applications that users love. From sleek startups to global brands, we deliver mobile-first digital transformation.
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-10">
-                            Hire Flutter developers • Hire React Native developers • iOS &amp; Android experts • Available for US, UK &amp; Australia clients
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4">
+
+                        {/* Highlights Row */}
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10 text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                            <span className="flex items-center gap-1.5 text-blue-500 dark:text-blue-400"><SmartphoneIcon className="size-4" /> Flutter</span>
+                            <span>•</span>
+                            <span className="flex items-center gap-1.5 text-purple-500 dark:text-purple-400"><CpuIcon className="size-4" /> React Native</span>
+                            <span>•</span>
+                            <span className="flex items-center gap-1.5 text-rose-500 dark:text-rose-400"><PlayIcon className="size-4" /> iOS & Android</span>
+                        </div>
+
+                        <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                             <Link href="/contact"
                                 className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 text-black font-bold text-lg shadow-[0_0_30px_rgba(16,185,129,0.35)] hover:shadow-[0_0_45px_rgba(16,185,129,0.5)] hover:scale-105 transition-all duration-300"
                             >
@@ -97,11 +106,68 @@ export default function MobileAppDevelopmentContent() {
                                 <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link href="#capabilities"
-                                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/15 font-semibold text-lg hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
+                                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/15 font-semibold text-lg hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300"
                             >
                                 View Capabilities
                             </Link>
                         </div>
+                    </motion.div>
+
+                    {/* Right Image */}
+                    <motion.div
+                        className="relative z-10 w-full lg:h-[600px] flex items-center justify-center mt-10 lg:mt-0"
+                        initial={{ opacity: 0, scale: 0.9, x: 30 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                        {/* Glow Behind */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-teal-500/20 blur-[80px] rounded-full" />
+
+                        {/* Main Image Container */}
+                        <div className="relative w-full flex items-center justify-center group z-10">
+                            <Image
+                                src="/assets/app_hero.png"
+                                alt="Premium Mobile App Development"
+                                width={1200}
+                                height={900}
+                                quality={100}
+                                className="w-full max-w-[600px] xl:max-w-[700px] h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-2xl"
+                                priority
+                            />
+                        </div>
+
+                        {/* Floating elements for modern look */}
+                        <motion.div
+                            className="absolute -right-2 md:-right-12 xl:-right-16 top-[15%] lg:top-1/4 glass p-3 lg:p-4 rounded-2xl border border-white/20 shadow-2xl bg-white/10 backdrop-blur-md z-20 hidden md:block"
+                            animate={{ y: [0, -15, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="size-10 lg:size-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                                    <SmartphoneIcon className="size-5 lg:size-6 text-emerald-500" />
+                                </div>
+                                <div className="pr-2">
+                                    <p className="text-[10px] lg:text-xs text-black dark:text-gray-300 font-bold uppercase tracking-wider">Platform</p>
+                                    <p className="text-sm lg:text-base font-black text-black dark:text-white">iOS & Android</p>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="absolute -left-2 md:-left-10 xl:-left-12 bottom-[15%] lg:bottom-1/4 glass p-3 lg:p-4 rounded-2xl border border-white/20 shadow-2xl bg-white/10 backdrop-blur-md z-20 hidden md:block"
+                            animate={{ y: [0, 15, 0] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="size-10 lg:size-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                    <CpuIcon className="size-5 lg:size-6 text-purple-500" />
+                                </div>
+                                <div className="pr-2">
+                                    <p className="text-[10px] lg:text-xs text-black dark:text-gray-300 font-bold uppercase tracking-wider">Performance</p>
+                                    <p className="text-sm lg:text-base font-black text-black dark:text-white">Native Speed</p>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>
@@ -187,141 +253,199 @@ export default function MobileAppDevelopmentContent() {
             {/* Capabilities Grid */}
             <section id="capabilities" className="py-24 px-4 relative">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Mobile <span className="text-blue-400">Stack & Expertise</span></h2>
-                        <p className="text-gray-700 dark:text-gray-400 max-w-2xl mx-auto">Leveraging modern frameworks to build secure, offline-first, and highly responsive mobile applications.</p>
+                    <div className="text-center mb-16 lg:mb-20">
+                        <span className="px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-sm font-bold text-blue-500 mb-4 inline-block shadow-sm">
+                            Core Technologies
+                        </span>
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">Our Mobile <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Stack & Expertise</span></h2>
+                        <p className="text-gray-700 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Leveraging modern frameworks to build secure, offline-first, and highly responsive mobile applications.</p>
                     </div>
 
-                    <div className="flex flex-col gap-5 max-w-3xl mx-auto">
-                        {mobileFeatures.map((feature, idx) => {
-                            const colors = mobileFeatureColors[idx % mobileFeatureColors.length];
-                            return (
-                                <motion.div
-                                    key={idx}
-                                    initial={{ opacity: 0, x: -30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.1, duration: 0.5 }}
-                                    className="relative flex flex-row items-center bg-white/5 border border-white/10 rounded-2xl overflow-visible group hover:bg-white/[0.08] transition-all duration-500 ml-6"
-                                >
-                                    {/* Left accent bar */}
-                                    <div className={`absolute left-0 top-0 bottom-0 w-1 ${colors.bar} rounded-l-2xl`} />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        {/* Image Container */}
+                        <motion.div
+                            className="relative w-full group flex items-center justify-center order-2 lg:order-1"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <Image
+                                src="/assets/stack_image.png"
+                                alt="Mobile Technologies Stack"
+                                width={1200}
+                                height={1200}
+                                quality={100}
+                                unoptimized
+                                className="w-full max-w-[500px] xl:max-w-[700px] h-auto object-contain transition-transform duration-700 group-hover:scale-105 z-10 drop-shadow-[0_30px_50px_rgba(0,0,0,0.3)]"
+                            />
+                        </motion.div>
 
-                                    {/* Number badge with half-rings */}
-                                    <div className="absolute -left-6 top-1/2 -translate-y-1/2 z-10" style={{ width: '48px', height: '48px' }}>
-                                        <div style={{ position: 'absolute', left: '-12px', top: '-12px', width: '72px', height: '72px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.7, boxShadow: `0 0 10px 2px ${colors.hex}80`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
-                                        <div style={{ position: 'absolute', left: '-6px', top: '-6px', width: '60px', height: '60px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.9, boxShadow: `0 0 8px 2px ${colors.hex}60`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
-                                        <div className={`size-12 rounded-full ${colors.bar} flex items-center justify-center text-lg font-black text-black dark:text-white shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}>
-                                            {idx + 1}
+                        {/* List */}
+                        <div className="flex flex-col gap-5 w-full order-1 lg:order-2">
+                            {mobileFeatures.map((feature, idx) => {
+                                const colors = mobileFeatureColors[idx % mobileFeatureColors.length];
+                                return (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, x: -30 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: idx * 0.1, duration: 0.5 }}
+                                        className="relative flex flex-row items-center bg-white/5 border border-white/10 rounded-2xl overflow-visible group hover:bg-white/[0.08] transition-all duration-500 ml-6"
+                                    >
+                                        {/* Left accent bar */}
+                                        <div className={`absolute left-0 top-0 bottom-0 w-1 ${colors.bar} rounded-l-2xl`} />
+
+                                        {/* Number badge with half-rings */}
+                                        <div className="absolute -left-6 top-1/2 -translate-y-1/2 z-10" style={{ width: '48px', height: '48px' }}>
+                                            <div style={{ position: 'absolute', left: '-12px', top: '-12px', width: '72px', height: '72px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.7, boxShadow: `0 0 10px 2px ${colors.hex}80`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
+                                            <div style={{ position: 'absolute', left: '-6px', top: '-6px', width: '60px', height: '60px', borderRadius: '50%', border: `3px solid ${colors.hex}`, opacity: 0.9, boxShadow: `0 0 8px 2px ${colors.hex}60`, clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
+                                            <div className={`size-12 rounded-full ${colors.bar} flex items-center justify-center text-lg font-black text-black dark:text-white shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}>
+                                                {idx + 1}
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    {/* Content */}
-                                    <div className="flex-grow py-4 pl-10 pr-2 text-left">
-                                        <h3 className={`text-xl font-bold mb-1 ${colors.text}`}>{feature.title}</h3>
-                                        <p className="text-gray-700 dark:text-gray-400 text-sm font-semibold leading-relaxed">{feature.description}</p>
-                                    </div>
-
-                                    {/* Right icon */}
-                                    <div className="pr-5 shrink-0 flex items-center justify-center">
-                                        <div className={`size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${colors.text} opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500`}>
-                                            {feature.icon}
+                                        {/* Content */}
+                                        <div className="flex-grow py-4 pl-10 pr-2 text-left">
+                                            <h3 className={`text-xl font-bold mb-1 ${colors.text}`}>{feature.title}</h3>
+                                            <p className="text-gray-700 dark:text-gray-400 text-sm font-semibold leading-relaxed">{feature.description}</p>
                                         </div>
-                                    </div>
 
-                                    {/* Right accent bar on hover */}
-                                    <div className={`absolute right-0 top-0 bottom-0 w-1 ${colors.bar} opacity-0 group-hover:opacity-100 transition-opacity rounded-r-2xl`} />
-                                </motion.div>
-                            );
-                        })}
+                                        {/* Right icon */}
+                                        <div className="pr-5 shrink-0 flex items-center justify-center">
+                                            <div className={`size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${colors.text} opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500`}>
+                                                {feature.icon}
+                                            </div>
+                                        </div>
+
+                                        {/* Right accent bar on hover */}
+                                        <div className={`absolute right-0 top-0 bottom-0 w-1 ${colors.bar} opacity-0 group-hover:opacity-100 transition-opacity rounded-r-2xl`} />
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Tech & Features Section */}
-            <section className="py-24 px-4 bg-black/5 dark:bg-white/5 backdrop-blur-sm">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <section className="py-24 px-4 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
+                <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 items-center">
+
+                    {/* Left App Image (Desktop Only) */}
                     <motion.div
-                        className="relative rounded-3xl overflow-hidden border border-white/10 aspect-video lg:aspect-square order-2 lg:order-1"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="relative w-full h-auto group hidden lg:block lg:col-span-1"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
                         <Image
-                            src="/assets/IMG_20251029_132744.png"
-                            alt="Mobile Development"
-                            fill
-                            className="object-cover opacity-90 brightness-75 transition-all duration-500 group-hover:scale-110"
+                            src="/assets/app1.png"
+                            alt="Mobile App UI"
+                            width={1000}
+                            height={2000}
+                            quality={100}
+                            className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-xl"
+                            style={{ imageRendering: 'high-quality' }}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                        <div className="absolute bottom-10 left-10 right-10 p-6 glass rounded-2xl border border-white/20">
-                            <p className="text-xl font-bold italic">"Mobile is no longer the second screen; it's the primary experience."</p>
-                        </div>
                     </motion.div>
 
+                    {/* Center Content */}
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="order-1 lg:order-2"
+                        className="lg:col-span-2 flex flex-col items-center justify-center text-center"
                     >
-                        <h2 className="text-3xl font-semibold mb-8">Building for the <span className="text-purple-400">Modern User</span></h2>
-                        <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Building for the <span className="text-purple-400">Modern User</span></h2>
+                        <p className="text-gray-700 dark:text-gray-300 mb-10 leading-relaxed max-w-xl mx-auto text-lg">
                             A great app is more than just a screen; it's a seamless part of your user's life. We focus on performance, accessibility, and delight.
                         </p>
-                        <div className="flex flex-col gap-5 mb-8">
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-10">
                             {[
                                 {
-                                    icon: <FingerprintIcon className="size-8 text-gray-400 stroke-1" />,
+                                    icon: <FingerprintIcon className="size-6 text-purple-400 stroke-1" />,
                                     text: "Biometric security and data encryption",
                                     gradient: "from-[#a855f7] to-[#d946ef]"
                                 },
                                 {
-                                    icon: <CpuIcon className="size-8 text-gray-400 stroke-1" />,
+                                    icon: <CpuIcon className="size-6 text-sky-400 stroke-1" />,
                                     text: "Highly optimized native performance",
                                     gradient: "from-[#0ea5e9] to-[#14b8a6]"
                                 },
                                 {
-                                    icon: <CloudIcon className="size-8 text-gray-400 stroke-1" />,
+                                    icon: <CloudIcon className="size-6 text-orange-400 stroke-1" />,
                                     text: "Offline-first sync and cloud backup",
                                     gradient: "from-[#f97316] to-[#eab308]"
                                 },
                                 {
-                                    icon: <PlayIcon className="size-8 text-gray-400 stroke-1" />,
+                                    icon: <PlayIcon className="size-6 text-red-400 stroke-1" />,
                                     text: "Continuous OTA updates and deployment",
                                     gradient: "from-[#dc2626] to-[#991b1b]"
                                 }
                             ].map((item, i) => (
                                 <motion.div
                                     key={i}
-                                    className="bg-white/5 border border-white/10 backdrop-blur-md rounded-[1.5rem] py-4 px-6 flex items-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/10 transition-all duration-300 relative group"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
+                                    className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-5 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/10 transition-all duration-300 group"
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
                                 >
-                                    {/* Left side: Number */}
-                                    <div className="flex items-center justify-center w-16 shrink-0">
-                                        <span className="text-gray-400 text-4xl font-light leading-none group-hover:text-black dark:text-white transition-colors">0{i + 1}</span>
-                                    </div>
-
-                                    {/* Vertical Bar */}
-                                    <div className={`w-2.5 h-16 rounded-full bg-gradient-to-b ${item.gradient} shrink-0 mx-6 shadow-md`} />
-
-                                    {/* Icon */}
-                                    <div className="shrink-0 mr-6">
+                                    <div className={`size-14 rounded-full mb-4 flex items-center justify-center bg-gradient-to-br ${item.gradient} bg-opacity-10 shadow-inner border border-white/10`}>
                                         {item.icon}
                                     </div>
-
-                                    {/* Text */}
-                                    <div className="text-gray-800 dark:text-gray-300 group-hover:text-black dark:text-white transition-colors text-sm font-medium leading-relaxed max-w-[200px] md:max-w-xs">
-                                        {item.text}
-                                    </div>
+                                    <h4 className="text-gray-800 dark:text-gray-200 font-bold text-sm leading-snug">{item.text}</h4>
                                 </motion.div>
                             ))}
                         </div>
                         <GradientButton href="/contact">Book a Mobile Strategy Call</GradientButton>
                     </motion.div>
+
+                    {/* Right App Image (and full 2-image wrapper on Mobile) */}
+                    <div className="lg:col-span-1 flex flex-row lg:flex-col gap-4 mt-10 lg:mt-0">
+                        {/* 1st image on Mobile ONLY */}
+                        <motion.div
+                            className="relative w-full h-auto group block lg:hidden"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <Image
+                                src="/assets/app1.png"
+                                alt="Mobile App UI"
+                                width={1000}
+                                height={2000}
+                                quality={100}
+
+                                className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-xl"
+                                style={{ imageRendering: 'high-quality' }}
+                            />
+                        </motion.div>
+
+                        {/* 2nd image on ALL screens */}
+                        <motion.div
+                            className="relative w-full h-auto group"
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <Image
+                                src="/assets/app2.png"
+                                alt="Mobile App Dark UI"
+                                width={1000}
+                                height={2000}
+                                quality={100}
+
+                                className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-xl"
+                                style={{ imageRendering: 'high-quality' }}
+                            />
+                        </motion.div>
+                    </div>
+
                 </div>
             </section>
 
