@@ -29,7 +29,7 @@ const steps = [
         title: "We build fast, secure & scalable systems",
         description: "Modern technology stack. Clean code. Built to grow with your business.",
         link: "/services",
-        image: "/assets/workflow3.jpg",
+        image: "/assets/workflow31.jpg",
         width: 2560,
         height: 1708,
     },
