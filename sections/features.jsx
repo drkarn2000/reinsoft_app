@@ -20,7 +20,7 @@ const servicesData = [
         title: "Custom Software Solutions",
         description: "Streamline your operations with tailored software built specifically for your workflows. We create scalable, secure, and efficient systems that eliminate manual work and improve productivity.",
         bullets: ["Fully tailored to your business", "Scalable architecture", "Automation & integrations"],
-        cta: { label: "Explore Software Solutions", href: "/services" },
+        cta: { label: "Explore Software Solutions", href: "/services/software-development" },
         image: "/assets/mohini_pos1.png",
         imageAlt: "Custom Software Solutions Illustration",
         imageAlign: "left", // image on the left
@@ -84,7 +84,7 @@ export default function Features() {
     return (
         <section className="py-20 bg-[#f8faff] dark:bg-[#0a0f1c] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                
+
                 {/* Section Header */}
                 <div className="text-center mb-10 md:mb-16">
                     <h2 className="text-[34px] md:text-[48px] lg:text-[56px] font-bold leading-[1.1] mb-6">
@@ -93,7 +93,7 @@ export default function Features() {
                         </span>
                         <br />
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-rose-400">
-                            Development Services
+                            Development Services ( Features )
                         </span>
                     </h2>
                     <p className="text-[#475569] dark:text-slate-400 text-[16px] md:text-[18px] font-medium max-w-2xl mx-auto">
@@ -103,7 +103,7 @@ export default function Features() {
 
                 {/* SLIDER CONTAINER */}
                 <div className="relative w-full max-w-5xl mx-auto perspective-1000" style={{ perspective: '1200px' }}>
-                    
+
                     {/* The Cards AnimatePresence Container */}
                     <div className="relative w-full overflow-hidden rounded-[2rem] md:rounded-[3rem] p-1">
                         <div className="grid">
@@ -131,57 +131,57 @@ export default function Features() {
                                                   rounded-[2rem] md:rounded-[3rem] p-8 md:p-14 lg:p-16 gap-8 md:gap-16
                                                   shadow-2xl shadow-blue-900/10 dark:shadow-none h-full"
                                     >
-                                    {/* Text Content Area */}
-                                    <div className={`flex flex-col flex-1 justify-center order-2 ${isImageLeft ? 'md:order-2' : 'md:order-1'}`}>
-                                        <h3 className="text-3xl md:text-4xl font-bold text-[#1e293b] dark:text-white mb-5 leading-tight tracking-tight">
-                                            {service.title}
-                                        </h3>
-                                        <p className="text-[#475569] dark:text-slate-300 text-[15px] md:text-[17px] leading-[1.7] mb-6">
-                                            {service.description}
-                                        </p>
+                                        {/* Text Content Area */}
+                                        <div className={`flex flex-col flex-1 justify-center order-2 ${isImageLeft ? 'md:order-2' : 'md:order-1'}`}>
+                                            <h3 className="text-3xl md:text-4xl font-bold text-[#1e293b] dark:text-white mb-5 leading-tight tracking-tight">
+                                                {service.title}
+                                            </h3>
+                                            <p className="text-[#475569] dark:text-slate-300 text-[15px] md:text-[17px] leading-[1.7] mb-6">
+                                                {service.description}
+                                            </p>
 
-                                        {service.bullets && (
-                                            <ul className="mb-8 space-y-3">
-                                                {service.bullets.map((b, idx) => (
-                                                    <li key={idx} className="flex items-center gap-3 text-[15px] text-[#334155] dark:text-slate-300 font-medium">
-                                                        <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                                                        {b}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
+                                            {service.bullets && (
+                                                <ul className="mb-8 space-y-3">
+                                                    {service.bullets.map((b, idx) => (
+                                                        <li key={idx} className="flex items-center gap-3 text-[15px] text-[#334155] dark:text-slate-300 font-medium">
+                                                            <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                                            {b}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
 
-                                        <Link
-                                            href={service.cta.href}
-                                            className="inline-flex items-center gap-2 text-[15px] font-bold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors w-fit"
-                                        >
-                                            {service.cta.label}
-                                            <span className="text-lg transition-transform group-hover:translate-x-1">&rarr;</span>
-                                        </Link>
-                                    </div>
+                                            <Link
+                                                href={service.cta.href}
+                                                className="inline-flex items-center gap-2 text-[15px] font-bold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors w-fit"
+                                            >
+                                                {service.cta.label}
+                                                <span className="text-lg transition-transform group-hover:translate-x-1">&rarr;</span>
+                                            </Link>
+                                        </div>
 
-                                    {/* Illustration Area */}
-                                    <div className={`flex items-center justify-center flex-shrink-0 w-full md:w-[360px] lg:w-[420px] order-1 ${isImageLeft ? 'md:order-1' : 'md:order-2'}`}>
-                                        <div className="relative w-full aspect-[4/3] transform transition-transform duration-700 group-hover:scale-[1.02]">
-                                            <Image
-                                                src={service.image}
-                                                alt={service.imageAlt}
-                                                fill
-                                                className="object-contain"
-                                                sizes="(max-width: 768px) 100vw, 420px"
-                                                priority={i === 0}
-                                            />
+                                        {/* Illustration Area */}
+                                        <div className={`flex items-center justify-center flex-shrink-0 w-full md:w-[360px] lg:w-[420px] order-1 ${isImageLeft ? 'md:order-1' : 'md:order-2'}`}>
+                                            <div className="relative w-full aspect-[4/3] transform transition-transform duration-700 group-hover:scale-[1.02]">
+                                                <Image
+                                                    src={service.image}
+                                                    alt={service.imageAlt}
+                                                    fill
+                                                    className="object-contain"
+                                                    sizes="(max-width: 768px) 100vw, 420px"
+                                                    priority={i === 0}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
+                                </motion.div>
+                            </AnimatePresence>
                         </div>
                     </div>
 
                     {/* Progress & Navigation Controls */}
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-16 px-4">
-                        
+
                         {/* Status Dots */}
                         <div className="flex items-center gap-3">
                             {servicesData.map((_, idx) => (

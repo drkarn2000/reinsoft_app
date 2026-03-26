@@ -240,9 +240,9 @@ export default function AboutPage() {
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-                        
+
                         {/* Left Side: Text Content */}
-                        <motion.div 
+                        <motion.div
                             className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -272,7 +272,7 @@ export default function AboutPage() {
                             <div className="bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 p-8 rounded-[2rem] shadow-lg mb-10 relative group hover:border-purple-500/20 transition-colors duration-300">
                                 <div className="absolute top-6 left-6 text-purple-500/20 dark:text-purple-400/10">
                                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M10 11L8 15H11V19H7L9 15H6V11H10ZM18 11L16 15H19V19H15L17 15H14V11H18Z" fill="currentColor"/>
+                                        <path d="M10 11L8 15H11V19H7L9 15H6V11H10ZM18 11L16 15H19V19H15L17 15H14V11H18Z" fill="currentColor" />
                                     </svg>
                                 </div>
                                 <div className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed relative z-10 space-y-4 pl-4 border-l-2 border-purple-500/30">
@@ -308,7 +308,7 @@ export default function AboutPage() {
                         </motion.div>
 
                         {/* Right Side: Image Placeholder Container */}
-                        <motion.div 
+                        <motion.div
                             className="w-full lg:w-1/2 relative z-0 group"
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -319,7 +319,7 @@ export default function AboutPage() {
                             <div className="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[3rem] p-3 border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-xl transition-all duration-500 group-hover:border-purple-500/40 group-hover:bg-purple-500/5">
                                 {/* Hover Gradient Blob Container */}
                                 <div className="absolute inset-0 bg-gradient-to-bl from-purple-500/20 via-indigo-500/10 to-transparent rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                                
+
                                 <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-gray-100 dark:bg-[#111] isolate shadow-inner group/img relative">
                                     {/* 
                                      * =============================================
@@ -328,16 +328,16 @@ export default function AboutPage() {
                                      * =============================================
                                      */}
                                     <Image
-                                        src="/assets/Services.jpg" 
+                                        src="/assets/Services.jpg"
                                         alt="Our Vision"
                                         fill
                                         className="object-cover object-center transition-transform duration-700 ease-out group-hover/img:scale-110 opacity-60 dark:opacity-40"
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                     />
-                                    
+
                                     {/* Overlay Gradient for depth */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent z-10 transition-opacity duration-500" />
-                                    
+
                                     {/* UI Hint to help locate the image placement */}
                                     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 transition-transform duration-500 group-hover:-translate-y-2 pointer-events-none">
                                         <div className="p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-[0_0_30px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_50px_rgba(168,85,247,0.6)] transition-shadow duration-500">
@@ -350,7 +350,7 @@ export default function AboutPage() {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {/* Decorative Floating Elements around the frame */}
                             <div className="absolute top-10 -left-6 w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-full blur-[2px] opacity-20 group-hover:opacity-40 group-hover:-translate-y-4 group-hover:-translate-x-2 transition-all duration-700 animate-pulse" />
                             <div className="absolute bottom-10 -right-6 w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full blur-[2px] opacity-20 group-hover:opacity-40 group-hover:translate-y-4 group-hover:translate-x-2 transition-all duration-700 animate-pulse delay-500" />

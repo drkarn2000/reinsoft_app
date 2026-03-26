@@ -25,7 +25,8 @@ export default function Navbar() {
             name: 'Our Services',
             href: '/services',
             dropdown: [
-                { name: 'Web Development', href: '/services/web-development', icon: <CodeIcon className="size-4" />, description: 'Custom web apps & sites' },
+                { name: 'Software Development', href: '/services/software-development', icon: <CodeIcon className="size-4" />, description: 'Custom software & enterprise solutions' },
+                { name: 'Web Development', href: '/services/web-development', icon: <LayoutGridIcon className="size-4" />, description: 'Custom web apps & sites' },
                 { name: 'Mobile App Development', href: '/services/mobile-app-development', icon: <SmartphoneIcon className="size-4" />, description: 'Native & Cross-platform apps' },
                 { name: 'All Services', href: '/services', icon: <LayoutGridIcon className="size-4" />, description: 'Explore our full list' },
             ]
