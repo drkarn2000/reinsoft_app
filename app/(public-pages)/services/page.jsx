@@ -31,6 +31,7 @@ const services = [
             'Easy content updates',
         ],
         color: '#3b82f6',
+        link: '/services/web-development',
     },
     {
         id: 'software',
@@ -46,6 +47,7 @@ const services = [
             'Training & documentation',
         ],
         color: '#a855f7',
+        link: '/services/software-development',
     },
     {
         id: 'mobile',
@@ -61,6 +63,7 @@ const services = [
             'Ongoing maintenance & updates',
         ],
         color: '#10b981',
+        link: '/services/mobile-app-development',
     },
     {
         id: 'support',
@@ -76,6 +79,7 @@ const services = [
             'Long-term partnership',
         ],
         color: '#f59e0b',
+        link: '/services/long-term-support-growth',
     },
 ];
 
@@ -276,11 +280,11 @@ function ServiceBlock({ service, index }) {
                     {/* CTA link */}
                     <div className="mt-8">
                         <Link
-                            href="/contact"
+                            href={service.link}
                             className="group/link inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 hover:gap-3"
                             style={{ color: service.color }}
                         >
-                            <span>Get Started</span>
+                            <span>View More Details</span>
                             <ArrowRightIcon className="size-4 group-hover/link:translate-x-1 transition-transform duration-300" />
                         </Link>
                     </div>

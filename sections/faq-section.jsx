@@ -1,3 +1,4 @@
+'use client';
 import SectionTitle from '@/components/section-title';
 import { ChevronDownIcon } from 'lucide-react';
 import { useState } from 'react';

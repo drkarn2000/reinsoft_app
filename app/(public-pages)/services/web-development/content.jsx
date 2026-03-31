@@ -285,7 +285,7 @@ export default function WebDevelopmentContent() {
 
                             <div className="relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group z-10">
                                 <Image
-                                    src="/assets/Web Development Expertise.png"
+                                    src="/assets/Web Development Expertise2.png"
                                     alt="Our Web Development Expertise"
                                     width={700}
                                     height={600}
@@ -424,7 +424,7 @@ export default function WebDevelopmentContent() {
                         {/* Main Image Container */}
                         <div className="relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group z-10 bg-white/5 backdrop-blur-sm">
                             <Image
-                                src="/assets/Case-study.jpg"
+                                src="/assets/webb.jpeg"
                                 alt="Modern Tech Stack"
                                 width={1200}
                                 height={900}

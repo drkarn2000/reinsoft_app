@@ -36,7 +36,7 @@ export default function TermsPage() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
             >
-                <div className="space-y-8 text-gray-200">
+                <div className="space-y-8 text-gray-700 dark:text-gray-200">
                     <p className="text-lg">
                         By accessing and using <span className="font-semibold text-black dark:text-white">reinsoft.site</span>, you agree to the following terms and conditions.
                     </p>

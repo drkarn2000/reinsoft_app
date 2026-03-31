@@ -26,6 +26,7 @@ const brandImagesRow2 = [
     { src: "/assets/Brands logo/opal.png", className: "" },
     { src: "/assets/Brands logo/property.jpeg", className: "scale-[2.6]" },
     { src: "/assets/Brands logo/purelife.jpeg", className: "scale-[1.35]" },
+    { src: "/assets/Brands logo/Basel_logo.png", className: "w-[85%] h-[85%] object-contain mix-blend-multiply" },
     { src: "/assets/Brands logo/sahasraai.png", className: "" },
     { src: "/assets/Brands logo/shopalic.png", className: "scale-[1.35]" },
     { src: "/assets/Brands logo/trucker.webp", className: "scale-[2.0]", bgClass: "bg-gray-900 border-gray-800" },
@@ -44,7 +45,7 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
     // Dynamic styles for logos
     const getCardStyle = (logo) => {
         let base = "rounded-2xl flex items-center justify-center shadow-md border hover:scale-105 transition-all duration-300 w-48 h-28 overflow-hidden";
-        
+
         switch (styleMode) {
             case "glass":
                 return `${base} bg-white/10 dark:bg-white/5 backdrop-blur-xl border-white/20 dark:border-white/10 p-5 shadow-[0_4px_30px_rgba(0,0,0,0.1)]`;
@@ -116,6 +117,8 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
                                     alt="Brand Logo"
                                     className={`object-contain transition-all duration-300 ${logo.className}`}
                                     style={{ maxWidth: '100%', maxHeight: '100%' }}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         </div>
@@ -133,6 +136,8 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
                                     alt="Brand Logo"
                                     className={`object-contain transition-all duration-300 ${logo.className}`}
                                     style={{ maxWidth: '100%', maxHeight: '100%' }}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         </div>

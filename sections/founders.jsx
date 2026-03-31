@@ -61,8 +61,9 @@ export default function Founders() {
                                         src="/assets/Founders_pics/Manpreet_founder_CEO.png"
                                         alt="Manpreet Singh"
                                         fill
+                                        loading="lazy"
                                         className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
-                                        sizes="(max-width: 768px) 100vw, 40vw"
+                                        sizes="(max-width: 768px) 90vw, 40vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
                                 </div>
@@ -127,8 +128,9 @@ export default function Founders() {
                                         src="/assets/Founders_pics/Tanu_founder & CTO.png"
                                         alt="Tanu Bharti"
                                         fill
+                                        loading="lazy"
                                         className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
-                                        sizes="(max-width: 768px) 100vw, 40vw"
+                                        sizes="(max-width: 768px) 90vw, 40vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
                                 </div>

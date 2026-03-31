@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
             >
-                <div className="space-y-8 text-gray-200">
+                <div className="space-y-8 text-gray-700 dark:text-gray-200">
                     <p className="text-lg">
                         At <span className="font-semibold text-black dark:text-white">Reinsoft</span>, we respect your privacy and are committed to protecting the personal information you share with us.
                     </p>

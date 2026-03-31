@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { AppWindowIcon, SmartphoneIcon, Code2Icon, ShoppingCartIcon, ServerIcon, HeadphonesIcon } from "lucide-react";
+import Link from "next/link";
 
 const services = [
     {
@@ -10,7 +11,8 @@ const services = [
         icon: <Code2Icon className="w-8 h-8" />,
         color: "from-blue-600 to-indigo-600",
         shadow: "shadow-[0_8px_30px_rgba(79,70,229,0.3)]",
-        hoverGlow: "group-hover:text-indigo-600 dark:group-hover:text-indigo-400"
+        hoverGlow: "group-hover:text-indigo-600 dark:group-hover:text-indigo-400",
+        link: "/services/software-development"
     },
     {
         title: "Mobile Apps",
@@ -18,7 +20,8 @@ const services = [
         icon: <SmartphoneIcon className="w-8 h-8" />,
         color: "from-[#ff7a18] to-orange-500",
         shadow: "shadow-[0_8px_30px_rgba(255,122,24,0.3)]",
-        hoverGlow: "group-hover:text-orange-500 dark:group-hover:text-orange-400"
+        hoverGlow: "group-hover:text-orange-500 dark:group-hover:text-orange-400",
+        link: "/services/mobile-app-development"
     },
     {
         title: "Web Applications",
@@ -26,7 +29,8 @@ const services = [
         icon: <AppWindowIcon className="w-8 h-8" />,
         color: "from-purple-600 to-pink-500",
         shadow: "shadow-[0_8px_30px_rgba(168,85,247,0.3)]",
-        hoverGlow: "group-hover:text-purple-600 dark:group-hover:text-purple-400"
+        hoverGlow: "group-hover:text-purple-600 dark:group-hover:text-purple-400",
+        link: "/services/web-development"
     },
     {
         title: "E-Commerce",
@@ -34,7 +38,8 @@ const services = [
         icon: <ShoppingCartIcon className="w-8 h-8" />,
         color: "from-emerald-500 to-teal-400",
         shadow: "shadow-[0_8px_30px_rgba(16,185,129,0.3)]",
-        hoverGlow: "group-hover:text-emerald-500 dark:group-hover:text-emerald-400"
+        hoverGlow: "group-hover:text-emerald-500 dark:group-hover:text-emerald-400",
+        link: "/services/e-commerce"
     },
     {
         title: "API & Integration",
@@ -42,7 +47,8 @@ const services = [
         icon: <ServerIcon className="w-8 h-8" />,
         color: "from-rose-500 to-red-500",
         shadow: "shadow-[0_8px_30px_rgba(244,63,94,0.3)]",
-        hoverGlow: "group-hover:text-rose-600 dark:group-hover:text-rose-400"
+        hoverGlow: "group-hover:text-rose-600 dark:group-hover:text-rose-400",
+        link: "/services/api-integration"
     },
     {
         title: "Maintenance",
@@ -50,7 +56,8 @@ const services = [
         icon: <HeadphonesIcon className="w-8 h-8" />,
         color: "from-cyan-500 to-blue-500",
         shadow: "shadow-[0_8px_30px_rgba(6,182,212,0.3)]",
-        hoverGlow: "group-hover:text-cyan-600 dark:group-hover:text-cyan-400"
+        hoverGlow: "group-hover:text-cyan-600 dark:group-hover:text-cyan-400",
+        link: "/services/long-term-support-growth"
     }
 ];
 
@@ -122,12 +129,12 @@ export default function AboutServices() {
                                     </p>
                                     
                                     <div className="mt-8 pt-6 border-t border-gray-200/50 dark:border-white/10">
-                                        <div className={`flex items-center gap-2 text-sm font-bold tracking-wide text-gray-900 dark:text-white ${service.hoverGlow} transition-colors uppercase`}>
+                                        <Link href={service.link} className={`flex items-center gap-2 text-sm font-bold tracking-wide text-gray-900 dark:text-white ${service.hoverGlow} transition-colors uppercase`}>
                                             <span>Explore Service</span>
                                             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                             </svg>
-                                        </div>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

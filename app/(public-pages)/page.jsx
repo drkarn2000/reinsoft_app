@@ -1,18 +1,20 @@
 'use client';
 
-import CallToAction from '@/sections/call-to-action';
-import FaqSection from '@/sections/faq-section';
-import Features from '@/sections/features';
+import dynamic from 'next/dynamic';
 import HeroSection from '@/sections/hero-section';
 import BrandsSlider from '@/sections/brands-slider';
-// import PricingPlans from '@/sections/pricing-plans';  // Commented out - not in sales website
-import Testimonials from '@/sections/testimonials';
-// import TrustedCompanies from '@/sections/trusted-companies';  // Commented out - not in sales website
 import TrustStrip from '@/sections/trust-strip';
 import WhyChooseUs from '@/sections/why-choose-us';
-import Team from '@/sections/team';
-import Portfolio from '@/sections/portfolio';
+import Features from '@/sections/features';
 import WorkflowSteps from '@/sections/workflow-steps';
+
+// Below-the-fold heavy sections: lazily loaded to reduce initial bundle
+const Portfolio = dynamic(() => import('@/sections/portfolio'));
+const Team = dynamic(() => import('@/sections/team'));
+const Testimonials = dynamic(() => import('@/sections/testimonials'));
+const FaqSection = dynamic(() => import('@/sections/faq-section'));
+const CallToAction = dynamic(() => import('@/sections/call-to-action'));
+
 export default function Page() {
     return (
         <>
@@ -20,7 +22,6 @@ export default function Page() {
                 <HeroSection />
                 <BrandsSlider variant="home" />
                 <TrustStrip />
-                {/* <TrustedCompanies /> */}
                 <WhyChooseUs />
                 <Features />
                 <WorkflowSteps />
@@ -28,7 +29,6 @@ export default function Page() {
                 <Team />
                 <Testimonials limit={3} />
                 <FaqSection />
-                {/* <PricingPlans /> */}
                 <CallToAction />
             </main>
         </>

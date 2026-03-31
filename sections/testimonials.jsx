@@ -144,7 +144,7 @@ const VideoSlider = ({ onPlay }) => {
                 <div className="relative flex-shrink-0 transition-all duration-500" style={{ width: 'min(500px, 100%)', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 0 0 1.5px rgba(255,122,24,0.4), 0 0 60px 12px rgba(255,122,24,0.22), 0 30px 60px rgba(0,0,0,0.7)' }}>
                     {/* Video / thumbnail */}
                     <div className="relative aspect-video cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                        <video ref={videoRef} key={item.localVideo} src={item.localVideo} muted playsInline loop preload="auto" className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500" style={{ opacity: isHovering ? 1 : 0 }} />
+                        <video ref={videoRef} key={item.localVideo} src={item.localVideo} muted playsInline loop preload="none" className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500" style={{ opacity: isHovering ? 1 : 0 }} />
                         <img src={item.image} alt={item.name} className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500" style={{ opacity: isHovering ? 0 : 1, filter: 'brightness(0.8)' }} />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
                         {/* Play button — click opens full modal with audio + subtitles */}
@@ -392,6 +392,7 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                         title={`Testimonial from ${item.name}`}
                         className={`w-full h-full ${item.name === 'Angela' ? 'object-contain p-1' : 'object-cover object-top'}`}
                         loading="lazy"
+                        decoding="async"
                     />
                 </div>
                 <div className="flex flex-col flex-grow">

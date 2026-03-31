@@ -59,7 +59,8 @@ const TeamCard = ({ member, index }) => {
                             title={`Meet ${member.name}, our ${member.role}`}
                             fill
                             className="object-cover rounded-full"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            sizes="112px"
+                            loading="lazy"
                         />
                     ) : (
                         <UserIcon className="size-12 text-gray-400" />
