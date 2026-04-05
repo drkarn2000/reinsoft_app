@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
 
-export default function Portfolio({ limit }) {
+export default function Portfolio({ limit, asH1 = false }) {
     const [activeCategory, setActiveCategory] = useState("All");
 
     const categories = [
@@ -192,6 +192,7 @@ export default function Portfolio({ limit }) {
                 title="Our Web & Mobile App Development Portfolio"
                 description="Explore real-world examples of how we've helped businesses like yours transform their digital presence and operations."
                 gradient={true}
+                asH1={asH1}
             />
 
             <div className="max-w-7xl mx-auto px-6 mt-14">

@@ -1,36 +1,18 @@
-'use client';
+import HomeContent from "./home-content";
 
-import dynamic from 'next/dynamic';
-import HeroSection from '@/sections/hero-section';
-import BrandsSlider from '@/sections/brands-slider';
-import TrustStrip from '@/sections/trust-strip';
-import WhyChooseUs from '@/sections/why-choose-us';
-import Features from '@/sections/features';
-import WorkflowSteps from '@/sections/workflow-steps';
-
-// Below-the-fold heavy sections: lazily loaded to reduce initial bundle
-const Portfolio = dynamic(() => import('@/sections/portfolio'));
-const Team = dynamic(() => import('@/sections/team'));
-const Testimonials = dynamic(() => import('@/sections/testimonials'));
-const FaqSection = dynamic(() => import('@/sections/faq-section'));
-const CallToAction = dynamic(() => import('@/sections/call-to-action'));
+export const metadata = {
+    title: 'AI App Development Company | Custom Software & SaaS Solutions USA UK Australia',
+    description: 'Reinsoft IT Solutions is a premier AI-powered app development company. We build high-performance custom software, mobile apps, and scalable web solutions for startups and enterprises worldwide. Based in USA, UK & Australia.',
+    keywords: 'AI app development company, custom software development USA, hire SaaS developers UK, mobile app development Australia, full stack developers, Reinsoft IT Solutions',
+    alternates: {
+        canonical: '/',
+    },
+    openGraph: {
+        title: 'Reinsoft IT Solutions | Custom Software & AI development',
+        description: 'Premium AI-powered apps, custom software, and scalable IT solutions for growing businesses.',
+    },
+};
 
 export default function Page() {
-    return (
-        <>
-            <main className='px-4'>
-                <HeroSection />
-                <BrandsSlider variant="home" />
-                <TrustStrip />
-                <WhyChooseUs />
-                <Features />
-                <WorkflowSteps />
-                <Portfolio limit={4} />
-                <Team />
-                <Testimonials limit={3} />
-                <FaqSection />
-                <CallToAction />
-            </main>
-        </>
-    );
+    return <HomeContent />;
 }

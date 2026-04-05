@@ -86,11 +86,12 @@ export default function PrivacyPolicyPage() {
 
                     <div className="space-y-4">
                         <h2 className="text-xl font-semibold text-black dark:text-white">Contact Information</h2>
-                        <p>If you have any questions regarding this Privacy Policy, you can contact us at:</p>
+                        <p>If you have any questions regarding this Privacy Policy, or if you would like to submit a request regarding your data, you can contact us at:</p>
                         <a href="mailto:info@reinsoft.tech" className="inline-flex items-center gap-2 text-black dark:text-white font-medium hover:text-gray-300 transition">
                             <MailIcon className="size-4" />
                             info@reinsoft.tech
                         </a>
+                        <p className="pt-4 text-sm text-gray-500">We are fully committed to compliance with international privacy standards and data security regulations. This privacy policy is actively monitored and updated.</p>
                     </div>
                 </div>
             </motion.section>

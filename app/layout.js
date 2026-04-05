@@ -12,21 +12,31 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-    title: 'Reinsoft | Custom Software, Web & Mobile App Development Company',
-    description: 'Practical IT solutions for small & medium businesses. We build websites, custom software & CRM systems that help you get more leads and work smarter.',
-    keywords: 'custom software development, business websites, CRM development, IT solutions, web development company, mobile app development, Android app development, iOS app development, reinsoft tech',
-    authors: [{ name: 'Reinsoft' }],
+    metadataBase: new URL('https://reinsoft.tech'),
+    title: {
+        default: 'AI App Development & Custom Software Solutions | Reinsoft IT Solutions',
+        template: '%s | Reinsoft IT Solutions'
+    },
+    description: 'Reinsoft IT Solutions provides premium custom software, AI-powered mobile apps, and scalable web development for startups and enterprises worldwide.',
+    keywords: 'AI-powered app development, custom software development, Reinsoft IT Solutions, SaaS development, business websites, CRM development, mobile app development, Android app development, iOS app development, UK, USA, Australia',
+    authors: [{ name: 'Reinsoft IT Solutions' }],
+    verification: {
+        google: 't1SU8KB5_y2PwBXx6oFYDV4IoIiJ55nlIEqPu5b_s5sM', // Verified ID from layout
+    },
+    alternates: {
+        canonical: '/',
+    },
     openGraph: {
-        title: 'Reinsoft | Custom Software & IT Solutions',
-        description: 'Practical IT solutions: Websites, mobile apps, custom software, and reliable technical support for growing businesses.',
+        title: 'Reinsoft IT Solutions | Custom Software & AI Development',
+        description: 'Premium AI-powered apps, custom software, and scalable IT solutions for growing businesses.',
         url: 'https://reinsoft.tech',
-        siteName: 'Reinsoft',
+        siteName: 'Reinsoft IT Solutions',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Reinsoft | Custom Software & IT Solutions',
-        description: 'Practical IT solutions for growing businesses.',
+        title: 'Reinsoft IT Solutions | Custom Software & AI Development',
+        description: 'Premium AI-powered apps and custom software solutions for growing businesses.',
     },
     robots: {
         index: true,
@@ -49,7 +59,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PCJ2MX8P');`
                     }}
                 />
-                <link rel="canonical" href="https://reinsoft.tech" />
+                {/* Google tag (gtag.js) */}
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-DHTF1C42M2"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+
+                        gtag('config', 'G-DHTF1C42M2');
+                    `}
+                </Script>
             </head>
             <LenisScroll />
             <body className={poppins.variable}>

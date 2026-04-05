@@ -71,7 +71,7 @@ export default function WebDevelopmentContent() {
             <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/Services.jpg"
-                    alt="Background"
+                    alt="Reinsoft IT Solutions - Premium Custom Software & Web Services Background"
                     fill
                     className="object-cover opacity-90 grayscale brightness-50"
                     priority
@@ -139,7 +139,7 @@ export default function WebDevelopmentContent() {
                             {/* User will add their own image here */}
                             <Image
                                 src="/assets/webbb.png"
-                                alt="Premium Web Development"
+                                alt="Custom Web Development Solutions by Reinsoft IT Solutions"
                                 width={1200}
                                 height={900}
                                 quality={100}
@@ -286,9 +286,9 @@ export default function WebDevelopmentContent() {
                             <div className="relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group z-10">
                                 <Image
                                     src="/assets/Web Development Expertise2.png"
-                                    alt="Our Web Development Expertise"
+                                    alt="Expert Custom Web Development Services - Reinsoft IT Solutions"
                                     width={700}
-                                    height={600}
+                                    height={750}
                                     quality={100}
                                     className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
@@ -347,8 +347,9 @@ export default function WebDevelopmentContent() {
 
             {/* Content & Tech Stack Section */}
             <section className="py-24 px-4 bg-black/5 dark:bg-white/5 backdrop-blur-sm">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-center">
                     <motion.div
+                        className="h-full flex flex-col justify-start"
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -412,24 +413,24 @@ export default function WebDevelopmentContent() {
                     </motion.div>
 
                     <motion.div
-                        className="relative w-full flex items-center justify-center lg:h-[600px]"
+                        className="relative w-full h-full min-h-[400px] lg:min-h-0 lg:pb-[82px] pt-1"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
                         {/* Glow Behind */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-cyan-500/20 blur-[80px] rounded-full pointer-events-none" />
+                        <div className="absolute inset-0 lg:bottom-[82px] bg-gradient-to-tr from-blue-500/20 to-cyan-500/20 blur-[80px] rounded-full pointer-events-none" />
 
                         {/* Main Image Container */}
-                        <div className="relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group z-10 bg-white/5 backdrop-blur-sm">
+                        <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group z-10">
                             <Image
-                                src="/assets/webb.jpeg"
-                                alt="Modern Tech Stack"
-                                width={1200}
-                                height={900}
+                                src="/assets/webb1.png"
+                                alt="Modern Tech Stack for Scalable Web Apps - Reinsoft IT Solutions"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={100}
-                                className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-2xl p-4"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 priority
                             />
                             {/* Subtle overlay */}

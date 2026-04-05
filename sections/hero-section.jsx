@@ -24,8 +24,8 @@ export default function HeroSection() {
             <div className="fixed inset-0 -z-10 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/hero-bg.jpg"
-                    alt="Abstract dark background for custom software development company hero section"
-                    title="Reinsoft Web and Mobile App Development Services"
+                    alt="Reinsoft IT Solutions - Custom Software, Web & Mobile App Development Background"
+                    title="Reinsoft IT Solutions - Expert Software, Web and Mobile App Development Services"
                     fill
                     className="object-cover opacity-90"
                     priority

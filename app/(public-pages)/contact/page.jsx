@@ -509,12 +509,18 @@ function ContactFormContent() {
 
 export default function ContactPage() {
     return (
-        <Suspense fallback={
-            <div className="min-h-screen flex items-center justify-center dark:bg-black">
-                <div className="size-12 border-4 border-[#ff7a18]/20 border-t-[#ff7a18] rounded-full animate-spin" />
+        <main>
+            <h1 className="sr-only">Contact Reinsoft Custom Software Development</h1>
+            <div className="sr-only">
+                Welcome to the Reinsoft contact and quote request page. We are a premium software development, web app, and mobile application agency providing robust technical solutions for businesses worldwide. You can reach out to us here to discuss your project, get a custom quote, evaluate e-commerce systems, explore SaaS opportunities, and start your digital transformation journey with our expert engineering team. We typically respond within a few business hours to all general and specialized inquiries. Let us help you grow today.
             </div>
-        }>
-            <ContactFormContent />
-        </Suspense>
+            <Suspense fallback={
+                <div className="min-h-screen flex items-center justify-center dark:bg-black">
+                    <div className="size-12 border-4 border-[#ff7a18]/20 border-t-[#ff7a18] rounded-full animate-spin" />
+                </div>
+            }>
+                <ContactFormContent />
+            </Suspense>
+        </main>
     );
 }

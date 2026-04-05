@@ -86,10 +86,10 @@ export default function AboutServices() {
                             What We Do
                         </span>
                     </div>
-                    
+
                     <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-gray-900 dark:text-white leading-[1.1]">
-                        Our Premium <br className="hidden md:block" />
-                        <span className="relative inline-block mt-2">
+                        Our Premium
+                        <span className="relative inline-block ml-4">
                             <span className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-[#ff7a18]/20 blur-2xl opacity-50 dark:opacity-100 transition-opacity duration-500 group-hover:opacity-100 dark:group-hover:opacity-100"></span>
                             <span className="relative bg-gradient-to-r from-blue-600 via-indigo-500 to-[#ff7a18] bg-clip-text text-transparent">
                                 Services
@@ -110,10 +110,10 @@ export default function AboutServices() {
                             className="group relative"
                         >
                             <div className="h-full bg-[#f8f9fa]/80 dark:bg-[#0a0a0a]/80 backdrop-blur-2xl border border-gray-200/60 dark:border-white/10 p-8 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
-                                
+
                                 {/* Hover background glow blob */}
                                 <div className={`absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br ${service.color} rounded-full blur-[80px] opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-700`} />
-                                
+
                                 <div className="relative z-10 flex flex-col h-full">
                                     {/* Icon Container with Gradient */}
                                     <div className={`mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} text-white shadow-lg ${service.shadow} border border-white/20 group-hover:scale-110 transition-transform duration-500`}>
@@ -123,11 +123,11 @@ export default function AboutServices() {
                                     <h3 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 ${service.hoverGlow} transition-colors`}>
                                         {service.title}
                                     </h3>
-                                    
+
                                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">
                                         {service.description}
                                     </p>
-                                    
+
                                     <div className="mt-8 pt-6 border-t border-gray-200/50 dark:border-white/10">
                                         <Link href={service.link} className={`flex items-center gap-2 text-sm font-bold tracking-wide text-gray-900 dark:text-white ${service.hoverGlow} transition-colors uppercase`}>
                                             <span>Explore Service</span>

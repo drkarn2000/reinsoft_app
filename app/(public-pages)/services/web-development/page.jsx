@@ -1,19 +1,12 @@
 import WebDevelopmentContent from "./content";
 
 export const metadata = {
-    title: 'Custom Web Development Services | Hire Web Developers | Reinsoft',
-    description: 'Expert custom web development services for startups and enterprises. Hire dedicated web developers skilled in React, Next.js, Node.js & Python. Fast, secure & scalable web apps, SaaS platforms, e-commerce & CRMs. Available for US, UK & Australia clients.',
-    keywords: [
-        'custom web development services',
-        'hire web developers',
-        'hire full stack developers',
-        'web application development company',
-        'React Next.js development',
-        'Node.js web development',
-        'SaaS development company',
-        'e-commerce web development',
-        'web developers for hire',
-    ],
+    title: 'Custom Web Development | Hire Full Stack Developers | Reinsoft IT Solutions',
+    description: 'Expert custom web development services for startups and enterprises. Hire dedicated full-stack developers skilled in React, Next.js, Node.js & Python. Scalable SaaS platforms and e-commerce solutions.',
+    keywords: 'Custom web development, Hire full-stack developers, React development services, Next.js developers, Reinsoft IT Solutions, SaaS development',
+    alternates: {
+        canonical: '/services/web-development',
+    },
 };
 
 export default function WebDevelopmentPage() {

@@ -83,7 +83,7 @@ const VideoSlider = ({ onPlay }) => {
         clearTimeout(timerRef.current);
         if (videoRef.current) {
             videoRef.current.load();
-            videoRef.current.play().catch(() => {});
+            videoRef.current.play().catch(() => { });
         }
     };
     const handleMouseLeave = () => {
@@ -396,9 +396,9 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                     />
                 </div>
                 <div className="flex flex-col flex-grow">
-                    <h4 className="text-black dark:text-white font-bold text-base leading-tight group-hover:text-[#ff7a18] transition-colors">
+                    <p className="text-black dark:text-white font-bold text-base leading-tight group-hover:text-[#ff7a18] transition-colors">
                         {item.name}
-                    </h4>
+                    </p>
                     <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                         {item.role} @ {item.companyLogo}
                     </p>
@@ -568,104 +568,107 @@ const TestimonialCard = ({ item, onVideoClick }) => {
     );
 };
 
-export default function Testimonials({ limit }) {
+export default function Testimonials({ limit, asH1 = false }) {
     const [selectedVideo, setSelectedVideo] = useState(null); // stores full item object
+    const sliderRef = useRef(null);
 
     const testimonialsToDisplay = limit ? testimonials.slice(0, limit) : testimonials;
 
+    const scroll = (direction) => {
+        if (sliderRef.current) {
+            const scrollAmount = 400;
+            sliderRef.current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
-        <section className="py-16 relative overflow-hidden" id="testimonials">
+        <section className="py-24 relative overflow-hidden" id="testimonials">
             {/* Ambient background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#ff7a18]/5 blur-[120px] rounded-full pointer-events-none hidden dark:block" />
 
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
                 {/* Section Header */}
-                <div className="text-center max-w-2xl mx-auto mb-12">
+                <div className="text-center max-w-2xl mx-auto mb-16 px-4">
                     <SectionTitle
                         title="Client Testimonials for Our IT Solutions"
                         description="Don't just take our word for it—see what our partners say about working directly with a team that delivers results."
                         gradient={true}
+                        asH1={asH1}
                     />
                 </div>
 
-                {/* Featured Video Testimonial Slider */}
+                {/* Video Testimonials Slider (Featured) */}
                 <VideoSlider onPlay={(item) => setSelectedVideo(item)} />
 
-                {/* Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                    {testimonialsToDisplay.map((item) => (
-                        <TestimonialCard
-                            key={item.id}
-                            item={item}
-                            onVideoClick={(item) => setSelectedVideo(item)}
-                        />
-                    ))}
+                {/* Horizontal Cards Slider */}
+                <div className="relative max-w-7xl mx-auto mt-16 group px-4 md:px-12">
+                    <div
+                        ref={sliderRef}
+                        className="flex overflow-x-auto gap-6 pb-12 snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {testimonialsToDisplay.map((item) => (
+                            <div
+                                key={item.id}
+                                className="flex-shrink-0 w-[85vw] md:w-[400px] snap-center h-auto"
+                            >
+                                <TestimonialCard
+                                    item={item}
+                                    onVideoClick={(item) => setSelectedVideo(item)}
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Simple Pagination Controls */}
+                    <div className="flex justify-center items-center gap-6 mt-6">
+                        <button
+                            onClick={() => scroll('left')}
+                            className="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center bg-white/5 backdrop-blur-md hover:bg-[#ff7a18] text-black dark:text-white hover:text-white transition-all shadow-lg active:scale-95"
+                            aria-label="Previous testimonials"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                        </button>
+                        <button
+                            onClick={() => scroll('right')}
+                            className="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center bg-white/5 backdrop-blur-md hover:bg-[#ff7a18] text-black dark:text-white hover:text-white transition-all shadow-lg active:scale-95"
+                            aria-label="Next testimonials"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
                 </div>
 
-                {/* Conversion Booster / Stats */}
-                <div className="mt-20 border-t border-black/10 dark:border-white/10 pt-12">
-                    {/* Section Label */}
+                {/* Trust Stats Bar */}
+                <div className="mt-32 pt-20 border-t border-black/10 dark:border-white/10 text-center relative">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#ff7a18]/40 to-transparent" />
+
                     <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="text-center text-sm font-semibold tracking-widest uppercase text-[#ff7a18] mb-8"
+                        className="text-xs font-black tracking-widest uppercase text-[#ff7a18] mb-12"
                     >
-                        Trusted by Businesses Worldwide
+                        Success metrics we've helped achieve
                     </motion.p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                         {stats.map((stat, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 24 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="relative p-[1.5px] rounded-2xl group"
-                                style={{
-                                    background: 'linear-gradient(135deg, rgba(255,122,24,0.55) 0%, rgba(255,80,180,0.35) 40%, rgba(100,100,255,0.25) 70%, rgba(255,122,24,0.4) 100%)',
-                                    boxShadow: '0 0 18px 2px rgba(255,122,24,0.18), 0 0 40px 6px rgba(255,80,180,0.10)',
-                                }}
+                                transition={{ delay: index * 0.1 }}
+                                className="p-8 rounded-3xl border border-black/5 dark:border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
                             >
-                                {/* Inner card */}
-                                <motion.div
-                                    whileHover={{ scale: 1.03 }}
-                                    transition={{ duration: 0.25 }}
-                                    className="relative flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-transparent overflow-hidden"
-                                    style={{
-                                        boxShadow: 'inset 0 0 40px 6px rgba(255,122,24,0.06)',
-                                    }}
-                                    onMouseEnter={e => {
-                                        e.currentTarget.parentElement.style.boxShadow = '0 0 36px 8px rgba(255,122,24,0.45), 0 0 70px 18px rgba(255,80,180,0.22), 0 0 120px 30px rgba(100,100,255,0.10)';
-                                    }}
-                                    onMouseLeave={e => {
-                                        e.currentTarget.parentElement.style.boxShadow = '0 0 18px 2px rgba(255,122,24,0.18), 0 0 40px 6px rgba(255,80,180,0.10)';
-                                    }}
-                                >
-                                    {/* Top-edge prismatic light streak */}
-                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#ff7a18]/80 to-transparent pointer-events-none" />
-                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-6 bg-gradient-to-b from-[#ff7a18]/20 to-transparent blur-md pointer-events-none rounded-full" />
-
-                                    {/* Ambient radial glow in background */}
-                                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_0%,rgba(255,122,24,0.12)_0%,transparent_65%)] pointer-events-none" />
-                                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_100%,rgba(255,80,180,0.08)_0%,transparent_65%)] pointer-events-none" />
-
-                                    {/* Icon with glow halo */}
-                                    <div className="relative">
-                                        <div className="absolute inset-0 blur-xl bg-[#ff7a18]/30 rounded-full scale-150 pointer-events-none" />
-                                        <span className="relative text-4xl leading-none drop-shadow-[0_0_12px_rgba(255,122,24,0.9)]">{stat.icon}</span>
-                                    </div>
-
-                                    <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-b from-black via-gray-700 to-gray-500 dark:from-white dark:via-gray-100 dark:to-gray-400 bg-clip-text text-transparent leading-tight drop-shadow-[0_0_16px_rgba(255,255,255,0.25)]">
-                                        {stat.value}
-                                    </div>
-                                    <div className="text-sm text-black dark:text-white font-bold leading-snug">
-                                        {stat.label}
-                                    </div>
-                                </motion.div>
+                                <div className="text-4xl mb-4 select-none grayscale opacity-80">{stat.icon}</div>
+                                <div className="text-3xl font-black text-black dark:text-white mb-2">{stat.value}</div>
+                                <div className="text-sm font-bold text-gray-500 uppercase tracking-widest leading-tight">{stat.label}</div>
                             </motion.div>
                         ))}
                     </div>

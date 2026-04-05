@@ -60,7 +60,7 @@ export default function MobileAppDevelopmentContent() {
             <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/Services.jpg"
-                    alt="Background"
+                    alt="Reinsoft IT Solutions - Mobile App Development Services Background"
                     fill
                     className="object-cover opacity-90 grayscale brightness-50"
                     priority
@@ -127,7 +127,7 @@ export default function MobileAppDevelopmentContent() {
                         <div className="relative w-full flex items-center justify-center group z-10">
                             <Image
                                 src="/assets/app_hero.png"
-                                alt="Premium Mobile App Development"
+                                alt="Premium iOS & Android App Development by Reinsoft IT Solutions"
                                 width={1200}
                                 height={900}
                                 quality={100}
@@ -272,7 +272,7 @@ export default function MobileAppDevelopmentContent() {
                         >
                             <Image
                                 src="/assets/stack_image.png"
-                                alt="Mobile Technologies Stack"
+                                alt="Mobile Development Tech Stack - Flutter, React Native, iOS & Android - Reinsoft IT Solutions"
                                 width={1200}
                                 height={1200}
                                 quality={100}
@@ -342,7 +342,7 @@ export default function MobileAppDevelopmentContent() {
                     >
                         <Image
                             src="/assets/app1.png"
-                            alt="Mobile App UI"
+                            alt="Clean and Modern Mobile App User Interface Design - Reinsoft IT Solutions"
                             width={1000}
                             height={2000}
                             quality={100}
@@ -415,7 +415,7 @@ export default function MobileAppDevelopmentContent() {
                         >
                             <Image
                                 src="/assets/app1.png"
-                                alt="Mobile App UI"
+                                alt="Modern Mobile App UI Design - Reinsoft IT Solutions"
                                 width={1000}
                                 height={2000}
                                 quality={100}
@@ -435,7 +435,7 @@ export default function MobileAppDevelopmentContent() {
                         >
                             <Image
                                 src="/assets/app2.png"
-                                alt="Mobile App Dark UI"
+                                alt="Sleek Dark Mode Mobile App UI Design - Reinsoft IT Solutions"
                                 width={1000}
                                 height={2000}
                                 quality={100}

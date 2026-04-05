@@ -1,18 +1,12 @@
 import ECommerceContent from "./content";
 
 export const metadata = {
-    title: 'E-Commerce Development Services | Online Store Development | Reinsoft',
-    description: 'Build high-converting e-commerce stores and online marketplaces. Expert Shopify, WooCommerce, and custom e-commerce development. Secure payment integration, inventory management & SEO-optimized storefronts.',
-    keywords: [
-        'e-commerce development services',
-        'online store development',
-        'Shopify development company',
-        'WooCommerce development',
-        'custom e-commerce solutions',
-        'payment gateway integration',
-        'e-commerce website builder',
-        'online marketplace development',
-    ],
+    title: 'E-commerce Development | Custom Online Stores | Reinsoft IT Solutions',
+    description: 'Build high-converting e-commerce stores and marketplaces. Expert Shopify, WooCommerce, and custom e-commerce development with secure payment integrations.',
+    keywords: 'E-commerce development, Online store builder, Shopify experts, WooCommerce development, Custom e-commerce solutions, Reinsoft IT Solutions',
+    alternates: {
+        canonical: '/services/e-commerce',
+    },
 };
 
 export default function ECommercePage() {

@@ -74,7 +74,7 @@ export default function ECommerceContent() {
             <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/Services.jpg"
-                    alt="Background"
+                    alt="Reinsoft IT Solutions - E-commerce Development & Online Store Solutions Background"
                     fill
                     className="object-cover opacity-90 grayscale brightness-50"
                     priority

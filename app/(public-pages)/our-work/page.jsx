@@ -7,11 +7,16 @@ import { ArrowRightIcon } from 'lucide-react';
 export default function OurWorkPage() {
     return (
         <main className='px-4 pt-20'>
-            <Portfolio />
-            
+            <div className="max-w-4xl mx-auto text-center mb-[-60px] md:mb-[-80px] relative z-10">
+                <p className="text-lg text-gray-600 dark:text-gray-300 px-4 mt-6">
+                    See our latest product developments, web apps, and enterprise architecture built using modern tech stacks. We help brands worldwide achieve digital transformation. Review our portfolio to see real examples of our technical expertise.
+                </p>
+            </div>
+            <Portfolio asH1={true} />
+
             {/* Compact Our Work CTA */}
             <section className="relative mt-16 mb-12 px-4">
-                <motion.div 
+                <motion.div
                     className="relative max-w-4xl mx-auto overflow-hidden rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +35,7 @@ export default function OurWorkPage() {
                                 Let's turn your vision into a product users love.
                             </p>
                         </div>
-                        <Link 
+                        <Link
                             href="/contact"
                             className="group shrink-0 flex items-center gap-2 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 text-white px-6 py-3 rounded-full text-sm font-bold transition-all shadow-[0_0_20px_rgba(249,115,22,0.25)] hover:scale-105"
                         >

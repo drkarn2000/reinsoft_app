@@ -323,66 +323,133 @@ export default function ServicesPage() {
             </div>
 
             {/* ═══════════════ HERO ═══════════════ */}
-            <section className="relative z-10 flex flex-col items-center pt-28 pb-16 text-center px-4">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    {/* Pill badge */}
-                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/20 bg-orange-500/5 dark:bg-orange-500/10 text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-widest mb-8 backdrop-blur-sm">
-                        <SparklesIcon className="size-3.5" />
-                        What We Build
-                    </span>
-                </motion.div>
-
-                <motion.h1
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] max-w-4xl"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                    <span className="text-gray-900 dark:text-white">Our </span>
-                    <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
-                        Core Services
-                    </span>
-                </motion.h1>
-
-                <motion.p
-                    className="mt-6 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    Practical IT solutions that help your business grow. Custom development for startups and growing businesses.
-                </motion.p>
-
-                {/* Stat counters */}
-                <motion.div
-                    className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-12 max-w-3xl w-full"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.35 }}
-                >
-                    {[
-                        { emoji: '🏆', label: 'Trusted by 200+ Businesses' },
-                        { emoji: '🌍', label: 'Clients Across Multiple Countries' },
-                        { emoji: '✅', label: 'On-Time Project Delivery' },
-                        { emoji: '🤝', label: 'Long-Term Client Partnerships' },
-                    ].map((stat, i) => (
+            <section className="relative pt-28 lg:pt-36 pb-20 px-4 overflow-hidden">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    
+                    {/* Left Column: Content */}
+                    <motion.div
+                        className="text-center lg:text-left z-10"
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <motion.div
-                            key={stat.label}
-                            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/50 dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] backdrop-blur-sm hover:bg-white/80 dark:hover:bg-white/[0.06] transition-colors duration-300"
-                            whileHover={{ y: -4 }}
-                            transition={{ type: "spring", stiffness: 300 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
                         >
-                            <span className="text-2xl">{stat.emoji}</span>
-                            <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 text-center leading-tight">
-                                {stat.label}
+                            {/* Pill badge */}
+                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/20 bg-orange-500/5 dark:bg-orange-500/10 text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-widest mb-8 backdrop-blur-sm">
+                                <SparklesIcon className="size-3.5" />
+                                What We Build
                             </span>
                         </motion.div>
-                    ))}
-                </motion.div>
+ 
+                        <motion.h1
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                        >
+                            <span className="text-gray-900 dark:text-white">Our </span>
+                            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+                                Core Services
+                            </span>
+                        </motion.h1>
+ 
+                        <motion.p
+                            className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed mx-auto lg:mx-0 mb-10"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            Practical IT solutions that help your business grow. Custom development for startups and growing businesses.
+                        </motion.p>
+ 
+                        {/* Stat counters */}
+                        <motion.div
+                            className="grid grid-cols-2 gap-4 lg:gap-6 max-w-2xl w-full"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.35 }}
+                        >
+                            {[
+                                { emoji: '🏆', label: 'Trusted by 200+ Businesses' },
+                                { emoji: '🌍', label: 'Global Clients' },
+                                { emoji: '✅', label: 'On-Time Delivery' },
+                                { emoji: '🤝', label: 'Long-Term Support' },
+                            ].map((stat, i) => (
+                                <motion.div
+                                    key={stat.label}
+                                    className="flex items-center gap-3 p-3 lg:p-4 rounded-2xl bg-white/50 dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] backdrop-blur-sm hover:bg-white/80 dark:hover:bg-white/[0.06] transition-colors duration-300"
+                                    whileHover={{ y: -4 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
+                                >
+                                    <span className="text-xl lg:text-2xl">{stat.emoji}</span>
+                                    <span className="text-[10px] lg:text-xs font-bold text-gray-700 dark:text-gray-400 uppercase tracking-wider text-left leading-tight">
+                                        {stat.label}
+                                    </span>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </motion.div>
+ 
+                    {/* Right Column: Hero Visual Image */}
+                    <motion.div
+                        className="relative z-10 w-full lg:h-[650px] flex items-center justify-center mt-10 lg:mt-0"
+                        initial={{ opacity: 0, scale: 0.9, x: 30 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                        {/* Ambient Glow Behind Image */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-pink-500/10 to-purple-500/20 blur-[100px] rounded-full pointer-events-none" />
+ 
+                        <div className="relative w-full flex items-center justify-center group z-10 transition-transform duration-700 hover:scale-105">
+                            <Image
+                                src="/assets/core_services.png"
+                                alt="Our Core Services"
+                                width={1200}
+                                height={900}
+                                className="w-full max-w-[650px] xl:max-w-[750px] h-[350px] lg:h-[450px] xl:h-[500px] object-cover rounded-3xl lg:rounded-[2.5rem] shadow-[0_20px_50px_rgba(249,115,22,0.3)]"
+                                priority
+                                quality={100}
+                            />
+                        </div>
+ 
+                        {/* Floating elements for premium visual appeal */}
+                        <motion.div
+                            className="absolute -right-4 lg:-right-10 top-[20%] p-4 rounded-2xl border border-white/20 bg-white/10 dark:bg-black/20 backdrop-blur-md shadow-2xl z-20 hidden md:block"
+                            animate={{ y: [0, -15, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="size-10 rounded-full bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
+                                    <SparklesIcon className="size-5 text-orange-500" />
+                                </div>
+                                <div>
+                                    <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Growth</p>
+                                    <p className="text-sm font-black text-gray-900 dark:text-white">Productivity +</p>
+                                </div>
+                            </div>
+                        </motion.div>
+ 
+                        <motion.div
+                            className="absolute -left-4 lg:-left-8 bottom-[20%] p-4 rounded-2xl border border-white/20 bg-white/10 dark:bg-black/20 backdrop-blur-md shadow-2xl z-20 hidden md:block"
+                            animate={{ y: [0, 15, 0] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="size-10 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
+                                    <CodeIcon className="size-5 text-purple-500" />
+                                </div>
+                                <div>
+                                    <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Process</p>
+                                    <p className="text-sm font-black text-gray-900 dark:text-white">Agile Hybrid</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                </div>
             </section>
 
             {/* ═══════════════ SERVICE BLOCKS ═══════════════ */}

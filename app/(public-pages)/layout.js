@@ -2,24 +2,27 @@ import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 
 export const metadata = {
-    title: 'Reinsoft - Custom Software & IT Solutions for Growing Businesses',
-    description: 'Practical IT solutions for small & medium businesses. We build websites, custom software & CRM systems that help you get more leads and work smarter.',
-    keywords: 'custom software development, business websites, CRM development, IT solutions, web development, mobile app development',
-    authors: [{ name: 'Reinsoft' }],
+    title: {
+        default: 'Custom Software & IT Solutions for Growing Businesses | Reinsoft IT Solutions',
+        template: '%s | Reinsoft IT Solutions'
+    },
+    description: 'Expert custom software development, mobile apps, and business websites for startups and SMEs. Reinsoft IT Solutions delivers scalable AI-powered products and 24/7 technical support.',
+    keywords: 'custom software development, business software solutions, SaaS developer, AI app development, web development company, mobile app development company, CRM development, IT consulting, Reinsoft IT Solutions',
+    authors: [{ name: 'Reinsoft IT Solutions' }],
     openGraph: {
-        title: 'Reinsoft - Custom Software & IT Solutions',
-        description: 'Practical IT solutions: Websites, mobile apps, custom software, and reliable technical support for growing businesses.',
-        url: 'https://reinsoft.site',
-        siteName: 'Reinsoft',
+        title: 'Reinsoft IT Solutions | Custom Software & AI Development',
+        description: 'Scalable IT solutions: Websites, mobile apps, and custom software for growing businesses.',
+        url: 'https://reinsoft.tech',
+        siteName: 'Reinsoft IT Solutions',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Reinsoft - Custom Software & IT Solutions',
+        title: 'Reinsoft IT Solutions | Custom Software & AI Development',
         description: 'Practical IT solutions for growing businesses.',
     },
     appleWebApp: {
-        title: 'Reinsoft',
+        title: 'Reinsoft IT Solutions',
     },
 };
 

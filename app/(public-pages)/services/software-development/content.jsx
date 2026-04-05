@@ -76,7 +76,7 @@ export default function SoftwareDevelopmentContent() {
             <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
                 <Image
                     src="/assets/Services.jpg"
-                    alt="Background"
+                    alt="Reinsoft IT Solutions - Custom Software Engineering & Enterprise Services Background"
                     fill
                     className="object-cover opacity-90 grayscale brightness-50"
                     priority
@@ -143,7 +143,7 @@ export default function SoftwareDevelopmentContent() {
                         <div className="relative w-full flex items-center justify-center group z-10">
                             <Image
                                 src="/assets/mohini_pos1.png"
-                                alt="Custom Software Development"
+                                alt="Custom Software Engineering Solutions by Reinsoft IT Solutions"
                                 width={1200}
                                 height={900}
                                 quality={100}
@@ -214,9 +214,9 @@ export default function SoftwareDevelopmentContent() {
                             <div className="relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group z-10">
                                 <Image
                                     src="/assets/mohini_pos111.png"
-                                    alt="Our Software Development Expertise"
+                                    alt="Expert Custom Software Development Services - Reinsoft IT Solutions"
                                     width={700}
-                                    height={600}
+                                    height={750}
                                     quality={100}
                                     className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
@@ -275,8 +275,9 @@ export default function SoftwareDevelopmentContent() {
 
             {/* Content & Tech Stack Section */}
             <section className="py-24 px-4 bg-black/5 dark:bg-white/5 backdrop-blur-sm">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-center">
                     <motion.div
+                        className="h-full flex flex-col justify-start"
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -340,20 +341,30 @@ export default function SoftwareDevelopmentContent() {
                     </motion.div>
 
                     <motion.div
-                        className="relative w-full rounded-3xl overflow-hidden border border-white/10 bg-white/5 flex items-center justify-center"
+                        className="relative w-full h-full min-h-[400px] lg:min-h-0 lg:pb-[82px] pt-1"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
                     >
-                        <Image
-                            src="/assets/Modern_Tech.png"
-                            alt="Software Engineering"
-                            width={700}
-                            height={600}
-                            quality={100}
-                            unoptimized
-                            className="w-full h-auto object-contain transition-all duration-500 group-hover:scale-105 rounded-3xl"
-                        />
+                        {/* Glow Behind */}
+                        <div className="absolute inset-0 lg:bottom-[82px] bg-gradient-to-tr from-emerald-500/20 to-teal-500/20 blur-[80px] rounded-full pointer-events-none" />
+
+                        {/* Main Image Container */}
+                        <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group z-10 bg-white/5">
+                            <Image
+                                src="/assets/Modern_Tech.png"
+                                alt="Modern Enterprise Software Engineering Tech Stack - Reinsoft IT Solutions"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                quality={100}
+                                unoptimized
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                priority
+                            />
+                            {/* Subtle overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                        </div>
                     </motion.div>
                 </div>
             </section>

@@ -1,0 +1,21 @@
+# Reinsoft IT Solutions
+# AI / LLM Context File (llms.txt)
+
+## Company Overview
+Reinsoft IT Solutions is a premier custom software, web, and mobile app development agency dedicated to building scalable digital solutions. We design, develop, and deliver high-performance applications tailored to specific business requirements.
+
+## Core Services
+1. Custom Software / CRM Development: Bespoke software solutions, legacy system modernization, and scalable enterprise tools.
+2. Web Development: Business websites, lead generation systems, and dynamic e-commerce platforms.
+3. Mobile App Development: Native (iOS/Android) and Cross-Platform (React Native, Flutter) application development.
+4. Long-Term Support & Growth: Security patch management, continuous system updates, and persistent performance audits.
+
+## Technology Stack
+- Frontend: React.js, Next.js, HTML5, CSS3, Tailwind CSS.
+- Mobile: React Native, Flutter, Swift, Kotlin.
+- Backend & Architecture: Node.js, RESTful APIs, Microservices, Cloud infrastructure.
+
+## Vision & Commitment
+Our mission is to bridge the gap between abstract ideas and flawless execution. We prioritize delivering aesthetically exceptional, logically sound, and conversion-optimized digital products that elevate brands and engage audiences across devices.
+
+For more information or queries, contact us at info@reinsoft.tech or via our website.
