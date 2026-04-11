@@ -105,7 +105,7 @@ export default function CallToAction() {
                                 <PhoneIcon className="size-4 text-green-400" />
                                 Call Now
                             </Link>
-                            <Link href="https://wa.me/918968369582" target="_blank"
+                            <Link href="https://api.whatsapp.com/send?phone=918968369582" target="_blank"
                                 className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-green-500/30 bg-green-500/10 hover:bg-green-500/20 hover:border-green-500/50 text-green-600 dark:text-green-400 font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
                             >
                                 <MessageCircleIcon className="size-4" />

@@ -1,15 +1,15 @@
 import HomeContent from "./home-content";
 
 export const metadata = {
-    title: 'AI App Development Company | Custom Software & SaaS Solutions USA UK Australia',
-    description: 'Reinsoft IT Solutions is a premier AI-powered app development company. We build high-performance custom software, mobile apps, and scalable web solutions for startups and enterprises worldwide. Based in USA, UK & Australia.',
-    keywords: 'AI app development company, custom software development USA, hire SaaS developers UK, mobile app development Australia, full stack developers, Reinsoft IT Solutions',
+    title: 'AI apps/services | Reinsoft',
+    description: 'Need smart AI apps for your business? Get custom AI solutions to automate tasks and boost growth.',
+    keywords: 'AI related, AI-powered app development, custom software, Reinsoft IT Solutions',
     alternates: {
         canonical: '/',
     },
     openGraph: {
-        title: 'Reinsoft IT Solutions | Custom Software & AI development',
-        description: 'Premium AI-powered apps, custom software, and scalable IT solutions for growing businesses.',
+        title: 'AI apps/services | Reinsoft',
+        description: 'Need smart AI apps for your business? Get custom AI solutions to automate tasks and boost growth.',
     },
 };
 

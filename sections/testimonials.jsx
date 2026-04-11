@@ -103,7 +103,7 @@ const VideoSlider = ({ onPlay }) => {
             <div className="absolute inset-0 -z-0">
                 {featuredVideos.map((v, i) => (
                     <div key={i} className="absolute inset-0 transition-opacity duration-700" style={{ opacity: i === current ? 1 : 0 }}>
-                        <img src={v.image} alt="" className="w-full h-full object-cover scale-110" style={{ filter: 'blur(32px) brightness(0.22) saturate(1.3)' }} />
+                        <img src={v.image} alt={`Testimonial from ${v.name}`} title={`Testimonial from ${v.name}`} className="w-full h-full object-cover scale-110" style={{ filter: 'blur(32px) brightness(0.22) saturate(1.3)' }} />
                     </div>
                 ))}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
@@ -127,7 +127,7 @@ const VideoSlider = ({ onPlay }) => {
                 {/* Left peek card */}
                 <div className="hidden md:block flex-shrink-0 cursor-pointer" style={{ width: '180px', opacity: 0.4, transform: 'scale(0.85) translateX(16px)', transition: 'all 0.5s ease', borderRadius: '14px', overflow: 'hidden' }} onClick={() => goTo(current - 1)}>
                     <div className="relative aspect-video">
-                        <img src={featuredVideos[prev].image} alt="" className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
+                        <img src={featuredVideos[prev].image} alt={`Previous testimonial from ${featuredVideos[prev].name}`} title={`Previous testimonial from ${featuredVideos[prev].name}`} className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,122,24,0.55)' }}>
                                 <Play className="w-5 h-5 text-white fill-white ml-0.5" />
@@ -145,7 +145,7 @@ const VideoSlider = ({ onPlay }) => {
                     {/* Video / thumbnail */}
                     <div className="relative aspect-video cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <video ref={videoRef} key={item.localVideo} src={item.localVideo} muted playsInline loop preload="none" className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500" style={{ opacity: isHovering ? 1 : 0 }} />
-                        <img src={item.image} alt={item.name} className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500" style={{ opacity: isHovering ? 0 : 1, filter: 'brightness(0.8)' }} />
+                        <img src={item.image} alt={`${item.name} Testimonial Video Thumbnail`} title={`${item.name} Testimonial Video Thumbnail`} className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500" style={{ opacity: isHovering ? 0 : 1, filter: 'brightness(0.8)' }} />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
                         {/* Play button — click opens full modal with audio + subtitles */}
                         <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300" style={{ opacity: isHovering ? 0 : 1 }}>
@@ -176,11 +176,11 @@ const VideoSlider = ({ onPlay }) => {
                     <motion.div key={`q-${current}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="px-5 pb-5" style={{ background: 'rgba(15,23,42,0.97)' }}>
                         <p className="text-white/80 text-sm leading-relaxed line-clamp-3 mb-3">&ldquo;{item.review}&rdquo;</p>
                         <div className="flex items-center gap-2.5">
-                            <img src={item.image} alt={item.name} className="w-8 h-8 rounded-full object-cover object-top border border-[#ff7a18]/40" />
+                            <img src={item.image} alt={`${item.name} Avatar`} title={`${item.name} Avatar`} className="w-8 h-8 rounded-full object-cover object-top border border-[#ff7a18]/40" />
                             <div>
                                 <p className="text-white text-sm font-bold leading-tight">{item.name}</p>
                                 <div className="flex items-center gap-1">
-                                    <img src={`https://flagcdn.com/w20/${item.flag}.png`} alt="flag" className="h-2.5 w-[14px] object-cover rounded-[1px]" />
+                                    <img src={`https://flagcdn.com/w20/${item.flag}.png`} alt={`${item.location} flag`} title={`${item.location} flag`} className="h-2.5 w-[14px] object-cover rounded-[1px]" />
                                     <p className="text-white/50 text-xs">{item.role}</p>
                                 </div>
                             </div>
@@ -192,7 +192,7 @@ const VideoSlider = ({ onPlay }) => {
                 {/* Right peek card */}
                 <div className="hidden md:block flex-shrink-0 cursor-pointer" style={{ width: '180px', opacity: 0.4, transform: 'scale(0.85) translateX(-16px)', transition: 'all 0.5s ease', borderRadius: '14px', overflow: 'hidden' }} onClick={() => goTo(current + 1)}>
                     <div className="relative aspect-video">
-                        <img src={featuredVideos[next].image} alt="" className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
+                        <img src={featuredVideos[next].image} alt={`Next testimonial from ${featuredVideos[next].name}`} title={`Next testimonial from ${featuredVideos[next].name}`} className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,122,24,0.55)' }}>
                                 <Play className="w-5 h-5 text-white fill-white ml-0.5" />
@@ -403,7 +403,7 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                         {item.role} @ {item.companyLogo}
                     </p>
                     <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
-                        {item.flag && <img src={`https://flagcdn.com/w20/${item.flag.toLowerCase()}.png`} alt="flag" className="h-3 w-[18px] object-cover rounded-[1px] shadow-sm" loading="lazy" />}
+                        {item.flag && <img src={`https://flagcdn.com/w20/${item.flag.toLowerCase()}.png`} alt={`${item.location} flag`} title={`${item.location} flag`} className="h-3 w-[18px] object-cover rounded-[1px] shadow-sm" loading="lazy" />}
                         <span className="font-medium text-gray-600 dark:text-gray-400">{item.location}</span>
                     </div>
                 </div>

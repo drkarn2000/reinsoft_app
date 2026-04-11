@@ -32,7 +32,8 @@ function Grid({ logos }) {
                 <div key={i} className="relative w-32 h-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300">
                     <Image
                         src={logo}
-                        alt={`Brand ${i}`}
+                        alt={`Trusted Client Brand Logo ${i + 1}`}
+                        title={`Trusted Client Brand Logo ${i + 1}`}
                         fill
                         className="object-contain"
                         sizes="(max-width: 768px) 50vw, 20vw"
@@ -64,7 +65,7 @@ function Marquee({ logos }) {
             <div className="animate-marquee-custom gap-16 items-center px-8">
                 {[...logos, ...logos].map((logo, i) => (
                     <div key={i} className="relative w-40 h-16 shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300">
-                        <Image src={logo} alt={`Brand ${i}`} fill className="object-contain" sizes="160px" />
+                        <Image src={logo} alt={`Trusted Client Brand Logo ${i + 1}`} title={`Trusted Client Brand Logo ${i + 1}`} fill className="object-contain" sizes="160px" />
                     </div>
                 ))}
             </div>
@@ -82,7 +83,7 @@ function Cards({ logos }) {
                     className="p-6 bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-44 h-28 relative flex items-center justify-center group"
                 >
                     <div className="relative w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                        <Image src={logo} alt={`Brand ${i}`} fill className="object-contain" sizes="176px" />
+                        <Image src={logo} alt={`Trusted Client Brand Logo ${i + 1}`} title={`Trusted Client Brand Logo ${i + 1}`} fill className="object-contain" sizes="176px" />
                     </div>
                 </div>
             ))}
@@ -116,7 +117,7 @@ function SimpleSlider({ logos }) {
                         transition={{ duration: 0.3 }}
                         className="absolute inset-0"
                     >
-                        <Image src={visibleLogos[index]} alt="Brand" fill className="object-contain" sizes="384px" />
+                        <Image src={visibleLogos[index]} alt={`Trusted Client Brand Logo`} title={`Trusted Client Brand Logo`} fill className="object-contain" sizes="384px" />
                     </motion.div>
                 </AnimatePresence>
             </div>

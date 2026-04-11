@@ -1,48 +1,45 @@
 import { PhoneIcon, MessageCircleIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import GradientButton from "@/components/gradient-button";
 import LeadForm from "@/components/lead-form";
 
+const reveal = {
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0 },
+};
+
 export default function HeroSection() {
+    const sectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"],
+    });
+    const bgY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+    const glowY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
     return (
-        <>
+        <section ref={sectionRef}>
             <motion.div className="fixed inset-0 overflow-hidden -z-20 pointer-events-none hidden dark:block"
-                initial={{ opacity: 0.4 }}
+                initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
             >
-                <div className="absolute rounded-full top-80 left-2/5 -translate-x-1/2 size-130 bg-[#D10A8A] blur-[100px]" />
-                <div className="absolute rounded-full top-80 right-0 -translate-x-1/2 size-130 bg-[#2E08CF] blur-[100px]" />
-                <div className="absolute rounded-full top-0 left-1/2 -translate-x-1/2 size-130 bg-[#F26A06] blur-[100px]" />
             </motion.div>
-
-            <div className="fixed inset-0 -z-10 pointer-events-none hidden dark:block">
-                <Image
-                    src="/assets/hero-bg.jpg"
-                    alt="Reinsoft IT Solutions - Custom Software, Web & Mobile App Development Background"
-                    title="Reinsoft IT Solutions - Expert Software, Web and Mobile App Development Services"
-                    fill
-                    className="object-cover opacity-90"
-                    priority
-                    sizes="100vw"
-                />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-400/10 via-white/20 to-white/40 dark:from-[#ff7a18]/5 dark:via-black dark:to-black z-10" />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/15 to-white dark:from-black/80 dark:via-black/50 dark:to-black z-10" />
-            </div>
 
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-36 md:pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                     <motion.div
                         className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
-                        initial={{ x: -50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ type: "spring", stiffness: 200, damping: 60 }}
+                        variants={reveal}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.35 }}
+                        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
                             <p className="text-base md:text-lg text-gray-800 dark:text-gray-200">Trusted by startups &amp; growing businesses</p>
@@ -93,10 +90,11 @@ export default function HeroSection() {
 
                     <motion.div
                         className="flex justify-center lg:justify-end w-full"
-                        initial={{ x: 50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 60 }}
+                        variants={reveal}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <div className="w-full max-w-xl lg:max-w-none">
                             <LeadForm title="Grow Your Business 🚀" description="Tell us about your project and get a custom quote within 24 hours." />
@@ -104,6 +102,6 @@ export default function HeroSection() {
                     </motion.div>
                 </div>
             </section>
-        </>
+        </section>
     );
 }

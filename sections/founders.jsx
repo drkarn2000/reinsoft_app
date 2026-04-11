@@ -5,14 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Linkedin, ArrowUpRight } from "lucide-react";
 
-export default function Founders() {
+export default function FoundersSection() {
     return (
-        <section className="py-24 md:py-32 px-4 relative overflow-hidden bg-[#f8f9fa] dark:bg-[#020202]">
-            {/* Animated Ambient Background Blurs */}
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#ff7a18]/5 dark:bg-[#ff7a18]/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3 animate-pulse duration-10000" />
-            <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#2563eb]/5 dark:bg-[#2563eb]/10 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3 animate-pulse duration-10000 delay-500" />
-
-            <div className="max-w-7xl mx-auto relative z-10">
+        <section className="py-24 md:py-32 bg-gray-50 dark:bg-transparent overflow-hidden">
+            <div className="container mx-auto px-6">
                 {/* Premium Section Heading */}
                 <motion.div
                     className="text-center mb-28 group"
@@ -59,13 +55,25 @@ export default function Founders() {
                                 <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-gray-100 dark:bg-[#111] isolate shadow-inner">
                                     <Image
                                         src="/assets/Founders_pics/Manpreet_founder_CEO.png"
-                                        alt="Manpreet Singh"
+                                        alt="Manpreet Singh - Founder & CEO at Reinsoft IT Solutions"
+                                        title="Manpreet Singh - Founder & CEO at Reinsoft IT Solutions"
                                         fill
                                         loading="lazy"
                                         className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
                                         sizes="(max-width: 768px) 90vw, 40vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
+                                    <div className="absolute left-5 top-5 rounded-full border border-[#ffb57a]/40 bg-[#ff7a18]/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur-md shadow-[0_10px_24px_-14px_rgba(255,122,24,0.8)]">
+                                        Vision & Strategy
+                                    </div>
+                                    <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-[#ffb57a]/20 bg-[#181510]/72 p-4 text-white backdrop-blur-lg">
+                                        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#d8be89]">
+                                            Leadership Focus
+                                        </p>
+                                        <p className="mt-2 text-sm leading-6 text-[#efe4d0]">
+                                            Product direction, growth, and long-term digital strategy.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -126,13 +134,25 @@ export default function Founders() {
                                 <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-gray-100 dark:bg-[#111] isolate shadow-inner">
                                     <Image
                                         src="/assets/Founders_pics/Tanu_founder & CTO.png"
-                                        alt="Tanu Bharti"
+                                        alt="Tanu Bharti - Co-Founder & CTO at Reinsoft IT Solutions"
+                                        title="Tanu Bharti - Co-Founder & CTO at Reinsoft IT Solutions"
                                         fill
                                         loading="lazy"
                                         className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
                                         sizes="(max-width: 768px) 90vw, 40vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
+                                    <div className="absolute left-5 top-5 rounded-full border border-[#8db8ff]/40 bg-[#2563eb]/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur-md shadow-[0_10px_24px_-14px_rgba(37,99,235,0.8)]">
+                                        Product & Technology
+                                    </div>
+                                    <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-[#8db8ff]/20 bg-[#181510]/78 p-4 pr-24 text-white backdrop-blur-lg">
+                                        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8db8ff]">
+                                            Execution Focus
+                                        </p>
+                                        <p className="mt-2 text-sm leading-6 text-[#efe4d0]">
+                                            Design, development, and delivery aligned around product quality.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -188,4 +208,3 @@ export default function Founders() {
         </section>
     );
 }
-

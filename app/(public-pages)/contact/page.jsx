@@ -253,7 +253,7 @@ function ContactFormContent() {
                                         </div>
                                     </a>
 
-                                    <a href="https://wa.me/918968369582" className="flex items-center gap-5 group/item">
+                                    <a href="https://api.whatsapp.com/send?phone=918968369582" className="flex items-center gap-5 group/item">
                                         <div className="size-12 rounded-2xl bg-green-500/10 flex items-center justify-center border border-green-500/20 group-hover/item:bg-green-500/20 transition-all">
                                             <MessageCircleIcon className="size-5 text-green-500" />
                                         </div>

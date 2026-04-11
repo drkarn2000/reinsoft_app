@@ -63,7 +63,7 @@ const services = [
 
 export default function AboutServices() {
     return (
-        <section className="py-24 md:py-32 px-4 relative overflow-hidden bg-white dark:bg-[#050505]">
+        <section className="py-24 md:py-32 px-4 relative overflow-hidden bg-white dark:bg-transparent">
             {/* Animated Ambient Background Blurs */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2 animate-pulse duration-10000" />
             <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#ff7a18]/5 dark:bg-[#ff7a18]/10 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3 animate-pulse duration-10000 delay-500" />
@@ -109,7 +109,7 @@ export default function AboutServices() {
                             transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
                             className="group relative"
                         >
-                            <div className="h-full bg-[#f8f9fa]/80 dark:bg-[#0a0a0a]/80 backdrop-blur-2xl border border-gray-200/60 dark:border-white/10 p-8 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
+                            <div className="h-full bg-[#f8f9fa]/80 dark:bg-white/[0.04] backdrop-blur-2xl border border-gray-200/60 dark:border-white/10 p-8 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] overflow-hidden">
 
                                 {/* Hover background glow blob */}
                                 <div className={`absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br ${service.color} rounded-full blur-[80px] opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-700`} />

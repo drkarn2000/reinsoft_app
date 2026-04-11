@@ -184,8 +184,17 @@ export default function Portfolio({ limit, asH1 = false }) {
     return (
         <section id="portfolio" className="py-16 relative overflow-hidden">
             {/* Background elements */}
-            <div className="absolute top-0 w-full h-full overflow-hidden -z-10 hidden dark:flex justify-center items-center pointer-events-none">
-                <div className="w-[600px] h-[600px] bg-gradient-to-tr from-[#ff7a18]/10 to-[#3b82f6]/10 rounded-full blur-[100px] opacity-40" />
+            <div className="fixed inset-0 -z-30 pointer-events-none">
+                <Image
+                    src="/assets/Services.jpg"
+                    alt="Portfolio Background"
+                    title="Portfolio Background"
+                    fill
+                    className="object-cover opacity-30 dark:opacity-50 brightness-75 contrast-105"
+                    priority
+                    quality={100}
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(246,242,234,0.28),rgba(246,242,234,0.1),rgba(246,242,234,0.24))] dark:bg-[linear-gradient(180deg,rgba(5,5,5,0.2),rgba(5,5,5,0.1),rgba(5,5,5,0.22))]" />
             </div>
 
             <SectionTitle

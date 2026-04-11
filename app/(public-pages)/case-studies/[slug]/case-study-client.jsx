@@ -27,6 +27,7 @@ import {
     ClipboardCheck,
     Sparkles
 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { caseStudies } from '@/lib/case-studies-data';
 
@@ -73,7 +74,20 @@ export default function CaseStudyClient({ initialProject }) {
     }
 
     return (
-        <main className="min-h-screen text-black dark:bg-black dark:text-white">
+        <main className="min-h-screen text-black dark:text-white relative">
+            {/* Background elements - Matching Portfolio Page */}
+            <div className="fixed inset-0 -z-30 pointer-events-none">
+                <Image
+                    src="/assets/Services.jpg"
+                    alt="Case Study Background"
+                    fill
+                    className="object-cover opacity-30 dark:opacity-50 brightness-75 contrast-105"
+                    priority
+                    quality={100}
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(246,242,234,0.28),rgba(246,242,234,0.1),rgba(246,242,234,0.24))] dark:bg-[linear-gradient(180deg,rgba(5,5,5,0.2),rgba(5,5,5,0.1),rgba(5,5,5,0.22))]" />
+            </div>
+
             {/* Hero Section */}
             <section className="relative pt-32 pb-10 overflow-hidden border-b border-white/5">
                 <div className="absolute inset-0 bg-gradient-to-b from-[#ff7a18]/5 to-transparent -z-10" />
@@ -314,7 +328,7 @@ export default function CaseStudyClient({ initialProject }) {
             </section>
 
             {/* Results Section */}
-            <section className="py-20 bg-gradient-to-b from-white to-orange-50 dark:from-black dark:to-[#ff7a18]/10 border-t border-black/5 dark:border-white/5">
+            <section className="py-20 bg-gradient-to-b from-white to-orange-50 dark:from-transparent dark:to-[#ff7a18]/10 border-t border-black/5 dark:border-white/5">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center mb-16">
                         <h2 className="text-xl font-bold mb-6">The Outcome</h2>

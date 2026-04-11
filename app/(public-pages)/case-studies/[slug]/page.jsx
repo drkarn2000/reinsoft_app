@@ -4,7 +4,7 @@ import CaseStudyClient from './case-study-client';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const project = caseStudies.find(cs => cs.slug === slug);
     
     if (!project) return {};
@@ -18,8 +18,14 @@ export async function generateMetadata({ params }) {
     };
 }
 
+export async function generateStaticParams() {
+    return caseStudies.map((project) => ({
+        slug: project.slug,
+    }));
+}
+
 export default async function CaseStudyPage({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const project = caseStudies.find(cs => cs.slug === slug);
 
     if (!project) {

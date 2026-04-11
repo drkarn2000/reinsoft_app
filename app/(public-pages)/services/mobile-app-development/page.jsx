@@ -1,9 +1,9 @@
 import MobileAppDevelopmentContent from "./content";
 
 export const metadata = {
-    title: 'Mobile App Development | iOS & Android Experts | Reinsoft IT Solutions',
-    description: 'Premier iOS & Android app development company. Hire dedicated Flutter and React Native developers for high-performance cross-platform mobile apps. Scalable and App Store-ready.',
-    keywords: 'Mobile app development, iOS app developers, Android development services, Flutter developers, React Native experts, Reinsoft IT Solutions',
+    title: 'Android app services | Reinsoft',
+    description: 'Struggling to build mobile apps? Hire Android app experts for scalable and user-friendly apps.',
+    keywords: 'Android app development, Mobile app development, iOS app developers, Flutter developers',
     alternates: {
         canonical: '/services/mobile-app-development',
     },

@@ -77,6 +77,7 @@ export default function SoftwareDevelopmentContent() {
                 <Image
                     src="/assets/Services.jpg"
                     alt="Reinsoft IT Solutions - Custom Software Engineering & Enterprise Services Background"
+                    title="Reinsoft IT Solutions - Custom Software Engineering & Enterprise Services Background"
                     fill
                     className="object-cover opacity-90 grayscale brightness-50"
                     priority
@@ -144,6 +145,7 @@ export default function SoftwareDevelopmentContent() {
                             <Image
                                 src="/assets/mohini_pos1.png"
                                 alt="Custom Software Engineering Solutions by Reinsoft IT Solutions"
+                                title="Custom Software Engineering Solutions by Reinsoft IT Solutions"
                                 width={1200}
                                 height={900}
                                 quality={100}
@@ -215,6 +217,7 @@ export default function SoftwareDevelopmentContent() {
                                 <Image
                                     src="/assets/mohini_pos111.png"
                                     alt="Expert Custom Software Development Services - Reinsoft IT Solutions"
+                                    title="Expert Custom Software Development Services - Reinsoft IT Solutions"
                                     width={700}
                                     height={750}
                                     quality={100}
@@ -353,8 +356,9 @@ export default function SoftwareDevelopmentContent() {
                         {/* Main Image Container */}
                         <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group z-10 bg-white/5">
                             <Image
-                                src="/assets/Modern_Tech.png"
-                                alt="Modern Enterprise Software Engineering Tech Stack - Reinsoft IT Solutions"
+                                src="/assets/premium_crm_erp.png"
+                                alt="Premium Modern Enterprise Software Engineering Tech Stack - Reinsoft IT Solutions"
+                                title="Premium Modern Enterprise Software Engineering Tech Stack - Reinsoft IT Solutions"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={100}
@@ -479,7 +483,7 @@ export default function SoftwareDevelopmentContent() {
                                 <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
-                                href="https://wa.me/918968369582"
+                                href="https://api.whatsapp.com/send?phone=918968369582"
                                 target="_blank"
                                 className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
                             >

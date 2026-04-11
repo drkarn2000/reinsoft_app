@@ -3,6 +3,7 @@ import './globals.css';
 import LenisScroll from '@/components/lenis-scroll';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
+import SiteMotionLayer from '@/components/site-motion-layer';
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -14,14 +15,14 @@ const poppins = Poppins({
 export const metadata = {
     metadataBase: new URL('https://reinsoft.tech'),
     title: {
-        default: 'AI App Development & Custom Software Solutions | Reinsoft IT Solutions',
-        template: '%s | Reinsoft IT Solutions'
+        default: 'AI & Custom Software Development | Reinsoft',
+        template: '%s | Reinsoft'
     },
     description: 'Reinsoft IT Solutions provides premium custom software, AI-powered mobile apps, and scalable web development for startups and enterprises worldwide.',
     keywords: 'AI-powered app development, custom software development, Reinsoft IT Solutions, SaaS development, business websites, CRM development, mobile app development, Android app development, iOS app development, UK, USA, Australia',
     authors: [{ name: 'Reinsoft IT Solutions' }],
     verification: {
-        google: 't1SU8KB5_y2PwBXx6oFYDV4IoIiJ55nlIEqPu5b_s5sM', // Verified ID from layout
+        google: 't1SU8KB5y2PwBXx6oFYDV4IoIiJ55nlIEqPu5b_s5sM', // Verified ID from layout
     },
     alternates: {
         canonical: '/',
@@ -46,7 +47,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang='en'>
+        <html lang='en' suppressHydrationWarning>
             <head>
                 <Script
                     id="gtm-script"
@@ -77,6 +78,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <LenisScroll />
             <body className={poppins.variable}>
                 <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+                    <SiteMotionLayer />
                     <noscript>
                         <iframe
                             src="https://www.googletagmanager.com/ns.html?id=GTM-PCJ2MX8P"
@@ -85,7 +87,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             style={{ display: 'none', visibility: 'hidden' }}
                         ></iframe>
                     </noscript>
-                    {children}
+                    <div className="relative z-10">
+                        {children}
+                    </div>
                 </ThemeProvider>
             </body>
         </html>

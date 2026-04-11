@@ -12,6 +12,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .dark body, body.dark {
   background-color: #000000;
 }

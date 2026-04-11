@@ -3,8 +3,8 @@ import Navbar from '@/components/navbar';
 
 export const metadata = {
     title: {
-        default: 'Custom Software & IT Solutions for Growing Businesses | Reinsoft IT Solutions',
-        template: '%s | Reinsoft IT Solutions'
+        default: 'Custom Software & IT Solutions | Reinsoft',
+        template: '%s | Reinsoft'
     },
     description: 'Expert custom software development, mobile apps, and business websites for startups and SMEs. Reinsoft IT Solutions delivers scalable AI-powered products and 24/7 technical support.',
     keywords: 'custom software development, business software solutions, SaaS developer, AI app development, web development company, mobile app development company, CRM development, IT consulting, Reinsoft IT Solutions',

@@ -72,6 +72,7 @@ export default function WebDevelopmentContent() {
                 <Image
                     src="/assets/Services.jpg"
                     alt="Reinsoft IT Solutions - Premium Custom Software & Web Services Background"
+                    title="Reinsoft IT Solutions - Premium Custom Software & Web Services Background"
                     fill
                     className="object-cover opacity-90 grayscale brightness-50"
                     priority
@@ -140,6 +141,7 @@ export default function WebDevelopmentContent() {
                             <Image
                                 src="/assets/webbb.png"
                                 alt="Custom Web Development Solutions by Reinsoft IT Solutions"
+                                title="Custom Web Development Solutions by Reinsoft IT Solutions"
                                 width={1200}
                                 height={900}
                                 quality={100}
@@ -287,6 +289,7 @@ export default function WebDevelopmentContent() {
                                 <Image
                                     src="/assets/Web Development Expertise2.png"
                                     alt="Expert Custom Web Development Services - Reinsoft IT Solutions"
+                                    title="Expert Custom Web Development Services - Reinsoft IT Solutions"
                                     width={700}
                                     height={750}
                                     quality={100}
@@ -427,6 +430,7 @@ export default function WebDevelopmentContent() {
                             <Image
                                 src="/assets/webb1.png"
                                 alt="Modern Tech Stack for Scalable Web Apps - Reinsoft IT Solutions"
+                                title="Modern Tech Stack for Scalable Web Apps - Reinsoft IT Solutions"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={100}
@@ -474,7 +478,7 @@ export default function WebDevelopmentContent() {
                                 <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
-                                href="https://wa.me/918968369582"
+                                href="https://api.whatsapp.com/send?phone=918968369582"
                                 target="_blank"
                                 className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
                             >

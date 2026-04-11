@@ -15,8 +15,8 @@ const steps = [
 
 export default function AboutProcess() {
     return (
-        <section className="py-24 px-4 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#ff7a18]/5 to-transparent pointer-events-none" />
+        <section className="py-24 px-4 relative overflow-hidden bg-transparent">
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#ff7a18]/8 to-transparent pointer-events-none" />
 
             <div className="max-w-7xl mx-auto">
                 <SectionTitle
@@ -41,9 +41,9 @@ export default function AboutProcess() {
                             >
                                 {/* Left/Right Content area */}
                                 <div className="md:w-1/2 pl-[84px] md:pl-0">
-                                    <div className={`bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 p-6 md:p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:border-[#ff7a18]/30 transition-all duration-300 group inline-block w-full max-w-md ${i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
+                                    <div className={`bg-white dark:bg-white/[0.04] border border-black/5 dark:border-white/10 p-6 md:p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:border-[#ff7a18]/30 transition-all duration-300 group inline-block w-full max-w-md ${i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
                                         <div className={`flex items-center gap-4 mb-4 ${i % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-                                            <span className="text-3xl bg-black/5 dark:bg-white/10 p-3 rounded-xl">{step.icon}</span>
+                                            <span className="text-3xl bg-black/5 dark:bg-white/[0.08] p-3 rounded-xl">{step.icon}</span>
                                             <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white capitalize leading-tight">
                                                 {step.title}
                                             </h3>
@@ -56,7 +56,7 @@ export default function AboutProcess() {
 
                                 {/* Center Node */}
                                 <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-6 md:top-1/2 md:-translate-y-1/2 z-10 w-[74px] h-[74px] flex items-center justify-center">
-                                    <div className="w-[50px] h-[50px] rounded-full bg-white dark:bg-black border-4 border-[#ff7a18] shadow-[0_0_20px_rgba(255,122,24,0.4)] flex items-center justify-center text-sm font-black text-[#ff7a18]">
+                                    <div className="w-[50px] h-[50px] rounded-full bg-white dark:bg-white/[0.04] border-4 border-[#ff7a18] shadow-[0_0_20px_rgba(255,122,24,0.4)] flex items-center justify-center text-sm font-black text-[#ff7a18]">
                                         {step.num}
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
     GlobeIcon,
     SmartphoneIcon,
@@ -15,6 +16,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+
+const reveal = {
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0 },
+};
 
 const services = [
     {
@@ -295,18 +301,25 @@ function ServiceBlock({ service, index }) {
 }
 
 export default function ServicesPage() {
+    const pageRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: pageRef,
+        offset: ["start end", "end start"],
+    });
+    const bgFloat = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+    const imageFloat = useTransform(scrollYProgress, [0, 1], [24, -24]);
     return (
-        <main className="px-4">
+        <main ref={pageRef} className="px-4">
             {/* Background gradient blobs — dark mode only */}
             <motion.div className="fixed inset-0 overflow-hidden -z-20 pointer-events-none hidden dark:block"
                 initial={{ opacity: 0.1 }}
                 whileInView={{ opacity: 0.3 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.55 }}
             >
-                <div className="absolute rounded-full top-80 left-2/5 -translate-x-1/2 size-130 bg-[#D10A8A] blur-[100px]" />
-                <div className="absolute rounded-full top-80 right-0 -translate-x-1/2 size-130 bg-[#2E08CF] blur-[100px]" />
-                <div className="absolute rounded-full top-0 left-1/2 -translate-x-1/2 size-130 bg-[#F26A06] blur-[100px]" />
+                <motion.div style={{ y: bgFloat }} className="absolute rounded-full top-80 left-2/5 -translate-x-1/2 size-130 bg-[#D10A8A] blur-[100px]" />
+                <motion.div style={{ y: imageFloat }} className="absolute rounded-full top-80 right-0 -translate-x-1/2 size-130 bg-[#2E08CF] blur-[100px]" />
+                <motion.div style={{ y: bgFloat }} className="absolute rounded-full top-0 left-1/2 -translate-x-1/2 size-130 bg-[#F26A06] blur-[100px]" />
             </motion.div>
 
             {/* Background Image — dark mode only */}
@@ -323,55 +336,78 @@ export default function ServicesPage() {
             </div>
 
             {/* ═══════════════ HERO ═══════════════ */}
-            <section className="relative pt-28 lg:pt-36 pb-20 px-4 overflow-hidden">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-                    
+            <section className="relative overflow-hidden px-4 pt-24 pb-14 lg:pt-32 lg:pb-16">
+                <div className="absolute inset-0 -z-10">
+                    <motion.div style={{ y: imageFloat }} className="absolute inset-0">
+                        <Image
+                            src="/assets/Case-study.jpg"
+                            alt="Services hero background"
+                            fill
+                            priority
+                            quality={90}
+                            className="object-cover object-center"
+                        />
+                    </motion.div>
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,246,236,0.84)_0%,rgba(255,246,236,0.72)_42%,rgba(255,246,236,0.48)_100%)] dark:bg-[linear-gradient(90deg,rgba(5,5,5,0.82)_0%,rgba(5,5,5,0.62)_42%,rgba(5,5,5,0.32)_100%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(255,122,24,0.18),transparent_34%),radial-gradient(circle_at_right,rgba(59,130,246,0.14),transparent_32%)]" />
+                </div>
+
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center">
                     {/* Left Column: Content */}
                     <motion.div
-                        className="text-center lg:text-left z-10"
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
+                        className="relative z-10 text-center lg:text-left"
+                        variants={reveal}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.35 }}
+                        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
+                            variants={reveal}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, amount: 0.35 }}
+                            transition={{ duration: 0.6, delay: 0.05 }}
                         >
-                            {/* Pill badge */}
-                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/20 bg-orange-500/5 dark:bg-orange-500/10 text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-widest mb-8 backdrop-blur-sm">
+                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/20 bg-orange-500/10 text-xs font-bold text-orange-600 dark:text-orange-300 uppercase tracking-widest mb-8 backdrop-blur-sm">
                                 <SparklesIcon className="size-3.5" />
                                 What We Build
                             </span>
                         </motion.div>
- 
+
                         <motion.h1
                             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
+                            variants={reveal}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, amount: 0.35 }}
+                            transition={{ duration: 0.7, delay: 0.08 }}
                         >
                             <span className="text-gray-900 dark:text-white">Our </span>
                             <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
                                 Core Services
                             </span>
                         </motion.h1>
- 
+
                         <motion.p
-                            className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed mx-auto lg:mx-0 mb-10"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
+                            className="text-base md:text-lg text-gray-700 dark:text-gray-200 max-w-xl leading-relaxed mx-auto lg:mx-0 mb-10"
+                            variants={reveal}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, amount: 0.35 }}
+                            transition={{ duration: 0.6, delay: 0.14 }}
                         >
                             Practical IT solutions that help your business grow. Custom development for startups and growing businesses.
                         </motion.p>
- 
+
                         {/* Stat counters */}
                         <motion.div
                             className="grid grid-cols-2 gap-4 lg:gap-6 max-w-2xl w-full"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.35 }}
+                            variants={reveal}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, amount: 0.35 }}
+                            transition={{ duration: 0.55, delay: 0.22 }}
                         >
                             {[
                                 { emoji: '🏆', label: 'Trusted by 200+ Businesses' },
@@ -381,7 +417,7 @@ export default function ServicesPage() {
                             ].map((stat, i) => (
                                 <motion.div
                                     key={stat.label}
-                                    className="flex items-center gap-3 p-3 lg:p-4 rounded-2xl bg-white/50 dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] backdrop-blur-sm hover:bg-white/80 dark:hover:bg-white/[0.06] transition-colors duration-300"
+                                    className="flex items-center gap-3 p-3 lg:p-4 rounded-2xl bg-white/65 dark:bg-black/25 border border-black/[0.06] dark:border-white/[0.08] backdrop-blur-md hover:bg-white/85 dark:hover:bg-black/35 transition-colors duration-300 shadow-[0_10px_30px_-22px_rgba(0,0,0,0.3)]"
                                     whileHover={{ y: -4 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
@@ -393,30 +429,18 @@ export default function ServicesPage() {
                             ))}
                         </motion.div>
                     </motion.div>
- 
-                    {/* Right Column: Hero Visual Image */}
+
+                    {/* Right Column: Floating elements for premium visual appeal */}
                     <motion.div
-                        className="relative z-10 w-full lg:h-[650px] flex items-center justify-center mt-10 lg:mt-0"
-                        initial={{ opacity: 0, scale: 0.9, x: 30 }}
-                        animate={{ opacity: 1, scale: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="relative z-10 mt-10 flex min-h-[320px] items-center justify-center lg:mt-0 lg:h-[520px]"
+                        variants={reveal}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        {/* Ambient Glow Behind Image */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-pink-500/10 to-purple-500/20 blur-[100px] rounded-full pointer-events-none" />
- 
-                        <div className="relative w-full flex items-center justify-center group z-10 transition-transform duration-700 hover:scale-105">
-                            <Image
-                                src="/assets/core_services.png"
-                                alt="Our Core Services"
-                                width={1200}
-                                height={900}
-                                className="w-full max-w-[650px] xl:max-w-[750px] h-[350px] lg:h-[450px] xl:h-[500px] object-cover rounded-3xl lg:rounded-[2.5rem] shadow-[0_20px_50px_rgba(249,115,22,0.3)]"
-                                priority
-                                quality={100}
-                            />
-                        </div>
- 
-                        {/* Floating elements for premium visual appeal */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 via-pink-500/5 to-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
+
                         <motion.div
                             className="absolute -right-4 lg:-right-10 top-[20%] p-4 rounded-2xl border border-white/20 bg-white/10 dark:bg-black/20 backdrop-blur-md shadow-2xl z-20 hidden md:block"
                             animate={{ y: [0, -15, 0] }}
@@ -432,7 +456,7 @@ export default function ServicesPage() {
                                 </div>
                             </div>
                         </motion.div>
- 
+
                         <motion.div
                             className="absolute -left-4 lg:-left-8 bottom-[20%] p-4 rounded-2xl border border-white/20 bg-white/10 dark:bg-black/20 backdrop-blur-md shadow-2xl z-20 hidden md:block"
                             animate={{ y: [0, 15, 0] }}
@@ -465,10 +489,11 @@ export default function ServicesPage() {
             <section className="mt-20 mb-24 max-w-5xl mx-auto px-4 relative z-10">
                 <motion.div
                     className="relative rounded-3xl overflow-hidden bg-white/50 dark:bg-black/40 border border-black/10 dark:border-white/10 p-8 md:p-14 lg:p-16 text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-10"
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    variants={reveal}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 >
                     {/* Background glow effects inside the CTA */}
                     <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-l from-orange-500/20 via-pink-500/10 to-transparent blur-3xl -z-10 pointer-events-none" />
@@ -515,7 +540,7 @@ export default function ServicesPage() {
                                 Call Expert
                             </a>
                             <a
-                                href="https://wa.me/918968369582"
+                                href="https://api.whatsapp.com/send?phone=918968369582"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex-1 flex justify-center items-center gap-3 px-6 py-4 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 hover:border-emerald-400/50 rounded-full font-bold text-emerald-700 dark:text-white transition-all duration-300 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] whitespace-nowrap group"

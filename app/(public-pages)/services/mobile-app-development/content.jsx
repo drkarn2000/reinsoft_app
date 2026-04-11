@@ -329,27 +329,57 @@ export default function MobileAppDevelopmentContent() {
                 </div>
             </section>
 
-            {/* Tech & Features Section */}
-            <section className="py-24 px-4 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
-                <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 items-center">
+            {/* Tech & Features Section - Premium Redesign */}
+            <section className="py-32 px-4 relative overflow-hidden bg-[#0A0A0A] border-y border-white/5 shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]">
+                {/* Premium Background Elements */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(168,85,247,0.15),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(14,165,233,0.15),transparent_50%)]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-                    {/* Left App Image (Desktop Only) */}
-                    <motion.div
-                        className="relative w-full h-auto group hidden lg:block lg:col-span-1"
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <Image
-                            src="/assets/app1.png"
-                            alt="Clean and Modern Mobile App User Interface Design - Reinsoft IT Solutions"
-                            width={1000}
-                            height={2000}
-                            quality={100}
-                            className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-xl"
-                            style={{ imageRendering: 'high-quality' }}
-                        />
-                    </motion.div>
+                <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16 items-center relative z-10">
+
+                    {/* Left App Images */}
+                    <div className="lg:col-span-1 hidden lg:flex flex-col gap-12">
+                        <motion.div
+                            className="relative w-full group"
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                        >
+                            <div className="absolute -inset-6 bg-gradient-to-r from-purple-500/20 to-transparent blur-2xl rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="relative rounded-[2.5rem] p-2 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+                                <div className="absolute inset-0 rounded-[2.5rem] ring-1 ring-inset ring-white/10" />
+                                <Image
+                                    src="/assets/app1.png"
+                                    alt="Modern Mobile App User Interface Design"
+                                    width={1000}
+                                    height={2000}
+                                    quality={100}
+                                    className="w-full h-auto object-contain rounded-[2rem] transition-transform duration-700 group-hover:scale-[1.02]"
+                                />
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="relative w-full group"
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <div className="absolute -inset-6 bg-gradient-to-r from-sky-500/20 to-transparent blur-2xl rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="relative rounded-[2.5rem] p-2 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+                                <div className="absolute inset-0 rounded-[2.5rem] ring-1 ring-inset ring-white/10" />
+                                <Image
+                                    src="/assets/app3.png"
+                                    alt="Premium Dark Mode UI"
+                                    width={1000}
+                                    height={2000}
+                                    quality={100}
+                                    className="w-full h-auto object-contain rounded-[2rem] transition-transform duration-700 group-hover:scale-[1.02]"
+                                />
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* Center Content */}
                     <motion.div
@@ -358,91 +388,118 @@ export default function MobileAppDevelopmentContent() {
                         viewport={{ once: true }}
                         className="lg:col-span-2 flex flex-col items-center justify-center text-center"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Building for the <span className="text-purple-400">Modern User</span></h2>
-                        <p className="text-gray-700 dark:text-gray-300 mb-10 leading-relaxed max-w-xl mx-auto text-lg">
-                            A great app is more than just a screen; it's a seamless part of your user's life. We focus on performance, accessibility, and delight.
+                        <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-md shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
+                            <span className="text-xs font-bold uppercase tracking-widest text-purple-300">Modern Era</span>
+                        </div>
+                        
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 text-white leading-[1.15]">
+                            Building for the<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-sky-300">Modern User</span>
+                        </h2>
+                        
+                        <p className="text-gray-400 mb-12 leading-relaxed max-w-xl mx-auto text-lg font-medium">
+                            A great app is more than just a screen; it's a seamless part of your user's life. We focus on absolute performance, flawless accessibility, and visceral delight.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-10">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full mb-12">
                             {[
                                 {
-                                    icon: <FingerprintIcon className="size-6 text-purple-400 stroke-1" />,
-                                    text: "Biometric security and data encryption",
-                                    gradient: "from-[#a855f7] to-[#d946ef]"
+                                    icon: <FingerprintIcon className="size-6 text-purple-300 stroke-1" />,
+                                    title: "Military-Grade Security",
+                                    text: "Biometric auth & end-to-end encryption",
+                                    gradient: "group-hover:from-purple-500/20 group-hover:to-fuchsia-500/20"
                                 },
                                 {
-                                    icon: <CpuIcon className="size-6 text-sky-400 stroke-1" />,
-                                    text: "Highly optimized native performance",
-                                    gradient: "from-[#0ea5e9] to-[#14b8a6]"
+                                    icon: <CpuIcon className="size-6 text-sky-300 stroke-1" />,
+                                    title: "Native Fluidity",
+                                    text: "Highly optimized 120fps native performance",
+                                    gradient: "group-hover:from-sky-500/20 group-hover:to-teal-500/20"
                                 },
                                 {
-                                    icon: <CloudIcon className="size-6 text-orange-400 stroke-1" />,
-                                    text: "Offline-first sync and cloud backup",
-                                    gradient: "from-[#f97316] to-[#eab308]"
+                                    icon: <CloudIcon className="size-6 text-orange-300 stroke-1" />,
+                                    title: "Always Synced",
+                                    text: "Offline-first architecture with cloud backup",
+                                    gradient: "group-hover:from-orange-500/20 group-hover:to-amber-500/20"
                                 },
                                 {
-                                    icon: <PlayIcon className="size-6 text-red-400 stroke-1" />,
+                                    icon: <PlayIcon className="size-6 text-rose-300 stroke-1" />,
+                                    title: "Zero Downtime",
                                     text: "Continuous OTA updates and deployment",
-                                    gradient: "from-[#dc2626] to-[#991b1b]"
+                                    gradient: "group-hover:from-rose-500/20 group-hover:to-red-500/20"
                                 }
                             ].map((item, i) => (
                                 <motion.div
                                     key={i}
-                                    className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-5 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/10 transition-all duration-300 group"
+                                    className="group relative overflow-hidden bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-6 text-left transition-all duration-500 hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_rgba(168,85,247,0.3)]"
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
                                 >
-                                    <div className={`size-14 rounded-full mb-4 flex items-center justify-center bg-gradient-to-br ${item.gradient} bg-opacity-10 shadow-inner border border-white/10`}>
-                                        {item.icon}
+                                    {/* Hover glow effect */}
+                                    <div className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 ${item.gradient} blur-2xl`} />
+                                    
+                                    <div className="relative z-10">
+                                        <div className="size-12 rounded-2xl mb-4 flex items-center justify-center bg-white/10 shadow-inner border border-white/10 group-hover:scale-110 transition-transform duration-500 group-hover:bg-white/20">
+                                            {item.icon}
+                                        </div>
+                                        <h4 className="text-white font-bold text-lg mb-1">{item.title}</h4>
+                                        <p className="text-gray-400 text-sm font-medium leading-relaxed">{item.text}</p>
                                     </div>
-                                    <h4 className="text-gray-800 dark:text-gray-200 font-bold text-sm leading-snug">{item.text}</h4>
                                 </motion.div>
                             ))}
                         </div>
-                        <GradientButton href="/contact">Book a Mobile Strategy Call</GradientButton>
+                        
+                        <div className="relative inline-block group">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-sky-500 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-500" />
+                            <Link href="/contact" className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0A0A0A] border border-white/20 text-white font-bold text-lg hover:bg-white/5 transition-all">
+                                Book a Mobile Strategy Call
+                                <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
                     </motion.div>
 
-                    {/* Right App Image (and full 2-image wrapper on Mobile) */}
-                    <div className="lg:col-span-1 flex flex-row lg:flex-col gap-4 mt-10 lg:mt-0">
-                        {/* 1st image on Mobile ONLY */}
+                    {/* Right App Images */}
+                    <div className="lg:col-span-1 flex flex-row lg:flex-col gap-6 md:gap-12 mt-10 lg:mt-0">
                         <motion.div
-                            className="relative w-full h-auto group block lg:hidden"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <Image
-                                src="/assets/app1.png"
-                                alt="Modern Mobile App UI Design - Reinsoft IT Solutions"
-                                width={1000}
-                                height={2000}
-                                quality={100}
-
-                                className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-xl"
-                                style={{ imageRendering: 'high-quality' }}
-                            />
-                        </motion.div>
-
-                        {/* 2nd image on ALL screens */}
-                        <motion.div
-                            className="relative w-full h-auto group"
+                            className="relative w-full group"
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-100px" }}
+                        >
+                            <div className="absolute -inset-6 bg-gradient-to-l from-fuchsia-500/20 to-transparent blur-2xl rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="relative rounded-[2.5rem] p-2 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+                                <div className="absolute inset-0 rounded-[2.5rem] ring-1 ring-inset ring-white/10" />
+                                <Image
+                                    src="/assets/app2.png"
+                                    alt="Sleek Dark Mode Mobile App UI Design"
+                                    width={1000}
+                                    height={2000}
+                                    quality={100}
+                                    className="w-full h-auto object-contain rounded-[2rem] transition-transform duration-700 group-hover:scale-[1.02]"
+                                />
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="relative w-full group"
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
                             transition={{ delay: 0.2 }}
                         >
-                            <Image
-                                src="/assets/app2.png"
-                                alt="Sleek Dark Mode Mobile App UI Design - Reinsoft IT Solutions"
-                                width={1000}
-                                height={2000}
-                                quality={100}
-
-                                className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-xl"
-                                style={{ imageRendering: 'high-quality' }}
-                            />
+                            <div className="absolute -inset-6 bg-gradient-to-l from-sky-500/20 to-transparent blur-2xl rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="relative rounded-[2.5rem] p-2 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+                                <div className="absolute inset-0 rounded-[2.5rem] ring-1 ring-inset ring-white/10" />
+                                <Image
+                                    src="/assets/app4.png"
+                                    alt="Premium Dark Mode Mobile App Dashboard UI"
+                                    width={1000}
+                                    height={2000}
+                                    quality={100}
+                                    className="w-full h-auto object-contain rounded-[2rem] transition-transform duration-700 group-hover:scale-[1.02]"
+                                />
+                            </div>
                         </motion.div>
                     </div>
 
@@ -483,7 +540,7 @@ export default function MobileAppDevelopmentContent() {
                                 <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
-                                href="https://wa.me/918968369582"
+                                href="https://api.whatsapp.com/send?phone=918968369582"
                                 target="_blank"
                                 className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
                             >

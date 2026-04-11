@@ -114,7 +114,8 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src={logo.src}
-                                    alt="Brand Logo"
+                                    alt={`Partner Logo: ${logo.src.split('/').pop().split('.')[0]} - Trusted by Reinsoft`}
+                                    title={`Reinsoft Trusted Partner Logo`}
                                     className={`object-contain transition-all duration-300 ${logo.className}`}
                                     style={{ maxWidth: '100%', maxHeight: '100%' }}
                                     loading="lazy"
@@ -133,7 +134,8 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src={logo.src}
-                                    alt="Brand Logo"
+                                    alt={`Partner Logo: ${logo.src.split('/').pop().split('.')[0]} - Trusted by Reinsoft`}
+                                    title={`Reinsoft Trusted Partner Logo`}
                                     className={`object-contain transition-all duration-300 ${logo.className}`}
                                     style={{ maxWidth: '100%', maxHeight: '100%' }}
                                     loading="lazy"

@@ -516,7 +516,7 @@ export default function ECommerceContent() {
                                 <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
-                                href="https://wa.me/918968369582"
+                                href="https://api.whatsapp.com/send?phone=918968369582"
                                 target="_blank"
                                 className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
                             >

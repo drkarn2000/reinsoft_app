@@ -468,7 +468,7 @@ export default function LocationLandingContent({ location }) {
                                 <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
                             </a>
                             <Link
-                                href="https://wa.me/918968369582"
+                                href="https://api.whatsapp.com/send?phone=918968369582"
                                 target="_blank"
                                 className="px-6 py-3 rounded-full bg-white/10 border border-white/15 text-sm font-semibold hover:bg-white/20 transition-all"
                             >

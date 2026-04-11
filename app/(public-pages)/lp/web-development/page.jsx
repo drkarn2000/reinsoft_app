@@ -61,7 +61,7 @@ export default function WebDevelopmentLandingPage() {
                                 <a href="#contact-quote" className="btn glass py-4 px-8 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 transition text-black dark:text-white text-base font-bold shadow-lg shadow-blue-500/25">
                                     Get a Quote Now
                                 </a>
-                                <a href="https://wa.me/918968369582" target="_blank" rel="noopener noreferrer" className="btn glass flex items-center justify-center gap-2 py-4 px-8 bg-green-500/20 hover:bg-green-500/40 border border-green-500/50 transition text-black dark:text-white text-base font-medium">
+                                <a href="https://api.whatsapp.com/send?phone=918968369582" target="_blank" rel="noopener noreferrer" className="btn glass flex items-center justify-center gap-2 py-4 px-8 bg-green-500/20 hover:bg-green-500/40 border border-green-500/50 transition text-black dark:text-white text-base font-medium">
                                     <MessageCircleIcon className="size-5" />
                                     Book a free consultation
                                 </a>
