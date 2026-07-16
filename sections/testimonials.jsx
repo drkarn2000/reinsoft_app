@@ -570,22 +570,70 @@ const TestimonialCard = ({ item, onVideoClick }) => {
 
 export default function Testimonials({ limit, asH1 = false }) {
     const [selectedVideo, setSelectedVideo] = useState(null); // stores full item object
-    const sliderRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
+    const autoplayRef = useRef(null);
 
     const testimonialsToDisplay = limit ? testimonials.slice(0, limit) : testimonials;
+    const totalTestimonials = testimonialsToDisplay.length;
 
-    const scroll = (direction) => {
-        if (sliderRef.current) {
-            const scrollAmount = 400;
-            sliderRef.current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth'
-            });
+    const wrapIndex = useCallback(
+        (index) => ((index % totalTestimonials) + totalTestimonials) % totalTestimonials,
+        [totalTestimonials]
+    );
+
+    const slideTo = useCallback(
+        (direction) => {
+            setActiveIndex((prev) => wrapIndex(prev + (direction === 'right' ? 1 : -1)));
+        },
+        [wrapIndex]
+    );
+
+    const goToIndex = useCallback(
+        (index) => {
+            setActiveIndex(wrapIndex(index));
+        },
+        [wrapIndex]
+    );
+
+    const pauseAutoplay = useCallback(() => {
+        setIsHovered(true);
+    }, []);
+
+    const resumeAutoplay = useCallback(() => {
+        setIsHovered(false);
+    }, []);
+
+    useEffect(() => {
+        if (autoplayRef.current) {
+            clearInterval(autoplayRef.current);
+            autoplayRef.current = null;
         }
+
+        if (isHovered || totalTestimonials <= 1) return;
+
+        autoplayRef.current = window.setInterval(() => {
+            setActiveIndex((prev) => wrapIndex(prev + 1));
+        }, 3000);
+
+        return () => {
+            if (autoplayRef.current) {
+                clearInterval(autoplayRef.current);
+                autoplayRef.current = null;
+            }
+        };
+    }, [isHovered, totalTestimonials, wrapIndex]);
+
+    const motionTransition = {
+        type: 'spring',
+        stiffness: 140,
+        damping: 22,
+        mass: 0.95,
+        duration: 0.8,
     };
 
     return (
-        <section className="py-24 relative overflow-hidden" id="testimonials">
+        <section className="py-24 relative overflow-x-hidden" id="testimonials">
             {/* Ambient background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#ff7a18]/5 blur-[120px] rounded-full pointer-events-none hidden dark:block" />
 
@@ -604,42 +652,99 @@ export default function Testimonials({ limit, asH1 = false }) {
                 {/* Video Testimonials Slider (Featured) */}
                 <VideoSlider onPlay={(item) => setSelectedVideo(item)} />
 
-                {/* Horizontal Cards Slider */}
-                <div className="relative max-w-7xl mx-auto mt-16 group px-4 md:px-12">
-                    <div
-                        ref={sliderRef}
-                        className="flex overflow-x-auto gap-6 pb-12 snap-x snap-mandatory scrollbar-hide scroll-smooth"
-                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                    >
-                        {testimonialsToDisplay.map((item) => (
-                            <div
-                                key={item.id}
-                                className="flex-shrink-0 w-[85vw] md:w-[400px] snap-center h-auto"
-                            >
-                                <TestimonialCard
-                                    item={item}
-                                    onVideoClick={(item) => setSelectedVideo(item)}
-                                />
-                            </div>
-                        ))}
+                {/* Premium 3D Coverflow Carousel */}
+                <div
+                    className="relative max-w-7xl mx-auto mt-12 px-4 md:px-12 overflow-visible"
+                    onMouseEnter={pauseAutoplay}
+                    onMouseLeave={resumeAutoplay}
+                >
+                    <div className="relative overflow-visible py-6">
+                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center pointer-events-none">
+                            <div className="w-[28rem] h-[28rem] rounded-full bg-[#ff7a18]/12 blur-3xl" />
+                        </div>
+                        <div className="relative h-[520px] md:h-[500px] lg:h-[480px] perspective-1500 overflow-visible">
+                            {[-2, -1, 0, 1, 2].map((offset) => {
+                                const slideIndex = wrapIndex(activeIndex + offset);
+                                const item = testimonialsToDisplay[slideIndex];
+                                const absOffset = Math.abs(offset);
+                                const isCenter = offset === 0;
+                                const isNear = absOffset === 1;
+                                const isFar = absOffset === 2;
+
+                                const xOffset = offset === 0 ? '0vw' : offset === 1 ? '20vw' : offset === 2 ? '36vw' : offset === -1 ? '-20vw' : '-36vw';
+                                const scale = isCenter ? 1 : isNear ? 0.95 : 0.86;
+                                const rotateY = offset * (offset > 0 ? -18 : 18);
+                                const opacity = isCenter ? 1 : isNear ? 0.82 : 0.6;
+                                const zIndex = isCenter ? 60 : isNear ? 50 : 40;
+                                const blur = isCenter ? 'blur(0px)' : isNear ? 'blur(0px)' : 'blur(1px)';
+                                const widthStyle = isCenter ? 'min(58vw, 520px)' : isNear ? 'min(44vw, 420px)' : 'min(34vw, 320px)';
+
+                                return (
+                                    <motion.div
+                                        key={`${item.id}-${offset}`}
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                                        animate={{
+                                            x: xOffset,
+                                            scale,
+                                            rotateY,
+                                            opacity,
+                                            zIndex,
+                                            filter: blur,
+                                        }}
+                                        transition={motionTransition}
+                                        style={{
+                                            transformStyle: 'preserve-3d',
+                                            perspective: 1500,
+                                        }}
+                                    >
+                                        <motion.div
+                                            initial={false}
+                                            animate={{
+                                                boxShadow: isCenter ? '0 55px 180px rgba(0,0,0,0.24)' : '0 26px 95px rgba(0,0,0,0.14)',
+                                            }}
+                                            transition={motionTransition}
+                                            className="rounded-[2.5rem] overflow-hidden border border-white/10 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl"
+                                            style={{ width: widthStyle }}
+                                        >
+                                            <TestimonialCard
+                                                item={item}
+                                                onVideoClick={(item) => setSelectedVideo(item)}
+                                            />
+                                        </motion.div>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
                     </div>
 
-                    {/* Simple Pagination Controls */}
-                    <div className="flex justify-center items-center gap-6 mt-6">
-                        <button
-                            onClick={() => scroll('left')}
-                            className="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center bg-white/5 backdrop-blur-md hover:bg-[#ff7a18] text-black dark:text-white hover:text-white transition-all shadow-lg active:scale-95"
-                            aria-label="Previous testimonials"
-                        >
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
-                        </button>
-                        <button
-                            onClick={() => scroll('right')}
-                            className="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center bg-white/5 backdrop-blur-md hover:bg-[#ff7a18] text-black dark:text-white hover:text-white transition-all shadow-lg active:scale-95"
-                            aria-label="Next testimonials"
-                        >
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-                        </button>
+                    <div className="mt-2 flex flex-col items-center gap-2">
+                        <div className="flex items-center justify-center gap-3">
+                            <button
+                                onClick={() => slideTo('left')}
+                                className="w-14 h-14 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center bg-white/95 dark:bg-slate-950/95 shadow-2xl hover:bg-[#ff7a18] hover:text-white transition-all"
+                                aria-label="Previous testimonials"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                            </button>
+                            <button
+                                onClick={() => slideTo('right')}
+                                className="w-14 h-14 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center bg-white/95 dark:bg-slate-950/95 shadow-2xl hover:bg-[#ff7a18] hover:text-white transition-all"
+                                aria-label="Next testimonials"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                            </button>
+                        </div>
+
+                        <div className="flex justify-center items-center gap-3">
+                            {testimonialsToDisplay.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => goToIndex(index)}
+                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex ? 'bg-[#ff7a18] scale-110' : 'bg-white/30 hover:bg-white/60'}`}
+                                    aria-label={`Go to testimonial ${index + 1}`}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
 

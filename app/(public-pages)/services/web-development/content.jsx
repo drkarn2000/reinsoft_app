@@ -472,7 +472,7 @@ export default function WebDevelopmentContent() {
                         <div className="flex gap-3 shrink-0">
                             <Link
                                 href="/contact"
-                                className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-bold shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:scale-105 transition-all"
+                                className="group flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-bold shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_35px_rgba(59,130,246,0.35)] hover:-translate-y-0.5 hover:scale-105 transition-all duration-300"
                             >
                                 Start Project
                                 <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
@@ -480,7 +480,7 @@ export default function WebDevelopmentContent() {
                             <Link
                                 href="https://api.whatsapp.com/send?phone=918968369582"
                                 target="_blank"
-                                className="px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
+                                className="px-5 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm font-semibold hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 hover:text-white hover:shadow-[0_10px_30px_rgba(59,130,246,0.18)] hover:-translate-y-0.5 transition-all duration-300"
                             >
                                 WhatsApp
                             </Link>

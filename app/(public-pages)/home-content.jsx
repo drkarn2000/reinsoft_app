@@ -39,7 +39,7 @@ export default function Page() {
                 <WorkflowSteps />
                 <Portfolio limit={4} />
                 <Team />
-                <Testimonials limit={3} />
+                <Testimonials />
                 <FaqSection />
                 <CallToAction />
             </main>

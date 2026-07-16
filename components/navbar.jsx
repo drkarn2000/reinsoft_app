@@ -87,23 +87,26 @@ export default function Navbar() {
                             onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
                             onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
                         >
-                            {link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/') ? (
-                                <Link
-                                    href={link.href}
-                                    className="px-4 py-2 text-sm font-semibold text-black bg-black/10 dark:text-white dark:bg-white/20 rounded-full flex items-center gap-1 transition-colors"
-                                >
-                                    {link.name}
-                                    {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
-                                </Link>
-                            ) : (
-                                <Link
-                                    href={link.href}
-                                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black hover:bg-black/5 dark:text-gray-200 dark:hover:text-white dark:hover:bg-white/10 rounded-full flex items-center gap-1 transition-colors"
-                                >
-                                    {link.name}
-                                    {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
-                                </Link>
-                            )}
+                            <div className="relative inline-flex rounded-full group">
+                                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0f6fff] via-[#35a4ff] to-[#54d9ff] blur-3xl opacity-0 transition duration-300 group-hover:opacity-75" />
+                                {link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/') ? (
+                                    <Link
+                                        href={link.href}
+                                        className="relative z-10 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-[#0f6fff] to-[#54d9ff] rounded-full flex items-center gap-1 shadow-[0_15px_40px_rgba(15,111,255,0.28)] transition-all duration-200 hover:-translate-y-0.5"
+                                    >
+                                        {link.name}
+                                        {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                    </Link>
+                                ) : (
+                                    <Link
+                                        href={link.href}
+                                        className="relative z-10 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 rounded-full flex items-center gap-1 transition-all duration-200 hover:bg-gradient-to-r hover:from-[#0f6fff] hover:to-[#54d9ff] hover:text-white hover:shadow-[0_15px_40px_rgba(15,111,255,0.18)] hover:-translate-y-0.5"
+                                    >
+                                        {link.name}
+                                        {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                    </Link>
+                                )}
+                            </div>
                             {link.dropdown && (
                                 <AnimatePresence>
                                     {activeDropdown === link.name && (
@@ -116,20 +119,22 @@ export default function Navbar() {
                                         >
                                             <div className="flex flex-col gap-1">
                                                 {link.dropdown.map((item) => (
-                                                    <Link
-                                                        key={item.name}
-                                                        href={item.href}
-                                                        className="flex items-start gap-4 p-3 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-all group/item"
-                                                        onClick={() => setActiveDropdown(null)}
-                                                    >
-                                                        <div className="size-9 rounded-lg bg-black/5 border border-black/10 dark:bg-white/5 dark:border-white/10 flex items-center justify-center text-gray-500 group-hover/item:text-black dark:text-gray-400 dark:group-hover/item:text-white transition-colors">
-                                                            {item.icon}
-                                                        </div>
-                                                        <div className="flex flex-col">
-                                                            <span className="text-sm font-semibold text-gray-700 group-hover/item:text-black dark:text-gray-200 dark:group-hover/item:text-white whitespace-nowrap">{item.name}</span>
-                                                            <span className="text-xs text-gray-500 dark:text-gray-400 leading-tight mt-0.5">{item.description}</span>
-                                                        </div>
-                                                    </Link>
+                                                    <div key={item.name} className="relative rounded-2xl group overflow-hidden">
+                                                        <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#0f6fff] via-[#35a4ff] to-[#54d9ff] blur-3xl opacity-0 transition duration-300 group-hover:opacity-75" />
+                                                        <Link
+                                                            href={item.href}
+                                                            className="relative z-10 flex items-start gap-4 p-3 rounded-2xl border border-white/15 bg-white/95 text-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:bg-gradient-to-r hover:from-[#0f6fff] hover:to-[#54d9ff] hover:text-white hover:shadow-[0_20px_60px_rgba(15,111,255,0.22)] hover:-translate-y-0.5"
+                                                            onClick={() => setActiveDropdown(null)}
+                                                        >
+                                                            <div className="size-9 rounded-xl bg-slate-100/70 border border-slate-200/60 flex items-center justify-center text-slate-500 transition-colors duration-300 group-hover:text-white">
+                                                                {item.icon}
+                                                            </div>
+                                                            <div className="flex flex-col">
+                                                                <span className="text-sm font-semibold text-slate-900 whitespace-nowrap group-hover:text-white transition-colors duration-300">{item.name}</span>
+                                                                <span className="text-xs text-slate-500 leading-tight mt-0.5 group-hover:text-slate-100 transition-colors duration-300">{item.description}</span>
+                                                            </div>
+                                                        </Link>
+                                                    </div>
                                                 ))}
                                             </div>
                                             {/* Accent glow line inside dropdown */}
@@ -183,17 +188,20 @@ export default function Navbar() {
                     }`}
             >
                 {links.map((link) => (
-                    <div key={link.name} className="flex flex-col items-center gap-4">
-                        <Link
-                            href={link.href}
-                            onClick={() => setIsOpen(false)}
-                            className={`px-6 py-2 text-lg font-semibold rounded-full flex items-center gap-1.5 transition-colors ${link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/')
-                                ? 'bg-black/10 text-black dark:bg-white/10 dark:text-white'
-                                : 'text-gray-700 hover:text-black hover:bg-black/5 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/5'
-                                }`}
-                        >
-                            {link.name}
-                        </Link>
+                    <div key={link.name} className="flex flex-col items-center gap-4 w-full">
+                        <div className="relative w-full inline-flex rounded-full group">
+                            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-sky-500 blur-2xl opacity-0 transition duration-300 group-hover:opacity-70" />
+                            <Link
+                                href={link.href}
+                                onClick={() => setIsOpen(false)}
+                                className={`relative z-10 w-full px-6 py-2 text-lg font-semibold rounded-full flex items-center gap-1.5 transition-all duration-200 ${link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/')
+                                    ? 'bg-black/10 text-black dark:bg-white/10 dark:text-white hover:text-white'
+                                    : 'text-gray-700 dark:text-gray-300 hover:text-white'
+                                    } ${link.href !== pathname ? 'hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500' : ''}`}
+                            >
+                                {link.name}
+                            </Link>
+                        </div>
 
                         {link.dropdown && (
                             <div className="flex flex-col items-center gap-3 pl-4 border-l border-black/10 dark:border-white/10 mt-1 mb-4">

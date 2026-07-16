@@ -74,7 +74,7 @@ export default function CaseStudyClient({ initialProject }) {
     }
 
     return (
-        <main className="min-h-screen text-black dark:text-white relative">
+        <main className="min-h-screen text-black dark:text-slate-200 relative">
             {/* Background elements - Matching Portfolio Page */}
             <div className="fixed inset-0 -z-30 pointer-events-none">
                 <Image
@@ -102,7 +102,7 @@ export default function CaseStudyClient({ initialProject }) {
                                 {project.industry}
                             </span>
                             {project.techStack.map((tech, i) => (
-                                <span key={i} className="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-gray-300 text-xs font-semibold">
+                                <span key={i} className="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black text-xs font-semibold">
                                     {tech}
                                 </span>
                             ))}
@@ -114,7 +114,7 @@ export default function CaseStudyClient({ initialProject }) {
                         </div>
 
                         {project.shortDescription && (
-                            <p className="text-xl font-bold text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+                            <p className="text-xl font-bold text-slate-700 mb-10 leading-relaxed max-w-2xl mx-auto">
                                 {project.shortDescription}
                             </p>
                         )}
@@ -154,7 +154,7 @@ export default function CaseStudyClient({ initialProject }) {
                             <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-[#ff7a18]">
                                 <Target size={20} /> Project Overview
                             </h3>
-                            <p className="text-gray-400 font-bold leading-relaxed px-8 border-l-2 border-[#ff7a18]/30">
+                            <p className="text-slate-700 font-bold leading-relaxed px-8 border-l-2 border-[#ff7a18]/30">
                                 {project.overview}
                             </p>
                         </div>
@@ -163,7 +163,7 @@ export default function CaseStudyClient({ initialProject }) {
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-red-400">
                                     <Target size={20} /> The Problem
                                 </h3>
-                                <p className="text-gray-400 font-bold leading-relaxed px-8 border-l-2 border-red-400/30">
+                                <p className="text-slate-700 font-bold leading-relaxed px-8 border-l-2 border-red-400/30">
                                     {project.problem}
                                 </p>
                             </div>
@@ -171,7 +171,7 @@ export default function CaseStudyClient({ initialProject }) {
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-green-400">
                                     <CheckCircle size={20} /> The Solution
                                 </h3>
-                                <p className="text-gray-400 font-bold leading-relaxed px-8 border-l-2 border-green-400/30">
+                                <p className="text-slate-700 font-bold leading-relaxed px-8 border-l-2 border-green-400/30">
                                     {project.solution}
                                 </p>
                             </div>
@@ -185,7 +185,7 @@ export default function CaseStudyClient({ initialProject }) {
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-20">
                         <h2 className="text-xl font-bold mb-4">Core Capabilities</h2>
-                        <p className="text-gray-400 font-bold text-lg">Industry-leading features implemented with precision.</p>
+                        <p className="text-slate-700 font-bold text-lg">Industry-leading features implemented with precision.</p>
                     </div>
 
                     <div className="max-w-3xl mx-auto space-y-6">
@@ -217,7 +217,7 @@ export default function CaseStudyClient({ initialProject }) {
                                         <h3 className={`text-xl font-bold mb-3 ${colors.text}`}>{feature.title}</h3>
                                         <ul className="space-y-2">
                                             {feature.points.map((point, idx) => (
-                                                <li key={idx} className="flex items-center gap-2 text-gray-400 font-bold text-xs md:text-sm justify-center md:justify-start">
+                                                <li key={idx} className="flex items-center gap-2 text-slate-700 font-bold text-xs md:text-sm justify-center md:justify-start">
                                                     <div className={`size-1 rounded-full ${colors.circle} opacity-60`} />
                                                     {point}
                                                 </li>
@@ -248,7 +248,7 @@ export default function CaseStudyClient({ initialProject }) {
                         <h2 className="text-xl font-bold mb-4">
                             Our <span className="text-[#ff7a18]">Methodology</span>
                         </h2>
-                        <p className="text-gray-400 font-bold text-lg max-w-2xl mx-auto">
+                        <p className="text-slate-700 font-bold text-lg max-w-2xl mx-auto">
                             A structured, roadmap-driven approach to delivering excellence in every project.
                         </p>
                     </div>
@@ -296,13 +296,13 @@ export default function CaseStudyClient({ initialProject }) {
                                                         {step.stage}
                                                     </h3>
                                                 </div>
-                                                <p className="text-gray-400 font-bold text-sm md:text-base leading-relaxed mb-4">
+                                                <p className="text-slate-700 font-bold text-sm md:text-base leading-relaxed mb-4">
                                                     {step.description}
                                                 </p>
                                                 {step.points && (
                                                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                                         {step.points.map((point, idx) => (
-                                                            <li key={idx} className="flex items-center gap-2 font-bold text-xs text-gray-500">
+                                                            <li key={idx} className="flex items-center gap-2 font-bold text-slate-700 text-xs">
                                                                 <div className={`size-1 rounded-full ${colors.circle} opacity-60`} />
                                                                 {point}
                                                             </li>
@@ -332,7 +332,7 @@ export default function CaseStudyClient({ initialProject }) {
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center mb-16">
                         <h2 className="text-xl font-bold mb-6">The Outcome</h2>
-                        <p className="text-gray-400 font-bold text-lg">
+                        <p className="text-slate-700 font-bold text-lg">
                             Tangible impact and measurable results achieved post-launch.
                         </p>
                     </div>
@@ -372,7 +372,7 @@ export default function CaseStudyClient({ initialProject }) {
                                     <div className={`text-3xl md:text-4xl font-black bg-gradient-to-r ${p.color} bg-clip-text text-transparent mb-2`}>
                                         {res.value}
                                     </div>
-                                    <div className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-widest leading-tight">
+                                    <div className="text-xs font-bold text-slate-700 uppercase tracking-widest leading-tight">
                                         {res.metric}
                                     </div>
                                 </motion.div>
@@ -388,7 +388,7 @@ export default function CaseStudyClient({ initialProject }) {
                 <div className="container mx-auto px-6 text-center">
                     <div className="max-w-3xl mx-auto">
                         <h2 className="text-xl font-bold mb-8">Ready to achieve similar results?</h2>
-                        <p className="text-lg font-bold text-gray-400 mb-12">
+                        <p className="text-lg font-bold text-slate-700 mb-12">
                             Let's discuss how we can bring your vision to life with a high-performance digital solution.
                         </p>
                         <Link

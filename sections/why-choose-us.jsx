@@ -54,7 +54,7 @@ function RoadmapCard({ reason, index }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="relative flex flex-row items-center bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl overflow-visible group hover:bg-black/10 dark:hover:bg-white/[0.08] transition-all duration-500 ml-5 sm:ml-7"
+            className="relative flex flex-row items-center bg-white border border-gray-200 rounded-2xl overflow-visible group hover:bg-white transition-all duration-500 ml-5 sm:ml-7 shadow-sm"
         >
             {/* Left accent bar */}
             <div className={`absolute left-0 top-0 bottom-0 w-1 ${colors.bar} rounded-l-2xl`} />
@@ -92,7 +92,7 @@ function RoadmapCard({ reason, index }) {
             {/* Content — left padded to avoid overlap with badge */}
             <div className="flex-grow py-4 pl-10 pr-2 text-left">
                 <h3 className={`text-base font-bold mb-1 ${colors.text}`}>{reason.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">{reason.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-xs font-bold leading-relaxed">{reason.description}</p>
             </div>
 
             {/* Right icon */}
