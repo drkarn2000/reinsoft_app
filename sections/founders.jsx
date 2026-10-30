@@ -7,7 +7,7 @@ import { Linkedin, ArrowUpRight } from "lucide-react";
 
 export default function FoundersSection() {
     return (
-        <section className="py-24 md:py-32 bg-gray-50 dark:bg-transparent overflow-hidden">
+        <section className="py-24 md:py-32 bg-transparent overflow-hidden">
             <div className="container mx-auto px-6">
                 {/* Premium Section Heading */}
                 <motion.div
@@ -30,7 +30,7 @@ export default function FoundersSection() {
                         Meet The Minds Behind <br className="hidden md:block" />
                         <span className="relative inline-block mt-2">
                             <span className="absolute -inset-2 bg-gradient-to-r from-[#ff7a18]/20 to-[#2563eb]/20 blur-2xl opacity-50 dark:opacity-100 transition-opacity duration-500 group-hover:opacity-100 dark:group-hover:opacity-100"></span>
-                            <span className="relative bg-gradient-to-r from-[#ff7a18] via-[#e85d04] to-[#2563eb] bg-clip-text text-transparent">
+                            <span className="relative brand-text-gradient">
                                 Reinsoft IT Solutions
                             </span>
                         </span>
@@ -62,11 +62,14 @@ export default function FoundersSection() {
                                         className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
                                         sizes="(max-width: 768px) 90vw, 40vw"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
-                                    <div className="absolute left-5 top-5 rounded-full border border-[#ffb57a]/40 bg-[#ff7a18]/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur-md shadow-[0_10px_24px_-14px_rgba(255,122,24,0.8)]">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950/82 via-gray-950/18 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                                    <div className="absolute left-5 top-5 translate-y-3 rounded-full border border-[#ffb57a]/40 bg-[#ff7a18]/82 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-white opacity-0 shadow-[0_10px_24px_-14px_rgba(255,122,24,0.8)] backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                                         Vision & Strategy
                                     </div>
-                                    <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-[#ffb57a]/20 bg-[#181510]/72 p-4 text-white backdrop-blur-lg">
+                                    <div className="absolute bottom-5 left-5 right-5 translate-y-8 rounded-[1.4rem] border border-[#ffb57a]/20 bg-[#181510]/76 p-4 text-white opacity-0 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.72)] backdrop-blur-xl transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                                        <p className="mb-3 inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.24em] text-white">
+                                            Co-Founder & CEO
+                                        </p>
                                         <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#d8be89]">
                                             Leadership Focus
                                         </p>
@@ -141,11 +144,14 @@ export default function FoundersSection() {
                                         className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
                                         sizes="(max-width: 768px) 90vw, 40vw"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
-                                    <div className="absolute left-5 top-5 rounded-full border border-[#8db8ff]/40 bg-[#2563eb]/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur-md shadow-[0_10px_24px_-14px_rgba(37,99,235,0.8)]">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950/82 via-gray-950/18 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                                    <div className="absolute left-5 top-5 translate-y-3 rounded-full border border-[#8db8ff]/40 bg-[#2563eb]/82 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-white opacity-0 shadow-[0_10px_24px_-14px_rgba(37,99,235,0.8)] backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                                         Product & Technology
                                     </div>
-                                    <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-[#8db8ff]/20 bg-[#181510]/78 p-4 pr-24 text-white backdrop-blur-lg">
+                                    <div className="absolute bottom-5 left-5 right-5 translate-y-8 rounded-[1.4rem] border border-[#8db8ff]/20 bg-[#181510]/78 p-4 text-white opacity-0 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.72)] backdrop-blur-xl transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                                        <p className="mb-3 inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.24em] text-white">
+                                            Co-Founder & CTO
+                                        </p>
                                         <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8db8ff]">
                                             Execution Focus
                                         </p>

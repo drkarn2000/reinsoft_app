@@ -3,7 +3,14 @@ import { PhoneIcon, MessageCircleIcon, CalendarIcon, ArrowRightIcon, SparklesIco
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function CallToAction() {
+export default function CallToAction({ content = null, phone = null, whatsapp = null }) {
+    const phoneToUse = phone || content?.phone || "+91 89683 69582";
+    const phoneTel = phoneToUse.replace(/\s+/g, '');
+    const whatsappToUse = whatsapp || content?.whatsapp || "918968369582";
+    const badgeText = content?.badge || "Free Consultation Available";
+    const title = content?.title;
+    const subtitle = content?.subtitle || "Get a clear solution, realistic timeline, and transparent pricing. No pressure, no obligation just results.";
+
     return (
         <section className="relative mt-24 mb-10 px-4">
             <motion.div
@@ -50,7 +57,7 @@ export default function CallToAction() {
                             transition={{ delay: 0.2 }}
                         >
                             <SparklesIcon className="size-3.5" />
-                            Free Consultation Available
+                            {badgeText}
                         </motion.div>
 
                         <motion.h2
@@ -60,10 +67,16 @@ export default function CallToAction() {
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
                         >
-                            Let's Build Something
-                            <span className="block mt-1 bg-gradient-to-r from-[#ff7a18] via-[#ff4d4d] to-[#3b82f6] bg-clip-text text-transparent">
-                                Extraordinary Together
-                            </span>
+                            {title ? (
+                                title
+                            ) : (
+                                <>
+                                    Let&apos;s Build Something
+                                    <span className="block mt-1 brand-text-gradient">
+                                        Extraordinary Together
+                                    </span>
+                                </>
+                            )}
                         </motion.h2>
 
                         <motion.p
@@ -73,8 +86,7 @@ export default function CallToAction() {
                             viewport={{ once: true }}
                             transition={{ delay: 0.4 }}
                         >
-                            Get a clear solution, realistic timeline, and transparent pricing.
-                            No pressure, no obligation just results.
+                            {subtitle}
                         </motion.p>
                     </div>
 
@@ -99,13 +111,13 @@ export default function CallToAction() {
 
                         {/* Secondary CTAs */}
                         <div className="flex gap-3">
-                            <Link href="tel:+918968369582"
+                            <Link href={`tel:${phoneTel}`}
                                 className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-black/15 dark:border-white/15 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-black dark:text-white font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
                             >
                                 <PhoneIcon className="size-4 text-green-400" />
                                 Call Now
                             </Link>
-                            <Link href="https://api.whatsapp.com/send?phone=918968369582" target="_blank"
+                            <Link href={`https://api.whatsapp.com/send?phone=${whatsappToUse}`} target="_blank"
                                 className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-green-500/30 bg-green-500/10 hover:bg-green-500/20 hover:border-green-500/50 text-green-600 dark:text-green-400 font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
                             >
                                 <MessageCircleIcon className="size-4" />

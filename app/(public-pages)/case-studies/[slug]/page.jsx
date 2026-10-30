@@ -1,17 +1,19 @@
 import { Suspense } from 'react';
-import { caseStudies } from '@/lib/case-studies-data';
+import { getCaseStudyBySlug, getPublishedCaseStudySlugs } from '@/lib/cms';
 import CaseStudyClient from './case-study-client';
 import { notFound } from 'next/navigation';
 
+export const revalidate = 60; // Incremental Static Regeneration
+
 export async function generateMetadata({ params }) {
     const { slug } = await params;
-    const project = caseStudies.find(cs => cs.slug === slug);
-    
+    const project = await getCaseStudyBySlug(slug);
+
     if (!project) return {};
 
     return {
-        title: project.title || 'Case Study',
-        description: project.shortDescription || 'Case study details',
+        title: project.seoTitle || project.title || 'Case Study | Reinsoft',
+        description: project.seoDescription || project.shortDescription || 'Case study details',
         alternates: {
             canonical: `/case-studies/${slug}`,
         },
@@ -19,14 +21,12 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-    return caseStudies.map((project) => ({
-        slug: project.slug,
-    }));
+    return await getPublishedCaseStudySlugs();
 }
 
 export default async function CaseStudyPage({ params }) {
     const { slug } = await params;
-    const project = caseStudies.find(cs => cs.slug === slug);
+    const project = await getCaseStudyBySlug(slug);
 
     if (!project) {
         notFound();

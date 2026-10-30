@@ -7,6 +7,6 @@ module.exports = {
         '/admin/*',
         '/api',
         '/api/*',
-        '/lp/*', // exclude unlinked landing page variations from primary sitemap
+        '/portfolio',
     ],
 }

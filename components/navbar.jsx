@@ -1,6 +1,6 @@
 'use client';
 
-import { MenuIcon, XIcon, ChevronDownIcon, SmartphoneIcon, CodeIcon, LayoutGridIcon, Sun, Moon } from 'lucide-react';
+import { MenuIcon, XIcon, ChevronDownIcon, SmartphoneIcon, CodeIcon, LayoutGridIcon, Sun, Moon, HandshakeIcon, WrenchIcon, BotIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -10,7 +10,18 @@ import { useTheme } from 'next-themes';
 
 import GradientButton from './gradient-button';
 
-export default function Navbar() {
+const navIconMap = {
+    CodeIcon: <CodeIcon className="size-4" />,
+    LayoutGridIcon: <LayoutGridIcon className="size-4" />,
+    SmartphoneIcon: <SmartphoneIcon className="size-4" />,
+    HandshakeIcon: <HandshakeIcon className="size-4" />,
+    WrenchIcon: <WrenchIcon className="size-4" />,
+    BotIcon: <BotIcon className="size-4" />,
+};
+
+const marqueeServices = ['Software', 'Automation', 'Mobile Apps', 'Website Development', 'IT Support & Maintenance'];
+
+export default function Navbar({ navData = null }) {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
@@ -18,30 +29,56 @@ export default function Navbar() {
     const { theme, setTheme } = useTheme();
     const pathname = usePathname();
 
-    const links = [
+    const defaultDropdown = [
+        { name: 'Software Development', href: '/services/software-development', icon: <CodeIcon className="size-4" />, description: 'Custom software & enterprise solutions' },
+        { name: 'Web Development', href: '/services/web-development', icon: <LayoutGridIcon className="size-4" />, description: 'Custom web apps & sites' },
+        { name: 'Mobile App Development', href: '/services/mobile-app-development', icon: <SmartphoneIcon className="size-4" />, description: 'Native & Cross-platform apps' },
+        { name: 'White-Label Development', href: '/services/white-label-development', icon: <HandshakeIcon className="size-4" />, description: 'Your trusted development partner' },
+        { name: 'IT Support & Maintenance', href: '/services/it-support-maintenance', icon: <WrenchIcon className="size-4" />, description: 'Ongoing support, updates & optimization' },
+        { name: 'Business Automation & AI', href: '/services/business-automation', icon: <BotIcon className="size-4" />, description: 'WhatsApp, CRM & workflow automation' },
+        { name: 'All Services', href: '/services', icon: <LayoutGridIcon className="size-4" />, description: 'Explore our full list' },
+    ];
+
+    const defaultLinks = [
         { name: 'Home', href: '/' },
         { name: 'About Us', href: '/about' },
         {
             name: 'Our Services',
             href: '/services',
-            dropdown: [
-                { name: 'Software Development', href: '/services/software-development', icon: <CodeIcon className="size-4" />, description: 'Custom software & enterprise solutions' },
-                { name: 'Web Development', href: '/services/web-development', icon: <LayoutGridIcon className="size-4" />, description: 'Custom web apps & sites' },
-                { name: 'Mobile App Development', href: '/services/mobile-app-development', icon: <SmartphoneIcon className="size-4" />, description: 'Native & Cross-platform apps' },
-                { name: 'All Services', href: '/services', icon: <LayoutGridIcon className="size-4" />, description: 'Explore our full list' },
-            ]
+            dropdown: defaultDropdown,
         },
         { name: 'Our Work', href: '/our-work' },
     ];
 
+    const dynamicDropdown = navData?.servicesDropdown && navData.servicesDropdown.length > 0
+        ? navData.servicesDropdown.map(item => ({
+            name: item.label,
+            href: item.href,
+            icon: navIconMap[item.iconName] || <LayoutGridIcon className="size-4" />,
+            description: item.description || '',
+        }))
+        : defaultDropdown;
+
+    const links = navData?.mainNav && navData.mainNav.length > 0
+        ? navData.mainNav.map(item => {
+            const name = item.label || item.name || '';
+            const isServices =
+                item.href === '/services' ||
+                name.toLowerCase().includes('service');
+
+            return {
+                name,
+                href: item.href,
+                dropdown: isServices ? dynamicDropdown : null,
+            };
+        })
+        : defaultLinks;
+
     useEffect(() => {
         setMounted(true);
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
+            // mark scrolled when user has moved a bit — used to shrink navbar
+            setIsScrolled(window.scrollY > 40);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -55,10 +92,9 @@ export default function Navbar() {
     return (
         <>
             <motion.nav
-                className={`fixed top-4 inset-x-0 mx-auto z-50 flex w-[95%] max-w-[1400px] items-center justify-between px-3 py-1.5 md:px-5 md:py-1.5 rounded-full bg-white/40 backdrop-blur-xl border border-white/40 transition-all duration-300 ${isScrolled
-                    ? 'shadow-2xl shadow-black/20 bg-white/50 border-white/50'
-                    : 'shadow-xl shadow-black/10'
-                    }`}
+                className={`fixed ${isScrolled ? 'top-2' : 'top-4'} inset-x-0 mx-auto z-50 flex w-[95%] max-w-[1400px] items-center justify-between px-4 md:px-6 h-[56px] rounded-full transition-all duration-300 ease-in-out
+                    ${isScrolled ? 'h-[48px] backdrop-blur-4xl bg-white/80 border border-white/60 shadow-2xl shadow-black/20' : 'backdrop-blur-3xl bg-white/30 border border-white/30 shadow-xl shadow-black/10'}
+                    `}
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -66,7 +102,7 @@ export default function Navbar() {
             >
 
                 <Link href='/'>
-                    <div className="relative h-20 sm:h-20 md:h-20 w-[180px] sm:w-[210px] md:w-[240px] -my-4">
+                    <div className={`relative transition-all duration-300 ease-in-out ${isScrolled ? 'h-10 w-[140px]' : 'h-14 w-[180px]'} flex items-center`}> 
                         <Image
                             src='/assets/logo.png'
                             alt='Reinsoft - Custom Software & IT Solutions Logo'
@@ -79,7 +115,27 @@ export default function Navbar() {
                     </div>
                 </Link>
 
-                <div className='hidden items-center space-x-2 md:flex'>
+                <div className="nav-service-marquee mx-3 hidden min-w-0 flex-1 lg:flex xl:mx-6" aria-label="Our services">
+                    <div className="nav-service-marquee__viewport">
+                        <div className="nav-service-marquee__track">
+                            {[0, 1].map((set) => (
+                                <div className="nav-service-marquee__set" key={set} aria-hidden={set === 1}>
+                                    {marqueeServices.map((service, index) => (
+                                        <span className="nav-service-marquee__item" key={`${set}-${service}`}>
+                                            <span>{service}</span>
+                                            <span className="nav-service-marquee__divider" aria-hidden="true">/</span>
+                                        </span>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="nav-service-marquee__light" aria-hidden="true">
+                        <span />
+                    </div>
+                </div>
+
+                <div className='hidden items-center space-x-3 md:flex'>
                     {links.map((link) => (
                         <div
                             key={link.name}
@@ -88,22 +144,22 @@ export default function Navbar() {
                             onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
                         >
                             <div className="relative inline-flex rounded-full group">
-                                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0f6fff] via-[#35a4ff] to-[#54d9ff] blur-3xl opacity-0 transition duration-300 group-hover:opacity-75" />
+                                <span className={`absolute inset-0 rounded-full bg-gradient-to-r from-[#ff7a18] via-[#8f3d71] to-[#1b1698] blur-3xl transition duration-300 ${link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/') ? 'opacity-90 scale-100' : 'opacity-0 group-hover:opacity-75'}`} />
                                 {link.href === pathname || (pathname.startsWith(link.href) && link.href !== '/') ? (
                                     <Link
                                         href={link.href}
-                                        className="relative z-10 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-[#0f6fff] to-[#54d9ff] rounded-full flex items-center gap-1 shadow-[0_15px_40px_rgba(15,111,255,0.28)] transition-all duration-200 hover:-translate-y-0.5"
+                                        className="nav-border-fill-link relative z-10 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-[#ff7a18] via-[#8f3d71] to-[#1b1698] rounded-full flex items-center gap-1 transform-gpu transition duration-300 hover:-translate-y-0.5 hover:scale-105 shadow-[0_18px_50px_rgba(15,111,255,0.16)]"
                                     >
-                                        {link.name}
-                                        {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                        <span>{link.name}</span>
+                                        {link.dropdown && <ChevronDownIcon className={`relative z-20 size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
                                     </Link>
                                 ) : (
                                     <Link
                                         href={link.href}
-                                        className="relative z-10 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 rounded-full flex items-center gap-1 transition-all duration-200 hover:bg-gradient-to-r hover:from-[#0f6fff] hover:to-[#54d9ff] hover:text-white hover:shadow-[0_15px_40px_rgba(15,111,255,0.18)] hover:-translate-y-0.5"
+                                        className="nav-border-fill-link relative z-10 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 rounded-full flex items-center gap-1 transform-gpu transition duration-300 hover:shadow-[0_15px_40px_rgba(15,111,255,0.12)] hover:-translate-y-0.5 hover:scale-[1.02]"
                                     >
-                                        {link.name}
-                                        {link.dropdown && <ChevronDownIcon className={`size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                        <span>{link.name}</span>
+                                        {link.dropdown && <ChevronDownIcon className={`relative z-20 size-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
                                     </Link>
                                 )}
                             </div>
@@ -120,10 +176,10 @@ export default function Navbar() {
                                             <div className="flex flex-col gap-1">
                                                 {link.dropdown.map((item) => (
                                                     <div key={item.name} className="relative rounded-2xl group overflow-hidden">
-                                                        <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#0f6fff] via-[#35a4ff] to-[#54d9ff] blur-3xl opacity-0 transition duration-300 group-hover:opacity-75" />
+                                                        <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#ff7a18] via-[#8f3d71] to-[#1b1698] blur-3xl opacity-0 transition duration-300 group-hover:opacity-75" />
                                                         <Link
                                                             href={item.href}
-                                                            className="relative z-10 flex items-start gap-4 p-3 rounded-2xl border border-white/15 bg-white/95 text-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:bg-gradient-to-r hover:from-[#0f6fff] hover:to-[#54d9ff] hover:text-white hover:shadow-[0_20px_60px_rgba(15,111,255,0.22)] hover:-translate-y-0.5"
+                                                            className="nav-border-fill-link relative z-10 flex items-start gap-4 p-3 rounded-2xl border border-white/15 bg-white/95 text-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:text-white hover:shadow-[0_20px_60px_rgba(255,122,24,0.22)] hover:-translate-y-0.5"
                                                             onClick={() => setActiveDropdown(null)}
                                                         >
                                                             <div className="size-9 rounded-xl bg-slate-100/70 border border-slate-200/60 flex items-center justify-center text-slate-500 transition-colors duration-300 group-hover:text-white">
@@ -138,7 +194,7 @@ export default function Navbar() {
                                                 ))}
                                             </div>
                                             {/* Accent glow line inside dropdown */}
-                                            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-orange-500/50" />
+                                            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-orange-500/60 via-purple-700/60 to-blue-900/60" />
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
@@ -148,15 +204,15 @@ export default function Navbar() {
 
                     <Link
                         href='/contact'
-                        className="ml-4 px-5 py-2 text-xs md:text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.23)] hover:-translate-y-0.5 transition-all duration-200"
+                        className="ml-4 px-5 py-2 text-xs md:text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-[0_8px_30px_rgba(249,115,22,0.18)] hover:shadow-[0_12px_40px_rgba(249,115,22,0.28)] transform-gpu transition-all duration-300 hover:-translate-y-0.5"
                     >
-                        Let's Talk
+                        Let&apos;s Talk
                     </Link>
 
                     {mounted && (
                         <button
                             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                            className="ml-3 p-2 rounded-full bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-200"
+                            className="ml-3 p-2 rounded-full bg-white/20 dark:bg-black/20 border border-white/20 dark:border-white/10 backdrop-blur-sm hover:shadow-md transform-gpu transition-all duration-300 hover:-translate-y-0.5 text-gray-700 dark:text-gray-200"
                             aria-label="Toggle Theme"
                         >
                             {theme === 'dark' ? <Sun className="size-4" /> : <Moon className="size-4" />}
@@ -168,7 +224,7 @@ export default function Navbar() {
                     {mounted && (
                         <button
                             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                            className="p-2 rounded-full bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 transition-colors text-gray-700 dark:text-gray-200"
+                            className="p-2 rounded-full bg-white/20 dark:bg-black/20 border border-white/20 dark:border-white/10 backdrop-blur-sm hover:shadow-md transform-gpu transition-all duration-300 hover:-translate-y-0.5 text-gray-700 dark:text-gray-200"
                             aria-label="Toggle Theme"
                         >
                             {theme === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />}
@@ -225,7 +281,7 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className="mt-6 px-8 py-3 text-base font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.23)] transition-all duration-200"
                 >
-                    Let's Talk
+                    Let&apos;s Talk
                 </Link>
 
                 <button

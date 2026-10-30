@@ -105,7 +105,7 @@ export default function WorkflowSteps() {
                             </div>
                         </div>
                         <div key={index} className="flex-1 flex flex-col gap-6 md:px-6 max-w-md">
-                            <h3 className="text-2xl font-medium bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] bg-clip-text text-transparent">
+                            <h3 className="text-2xl font-medium brand-text-gradient">
                                 {step.title}
                             </h3>
                             <p className="text-gray-700 dark:text-gray-100 text-sm/6 line-clamp-3 pb-2">

@@ -82,7 +82,7 @@ const FloatingSelect = ({ label, id, name, value, onChange, options, required = 
 
     return (
         <div className="relative group">
-            <div className={`absolute inset-0 bg-gradient-to-r from-[#ff7a18]/20 to-[#3b82f6]/20 rounded-xl blur-sm transition-opacity duration-300 ${isFocused ? 'opacity-100' : 'opacity-0'}`} />
+            <div className={`absolute inset-0 bg-gradient-to-r from-[#ff7a18]/15 to-[#c6a86a]/15 rounded-xl blur-sm transition-opacity duration-300 ${isFocused ? 'opacity-100' : 'opacity-0'}`} />
             <div className={`relative bg-black/5 dark:bg-black/40 backdrop-blur-md border rounded-xl transition-all duration-300 ${isFocused ? 'border-[#ff7a18] shadow-[0_0_15px_rgba(255,122,24,0.2)]' : 'border-black/10 dark:border-white/10'}`}>
                 <select
                     id={id}
@@ -96,7 +96,7 @@ const FloatingSelect = ({ label, id, name, value, onChange, options, required = 
                 >
                     <option value="" disabled hidden></option>
                     {options.map((option) => (
-                        <option key={option} value={option} className="bg-[#1a1231] text-black dark:text-white">
+                        <option key={option} value={option} className="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
                             {option}
                         </option>
                     ))}
@@ -124,6 +124,7 @@ const FloatingSelect = ({ label, id, name, value, onChange, options, required = 
 function ContactFormContent() {
     const searchParams = useSearchParams();
     const type = searchParams.get('type');
+    const service = searchParams.get('service') || '';
     const isQuoteType = type === 'quote';
 
     const [formData, setFormData] = useState({
@@ -132,7 +133,7 @@ function ContactFormContent() {
         email: '',
         phone: '',
         country: '',
-        enquiryType: '',
+        enquiryType: service,
         budget: '',
         message: '',
     });
@@ -202,7 +203,7 @@ function ContactFormContent() {
                 transition={{ duration: 0.6 }}
             >
                 <h1 className="text-center text-4xl md:text-7xl font-bold tracking-tight text-black dark:text-black dark:text-white mb-6">
-                    {isQuoteType ? 'Get a Custom' : 'Contact'} <span className="bg-gradient-to-r from-[#ff7a18] via-[#e21b7a] to-[#3b82f6] bg-clip-text text-transparent">Project {isQuoteType ? 'Quote' : 'Reinsoft'}</span>
+                    {isQuoteType ? 'Get a Custom' : 'Contact'} <span className="brand-text-gradient">Project {isQuoteType ? 'Quote' : 'Reinsoft'}</span>
                 </h1>
                 <p className="text-center text-gray-700 dark:text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
                     {isQuoteType
@@ -379,6 +380,9 @@ function ContactFormContent() {
                                                     "Mobile App Development",
                                                     "Web Development",
                                                     "Custom Software",
+                                                    "White-Label Development",
+                                                    "IT Support & Maintenance",
+                                                    "Business Automation & AI",
                                                     "Other"
                                                 ]}
                                             />

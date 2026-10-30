@@ -4,8 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
     GlobeIcon,
-    SmartphoneIcon,
-    HeadphonesIcon,
     CheckIcon,
     TabletSmartphoneIcon,
     PhoneIcon,
@@ -13,6 +11,9 @@ import {
     ArrowRightIcon,
     CodeIcon,
     SparklesIcon,
+    HandshakeIcon,
+    WrenchIcon,
+    BotIcon,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,25 +25,9 @@ const reveal = {
 
 const services = [
     {
-        id: 'websites',
-        icon: GlobeIcon,
-        title: 'Business Websites & Lead Systems',
-        description: 'Modern, fast and mobile-friendly websites designed to convert visitors into enquiries and sales.',
-        features: [
-            'Mobile-responsive design',
-            'SEO-optimized structure',
-            'WhatsApp & call integration',
-            'Lead capture forms',
-            'Fast loading performance',
-            'Easy content updates',
-        ],
-        color: '#3b82f6',
-        link: '/services/web-development',
-    },
-    {
         id: 'software',
         icon: CodeIcon,
-        title: 'Custom Software / CRM Development',
+        title: 'Custom Software Development',
         description: 'Tailor-made systems to automate operations, manage customers and improve efficiency.',
         features: [
             'Customer management systems',
@@ -56,9 +41,25 @@ const services = [
         link: '/services/software-development',
     },
     {
+        id: 'websites',
+        icon: GlobeIcon,
+        title: 'Web Development',
+        description: 'Modern, fast and mobile-friendly websites designed to convert visitors into enquiries and sales.',
+        features: [
+            'Mobile-responsive design',
+            'SEO-optimized structure',
+            'WhatsApp & call integration',
+            'Lead capture forms',
+            'Fast loading performance',
+            'Easy content updates',
+        ],
+        color: '#3b82f6',
+        link: '/services/web-development',
+    },
+    {
         id: 'mobile',
         icon: TabletSmartphoneIcon,
-        title: 'Mobile App Development (Android & iOS)',
+        title: 'Mobile App Development',
         description: 'We build high-performance mobile apps using both Native and Cross-Platform technologies.',
         features: [
             'Native Android (Java & Kotlin)',
@@ -72,20 +73,52 @@ const services = [
         link: '/services/mobile-app-development',
     },
     {
-        id: 'support',
-        icon: HeadphonesIcon,
-        title: 'Long-Term Support & Growth',
-        description: 'Reliable ongoing support so your systems stay secure, updated and running smoothly.',
+        id: 'white-label',
+        icon: HandshakeIcon,
+        title: 'White-Label Development',
+        description: 'Confidential delivery support for agencies, software companies, and technology consultancies.',
+        features: [
+            'Frontend and backend implementation',
+            'Mobile app delivery support',
+            'API and platform integrations',
+            'QA and release assistance',
+            'Flexible overflow capacity',
+            'Agency-friendly communication',
+        ],
+        color: '#6366f1',
+        link: '/services/white-label-development',
+    },
+    {
+        id: 'maintenance',
+        icon: WrenchIcon,
+        title: 'IT Support & Maintenance',
+        description: 'Ongoing support, updates, security care, and optimization for business-critical systems.',
         features: [
             'Regular security updates',
             'Bug fixes & improvements',
             'Performance optimization',
             'Backup & recovery',
-            'Priority support',
-            'Long-term partnership',
+            'Technical assistance',
+            'Maintenance planning',
         ],
         color: '#f59e0b',
-        link: '/services/long-term-support-growth',
+        link: '/services/it-support-maintenance',
+    },
+    {
+        id: 'automation-ai',
+        icon: BotIcon,
+        title: 'Business Automation & AI',
+        description: 'WhatsApp, CRM, reporting, and practical AI workflows that reduce repetitive manual work.',
+        features: [
+            'WhatsApp Cloud API integrations',
+            'CRM and lead capture flows',
+            'Automated follow-ups',
+            'Appointment reminders',
+            'Operational reporting',
+            'Practical AI assistants',
+        ],
+        color: '#ec4899',
+        link: '/services/business-automation',
     },
 ];
 
@@ -384,7 +417,7 @@ export default function ServicesPage() {
                             transition={{ duration: 0.7, delay: 0.08 }}
                         >
                             <span className="text-gray-900 dark:text-white">Our </span>
-                            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+                            <span className="brand-text-gradient">
                                 Core Services
                             </span>
                         </motion.h1>
@@ -509,7 +542,7 @@ export default function ServicesPage() {
                         </span>
 
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
-                            Ready to build something <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">extraordinary?</span>
+                            Ready to build something <span className="brand-text-gradient">extraordinary?</span>
                         </h2>
 
                         <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed">

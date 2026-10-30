@@ -19,6 +19,10 @@ const defaultLogos = [
     "/assets/Brands logo/elmeck-logo.png",
     "/assets/Brands logo/cropped-New-VRidez-Logo.png",
     "/assets/Brands logo/j2wealth1.png",
+    "/assets/Brands logo/AUS_Autologo.jpeg",
+    "/assets/Brands logo/gp_care.jpeg",
+    "/assets/Brands logo/jexmate-logo.png",
+    "/assets/Brands logo/mitrologo.jpeg",
     "/assets/Brands logo/opal.png",
     "/assets/Brands logo/sahasraai.png",
     "/assets/Brands logo/shopalic.png",
@@ -28,7 +32,7 @@ const defaultLogos = [
 function Grid({ logos }) {
     return (
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center max-w-5xl mx-auto">
-            {logos.slice(0, 10).map((logo, i) => (
+            {logos.slice(0, 15).map((logo, i) => (
                 <div key={i} className="relative w-32 h-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300">
                     <Image
                         src={logo}
@@ -77,7 +81,7 @@ function Marquee({ logos }) {
 function Cards({ logos }) {
     return (
         <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto px-4">
-            {logos.slice(0, 12).map((logo, i) => (
+            {logos.slice(0, 16).map((logo, i) => (
                 <div
                     key={i}
                     className="p-6 bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-44 h-28 relative flex items-center justify-center group"
@@ -94,7 +98,7 @@ function Cards({ logos }) {
 // 4. Simple Slider Variant
 function SimpleSlider({ logos }) {
     const [index, setIndex] = useState(0);
-    const visibleLogos = logos.slice(0, 8); // Keep it curated for the slider
+    const visibleLogos = logos.slice(0, 12); // Keep it curated for the slider
 
     const next = () => setIndex((index + 1) % visibleLogos.length);
     const prev = () => setIndex((index - 1 + visibleLogos.length) % visibleLogos.length);
@@ -177,7 +181,7 @@ export default function BrandSection({ variant = "grid", title, badge }) {
                     <span className="inline-block px-4 py-1.5 rounded-full border border-orange-500/20 bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm font-bold tracking-wider uppercase mb-4">
                         {displayBadge}
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent pb-1">
+                    <h2 className="text-3xl md:text-4xl font-extrabold brand-text-gradient pb-1">
                         {displayTitle}
                     </h2>
                 </motion.div>

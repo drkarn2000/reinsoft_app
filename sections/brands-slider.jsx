@@ -10,13 +10,18 @@ const brandImagesRow1 = [
     { src: "/assets/Brands logo/Kamutalk1.png", className: "scale-[2.0]" },
     { src: "/assets/Brands logo/Shamrock Logo.png", className: "" },
     { src: "/assets/Brands logo/The_Mural_Story_-_Horizontal_-_Logo1.png", className: "scale-110", bgClass: "bg-gray-900 border-gray-800" },
-    { src: "/assets/Brands logo/WhatsApp Image 2026-03-20 at 2.23.31 PM.jpeg", className: "scale-125 contrast-125" },
+    { src: "/assets/Brands logo/WhatsApp Image 2026-03-20 at 2.23.31 PM.jpeg", className: "scale-[1.4] object-contain mix-blend-multiply" },
     { src: "/assets/Brands logo/angela.png", className: "" },
     { src: "/assets/Brands logo/cropped-DrLabike-New-logo-trans-261x300.png", className: "" },
     { src: "/assets/Brands logo/ZAAF Logo.png", className: "scale-125 object-contain" },
     { src: "/assets/Brands logo/PostPress.jpeg", className: "w-[85%] h-[85%] object-contain mix-blend-multiply", bgClass: "bg-white" },
     { src: "/assets/Brands logo/matematikk.png", className: "w-[90%] h-[90%] object-contain" },
-    { src: "/assets/Brands logo/Macau.webp", className: "scale-125 object-contain mix-blend-multiply" }
+    { src: "/assets/Brands logo/Macau.webp", className: "scale-125 object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/AUS_Autologo.jpeg", className: "scale-[1.4] object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/jexmate-logo.png", className: "w-[88%] h-[88%] object-contain" },
+    { src: "/assets/Brands logo/EMW Session Tracker.png", className: "object-contain" },
+    { src: "/assets/Brands logo/Styleora.logo.jpeg", className: "object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/VEYORA logo.png", className: "object-contain" }
 ];
 
 const brandImagesRow2 = [
@@ -26,16 +31,33 @@ const brandImagesRow2 = [
     { src: "/assets/Brands logo/opal.png", className: "" },
     { src: "/assets/Brands logo/property.jpeg", className: "scale-[2.6]" },
     { src: "/assets/Brands logo/purelife.jpeg", className: "scale-[1.35]" },
-    { src: "/assets/Brands logo/Basel_logo.png", className: "w-[85%] h-[85%] object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/Basel_logo.png", className: "scale-[1.4] object-contain mix-blend-multiply" },
     { src: "/assets/Brands logo/sahasraai.png", className: "" },
     { src: "/assets/Brands logo/shopalic.png", className: "scale-[1.35]" },
     { src: "/assets/Brands logo/trucker.webp", className: "scale-[2.0]", bgClass: "bg-gray-900 border-gray-800" },
     { src: "/assets/Brands logo/logo Sport Info.png", className: "scale-[1.65] object-contain mix-blend-multiply" },
     { src: "/assets/Brands logo/fymate.png", className: "scale-[1.3] object-contain mix-blend-multiply" },
-    { src: "/assets/Brands logo/Corridors.png", className: "scale-[1.4] object-contain mix-blend-multiply" }
+    { src: "/assets/Brands logo/Corridors.png", className: "scale-[1.4] object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/gp_care.jpeg", className: "scale-[1.4] object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/mitrologo.jpeg", className: "scale-[1.4] object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/VaxAid_logo.png", className: "object-contain" },
+    { src: "/assets/Brands logo/Vijay [Green].png", className: "object-contain mix-blend-multiply" },
+    { src: "/assets/Brands logo/amar_Logo.png", className: "object-contain" },
+    { src: "/assets/Brands logo/wayvia.logo.png", className: "object-contain" }
 ];
 
-export default function BrandsSlider({ variant = "home", title, badge, styleMode = "classic", speed = 35 }) {
+export default function BrandsSlider({
+    variant = "home",
+    title,
+    badge,
+    styleMode = "classic",
+    speed = 35,
+    customRow1 = null,
+    customRow2 = null,
+}) {
+    const row1 = customRow1 && customRow1.length > 0 ? customRow1 : brandImagesRow1;
+    const row2 = customRow2 && customRow2.length > 0 ? customRow2 : brandImagesRow2;
+
     const isHome = variant === "home";
     const bgClass = isHome ? "bg-black/5 dark:bg-white/5 py-16" : "bg-transparent py-14";
 
@@ -74,7 +96,7 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
                     <span className="inline-block px-4 py-1.5 rounded-full border border-orange-500/20 bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm font-bold tracking-wider uppercase mb-4">
                         {displayBadge}
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent pb-1 max-w-4xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold brand-text-gradient pb-1 max-w-4xl mx-auto">
                         {displayTitle}
                     </h2>
                 </motion.div>
@@ -85,21 +107,21 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
                 <style>{`
                     @keyframes scrollLeft {
                         0% { transform: translateX(0); }
-                        100% { transform: translateX(calc(-260px * ${brandImagesRow1.length})); }
+                        100% { transform: translateX(calc(-260px * ${row1.length})); }
                     }
                     @keyframes scrollRight {
-                        0% { transform: translateX(calc(-260px * ${brandImagesRow2.length})); }
+                        0% { transform: translateX(calc(-260px * ${row2.length})); }
                         100% { transform: translateX(0); }
                     }
                     .brands-marquee-left-${speed} {
                         display: flex;
                         animation: scrollLeft ${speed}s linear infinite;
-                        width: calc(260px * ${brandImagesRow1.length * 2}); 
+                        width: calc(260px * ${row1.length * 2}); 
                     }
                     .brands-marquee-right-${speed} {
                         display: flex;
                         animation: scrollRight ${speed}s linear infinite;
-                        width: calc(260px * ${brandImagesRow2.length * 2}); 
+                        width: calc(260px * ${row2.length * 2}); 
                     }
                     .brands-marquee-left-${speed}:hover, .brands-marquee-right-${speed}:hover {
                         animation-play-state: paused;
@@ -108,7 +130,7 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
 
                 {/* Row 1: Right to Left */}
                 <div className={`brands-marquee-left-${speed} items-center block`}>
-                    {[...brandImagesRow1, ...brandImagesRow1].map((logo, index) => (
+                    {[...row1, ...row1].map((logo, index) => (
                         <div key={`r1-${index}`} className="flex-shrink-0 w-[260px] flex items-center justify-center px-4">
                             <div className={getCardStyle(logo)}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -128,7 +150,7 @@ export default function BrandsSlider({ variant = "home", title, badge, styleMode
 
                 {/* Row 2: Left to Right */}
                 <div className={`brands-marquee-right-${speed} items-center block`}>
-                    {[...brandImagesRow2, ...brandImagesRow2].map((logo, index) => (
+                    {[...row2, ...row2].map((logo, index) => (
                         <div key={`r2-${index}`} className="flex-shrink-0 w-[260px] flex items-center justify-center px-4">
                             <div className={getCardStyle(logo)}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
