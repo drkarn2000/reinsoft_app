@@ -187,10 +187,10 @@ export default function CaseStudyClient({ initialProject }) {
                                 )}
                                 {project.solution && (
                                     <div>
-                                        <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-green-400">
+                                        <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-emerald-500 dark:text-emerald-400">
                                             <CheckCircle size={20} /> {project.solutionHeading || "The Solution"}
                                         </h3>
-                                        <p className="text-slate-700 font-bold leading-relaxed px-8 border-l-2 border-green-400/30 whitespace-pre-line">
+                                        <p className="text-slate-700 font-bold leading-relaxed px-8 border-l-2 border-emerald-500/30 dark:border-emerald-400/30 whitespace-pre-line">
                                             {project.solution}
                                         </p>
                                     </div>
@@ -241,7 +241,9 @@ export default function CaseStudyClient({ initialProject }) {
 
                                         {/* Content */}
                                         <div className="flex-grow p-4 md:py-6 md:px-0 text-center md:text-left">
-                                            <h3 className={`text-xl font-bold mb-2 ${colors.text}`}>{feature.title}</h3>
+                                            <h3 className={`inline-block text-xl font-bold mb-2 px-3.5 py-1 rounded-xl bg-white dark:bg-slate-900/90 shadow-sm ${colors.text}`}>
+                                                {feature.title}
+                                            </h3>
                                             {feature.description && (
                                                 <p className="text-slate-700 dark:text-slate-300 text-xs md:text-sm font-medium mb-3">
                                                     {feature.description}
@@ -341,7 +343,7 @@ export default function CaseStudyClient({ initialProject }) {
                                                             <div className={`md:hidden size-8 rounded-full ${colors.circle} flex items-center justify-center text-white font-bold text-sm`}>
                                                                 {i + 1}
                                                             </div>
-                                                            <h3 className={`text-xl font-bold ${colors.text}`}>
+                                                            <h3 className={`inline-block text-xl font-bold px-3.5 py-1 rounded-xl bg-white dark:bg-slate-900/90 shadow-sm ${colors.text}`}>
                                                                 {stepStageName}
                                                             </h3>
                                                         </div>
