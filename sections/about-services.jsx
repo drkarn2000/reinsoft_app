@@ -63,11 +63,7 @@ const services = [
 
 export default function AboutServices() {
     return (
-        <section className="py-24 md:py-32 px-4 relative overflow-hidden bg-white dark:bg-transparent">
-            {/* Animated Ambient Background Blurs */}
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2 animate-pulse duration-10000" />
-            <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#ff7a18]/5 dark:bg-[#ff7a18]/10 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3 animate-pulse duration-10000 delay-500" />
-
+        <section className="py-24 md:py-32 px-4 relative overflow-hidden bg-transparent">
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Premium Section Heading */}
                 <motion.div
@@ -91,7 +87,7 @@ export default function AboutServices() {
                         Our Premium
                         <span className="relative inline-block ml-4">
                             <span className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-[#ff7a18]/20 blur-2xl opacity-50 dark:opacity-100 transition-opacity duration-500 group-hover:opacity-100 dark:group-hover:opacity-100"></span>
-                            <span className="relative bg-gradient-to-r from-blue-600 via-indigo-500 to-[#ff7a18] bg-clip-text text-transparent">
+                            <span className="relative brand-text-gradient">
                                 Services
                             </span>
                         </span>

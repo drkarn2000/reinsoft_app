@@ -6,7 +6,7 @@ export default function CaseStudiesSection() {
         <section className="mt-20 max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white mb-4">
-                    Real Results <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent">From Real Projects</span>
+                    Real Results <span className="brand-text-gradient">From Real Projects</span>
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300 max-w-3xl mx-auto text-base/relaxed">
                     Honest examples from actual client work across different industries. No fake numbers. Just real, practical outcomes. We work with businesses globally through remote collaboration and digital delivery.

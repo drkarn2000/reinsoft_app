@@ -11,37 +11,33 @@ import {
 } from "lucide-react";
 
 const industries = [
-    { title: "Dating Apps Project", icon: <HeartIcon /> },
-    { title: "News Websites & Apps", icon: <NewspaperIcon /> },
-    { title: "Directory Listing & Coupon Code", icon: <LayoutListIcon /> },
-    { title: "AI Chat Bot", icon: <BotIcon /> },
-    { title: "Car Wash, Parking Apps & Vehicle Sale", icon: <CarIcon /> },
-    { title: "Loan, Finance & Internet Banking Apps", icon: <LandmarkIcon /> },
-    { title: "Inventory Management", icon: <PackageIcon /> },
-    { title: "Expenses Management", icon: <ReceiptIcon /> },
-    { title: "HRM SAAS Management", icon: <UsersIcon /> },
-    { title: "School Management LMS", icon: <GraduationCapIcon /> },
-    { title: "POS (Point Of Sale)", icon: <CalculatorIcon /> },
-    { title: "Ecommerce (Single & Multivendor)", icon: <ShoppingCartIcon /> },
-    { title: "Online Trading Platform", icon: <TrendingUpIcon /> },
-    { title: "Doctor Appt. System & Dental Clinic", icon: <StethoscopeIcon /> },
-    { title: "Food Delivery Project", icon: <UtensilsIcon /> },
-    { title: "Study Related Websites", icon: <BookOpenIcon /> },
-    { title: "Live Streaming & Live TV Project", icon: <TvIcon /> },
-    { title: "Video & Audio Chat/Call", icon: <VideoIcon /> },
-    { title: "Tenant, Property & Real Estate", icon: <BuildingIcon /> },
-    { title: "Yoga Websites", icon: <ActivityIcon /> },
-    { title: "Courier, Logistics & Drop Shipping", icon: <TruckIcon /> },
-    { title: "B2B, Hotel Booking & Restaurant", icon: <BriefcaseIcon /> }
+    { title: "Dating Apps Project", icon: <HeartIcon />, accent: "#ff5f8f" },
+    { title: "News Websites & Apps", icon: <NewspaperIcon />, accent: "#3b82f6" },
+    { title: "Directory Listing & Coupon Code", icon: <LayoutListIcon />, accent: "#8b5cf6" },
+    { title: "AI Chat Bot", icon: <BotIcon />, accent: "#06b6d4" },
+    { title: "Car Wash, Parking Apps & Vehicle Sale", icon: <CarIcon />, accent: "#0ea5e9" },
+    { title: "Loan, Finance & Internet Banking Apps", icon: <LandmarkIcon />, accent: "#22c55e" },
+    { title: "Inventory Management", icon: <PackageIcon />, accent: "#f59e0b" },
+    { title: "Expenses Management", icon: <ReceiptIcon />, accent: "#10b981" },
+    { title: "HRM SAAS Management", icon: <UsersIcon />, accent: "#6366f1" },
+    { title: "School Management LMS", icon: <GraduationCapIcon />, accent: "#14b8a6" },
+    { title: "POS (Point Of Sale)", icon: <CalculatorIcon />, accent: "#ef4444" },
+    { title: "Ecommerce (Single & Multivendor)", icon: <ShoppingCartIcon />, accent: "#f97316" },
+    { title: "Online Trading Platform", icon: <TrendingUpIcon />, accent: "#84cc16" },
+    { title: "Doctor Appt. System & Dental Clinic", icon: <StethoscopeIcon />, accent: "#2dd4bf" },
+    { title: "Food Delivery Project", icon: <UtensilsIcon />, accent: "#fb7185" },
+    { title: "Study Related Websites", icon: <BookOpenIcon />, accent: "#60a5fa" },
+    { title: "Live Streaming & Live TV Project", icon: <TvIcon />, accent: "#a855f7" },
+    { title: "Video & Audio Chat/Call", icon: <VideoIcon />, accent: "#38bdf8" },
+    { title: "Tenant, Property & Real Estate", icon: <BuildingIcon />, accent: "#c6a86a" },
+    { title: "Yoga Websites", icon: <ActivityIcon />, accent: "#34d399" },
+    { title: "Courier, Logistics & Drop Shipping", icon: <TruckIcon />, accent: "#facc15" },
+    { title: "B2B, Hotel Booking & Restaurant", icon: <BriefcaseIcon />, accent: "#fb923c" }
 ];
 
 export default function IndustriesServe() {
     return (
-        <section className="py-24 px-4 relative overflow-hidden bg-gray-50 dark:bg-[#0a0a0a]">
-            {/* Ambient Lighting Orbs */}
-            <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-orange-500/10 dark:bg-orange-500/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2" />
-            <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-[150px] pointer-events-none translate-y-1/3" />
-
+        <section className="relative overflow-hidden bg-transparent px-4 py-24">
             <div className="max-w-[90rem] mx-auto relative z-10">
                 <div className="mb-16">
                     <SectionTitle
@@ -51,37 +47,46 @@ export default function IndustriesServe() {
                 </div>
 
                 {/* Sleek Horizontal Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
+                <div className="relative">
+                    <div className="absolute -inset-8 rounded-[3rem] border border-white/45 bg-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] backdrop-blur-[2px] dark:border-white/5 dark:bg-white/[0.02]" />
+                    <div className="relative grid grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {industries.map((industry, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: (i % 8) * 0.05, duration: 0.4 }}
-                            className="group relative bg-white dark:bg-white/[0.03] border border-black/5 dark:border-white/10 rounded-2xl p-4 flex items-center gap-4 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-1 hover:border-orange-500/30"
+                            className="industry-3d-tile group relative min-h-[5.4rem] overflow-visible rounded-2xl border border-black/5 bg-white p-4 dark:border-white/10 dark:bg-white/[0.04]"
+                            style={{ '--industry-accent': industry.accent }}
                         >
                             {/* Inner Hover Gradient Injection */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/0 to-orange-500/5 dark:to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                            
-                            {/* Premium Icon Box */}
-                            <div className="relative size-12 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-black/50 text-gray-400 dark:text-gray-500 group-hover:bg-[#ff7a18] group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
-                                <div className="[&>svg]:size-5">
-                                    {industry.icon}
+                            <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_16%_18%,color-mix(in_srgb,var(--industry-accent)_22%,transparent),transparent_30%),linear-gradient(120deg,rgba(255,255,255,0.72),rgba(255,255,255,0.16))] opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:bg-[radial-gradient(circle_at_16%_18%,color-mix(in_srgb,var(--industry-accent)_20%,transparent),transparent_30%),linear-gradient(120deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]" />
+                            <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-[var(--industry-accent)] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-70" />
+
+                            <div className="industry-3d-content relative z-10 flex h-full items-center gap-4">
+                                {/* Premium Icon Box */}
+                                <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gray-100 text-gray-400 shadow-sm transition-all duration-300 group-hover:text-white dark:bg-black/50 dark:text-gray-500">
+                                    <div className="absolute inset-0 bg-[var(--industry-accent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                    <div className="absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+                                    <div className="relative z-10 [&>svg]:size-5">
+                                        {industry.icon}
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* Crisp Text */}
-                            <h3 className="font-bold text-gray-800 dark:text-gray-200 text-sm md:text-md leading-snug group-hover:text-[#ff7a18] transition-colors duration-300 pr-6">
-                                {industry.title}
-                            </h3>
+                                {/* Crisp Text */}
+                                <h3 className="pr-6 text-sm font-bold leading-snug text-gray-800 transition-colors duration-300 group-hover:text-[#ff7a18] dark:text-gray-200 md:text-md">
+                                    {industry.title}
+                                </h3>
 
-                            {/* Interactive Arrow */}
-                            <div className="absolute right-4 text-orange-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden sm:block">
-                                <ArrowUpRightIcon className="size-4" />
+                                {/* Interactive Arrow */}
+                                <div className="absolute right-0 hidden -translate-x-4 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block" style={{ color: industry.accent }}>
+                                    <ArrowUpRightIcon className="size-4" />
+                                </div>
                             </div>
                         </motion.div>
                     ))}
+                    </div>
                 </div>
             </div>
         </section>

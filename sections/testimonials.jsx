@@ -44,15 +44,16 @@ const featuredVideos = [
     },
 ];
 
-const VideoSlider = ({ onPlay }) => {
+const VideoSlider = ({ onPlay, videos = featuredVideos }) => {
+    const videosList = videos && videos.length > 0 ? videos : featuredVideos;
     const [current, setCurrent] = useState(0);
     const [isHovering, setIsHovering] = useState(false);
     const videoRef = useRef(null);
     const timerRef = useRef(null);
-    const total = featuredVideos.length;
+    const total = videosList.length;
     const prev = (current - 1 + total) % total;
     const next = (current + 1) % total;
-    const item = featuredVideos[current];
+    const item = videosList[current] || videosList[0];
 
     const goTo = useCallback((index) => {
         const i = (index + total) % total;
@@ -127,7 +128,7 @@ const VideoSlider = ({ onPlay }) => {
                 {/* Left peek card */}
                 <div className="hidden md:block flex-shrink-0 cursor-pointer" style={{ width: '180px', opacity: 0.4, transform: 'scale(0.85) translateX(16px)', transition: 'all 0.5s ease', borderRadius: '14px', overflow: 'hidden' }} onClick={() => goTo(current - 1)}>
                     <div className="relative aspect-video">
-                        <img src={featuredVideos[prev].image} alt={`Previous testimonial from ${featuredVideos[prev].name}`} title={`Previous testimonial from ${featuredVideos[prev].name}`} className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
+                        <img src={videosList[prev]?.image} alt={`Previous testimonial from ${videosList[prev]?.name}`} title={`Previous testimonial from ${videosList[prev]?.name}`} className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,122,24,0.55)' }}>
                                 <Play className="w-5 h-5 text-white fill-white ml-0.5" />
@@ -135,8 +136,8 @@ const VideoSlider = ({ onPlay }) => {
                         </div>
                     </div>
                     <div className="px-3 py-2" style={{ background: 'rgba(0,0,0,0.7)' }}>
-                        <p className="text-white/70 text-xs font-semibold truncate">{featuredVideos[prev].name}</p>
-                        <p className="text-white/40 text-[10px] truncate">{featuredVideos[prev].role}</p>
+                        <p className="text-white/70 text-xs font-semibold truncate">{videosList[prev]?.name}</p>
+                        <p className="text-white/40 text-[10px] truncate">{videosList[prev]?.role}</p>
                     </div>
                 </div>
 
@@ -192,7 +193,7 @@ const VideoSlider = ({ onPlay }) => {
                 {/* Right peek card */}
                 <div className="hidden md:block flex-shrink-0 cursor-pointer" style={{ width: '180px', opacity: 0.4, transform: 'scale(0.85) translateX(-16px)', transition: 'all 0.5s ease', borderRadius: '14px', overflow: 'hidden' }} onClick={() => goTo(current + 1)}>
                     <div className="relative aspect-video">
-                        <img src={featuredVideos[next].image} alt={`Next testimonial from ${featuredVideos[next].name}`} title={`Next testimonial from ${featuredVideos[next].name}`} className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
+                        <img src={videosList[next]?.image} alt={`Next testimonial from ${videosList[next]?.name}`} title={`Next testimonial from ${videosList[next]?.name}`} className="w-full h-full object-cover object-top" style={{ filter: 'brightness(0.55)' }} />
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,122,24,0.55)' }}>
                                 <Play className="w-5 h-5 text-white fill-white ml-0.5" />
@@ -200,8 +201,8 @@ const VideoSlider = ({ onPlay }) => {
                         </div>
                     </div>
                     <div className="px-3 py-2" style={{ background: 'rgba(0,0,0,0.7)' }}>
-                        <p className="text-white/70 text-xs font-semibold truncate">{featuredVideos[next].name}</p>
-                        <p className="text-white/40 text-[10px] truncate">{featuredVideos[next].role}</p>
+                        <p className="text-white/70 text-xs font-semibold truncate">{videosList[next]?.name}</p>
+                        <p className="text-white/40 text-[10px] truncate">{videosList[next]?.role}</p>
                     </div>
                 </div>
 
@@ -214,8 +215,8 @@ const VideoSlider = ({ onPlay }) => {
             {/* Bottom dots */}
             <div className="relative z-10 flex flex-col items-center gap-2 pb-8">
                 <div className="flex items-center gap-2">
-                    {featuredVideos.map((_, i) => (
-                        <button key={i} onClick={() => goTo(i)} className="transition-all duration-300 rounded-full focus:outline-none" style={{ width: i === current ? '28px' : '8px', height: '8px', background: i === current ? '#ff7a18' : 'rgba(255,255,255,0.25)' }} aria-label={`Go to ${featuredVideos[i].name}`} />
+                    {videosList.map((_, i) => (
+                        <button key={i} onClick={() => goTo(i)} className="transition-all duration-300 rounded-full focus:outline-none" style={{ width: i === current ? '28px' : '8px', height: '8px', background: i === current ? '#ff7a18' : 'rgba(255,255,255,0.25)' }} aria-label={`Go to ${videosList[i]?.name}`} />
                     ))}
                 </div>
                 <span className="text-white/30 text-xs">{current + 1} / {total}</span>
@@ -372,7 +373,7 @@ const TestimonialCard = ({ item, onVideoClick }) => {
             whileHover={{ scale: 1.03, boxShadow: '0 0 40px 8px rgba(255,122,24,0.25), 0 0 80px 16px rgba(255,80,180,0.12)' }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className={`group relative rainbow-lighting-card rounded-[2rem] p-6 h-full flex flex-col transition-shadow duration-300 cursor-pointer ${item.highlight ? 'shadow-[0_0_30px_rgba(255,122,24,0.15)]' : ''}`}
+            className={`group relative rainbow-lighting-card flex h-full cursor-pointer flex-col rounded-[1.5rem] p-4 transition-shadow duration-300 sm:rounded-[2rem] sm:p-6 ${item.highlight ? 'shadow-[0_0_30px_rgba(255,122,24,0.15)]' : ''}`}
         >
             {item.highlight && (
                 <div className="absolute -top-3.5 right-8 z-30">
@@ -383,8 +384,8 @@ const TestimonialCard = ({ item, onVideoClick }) => {
             )}
 
             {/* Header: Client Photo + Details + Location */}
-            <div className="flex items-center gap-4 mb-4">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 border-2 border-[#ff7a18]/20 shadow-sm" style={{ background: item.name === 'Angela' ? '#fff' : 'transparent' }}>
+            <div className="mb-4 flex items-center gap-3 sm:gap-4">
+                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-[#ff7a18]/20 shadow-sm sm:h-14 sm:w-14" style={{ background: item.name === 'Angela' ? '#fff' : 'transparent' }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src={item.image}
@@ -395,14 +396,14 @@ const TestimonialCard = ({ item, onVideoClick }) => {
                         decoding="async"
                     />
                 </div>
-                <div className="flex flex-col flex-grow">
-                    <p className="text-black dark:text-white font-bold text-base leading-tight group-hover:text-[#ff7a18] transition-colors">
+                <div className="flex min-w-0 flex-grow flex-col">
+                    <p className="text-sm font-bold leading-tight text-black transition-colors group-hover:text-[#ff7a18] dark:text-white sm:text-base">
                         {item.name}
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    <p className="break-words text-xs font-medium leading-5 text-gray-600 dark:text-gray-400 sm:text-sm">
                         {item.role} @ {item.companyLogo}
                     </p>
-                    <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
+                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-gray-500">
                         {item.flag && <img src={`https://flagcdn.com/w20/${item.flag.toLowerCase()}.png`} alt={`${item.location} flag`} title={`${item.location} flag`} className="h-3 w-[18px] object-cover rounded-[1px] shadow-sm" loading="lazy" />}
                         <span className="font-medium text-gray-600 dark:text-gray-400">{item.location}</span>
                     </div>
@@ -410,9 +411,9 @@ const TestimonialCard = ({ item, onVideoClick }) => {
             </div>
 
             {/* Stars & Project Type */}
-            <div className="flex items-center justify-between mb-3 border-b border-black/10 dark:border-white/10 pb-3">
+            <div className="mb-3 flex flex-col items-start gap-2 border-b border-black/10 pb-3 dark:border-white/10 sm:flex-row sm:items-center sm:justify-between">
                 <StarRating />
-                <span className="text-xs font-bold px-3 py-1 rounded-full border bg-[#ff7a18]/10 border-[#ff7a18]/30 text-[#ff7a18]">
+                <span className="max-w-full rounded-full border border-[#ff7a18]/30 bg-[#ff7a18]/10 px-3 py-1 text-xs font-bold leading-5 text-[#ff7a18]">
                     {item.projectType}
                 </span>
             </div>
@@ -428,7 +429,7 @@ const TestimonialCard = ({ item, onVideoClick }) => {
             )}
 
             {/* Review Content */}
-            <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
+            <p className="mb-6 flex-grow text-sm leading-7 text-gray-700 dark:text-gray-300 sm:leading-relaxed">
                 "{item.review}"
             </p>
 
@@ -568,14 +569,22 @@ const TestimonialCard = ({ item, onVideoClick }) => {
     );
 };
 
-export default function Testimonials({ limit, asH1 = false }) {
+export default function Testimonials({
+    limit,
+    asH1 = false,
+    customVideos = null,
+    customTestimonials = null,
+    title = null,
+}) {
     const [selectedVideo, setSelectedVideo] = useState(null); // stores full item object
     const [activeIndex, setActiveIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const autoplayRef = useRef(null);
 
-    const testimonialsToDisplay = limit ? testimonials.slice(0, limit) : testimonials;
+    const rawList = customTestimonials && customTestimonials.length > 0 ? customTestimonials : testimonials;
+    const testimonialsToDisplay = limit ? rawList.slice(0, limit) : rawList;
     const totalTestimonials = testimonialsToDisplay.length;
+    const videosToDisplay = customVideos && customVideos.length > 0 ? customVideos : featuredVideos;
 
     const wrapIndex = useCallback(
         (index) => ((index % totalTestimonials) + totalTestimonials) % totalTestimonials,
@@ -650,11 +659,11 @@ export default function Testimonials({ limit, asH1 = false }) {
                 </div>
 
                 {/* Video Testimonials Slider (Featured) */}
-                <VideoSlider onPlay={(item) => setSelectedVideo(item)} />
+                <VideoSlider onPlay={(item) => setSelectedVideo(item)} videos={videosToDisplay} />
 
                 {/* Premium 3D Coverflow Carousel */}
                 <div
-                    className="relative max-w-7xl mx-auto mt-12 px-4 md:px-12 overflow-visible"
+                    className="relative mx-auto mt-12 max-w-7xl px-0 sm:px-4 md:px-12 overflow-visible"
                     onMouseEnter={pauseAutoplay}
                     onMouseLeave={resumeAutoplay}
                 >
@@ -662,7 +671,7 @@ export default function Testimonials({ limit, asH1 = false }) {
                         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center pointer-events-none">
                             <div className="w-[28rem] h-[28rem] rounded-full bg-[#ff7a18]/12 blur-3xl" />
                         </div>
-                        <div className="relative h-[520px] md:h-[500px] lg:h-[480px] perspective-1500 overflow-visible">
+                        <div className="relative h-[720px] sm:h-[620px] md:h-[500px] lg:h-[480px] perspective-1500 overflow-visible">
                             {[-2, -1, 0, 1, 2].map((offset) => {
                                 const slideIndex = wrapIndex(activeIndex + offset);
                                 const item = testimonialsToDisplay[slideIndex];
@@ -677,12 +686,12 @@ export default function Testimonials({ limit, asH1 = false }) {
                                 const opacity = isCenter ? 1 : isNear ? 0.82 : 0.6;
                                 const zIndex = isCenter ? 60 : isNear ? 50 : 40;
                                 const blur = isCenter ? 'blur(0px)' : isNear ? 'blur(0px)' : 'blur(1px)';
-                                const widthStyle = isCenter ? 'min(58vw, 520px)' : isNear ? 'min(44vw, 420px)' : 'min(34vw, 320px)';
+                                const widthStyle = isCenter ? 'min(calc(100vw - 2rem), 520px)' : isNear ? 'min(44vw, 420px)' : 'min(34vw, 320px)';
 
                                 return (
                                     <motion.div
                                         key={`${item.id}-${offset}`}
-                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                                        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${isCenter ? '' : 'hidden md:block'}`}
                                         animate={{
                                             x: xOffset,
                                             scale,
@@ -703,7 +712,7 @@ export default function Testimonials({ limit, asH1 = false }) {
                                                 boxShadow: isCenter ? '0 55px 180px rgba(0,0,0,0.24)' : '0 26px 95px rgba(0,0,0,0.14)',
                                             }}
                                             transition={motionTransition}
-                                            className="rounded-[2.5rem] overflow-hidden border border-white/10 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl"
+                                            className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/95 backdrop-blur-xl dark:bg-slate-950/95 sm:rounded-[2.5rem]"
                                             style={{ width: widthStyle }}
                                         >
                                             <TestimonialCard
@@ -769,7 +778,7 @@ export default function Testimonials({ limit, asH1 = false }) {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="p-8 rounded-3xl border border-black/5 dark:border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
+                                className="p-8 rounded-3xl border border-black/5 bg-white dark:bg-slate-950/95 dark:border-white/10 shadow-sm transition-colors"
                             >
                                 <div className="text-4xl mb-4 select-none grayscale opacity-80">{stat.icon}</div>
                                 <div className="text-3xl font-black text-black dark:text-white mb-2">{stat.value}</div>

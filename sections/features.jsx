@@ -85,7 +85,7 @@ export default function Features() {
 
                     <h2 className="text-4xl font-black leading-tight tracking-[-0.06em] text-[#171614] dark:text-white sm:text-5xl md:text-6xl">
                         Services built with
-                        <span className="bg-gradient-to-r from-[#9b7a42] via-[#c6a86a] to-[#e4d0a3] bg-clip-text text-transparent">
+                        <span className="brand-text-gradient">
                             {" "}clarity, depth, and momentum
                         </span>
                     </h2>
@@ -109,7 +109,7 @@ export default function Features() {
                             <div className="relative h-full min-h-[560px] overflow-hidden rounded-[1.4rem]">
                                 <motion.div style={{ y: imageY }} className="absolute inset-0">
                                     <Image
-                                        src="/assets/luxury_web_dev.png"
+                                        src="/assets/premium_crm_erp.png"
                                         alt="Reinsoft IT Solutions Core Services Overview"
                                         title="Reinsoft IT Solutions Core Services Overview"
                                         fill

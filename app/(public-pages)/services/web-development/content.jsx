@@ -95,7 +95,7 @@ export default function WebDevelopmentContent() {
                             Enterprise Web Solutions
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.1]">
-                            Custom Web Development <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Experts</span>
+                            Custom Web Development <span className="brand-text-gradient">Experts</span>
                         </h1>
                         <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                             We build fast, secure, and highly scalable web applications that drive growth. From startup MVPs to enterprise-level systems, we deliver digital excellence.
@@ -463,7 +463,7 @@ export default function WebDevelopmentContent() {
                     <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
                             <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
-                                Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">scale your web</span> presence
+                                Let's <span className="brand-text-gradient">scale your web</span> presence
                             </h2>
                             <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
                                 From SaaS platforms to high-performance apps — we build what matters.
