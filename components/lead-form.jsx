@@ -2,14 +2,25 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import GradientButton from './gradient-button';
+import { trackFormSubmitSuccess } from '@/lib/analytics';
 
-export default function LeadForm({ title, description }) {
+const enquiryOptions = [
+    'Mobile App Development',
+    'Web Development',
+    'Custom Software',
+    'White-Label Development',
+    'IT Support & Maintenance',
+    'Business Automation & AI',
+    'Other',
+];
+
+export default function LeadForm({ title, description, defaultService = '' }) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
         country: '',
-        enquiryType: '',
+        enquiryType: defaultService,
         budget: '',
         message: ''
     });
@@ -40,6 +51,13 @@ export default function LeadForm({ title, description }) {
             });
 
             if (response.ok) {
+                trackFormSubmitSuccess({
+                    formName: 'lead_quote_form',
+                    inquiryType: 'Quote Request',
+                    service: formData.enquiryType || 'none',
+                    budget: formData.budget || 'none',
+                    country: formData.country || 'none',
+                });
                 setSubmitResult({ type: 'success', message: 'Thank you for your enquiry. We will get back to you shortly.' });
                 setFormData({
                     name: '',
@@ -72,7 +90,7 @@ export default function LeadForm({ title, description }) {
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 320, damping: 70 }}
         >
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent mb-2">
+            <h3 className="text-2xl font-bold brand-text-gradient mb-2">
                 {title || "Request a Custom Software Quote"}
             </h3>
             {description && <p className="text-gray-500 text-sm mb-4">{description}</p>}
@@ -135,10 +153,9 @@ export default function LeadForm({ title, description }) {
                         className={`w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-shadow appearance-none bg-white ${formData.enquiryType ? 'text-gray-800' : 'text-gray-500'}`}
                     >
                         <option value="" disabled>Enquiry Type*</option>
-                        <option value="Mobile App Development">Mobile App Development</option>
-                        <option value="Web Development">Web Development</option>
-                        <option value="Custom Software">Custom Software</option>
-                        <option value="Other">Other</option>
+                        {enquiryOptions.map((option) => (
+                            <option key={option} value={option}>{option}</option>
+                        ))}
                     </select>
                 </div>
                 <div>
