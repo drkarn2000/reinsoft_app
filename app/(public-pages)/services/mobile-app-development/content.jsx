@@ -83,7 +83,7 @@ export default function MobileAppDevelopmentContent() {
                             Premium Mobile Engineering
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.1]">
-                            Mobile App Development <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400">Experts</span>
+                            Mobile App Development <span className="brand-text-gradient">Experts</span>
                         </h1>
                         <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                             We build native and cross-platform mobile applications that users love. From sleek startups to global brands, we deliver mobile-first digital transformation.
@@ -257,7 +257,7 @@ export default function MobileAppDevelopmentContent() {
                         <span className="px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-sm font-bold text-blue-500 mb-4 inline-block shadow-sm">
                             Core Technologies
                         </span>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">Our Mobile <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Stack & Expertise</span></h2>
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">Our Mobile <span className="brand-text-gradient">Stack & Expertise</span></h2>
                         <p className="text-gray-700 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Leveraging modern frameworks to build secure, offline-first, and highly responsive mobile applications.</p>
                     </div>
 
@@ -394,7 +394,7 @@ export default function MobileAppDevelopmentContent() {
                         </div>
                         
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 text-white leading-[1.15]">
-                            Building for the<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-sky-300">Modern User</span>
+                            Building for the<br/><span className="brand-text-gradient">Modern User</span>
                         </h2>
                         
                         <p className="text-gray-400 mb-12 leading-relaxed max-w-xl mx-auto text-lg font-medium">

@@ -113,15 +113,8 @@ export default function AboutTechnologies() {
     return (
         <section
             id="technologies"
-            className="relative overflow-hidden bg-[#f7f2e9] px-4 py-24 dark:bg-transparent md:py-32"
+            className="relative overflow-hidden bg-transparent px-4 py-24 md:py-32"
         >
-            <div className="pointer-events-none absolute inset-0">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.78),transparent_48%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,122,24,0.10),transparent_45%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_40%)]" />
-                <div className="absolute left-[6%] top-20 h-72 w-72 rounded-full bg-[#ead8b2]/60 blur-[120px] dark:bg-[#ff7a18]/8" />
-                <div className="absolute right-[8%] top-10 h-80 w-80 rounded-full bg-[#f2e5cb]/70 blur-[130px] dark:bg-[#3b82f6]/8" />
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#c6a86a]/45 to-transparent" />
-            </div>
-
             <div className="relative z-10 mx-auto max-w-7xl">
                 <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
                     <motion.div
@@ -145,7 +138,7 @@ export default function AboutTechnologies() {
                         className="text-4xl font-black leading-tight tracking-[-0.06em] text-[#171614] dark:text-white sm:text-5xl md:text-6xl"
                     >
                         The technology stack behind
-                        <span className="bg-gradient-to-r from-[#9b7a42] via-[#c6a86a] to-[#e4d0a3] bg-clip-text text-transparent">
+                        <span className="brand-text-gradient">
                             {" "}refined digital products
                         </span>
                     </motion.h2>

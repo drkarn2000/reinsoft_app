@@ -100,7 +100,7 @@ export default function SoftwareDevelopmentContent() {
                             Custom Software Solutions
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.1]">
-                            Enterprise Software <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Engineering</span>
+                            Enterprise Software <span className="brand-text-gradient">Engineering</span>
                         </h1>
                         <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                             We engineer complex, high-performance software tailored to your unique business logic. From internal tools to comprehensive SaaS platforms, we turn ideas into powerful digital products.
@@ -468,7 +468,7 @@ export default function SoftwareDevelopmentContent() {
                     <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
                             <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
-                                Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400">build your custom</span> software
+                                Let's <span className="brand-text-gradient">build your custom</span> software
                             </h2>
                             <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
                                 From internal tools to enterprise SaaS — we build what matters.

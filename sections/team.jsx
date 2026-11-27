@@ -65,51 +65,57 @@ const TeamCard = ({ member, index }) => {
             <div className={`absolute inset-x-10 top-0 h-28 rounded-full bg-gradient-to-r ${member.accent} opacity-10 blur-3xl transition-opacity duration-500 group-hover:opacity-16`} />
             <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.18),rgba(247,242,232,0.06))] dark:bg-[linear-gradient(135deg,rgba(255,255,255,0.02),rgba(198,168,106,0.02))]" />
 
-            <div className="relative flex h-full flex-col rounded-[1.6rem] border border-[#e9ddc4]/28 bg-[linear-gradient(180deg,rgba(255,255,255,0.28)_0%,rgba(251,248,241,0.10)_100%)] p-4 dark:border-white/8 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.02)_100%)]">
-                <div className="relative overflow-hidden rounded-[1.5rem]">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${member.accent} opacity-95`} />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_36%)]" />
-                    <div className="relative aspect-[4/4.7] overflow-hidden rounded-[1.4rem]">
-                        <Image
-                            src={member.imageUrl}
-                            alt={member.name}
-                            fill
-                            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#120f0a]/26 via-[#120f0a]/6 to-transparent" />
-                        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/5 to-transparent" />
-                    </div>
-                </div>
+            <div className="relative flex h-full flex-col rounded-[1.6rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.28)_0%,rgba(251,248,241,0.10)_100%)] p-4 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.02)_100%)]">
+                <div className="relative overflow-hidden rounded-[1.45rem] md:h-[560px]">
+                    <div className="absolute inset-0 rounded-[1.45rem] bg-[#fffaf1]/38 dark:bg-white/[0.02]" />
 
-                <div className="flex flex-1 flex-col px-2 pb-2 pt-6">
-                    <div className="mb-4">
-                        <h3 className="text-[1.5rem] text-center font-black tracking-[-0.04em] text-[#18171a] dark:text-white">
-                            {member.name}
-                        </h3>
-
-                        <div className="mt-3 flex justify-center">
-                            <span className="inline-flex items-center justify-center rounded-full border border-[#f3b26a]/28 bg-[#fff1de]/40 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#d96b16] dark:border-[#f3b26a]/18 dark:bg-white/[0.04] dark:text-[#ffb566]">
-                                {member.role}
-                            </span>
+                    <div className="relative flex flex-col md:absolute md:inset-x-0 md:top-0 md:z-20 md:h-full md:transition-transform md:duration-700 md:ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:-translate-y-[43%] md:group-focus-within:-translate-y-[43%]">
+                        <div className="relative overflow-hidden rounded-[1.4rem]">
+                            <div className={`absolute inset-0 bg-gradient-to-br ${member.accent} opacity-95`} />
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_36%)]" />
+                            <div className="relative aspect-[4/4.7] overflow-hidden">
+                                <Image
+                                    src={member.imageUrl}
+                                    alt={member.name}
+                                    fill
+                                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105 group-focus-within:scale-105"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#120f0a]/26 via-[#120f0a]/6 to-transparent" />
+                                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/5 to-transparent" />
+                            </div>
                         </div>
-                    </div>
 
-                    <p className="text-center text-sm leading-7 text-[#5d564a] dark:text-[#d1cabd]">
-                        {member.bio}
-                    </p>
+                        <div className="px-2 pb-8 pt-6">
+                            <h3 className="text-center text-[1.5rem] font-black text-[#18171a] dark:text-white">
+                                {member.name}
+                            </h3>
 
-                    <div className="mt-6 flex items-center justify-between border-t border-[#e7dcc6]/55 pt-4 dark:border-white/10">
-                        <div className="text-center lg:text-left">
-                            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#a19784] dark:text-[#847b6e]">
-                                Core Focus
-                            </p>
-                        </div>
-                        <div className={`rounded-2xl bg-gradient-to-br ${member.accent} p-[1px] shadow-[0_8px_24px_-10px_rgba(198,168,106,0.8)]`}>
-                            <div className="flex min-h-11 items-center justify-center rounded-2xl bg-[#fffdfa]/28 px-3 text-center dark:bg-white/[0.03]">
-                                <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#7b6440] dark:text-[#e4d0a3]">
-                                    {member.focus}
+                            <div className="mt-3 flex justify-center">
+                                <span className="inline-flex items-center justify-center rounded-full border border-[#f3b26a]/28 bg-[#fff1de]/40 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#d96b16] dark:border-[#f3b26a]/18 dark:bg-white/[0.04] dark:text-[#ffb566]">
+                                    {member.role}
                                 </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="relative z-10 mt-4 flex flex-col rounded-[1.45rem] border-t border-[#e7dcc6]/60 bg-[linear-gradient(180deg,rgba(255,253,248,0.88),rgba(248,241,229,0.98))] px-5 pb-5 pt-6 shadow-[0_-24px_60px_-40px_rgba(75,55,20,0.55)] md:absolute md:inset-x-0 md:bottom-0 md:mt-0 md:h-[46%] md:translate-y-full md:justify-end md:pt-8 md:transition-transform md:duration-700 md:ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:translate-y-0 md:group-focus-within:translate-y-0 dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(20,18,15,0.9),rgba(9,9,9,0.98))]">
+                        <p className="text-center text-sm leading-7 text-[#5d564a] dark:text-[#d1cabd]">
+                            {member.bio}
+                        </p>
+
+                        <div className="mt-6 flex items-center justify-between border-t border-[#e7dcc6]/55 pt-4 dark:border-white/10">
+                            <div className="text-center lg:text-left">
+                                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#a19784] dark:text-[#847b6e]">
+                                    Core Focus
+                                </p>
+                            </div>
+                            <div className={`rounded-2xl bg-gradient-to-br ${member.accent} p-[1px] shadow-[0_8px_24px_-10px_rgba(198,168,106,0.8)]`}>
+                                <div className="flex min-h-11 items-center justify-center rounded-2xl bg-[#fffdfa]/55 px-3 text-center dark:bg-white/[0.05]">
+                                    <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#7b6440] dark:text-[#e4d0a3]">
+                                        {member.focus}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -119,9 +125,10 @@ const TeamCard = ({ member, index }) => {
     );
 };
 
-export default function Team() {
-    const featuredMembers = teamMembers.slice(0, 3);
-    const centerMember = teamMembers[3];
+export default function Team({ members = null, title = null, subtitle = null }) {
+    const list = members && members.length > 0 ? members : teamMembers;
+    const featuredMembers = list.slice(0, 3);
+    const centerMember = list[3];
 
     return (
         <section id="team" className="relative overflow-hidden bg-transparent px-4 py-24 md:py-32">
@@ -156,7 +163,7 @@ export default function Team() {
                         className="text-4xl font-black leading-tight tracking-[-0.06em] text-[#171614] dark:text-white sm:text-5xl md:text-6xl"
                     >
                         A refined team building
-                        <span className="bg-gradient-to-r from-[#9b7a42] via-[#c6a86a] to-[#e4d0a3] bg-clip-text text-transparent">
+                        <span className="brand-text-gradient">
                             {" "}elevated digital products
                         </span>
                     </motion.h2>
@@ -223,6 +230,14 @@ export default function Team() {
                         </p>
                     </motion.article>
                 </div>
+
+                {list.length > 4 && (
+                    <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+                        {list.slice(4).map((member, index) => (
+                            <TeamCard key={member.name} member={member} index={index + 4} />
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );

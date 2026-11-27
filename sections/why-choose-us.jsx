@@ -90,9 +90,14 @@ function RoadmapCard({ reason, index }) {
             </div>
 
             {/* Content — left padded to avoid overlap with badge */}
-            <div className="flex-grow py-4 pl-10 pr-2 text-left">
-                <h3 className={`text-base font-bold mb-1 ${colors.text}`}>{reason.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-xs font-bold leading-relaxed">{reason.description}</p>
+            <div className="flex-grow py-3 pl-10 pr-2 text-left">
+                <div
+                    className="dual-text-underline"
+                    style={{ "--underline-color": colors.hex }}
+                >
+                    <h3 className={`text-base font-bold mb-1 ${colors.text}`}>{reason.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-xs font-bold leading-relaxed">{reason.description}</p>
+                </div>
             </div>
 
             {/* Right icon */}

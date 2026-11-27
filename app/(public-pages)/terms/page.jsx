@@ -25,7 +25,7 @@ export default function TermsPage() {
                 transition={{ duration: 0.5 }}
             >
                 <h1 className="text-center text-4xl md:text-5xl font-semibold tracking-tight">
-                    Terms & <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent">Conditions</span>
+                    Terms & <span className="brand-text-gradient">Conditions</span>
                 </h1>
             </motion.section>
 

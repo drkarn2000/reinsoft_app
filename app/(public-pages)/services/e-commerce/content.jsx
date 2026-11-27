@@ -98,7 +98,7 @@ export default function ECommerceContent() {
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.1]">
                             E-Commerce That{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400">
+                            <span className="brand-text-gradient">
                                 Converts
                             </span>
                         </h1>
@@ -501,7 +501,7 @@ export default function ECommerceContent() {
                     <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
                             <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
-                                Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400">online store</span> is waiting
+                                Your <span className="brand-text-gradient">online store</span> is waiting
                             </h2>
                             <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
                                 From first product to first million — we build stores that scale.

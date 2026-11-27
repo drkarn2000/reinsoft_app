@@ -4,7 +4,7 @@ export default function SectionTitle({ title, description, gradient = false, asH
     const Tag = asH1 ? motion.h1 : motion.h2;
     return (
         <div className="text-center">
-            <Tag className={`text-3xl font-semibold max-w-lg mx-auto mt-4 ${gradient ? 'bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,122,24,0.5)]' : 'text-black dark:text-white'}`}
+            <Tag className={`text-3xl font-semibold max-w-lg mx-auto mt-4 ${gradient ? 'brand-text-gradient drop-shadow-[0_0_15px_rgba(255,122,24,0.5)]' : 'text-black dark:text-white'}`}
                 initial={{ y: 120, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}

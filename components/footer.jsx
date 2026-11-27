@@ -5,8 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import GradientButton from "@/components/gradient-button";
 
-export default function Footer() {
-    const quickLinks = [
+export default function Footer({ settings = null, navData = null }) {
+    const defaultQuickLinks = [
         { name: 'Home', href: '/' },
         { name: 'Our Services', href: '/services' },
         { name: 'About Us', href: '/about' },
@@ -14,6 +14,40 @@ export default function Footer() {
         { name: 'Privacy Policy', href: '/privacy' },
         { name: 'Terms & Conditions', href: '/terms' },
     ];
+
+    const defaultExploreLinks = [
+        { name: 'Our Work', href: '/our-work' },
+        { name: 'Testimonials', href: '/testimonial' },
+        { name: 'Web Solutions', href: '/services/web-development' },
+        { name: 'Mobile Solutions', href: '/services/mobile-app-development' },
+        { name: 'E-Commerce', href: '/services/e-commerce' },
+        { name: 'API Integration', href: '/services/api-integration' },
+        { name: 'Web Dev Australia', href: '/web-development-company-australia' },
+        { name: 'Mobile Apps UK', href: '/mobile-app-development-company-uk' },
+        { name: 'Software Dev USA', href: '/software-development-company-usa' },
+        { name: 'Hire Flutter Devs (AU)', href: '/hire-flutter-developers-australia' },
+        { name: 'Hire Flutter Devs (UK)', href: '/hire-flutter-developers-uk' },
+        { name: 'Hire Flutter Devs (US)', href: '/hire-flutter-developers-usa' },
+        { name: 'Hire Full Stack (AU)', href: '/hire-full-stack-developers-australia' },
+        { name: 'Hire Full Stack (UK)', href: '/hire-full-stack-developers-uk' },
+        { name: 'Hire Full Stack (US)', href: '/hire-full-stack-developers-usa' },
+        { name: 'Hire React Native (AU)', href: '/hire-react-native-developers-australia' },
+        { name: 'Hire React Native (UK)', href: '/hire-react-native-developers-uk' },
+        { name: 'Hire React Native (US)', href: '/hire-react-native-developers-usa' },
+    ];
+
+    const quickLinks = navData?.footerQuickLinks && navData.footerQuickLinks.length > 0
+        ? navData.footerQuickLinks.map((l) => ({ name: l.label, href: l.href }))
+        : defaultQuickLinks;
+
+    const exploreLinks = navData?.footerExploreLinks && navData.footerExploreLinks.length > 0
+        ? navData.footerExploreLinks.map((l) => ({ name: l.label, href: l.href }))
+        : defaultExploreLinks;
+
+    const tagline = settings?.tagline || "Custom Software & IT Solutions for Growing Businesses";
+    const contactEmail = settings?.contactEmail || "info@reinsoft.tech";
+    const contactPhone = settings?.contactPhone || "+91 89683 69582";
+    const phoneTel = contactPhone.replace(/\s+/g, '');
 
     return (
         <motion.footer className="px-6 md:px-10 lg:px-10 w-full pt-8 mt-12 border-t border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-xl"
@@ -37,8 +71,8 @@ export default function Footer() {
                             height={96}
                         />
                     </Link>
-                    <p className="text-xl font-bold bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] bg-clip-text text-transparent">
-                        Custom Software & IT Solutions for Growing Businesses
+                    <p className="text-xl font-bold brand-text-gradient">
+                        {tagline}
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm/6">
                         We design and develop high-performance websites, mobile apps, and custom software that help businesses grow faster.
@@ -69,19 +103,19 @@ export default function Footer() {
                 <div className="space-y-4">
                     <h4 className="text-black dark:text-white font-semibold text-lg">Get In Touch</h4>
                     <div className="space-y-3">
-                        <a href="mailto:info@reinsoft.tech" className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition text-sm">
+                        <a href={`mailto:${contactEmail}`} className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition text-sm">
                             <MailIcon className="size-4" />
-                            info@reinsoft.tech
+                            {contactEmail}
                         </a>
-                        <a href="tel:+918968369582" className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition text-sm">
+                        <a href={`tel:${phoneTel}`} className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition text-sm">
                             <PhoneIcon className="size-4" />
-                            +91 89683 69582
+                            {contactPhone}
                         </a>
                     </div>
                     <div className="pt-0 space-y-3">
-                        <p className="flex items-center gap-2 bg-gradient-to-r from-[#3b82f6] to-[#ff7a18] bg-clip-text text-transparent font-medium text-sm">
+                        <p className="flex items-center gap-2 brand-text-gradient font-medium text-sm">
                             <MessageCircleIcon className="size-4 text-orange-400" />
-                            Let's discuss your project
+                            Let&apos;s discuss your project
                         </p>
                         <GradientButton
                             href="/contact"
@@ -99,24 +133,11 @@ export default function Footer() {
             <div className="py-8 text-xs text-gray-500 dark:text-gray-400 leading-relaxed border-t border-black/10 dark:border-white/20 mt-8">
                 <p className="font-semibold mb-2 text-black dark:text-white">Explore More</p>
                 <div className="flex flex-wrap gap-x-4 gap-y-2">
-                    <Link href="/portfolio" className="hover:text-black dark:hover:text-white transition">Portfolio</Link>
-                    <Link href="/testimonial" className="hover:text-black dark:hover:text-white transition">Testimonials</Link>
-                    <Link href="/lp/web-development" className="hover:text-black dark:hover:text-white transition">Web Solutions</Link>
-                    <Link href="/lp/mobile-app-development" className="hover:text-black dark:hover:text-white transition">Mobile Solutions</Link>
-                    <Link href="/services/e-commerce" className="hover:text-black dark:hover:text-white transition">E-Commerce</Link>
-                    <Link href="/services/api-integration" className="hover:text-black dark:hover:text-white transition">API Integration</Link>
-                    <Link href="/web-development-company-australia" className="hover:text-black dark:hover:text-white transition">Web Dev Australia</Link>
-                    <Link href="/mobile-app-development-company-uk" className="hover:text-black dark:hover:text-white transition">Mobile Apps UK</Link>
-                    <Link href="/software-development-company-usa" className="hover:text-black dark:hover:text-white transition">Software Dev USA</Link>
-                    <Link href="/hire-flutter-developers-australia" className="hover:text-black dark:hover:text-white transition">Hire Flutter Devs (AU)</Link>
-                    <Link href="/hire-flutter-developers-uk" className="hover:text-black dark:hover:text-white transition">Hire Flutter Devs (UK)</Link>
-                    <Link href="/hire-flutter-developers-usa" className="hover:text-black dark:hover:text-white transition">Hire Flutter Devs (US)</Link>
-                    <Link href="/hire-full-stack-developers-australia" className="hover:text-black dark:hover:text-white transition">Hire Full Stack (AU)</Link>
-                    <Link href="/hire-full-stack-developers-uk" className="hover:text-black dark:hover:text-white transition">Hire Full Stack (UK)</Link>
-                    <Link href="/hire-full-stack-developers-usa" className="hover:text-black dark:hover:text-white transition">Hire Full Stack (US)</Link>
-                    <Link href="/hire-react-native-developers-australia" className="hover:text-black dark:hover:text-white transition">Hire React Native (AU)</Link>
-                    <Link href="/hire-react-native-developers-uk" className="hover:text-black dark:hover:text-white transition">Hire React Native (UK)</Link>
-                    <Link href="/hire-react-native-developers-usa" className="hover:text-black dark:hover:text-white transition">Hire React Native (US)</Link>
+                    {exploreLinks.map((link, index) => (
+                        <Link key={index} href={link.href} className="hover:text-black dark:hover:text-white transition">
+                            {link.name}
+                        </Link>
+                    ))}
                 </div>
 
                 <p className="font-semibold mt-6 mb-2 text-black dark:text-white">Our Case Studies</p>

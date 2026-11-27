@@ -121,7 +121,7 @@ export default function LongTermSupportContent() {
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.1]">
                             Long-Term Support &{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-400">
+                            <span className="brand-text-gradient">
                                 Growth
                             </span>
                         </h1>
@@ -580,7 +580,7 @@ export default function LongTermSupportContent() {
                     <div className="relative z-10 px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
                             <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
-                                Ready to never worry about <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-400">downtime</span> again?
+                                Ready to never worry about <span className="brand-text-gradient">downtime</span> again?
                             </h2>
                             <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
                                 Let's build a support partnership that keeps your business running — and growing.
