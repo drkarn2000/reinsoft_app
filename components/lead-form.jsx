@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import GradientButton from './gradient-button';
+import { trackFormSubmitSuccess } from '@/lib/analytics';
 
 const enquiryOptions = [
     'Mobile App Development',
@@ -50,6 +51,13 @@ export default function LeadForm({ title, description, defaultService = '' }) {
             });
 
             if (response.ok) {
+                trackFormSubmitSuccess({
+                    formName: 'lead_quote_form',
+                    inquiryType: 'Quote Request',
+                    service: formData.enquiryType || 'none',
+                    budget: formData.budget || 'none',
+                    country: formData.country || 'none',
+                });
                 setSubmitResult({ type: 'success', message: 'Thank you for your enquiry. We will get back to you shortly.' });
                 setFormData({
                     name: '',

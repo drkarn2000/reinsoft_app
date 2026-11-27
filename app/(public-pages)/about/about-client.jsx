@@ -169,7 +169,7 @@ export default function AboutPage({ teamMembers }) {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="relative w-[85%] aspect-[4/5] rounded-[2rem] rounded-tr-[4rem] overflow-hidden shadow-[0_26px_70px_-34px_rgba(31,23,11,0.4)] group border border-[#e7d9bf] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_36px_90px_-38px_rgba(31,23,11,0.5)] dark:border-white/5">
+                            <div className="relative z-10 hover:z-30 w-[85%] aspect-[4/5] rounded-[2rem] rounded-tr-[4rem] overflow-hidden shadow-[0_26px_70px_-34px_rgba(31,23,11,0.4)] group border border-[#e7d9bf] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_36px_90px_-38px_rgba(31,23,11,0.5)] dark:border-white/5">
                                 <Image
                                     src="/assets/Services.jpg"
                                     alt="Background Architecture"
@@ -182,7 +182,7 @@ export default function AboutPage({ teamMembers }) {
                                 </div>
                             </div>
 
-                            <div className="absolute top-[15%] -right-[2%] sm:-right-[5%] lg:-right-[8%] w-[70%] sm:w-[65%] aspect-[3/4] rounded-[1.5rem] overflow-hidden border-[8px] md:border-[12px] xl:border-[16px] border-[#fff9ef] dark:border-[#050505] shadow-[0_24px_60px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10 group">
+                            <div className="absolute top-[15%] -right-[2%] sm:-right-[5%] lg:-right-[8%] w-[70%] sm:w-[65%] aspect-[3/4] rounded-[1.5rem] overflow-hidden border-[8px] md:border-[12px] xl:border-[16px] border-[#fff9ef] dark:border-[#050505] shadow-[0_24px_60px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 hover:z-30 transition-all duration-500 hover:-translate-y-2 group">
                                 <Image
                                     src="/assets/What_we_do.jpeg"
                                     alt="Foreground Architecture"
@@ -315,7 +315,7 @@ export default function AboutPage({ teamMembers }) {
                             {/* Container for relative positioning */}
                             <div className="relative isolate w-full aspect-square sm:aspect-[1.2/1] lg:aspect-[1.1/1]">
 
-                                <div className="absolute top-0 left-0 z-20 w-[75%] aspect-square rounded-[1.5rem] overflow-hidden shadow-2xl border-4 border-[#fff8ec] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_34px_90px_-36px_rgba(37,99,235,0.45)] dark:border-[#111] group">
+                                <div className="absolute top-0 left-0 z-20 hover:z-30 w-[75%] aspect-square rounded-[1.5rem] overflow-hidden shadow-2xl border-4 border-[#fff8ec] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_34px_90px_-36px_rgba(37,99,235,0.45)] dark:border-[#111] group">
                                     <Image
                                         src="/assets/vision-primary-v2.png"
                                         alt="Our Vision Primary"
@@ -338,7 +338,7 @@ export default function AboutPage({ teamMembers }) {
                                     </div>
                                 </div>
 
-                                <div className="absolute bottom-0 right-0 z-10 w-[75%] aspect-square rounded-[1.5rem] overflow-hidden shadow-xl border-4 border-[#fff8ec] transition-all duration-500 hover:translate-y-2 hover:shadow-[0_30px_78px_-36px_rgba(31,24,10,0.42)] dark:border-[#111] group">
+                                <div className="absolute bottom-0 right-0 z-10 hover:z-30 w-[75%] aspect-square rounded-[1.5rem] overflow-hidden shadow-xl border-4 border-[#fff8ec] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_78px_-36px_rgba(31,24,10,0.42)] dark:border-[#111] group">
                                     <Image
                                         src="/assets/vision-secondary-v2.png"
                                         alt="Our Vision Secondary"

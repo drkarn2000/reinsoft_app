@@ -63,7 +63,7 @@ async function seedSiteSettings(stats) {
             whatsappNumber: '918968369582',
             whatsappMessage: 'Hello Reinsoft team, I would like to discuss a project.',
             address: 'Global Operations: USA, UK, Australia, India',
-            gtmId: 'GTM-PCJ2MX8P',
+            gtmId: 'GTM-MTZ86LXL',
             gaId: 'G-DHTF1C42M2',
             googleVerification: 't1SU8KB5y2PwBXx6oFYDV4IoIiJ55nlIEqPu5b_s5sM',
             defaultSeoTitle: 'AI & Custom Software Development | Reinsoft',

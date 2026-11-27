@@ -47,7 +47,7 @@ model SiteSetting {
   whatsappNumber     String   @default("918968369582")
   whatsappMessage    String   @default("Hello Reinsoft team, I would like to discuss a project.")
   address            String?
-  gtmId              String   @default("GTM-PCJ2MX8P")
+  gtmId              String   @default("GTM-MTZ86LXL")
   gaId               String   @default("G-DHTF1C42M2")
   googleVerification String   @default("t1SU8KB5y2PwBXx6oFYDV4IoIiJ55nlIEqPu5b_s5sM")
   defaultSeoTitle    String   @default("AI & Custom Software Development | Reinsoft")

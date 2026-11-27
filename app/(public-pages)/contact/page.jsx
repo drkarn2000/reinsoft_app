@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { motion } from "framer-motion";
 import { MailIcon, PhoneIcon, MessageCircleIcon, Send } from "lucide-react";
 import GradientButton from "@/components/gradient-button";
+import { trackFormSubmitSuccess } from "@/lib/analytics";
 
 const FloatingInput = ({ label, id, name, value, onChange, type = "text", required = false }) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -170,6 +171,13 @@ function ContactFormContent() {
             });
 
             if (response.ok) {
+                trackFormSubmitSuccess({
+                    formName: isQuoteType ? 'quote_form' : 'contact_form',
+                    inquiryType: submissionData.inquiryType,
+                    service: formData.enquiryType || 'none',
+                    budget: formData.budget || 'none',
+                    country: formData.country || 'none',
+                });
                 setIsSubmitted(true);
                 setFormData({ firstName: '', lastName: '', email: '', phone: '', country: '', enquiryType: '', budget: '', message: '' });
                 setTimeout(() => setIsSubmitted(false), 60000);
@@ -187,13 +195,13 @@ function ContactFormContent() {
     return (
         <main className="px-4">
             {/* Background Image & Overlays */}
-            <div className="fixed inset-0 -z-30 pointer-events-none hidden dark:block">
+            <div className="fixed inset-0 -z-30 pointer-events-none">
                 <img
                     src="/assets/contact.jpg"
                     alt="Background"
-                    className="w-full h-full object-cover opacity-80"
+                    className="w-full h-full object-cover opacity-40 dark:opacity-80"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/15 to-white/90 dark:from-black dark:via-black/60 dark:to-black z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/45 to-white/90 dark:from-black dark:via-black/60 dark:to-black z-10" />
             </div>
 
             {/* Hero Section */}
